@@ -466,6 +466,12 @@ function initStudentProfile() {
         
         // Warm up sound context
         if (audioCtx) audioCtx.resume();
+        
+        // Auto-navigate to Trang Chu
+        const trangChuLink = document.querySelector('a[href="#sec-trang-chu"]');
+        if (trangChuLink) {
+            trangChuLink.click();
+        }
     });
     
     // Auto-fill login fields if previously saved, but do NOT auto-login (show modal on every reload)
@@ -517,8 +523,8 @@ function toggleLandingPageHeader(isLandingPage) {
         else heroHeader.classList.remove('hidden');
     }
     if (cockpit) {
-        if (isLandingPage) cockpit.classList.add('hidden');
-        else cockpit.classList.remove('hidden');
+        if (state.studentName) cockpit.classList.remove('hidden');
+        else cockpit.classList.add('hidden');
     }
 }
 
@@ -550,6 +556,7 @@ function initSidebarNav() {
                     const cleanPass = enteredPass.trim().toUpperCase();
                     const passwordConfig = {
                         'HEMINGWAY': 1,
+                        'B212': 2,
                         'CB211': 3,
                         'CB213': 3,
                         'ONB103': 4,
@@ -899,7 +906,7 @@ function loadDangDetail(dangId) {
         
         // Theory tab population
         const theoryContainer = document.getElementById('dang-theory-content');
-        theoryContainer.innerHTML = data.theory;
+        theoryContainer.innerHTML = data.theory || '';
         formatTheoryHTML(theoryContainer, false);
         
         // Initialize mini-quizzes in theory tab
@@ -958,7 +965,7 @@ function loadDangDetail(dangId) {
         
         // Extract rich explanation
         let richExplanationHTML = "";
-        const theoryHtml = data.theory;
+        const theoryHtml = data.theory || "";
         let expIndex = theoryHtml.indexOf('🔍');
         if (expIndex === -1) expIndex = theoryHtml.indexOf('Giải thích');
         if (expIndex !== -1) {
