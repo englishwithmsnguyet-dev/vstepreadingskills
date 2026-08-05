@@ -7053,7 +7053,7 @@ function loadDangDetail(dangId) {
         
         // Theory tab population
         const theoryContainer = document.getElementById('dang-theory-content');
-        theoryContainer.innerHTML = data.theory;
+        theoryContainer.innerHTML = data.theory || '';
         formatTheoryHTML(theoryContainer, false);
         
         // Initialize mini-quizzes in theory tab
