@@ -1,0 +1,12 @@
+function initStudentProfile() {
+    elements.startBtn.addEventListener('click', () => {
+        const nameVal = elements.nameInput.value.trim();
+        const classVal = elements.classInput.value.trim();
+        
+        let hasError = false;
+        if (!nameVal) {
+            elements.nameInput.style.borderColor = 'var(--error-color)';
+            hasError = true;
+        } else {
+            elements.nameInput.style.borderColor = '';
+        }
