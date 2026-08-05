@@ -7112,7 +7112,7 @@ function loadDangDetail(dangId) {
         
         // Extract rich explanation
         let richExplanationHTML = "";
-        const theoryHtml = data.theory;
+        const theoryHtml = data.theory || "";
         let expIndex = theoryHtml.indexOf('🔍');
         if (expIndex === -1) expIndex = theoryHtml.indexOf('Giải thích');
         if (expIndex !== -1) {
