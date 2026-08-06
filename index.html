@@ -7974,7 +7974,7 @@ function loadDangDetail(dangId) {
         
         // Set headers
         document.getElementById('dang-title').textContent = data.title;
-        document.getElementById('dang-desc').textContent = data.description;
+        document.getElementById('dang-desc').innerHTML = data.description;
         document.getElementById('dang-icon').className = `fa-solid ${data.icon} section-icon`;
         
         // Theory tab population
