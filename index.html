@@ -2866,6 +2866,7 @@ em, i {
 .highlight-yellow { background-color: #fef08a !important; color: #000000 !important; }
 .highlight-green { background-color: #bbf7d0 !important; color: #000000 !important; }
 .highlight-blue { background-color: #bfdbfe !important; color: #000000 !important; }
+.highlight-underline { text-decoration: underline 2.5px #2563eb !important; text-underline-offset: 4px !important; font-weight: 600; }
 
 /* Mock Question Navigation Card */
 .mock-question-card {
@@ -7024,12 +7025,13 @@ const mockTestPassages = [
 </div>
 <!-- Vertical Separator Divider -->
 <div style="width: 1px; height: 16px; background: rgba(255,255,255,0.35);"></div>
-<!-- Highlighter Dots -->
+<!-- Highlighter & Underline Tools -->
 <div style="display: flex; align-items: center; gap: 8px;">
+<button class="color-dot underline" data-color="underline" onmouseout="this.style.transform='scale(1)'" onmouseover="this.style.transform='scale(1.15)'" style="width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid white; background: rgba(255,255,255,0.25); color: white; display: flex; align-items: center; justify-content: center; font-size: 0.72rem; cursor: pointer; padding: 0; transition: transform 0.1s;" title="Gạch chân (Underline)"><i class="fa-solid fa-underline"></i></button>
 <button class="color-dot yellow" data-color="yellow" onmouseout="this.style.transform='scale(1)'" onmouseover="this.style.transform='scale(1.15)'" style="width: 16px; height: 16px; border-radius: 50%; border: 1.5px solid white; background: #fde047; cursor: pointer; padding: 0; transition: transform 0.1s;" title="Tô vàng"></button>
 <button class="color-dot green" data-color="green" onmouseout="this.style.transform='scale(1)'" onmouseover="this.style.transform='scale(1.15)'" style="width: 16px; height: 16px; border-radius: 50%; border: 1.5px solid white; background: #86efac; cursor: pointer; padding: 0; transition: transform 0.1s;" title="Tô xanh lá"></button>
 <button class="color-dot blue" data-color="blue" onmouseout="this.style.transform='scale(1)'" onmouseover="this.style.transform='scale(1.15)'" style="width: 16px; height: 16px; border-radius: 50%; border: 1.5px solid white; background: #93c5fd; cursor: pointer; padding: 0; transition: transform 0.1s;" title="Tô xanh dương"></button>
-<button class="color-dot clear" data-color="clear" onmouseout="this.style.transform='scale(1)'" onmouseover="this.style.transform='scale(1.15)'" style="width: 16px; height: 16px; border-radius: 50%; border: 1.5px solid white; background: transparent; color: white; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; cursor: pointer; padding: 0; transition: transform 0.1s;" title="Xóa tô sáng"><i class="fa-solid fa-eraser"></i></button>
+<button class="color-dot clear" data-color="clear" onmouseout="this.style.transform='scale(1)'" onmouseover="this.style.transform='scale(1.15)'" style="width: 16px; height: 16px; border-radius: 50%; border: 1.5px solid white; background: transparent; color: white; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; cursor: pointer; padding: 0; transition: transform 0.1s;" title="Xóa tô sáng / gạch chân"><i class="fa-solid fa-eraser"></i></button>
 </div>
 </div>
 <!-- Confetti Canvas -->
@@ -8846,12 +8848,20 @@ function applyGlobalHighlighterColor(color) {
     const range = selection.getRangeAt(0);
     
     if (color === 'clear') {
-        // Strip custom highlights classes
+        // Strip custom highlights / underline classes
         const span = range.commonAncestorContainer.parentElement;
         if (span && span.classList.contains('custom-highlight')) {
             const textNode = document.createTextNode(span.textContent);
             span.parentNode.replaceChild(textNode, span);
         }
+    } else if (color === 'underline') {
+        const span = document.createElement('span');
+        span.className = 'custom-highlight highlight-underline';
+        span.style.textDecoration = 'underline 2.5px #2563eb';
+        span.style.textUnderlineOffset = '4px';
+        span.style.fontWeight = '600';
+        span.appendChild(range.extractContents());
+        range.insertNode(span);
     } else {
         const span = document.createElement('span');
         span.className = `custom-highlight highlight-${color}`;
