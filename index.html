@@ -6233,6 +6233,73 @@ const mockTestPassages = [
 </div>
 </div>
 <div class="app-container">
+
+<!-- Practice Result Report Modal -->
+<div class="modal-overlay hidden" id="practice-report-modal" style="z-index: 10000; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(6px); display: flex; align-items: center; justify-content: center;">
+    <div class="modal-content glass-panel" style="max-width: 680px; width: 92%; max-height: 90vh; overflow-y: auto; padding: 28px; border-radius: 24px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35); background: #ffffff; border: 1.5px solid #e2e8f0; position: relative;">
+        <!-- Close button top right -->
+        <button id="btn-close-report-modal-x" style="position: absolute; top: 16px; right: 18px; background: #f1f5f9; border: none; border-radius: 50%; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; color: #64748b; font-size: 1rem; cursor: pointer; transition: all 0.15s ease;"><i class="fa-solid fa-xmark"></i></button>
+
+        <!-- Header with Badge -->
+        <div style="text-align: center; margin-bottom: 20px;">
+            <div id="report-modal-icon-badge" style="width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, #6366f1, #8b5cf6); color: white; display: inline-flex; align-items: center; justify-content: center; font-size: 1.8rem; margin-bottom: 12px; box-shadow: 0 8px 20px rgba(99, 102, 241, 0.35);">
+                <i class="fa-solid fa-award"></i>
+            </div>
+            <h2 style="font-size: 1.35rem; font-weight: 800; color: #0f172a; margin-bottom: 6px;">BÁO CÁO KẾT QUẢ LUYỆN TẬP PHẢN XẠ</h2>
+            <div id="report-dang-title" style="display: inline-block; background: #e0e7ff; color: #4338ca; font-weight: 700; font-size: 0.95rem; padding: 4px 14px; border-radius: 20px; margin-bottom: 6px;">DẠNG BÀI</div>
+            <p id="report-student-name" style="color: #64748b; font-size: 0.95rem; margin: 4px 0 0 0;">Học viên: <strong style="color: #0f172a;">Nguyễn Văn A</strong></p>
+        </div>
+
+        <!-- Score & Evaluation Hero -->
+        <div style="background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border: 1.5px solid #e2e8f0; border-radius: 16px; padding: 18px; margin-bottom: 20px; text-align: center;">
+            <div style="display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 14px;">
+                <div>
+                    <div style="font-size: 0.8rem; color: #64748b; font-weight: 700; text-transform: uppercase;">Số câu đã làm</div>
+                    <div id="report-modal-attempted" style="font-size: 1.6rem; font-weight: 900; color: #0f172a;">0 / 12</div>
+                </div>
+                <div style="width: 1px; height: 40px; background: #cbd5e1;"></div>
+                <div>
+                    <div style="font-size: 0.8rem; color: #64748b; font-weight: 700; text-transform: uppercase;">Kết quả Đúng / Sai</div>
+                    <div style="font-size: 1.6rem; font-weight: 900;">
+                        <span id="report-modal-correct" style="color: #10b981;">0</span> <span style="font-size: 1rem; color: #94a3b8;">/</span> <span id="report-modal-wrong" style="color: #ef4444;">0</span>
+                    </div>
+                </div>
+                <div style="width: 1px; height: 40px; background: #cbd5e1;"></div>
+                <div>
+                    <div style="font-size: 0.8rem; color: #64748b; font-weight: 700; text-transform: uppercase;">Tỉ lệ chính xác</div>
+                    <div id="report-modal-accuracy" style="font-size: 1.6rem; font-weight: 900; color: #6366f1;">0%</div>
+                </div>
+            </div>
+
+            <!-- Evaluation Advice Box -->
+            <div id="report-modal-evaluation-box" style="background: white; border-radius: 12px; padding: 14px 18px; border-left: 4px solid #6366f1; text-align: left; font-size: 0.95rem; line-height: 1.6; color: #1e293b;">
+                <!-- Evaluated text injected dynamically -->
+            </div>
+        </div>
+
+        <!-- Practice Matrix Grid (P01 - P12) -->
+        <h4 style="font-size: 0.95rem; font-weight: 700; color: #0f172a; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
+            <i class="fa-solid fa-table-cells-large" style="color: #6366f1;"></i> Chi Tiết Từng Bài Luyện Tập:
+        </h4>
+        <div id="report-modal-matrix" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 8px; margin-bottom: 24px;">
+            <!-- Matrix items injected dynamically -->
+        </div>
+
+        <!-- Actions Buttons -->
+        <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+            <button id="btn-report-modal-continue" style="background: #6366f1; color: white; border: none; padding: 11px 22px; border-radius: 12px; font-weight: 700; font-size: 0.92rem; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);">
+                <i class="fa-solid fa-play"></i> Tiếp Tục Làm Bài
+            </button>
+            <button id="btn-report-modal-retry" style="background: #ffffff; color: #dc2626; border: 1.5px solid #fca5a5; padding: 11px 18px; border-radius: 12px; font-weight: 700; font-size: 0.92rem; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+                <i class="fa-solid fa-rotate-left"></i> Làm Lại Dạng Này
+            </button>
+            <button id="btn-report-modal-theory" style="background: #f1f5f9; color: #334155; border: 1.5px solid #cbd5e1; padding: 11px 18px; border-radius: 12px; font-weight: 700; font-size: 0.92rem; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+                <i class="fa-solid fa-book"></i> Ôn Lại Lý Thuyết
+            </button>
+        </div>
+    </div>
+</div>
+
 <!-- Sidebar Navigation -->
 <nav class="sidebar">
 <a class="brand" href="https://www.facebook.com/anhnguRiverCT" target="_blank">
@@ -6784,14 +6851,64 @@ const mockTestPassages = [
 </div>
 <!-- Panel 3: Interactive Practices -->
 <div class="tab-panel" id="tab-dang-practice">
-<div class="vstep-callout warning">
-<div class="vstep-callout-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
-<div class="vstep-callout-content">
-<h4>Luyện Tập Tự Động Ghi Điểm:</h4>
-<p>Hoàn thành 12 bài tập phản xạ dưới đây để kiểm tra năng lực. Chọn đáp án và xem lời giải ngay lập tức!</p>
-</div>
-</div>
-<div id="dang-practices-list"></div>
+    <div class="practice-dashboard-card" style="background: linear-gradient(135deg, #eff6ff 0%, #f5f3ff 100%); border: 1.5px solid #c7d2fe; border-radius: 16px; padding: 18px 20px; margin-bottom: 20px; box-shadow: 0 4px 14px rgba(99, 102, 241, 0.08);">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <div style="background: #6366f1; color: white; width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);">
+                    <i class="fa-solid fa-bolt"></i>
+                </div>
+                <div>
+                    <h4 style="margin: 0; color: #1e1b4b; font-size: 1.1rem; font-weight: 800; display: flex; align-items: center; gap: 8px;">
+                        Luyện Tập Phản Xạ Nhanh
+                        <span id="practice-live-status-tag" style="background: #e0e7ff; color: #4338ca; font-size: 0.78rem; padding: 2px 8px; border-radius: 20px; font-weight: 700;">Đang làm bài</span>
+                    </h4>
+                    <p style="margin: 3px 0 0 0; color: #475569; font-size: 0.92rem;">Làm các bài tập bên dưới để tự động ghi điểm & xem báo cáo kết quả chi tiết.</p>
+                </div>
+            </div>
+            
+            <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                <button id="btn-open-practice-report" style="background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); color: white; border: none; padding: 10px 18px; border-radius: 12px; font-weight: 700; font-size: 0.92rem; display: flex; align-items: center; gap: 8px; cursor: pointer; box-shadow: 0 4px 12px rgba(99, 102, 241, 0.28); transition: transform 0.15s ease;">
+                    <i class="fa-solid fa-square-poll-vertical"></i> BÁO CÁO KẾT QUẢ (<span id="practice-btn-counter">0/12</span>)
+                </button>
+                <button id="btn-reset-current-practice" style="background: #ffffff; color: #64748b; border: 1.5px solid #cbd5e1; padding: 10px 14px; border-radius: 12px; font-weight: 700; font-size: 0.88rem; display: flex; align-items: center; gap: 6px; cursor: pointer; transition: all 0.15s ease;" title="Làm lại tất cả câu của dạng này">
+                    <i class="fa-solid fa-rotate-left"></i> Làm lại
+                </button>
+            </div>
+        </div>
+        
+        <!-- Live Mini Stats Bar -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; margin-top: 14px; padding-top: 14px; border-top: 1px solid rgba(199, 210, 254, 0.7);">
+            <div style="background: white; padding: 10px 14px; border-radius: 10px; border: 1px solid #e2e8f0; display: flex; align-items: center; gap: 10px;">
+                <i class="fa-solid fa-list-check" style="color: #6366f1; font-size: 1.1rem;"></i>
+                <div>
+                    <div style="font-size: 0.75rem; color: #64748b; font-weight: 600; text-transform: uppercase;">Đã làm</div>
+                    <div id="stat-practice-completed" style="font-size: 1.05rem; font-weight: 800; color: #0f172a;">0 / 12</div>
+                </div>
+            </div>
+            <div style="background: white; padding: 10px 14px; border-radius: 10px; border: 1px solid #e2e8f0; display: flex; align-items: center; gap: 10px;">
+                <i class="fa-solid fa-circle-check" style="color: #10b981; font-size: 1.1rem;"></i>
+                <div>
+                    <div style="font-size: 0.75rem; color: #64748b; font-weight: 600; text-transform: uppercase;">Đúng</div>
+                    <div id="stat-practice-correct" style="font-size: 1.05rem; font-weight: 800; color: #10b981;">0 câu</div>
+                </div>
+            </div>
+            <div style="background: white; padding: 10px 14px; border-radius: 10px; border: 1px solid #e2e8f0; display: flex; align-items: center; gap: 10px;">
+                <i class="fa-solid fa-circle-xmark" style="color: #ef4444; font-size: 1.1rem;"></i>
+                <div>
+                    <div style="font-size: 0.75rem; color: #64748b; font-weight: 600; text-transform: uppercase;">Chưa đúng</div>
+                    <div id="stat-practice-wrong" style="font-size: 1.05rem; font-weight: 800; color: #ef4444;">0 câu</div>
+                </div>
+            </div>
+            <div style="background: white; padding: 10px 14px; border-radius: 10px; border: 1px solid #e2e8f0; display: flex; align-items: center; gap: 10px;">
+                <i class="fa-solid fa-bullseye" style="color: #f59e0b; font-size: 1.1rem;"></i>
+                <div>
+                    <div style="font-size: 0.75rem; color: #64748b; font-weight: 600; text-transform: uppercase;">Độ chính xác</div>
+                    <div id="stat-practice-accuracy" style="font-size: 1.05rem; font-weight: 800; color: #f59e0b;">0%</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="dang-practices-list"></div>
 </div>
 </div>
 </section>
@@ -8001,6 +8118,200 @@ function formatTheoryHTML(container, discardExample = false) {
 }
 
 
+
+// ==========================================
+// PRACTICE RESULT REPORT SYSTEM (BÁO CÁO KẾT QUẢ PHẢN XẠ)
+// ==========================================
+let currentDangPracticeState = {
+    dangId: '',
+    dangTitle: '',
+    total: 12,
+    results: [] // array of { attempted: bool, selectedIdx: number, isCorrect: bool, correctIdx: number }
+};
+
+function initDangPracticeTracking(dangId, dangTitle, totalPractices) {
+    currentDangPracticeState = {
+        dangId: dangId,
+        dangTitle: dangTitle,
+        total: totalPractices,
+        results: Array(totalPractices).fill(null).map(() => ({
+            attempted: false,
+            selectedIdx: -1,
+            isCorrect: false,
+            correctIdx: -1
+        }))
+    };
+    updatePracticeLiveDashboard();
+}
+
+function updatePracticeLiveDashboard() {
+    const results = currentDangPracticeState.results;
+    const total = currentDangPracticeState.total;
+    const attemptedCount = results.filter(r => r.attempted).length;
+    const correctCount = results.filter(r => r.attempted && r.isCorrect).length;
+    const wrongCount = attemptedCount - correctCount;
+    const accuracy = attemptedCount > 0 ? Math.round((correctCount / attemptedCount) * 100) : 0;
+
+    const elCompleted = document.getElementById('stat-practice-completed');
+    const elCorrect = document.getElementById('stat-practice-correct');
+    const elWrong = document.getElementById('stat-practice-wrong');
+    const elAccuracy = document.getElementById('stat-practice-accuracy');
+    const elCounter = document.getElementById('practice-btn-counter');
+    const elTag = document.getElementById('practice-live-status-tag');
+
+    if (elCompleted) elCompleted.textContent = `${attemptedCount} / ${total}`;
+    if (elCorrect) elCorrect.textContent = `${correctCount} câu`;
+    if (elWrong) elWrong.textContent = `${wrongCount} câu`;
+    if (elAccuracy) elAccuracy.textContent = `${accuracy}%`;
+    if (elCounter) elCounter.textContent = `${attemptedCount}/${total}`;
+
+    if (elTag) {
+        if (attemptedCount === 0) {
+            elTag.textContent = "Chưa làm";
+            elTag.style.background = "#f1f5f9";
+            elTag.style.color = "#64748b";
+        } else if (attemptedCount < total) {
+            elTag.textContent = `Đang làm (${attemptedCount}/${total})`;
+            elTag.style.background = "#e0e7ff";
+            elTag.style.color = "#4338ca";
+        } else {
+            elTag.textContent = "Đã hoàn thành 100%";
+            elTag.style.background = "#dcfce7";
+            elTag.style.color = "#15803d";
+        }
+    }
+}
+
+function openPracticeReportModal() {
+    playSound('click');
+    const modal = document.getElementById('practice-report-modal');
+    if (!modal) return;
+
+    const results = currentDangPracticeState.results;
+    const total = currentDangPracticeState.total;
+    const attemptedCount = results.filter(r => r.attempted).length;
+    const correctCount = results.filter(r => r.attempted && r.isCorrect).length;
+    const wrongCount = attemptedCount - correctCount;
+    const accuracy = attemptedCount > 0 ? Math.round((correctCount / attemptedCount) * 100) : 0;
+
+    // Populate Modal Header Info
+    const elTitle = document.getElementById('report-dang-title');
+    const elStudent = document.getElementById('report-student-name');
+    const elAttempted = document.getElementById('report-modal-attempted');
+    const elCorrect = document.getElementById('report-modal-correct');
+    const elWrong = document.getElementById('report-modal-wrong');
+    const elAccuracy = document.getElementById('report-modal-accuracy');
+    const elEvalBox = document.getElementById('report-modal-evaluation-box');
+    const elMatrix = document.getElementById('report-modal-matrix');
+
+    if (elTitle) elTitle.textContent = currentDangPracticeState.dangTitle || "Luyện Tập Phản Xạ";
+    if (elStudent) {
+        const studentInfo = state.studentName ? `${state.studentName} ${state.studentClass ? '(' + state.studentClass + ')' : ''}` : "Học viên VSTEP";
+        elStudent.innerHTML = `Học viên: <strong style="color: #0f172a;">${studentInfo}</strong>`;
+    }
+
+    if (elAttempted) elAttempted.textContent = `${attemptedCount} / ${total}`;
+    if (elCorrect) elCorrect.textContent = correctCount;
+    if (elWrong) elWrong.textContent = wrongCount;
+    if (elAccuracy) elAccuracy.textContent = `${accuracy}%`;
+
+    // Dynamic Evaluation based on "Làm được bao nhiêu báo bấy nhiêu"
+    let evalHTML = "";
+    if (attemptedCount === 0) {
+        evalHTML = `
+            <div style="font-weight: 700; color: #475569; margin-bottom: 4px;"><i class="fa-solid fa-circle-info" style="color: #6366f1;"></i> Chưa có bài làm nào:</div>
+            <div>Bạn chưa kiểm tra câu hỏi nào ở dạng này. Hãy bấm vào các bài tập bên dưới để rèn luyện phản xạ đọc hiểu nhé!</div>
+        `;
+    } else if (attemptedCount < total) {
+        let bandTip = "";
+        if (accuracy >= 80) bandTip = "🌟 Phản xạ rất nhạy và chuẩn xác! Hãy tiếp tục duy trì để hoàn thành hết các câu còn lại.";
+        else if (accuracy >= 50) bandTip = "🎯 Đã nắm được cách tìm thông tin cơ bản. Chú ý đọc kỹ ngữ cảnh để tránh bẫy từ vựng ở các câu tiếp theo.";
+        else bandTip = "💡 Cần chú ý đọc kỹ câu hỏi và xem lại chiến thuật loại trừ phương án sai ở phần Lý Thuyết.";
+
+        evalHTML = `
+            <div style="font-weight: 700; color: #4338ca; margin-bottom: 4px;"><i class="fa-solid fa-chart-pie" style="color: #6366f1;"></i> Báo cáo tiến độ (${attemptedCount}/${total} câu):</div>
+            <div>Bạn đã làm <strong>${attemptedCount}/${total} câu</strong> với tỉ lệ đúng đạt <strong style="color: #6366f1;">${accuracy}%</strong> (${correctCount} đúng, ${wrongCount} chưa đúng). Còn lại <strong>${total - attemptedCount} câu</strong> chưa làm.</div>
+            <div style="margin-top: 6px; font-style: italic; color: #475569;">${bandTip}</div>
+        `;
+    } else {
+        // Full completion (12/12)
+        if (accuracy >= 90) {
+            evalHTML = `
+                <div style="font-weight: 800; color: #15803d; margin-bottom: 4px;"><i class="fa-solid fa-trophy" style="color: #eab308;"></i> ĐÁNH GIÁ: XUẤT SẮC (CHUẨN B2 - C1 VSTEP)</div>
+                <div>Tuyệt vời! Bạn đã hoàn thành trọn vẹn 12 bài tập với độ chính xác <strong>${accuracy}%</strong>. Kỹ năng nhận diện và phản xạ dạng bài này của bạn đã đạt mức thượng thừa!</div>
+            `;
+            initConfettiEffects();
+        } else if (accuracy >= 70) {
+            evalHTML = `
+                <div style="font-weight: 800; color: #0369a1; margin-bottom: 4px;"><i class="fa-solid fa-star" style="color: #0284c7;"></i> ĐÁNH GIÁ: TỐT (CHUẨN B1+ ĐẾN B2 VSTEP)</div>
+                <div>Rất tốt! Bạn đạt <strong>${accuracy}%</strong> (${correctCount}/${total} câu). Bạn đã nắm vững chiến thuật cơ bản, chỉ cần cẩn thận hơn ở những câu bẫy chi tiết.</div>
+            `;
+            initConfettiEffects();
+        } else {
+            evalHTML = `
+                <div style="font-weight: 800; color: #d97706; margin-bottom: 4px;"><i class="fa-solid fa-lightbulb" style="color: #f59e0b;"></i> ĐÁNH GIÁ: CẦN CỦNG CỐ THÊM (MỨC ĐỘ B1)</div>
+                <div>Bạn đạt <strong>${accuracy}%</strong> (${correctCount}/${total} câu). Hãy xem lại phần giải thích chi tiết của các câu sai hoặc đọc lại mục <strong>Lý Thuyết & Mẹo Làm Bài</strong> để nâng cao phản xạ nhé!</div>
+            `;
+        }
+    }
+    if (elEvalBox) elEvalBox.innerHTML = evalHTML;
+
+    // Populate Matrix (P01 - P12)
+    if (elMatrix) {
+        elMatrix.innerHTML = results.map((res, i) => {
+            const pNum = (i + 1).toString().padStart(2, '0');
+            if (!res.attempted) {
+                return `
+                    <div style="background: #f8fafc; border: 1.5px dashed #cbd5e1; border-radius: 10px; padding: 8px 10px; text-align: center;">
+                        <div style="font-weight: 700; font-size: 0.85rem; color: #94a3b8;">PRACTICE ${pNum}</div>
+                        <div style="font-size: 0.78rem; color: #94a3b8; margin-top: 2px;"><i class="fa-regular fa-circle"></i> Chưa làm</div>
+                    </div>
+                `;
+            } else if (res.isCorrect) {
+                const optLetter = String.fromCharCode(65 + res.selectedIdx);
+                return `
+                    <div style="background: #ecfdf5; border: 1.5px solid #86efac; border-radius: 10px; padding: 8px 10px; text-align: center;">
+                        <div style="font-weight: 800; font-size: 0.85rem; color: #15803d;">PRACTICE ${pNum}</div>
+                        <div style="font-size: 0.78rem; color: #16a34a; font-weight: 700; margin-top: 2px;"><i class="fa-solid fa-circle-check"></i> Đúng (${optLetter})</div>
+                    </div>
+                `;
+            } else {
+                const userLetter = res.selectedIdx >= 0 ? String.fromCharCode(65 + res.selectedIdx) : "?";
+                const correctLetter = res.correctIdx >= 0 ? String.fromCharCode(65 + res.correctIdx) : "?";
+                return `
+                    <div style="background: #fef2f2; border: 1.5px solid #fca5a5; border-radius: 10px; padding: 8px 10px; text-align: center;">
+                        <div style="font-weight: 800; font-size: 0.85rem; color: #b91c1c;">PRACTICE ${pNum}</div>
+                        <div style="font-size: 0.78rem; color: #dc2626; font-weight: 700; margin-top: 2px;"><i class="fa-solid fa-circle-xmark"></i> ${userLetter} (Đ.án ${correctLetter})</div>
+                    </div>
+                `;
+            }
+        }).join('');
+    }
+
+    modal.classList.remove('hidden');
+}
+
+function closePracticeReportModal() {
+    playSound('click');
+    const modal = document.getElementById('practice-report-modal');
+    if (modal) modal.classList.add('hidden');
+}
+
+function resetCurrentDangPractice() {
+    playSound('click');
+    if (confirm("Bạn có chắc chắn muốn làm lại tất cả bài tập phản xạ của dạng này từ đầu không?")) {
+        const dangId = currentDangPracticeState.dangId;
+        if (dangId) {
+            loadDangDetail(dangId);
+            // Switch to practice tab
+            setTimeout(() => {
+                const pracBtn = document.querySelector('[data-dang-tab="tab-dang-practice"]');
+                if (pracBtn) pracBtn.click();
+            }, 50);
+        }
+    }
+}
+
 function loadDangDetail(dangId) {
     try {
         const data = dangsData[dangId];
@@ -8079,7 +8390,40 @@ function loadDangDetail(dangId) {
             richExplanationHTML = theoryHtml.substring(expIndex);
         }
         
-        // Practice tab population
+        // Practice tab population & Tracking initialization
+        initDangPracticeTracking(dangId, data.title, data.practices.length);
+        
+        // Bind toolbar buttons
+        const btnOpenReport = document.getElementById('btn-open-practice-report');
+        if (btnOpenReport) {
+            btnOpenReport.onclick = openPracticeReportModal;
+        }
+        const btnResetPractice = document.getElementById('btn-reset-current-practice');
+        if (btnResetPractice) {
+            btnResetPractice.onclick = resetCurrentDangPractice;
+        }
+
+        // Modal Action Bindings
+        const btnCloseX = document.getElementById('btn-close-report-modal-x');
+        if (btnCloseX) btnCloseX.onclick = closePracticeReportModal;
+        const btnContinue = document.getElementById('btn-report-modal-continue');
+        if (btnContinue) btnContinue.onclick = closePracticeReportModal;
+        const btnRetry = document.getElementById('btn-report-modal-retry');
+        if (btnRetry) {
+            btnRetry.onclick = () => {
+                closePracticeReportModal();
+                resetCurrentDangPractice();
+            };
+        }
+        const btnTheory = document.getElementById('btn-report-modal-theory');
+        if (btnTheory) {
+            btnTheory.onclick = () => {
+                closePracticeReportModal();
+                const theoryBtn = document.querySelector('[data-dang-tab="tab-dang-theory"]');
+                if (theoryBtn) theoryBtn.click();
+            };
+        }
+
         const practicesContainer = document.getElementById('dang-practices-list');
         practicesContainer.innerHTML = '';
         
@@ -8124,8 +8468,9 @@ function loadDangDetail(dangId) {
                 checkBtn.classList.add('hidden');
                 optionsContainer.querySelectorAll('.mini-option').forEach(b => b.setAttribute('disabled', 'true'));
                 
+                let isCorrect = (idx === prac.correctIdx);
                 let statusBadge = "";
-                if (idx === prac.correctIdx) {
+                if (isCorrect) {
                     playSound('success');
                     optionsContainer.children[idx].classList.add('correct');
                     statusBadge = `<div class="ans-badge" style="background: var(--success-color); color: white; display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 8px; font-size: 0.82rem; font-weight: bold; margin-bottom: 10px;"><i class="fa-solid fa-circle-check"></i> CHÍNH XÁC (CORRECT)</div>`;
@@ -8136,6 +8481,23 @@ function loadDangDetail(dangId) {
                     optionsContainer.children[idx].classList.add('incorrect');
                     optionsContainer.children[prac.correctIdx].classList.add('correct');
                     statusBadge = `<div class="ans-badge" style="background: var(--error-color); color: white; display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 8px; font-size: 0.82rem; font-weight: bold; margin-bottom: 10px;"><i class="fa-solid fa-circle-xmark"></i> CHƯA CHÍNH XÁC (INCORRECT)</div>`;
+                }
+                
+                // Record in practice tracking state
+                currentDangPracticeState.results[pIdx] = {
+                    attempted: true,
+                    selectedIdx: idx,
+                    isCorrect: isCorrect,
+                    correctIdx: prac.correctIdx
+                };
+                updatePracticeLiveDashboard();
+                
+                // If student just completed all questions, auto-open report modal with celebration
+                const completedAll = currentDangPracticeState.results.every(r => r.attempted);
+                if (completedAll) {
+                    setTimeout(() => {
+                        openPracticeReportModal();
+                    }, 800);
                 }
                 
                 feedbackEl.innerHTML = `
