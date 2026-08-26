@@ -3636,102 +3636,153 @@ em, i {
 
 
 
-/* ==========================================================================
-   READING PRACTICE SPLIT SCREEN STYLES
-   ========================================================================== */
 
-.rp-split-container {
-    display: grid;
-    grid-template-columns: 1.25fr 1fr;
-    gap: 24px;
-    height: calc(100vh - 210px);
-    min-height: 700px;
-    border-radius: var(--radius-md);
-    overflow: hidden;
-    margin-top: 12px;
+/* ==========================================================================
+   SUPER WIDE MODERN READING PRACTICE INTERFACE (LIKE VSTEP TEST REF)
+   ========================================================================== */
+#sec-reading-practice {
+    padding: 0 10px !important;
+    width: 100% !important;
+    max-width: 100% !important;
 }
 
+.rp-container-wide {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* Part Tabs on top */
+.rp-part-tabs-bar {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+}
+
+.rp-part-tab-btn {
+    background: #f1f5f9;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 9px 20px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #475569;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.15s ease;
+}
+
+.rp-part-tab-btn:hover {
+    background: #e2e8f0;
+    color: #1e293b;
+}
+
+.rp-part-tab-btn.active {
+    background: #eff6ff;
+    border-color: #3b82f6;
+    color: #1d4ed8;
+    box-shadow: 0 2px 6px rgba(59, 130, 246, 0.15);
+}
+
+.rp-part-score-tag {
+    background: #fee2e2;
+    color: #dc2626;
+    font-size: 0.78rem;
+    padding: 2px 7px;
+    border-radius: 12px;
+    font-weight: 800;
+}
+
+.rp-part-score-tag.good {
+    background: #dcfce7;
+    color: #16a34a;
+}
+
+/* Split screen columns: 50% left, 50% right */
+.rp-split-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    height: calc(100vh - 200px);
+    min-height: 720px;
+    margin-top: 6px;
+    overflow: hidden;
+}
+
+/* Left Panel: Clean, spacious reading text */
 .rp-passage-panel {
     background: #ffffff;
-    border: 1.5px solid #cbd5e1;
-    border-radius: var(--radius-md);
-    padding: 28px 36px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 36px 44px;
     overflow-y: auto;
     height: 100%;
     user-select: text;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
 }
 
 .rp-passage-body {
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    font-size: 1.16rem;
-    line-height: 2.0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-size: 1.15rem;
+    line-height: 2.15;
     color: #1e293b;
     letter-spacing: 0.15px;
 }
 
-.rp-paragraph {
-    margin-bottom: 24px;
+.rp-passage-body p {
+    margin: 0 0 26px 0;
     text-align: justify;
+    text-justify: inter-word;
 }
 
-.rp-para-num {
-    display: inline-block;
-    background: #ede9fe;
-    color: #6d28d9;
-    font-weight: 800;
-    font-size: 0.78rem;
-    padding: 2px 8px;
-    border-radius: 6px;
-    margin-bottom: 6px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    user-select: none;
-}
-
-.rp-paragraph p {
-    margin: 0;
-    line-height: 2.0;
-}
-
-.rp-trans-para {
-    margin-bottom: 16px;
-    padding-bottom: 12px;
-    border-bottom: 1px dashed #bbf7d0;
-    line-height: 1.85;
-}
-
-.rp-trans-para:last-child {
-    border-bottom: none;
+.rp-passage-body p:last-child {
     margin-bottom: 0;
-    padding-bottom: 0;
 }
 
+/* Right Panel: Scrollable questions list */
 .rp-questions-panel {
     background: #f8fafc;
-    border: 1.5px solid #cbd5e1;
-    border-radius: var(--radius-md);
-    padding: 20px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 20px 24px;
     overflow-y: auto;
     height: 100%;
     display: flex;
     flex-direction: column;
     gap: 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
 }
 
+/* Info prompt at top of questions */
+.rp-info-banner {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-size: 0.92rem;
+    color: #1e40af;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    line-height: 1.5;
+}
+
+/* Question card styling like screenshot */
 .rp-qcard {
     background: #ffffff;
     border: 1.5px solid #e2e8f0;
-    border-radius: 14px;
-    padding: 20px;
+    border-radius: 12px;
+    padding: 20px 22px;
     transition: all 0.2s ease;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
 }
 
 .rp-qcard.active-target {
-    border-color: #6366f1;
-    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
 }
 
 .rp-qcard-header {
@@ -3741,143 +3792,130 @@ em, i {
     margin-bottom: 16px;
 }
 
-.rp-qnum {
-    background: #eff6ff;
-    color: #2563eb;
+.rp-qnum-badge {
+    background: #ef4444;
+    color: #ffffff;
     font-weight: 800;
-    font-size: 0.9rem;
-    padding: 5px 12px;
-    border-radius: 10px;
-    border: 1.5px solid #bfdbfe;
+    font-size: 0.85rem;
+    padding: 4px 10px;
+    border-radius: 6px;
     white-space: nowrap;
+    line-height: 1.3;
 }
 
-.rp-qtext {
-    font-weight: 700;
-    font-size: 1.05rem;
-    color: #0f172a;
-    line-height: 1.6;
+.rp-qtext-group {
     flex: 1;
 }
 
+.rp-qtext-en {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: #0f172a;
+    line-height: 1.55;
+}
+
+.rp-qtext-vi {
+    font-size: 0.92rem;
+    color: #64748b;
+    font-style: italic;
+    margin-top: 4px;
+    line-height: 1.45;
+}
+
+/* Options with EN and VI stacked */
 .rp-options-list {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
 }
 
 .rp-option-btn {
     text-align: left;
     background: #ffffff;
     border: 1.5px solid #e2e8f0;
-    border-radius: 12px;
-    padding: 12px 18px;
-    font-size: 1rem;
-    color: #334155;
+    border-radius: 10px;
+    padding: 12px 16px;
     cursor: pointer;
     transition: all 0.15s ease;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     gap: 12px;
-    line-height: 1.5;
 }
 
 .rp-option-btn:hover {
-    border-color: #6366f1;
-    background: #f5f3ff;
-    transform: translateX(3px);
+    border-color: #3b82f6;
+    background: #f8fafc;
 }
 
 .rp-option-btn.selected {
-    border-color: #6366f1;
-    background: #ede9fe;
-    color: #4f46e5;
-    font-weight: 700;
+    border-color: #3b82f6;
+    background: #eff6ff;
 }
 
 .rp-option-btn.correct {
     border-color: #10b981 !important;
     background: #ecfdf5 !important;
-    color: #065f46 !important;
-    font-weight: 700;
 }
 
 .rp-option-btn.incorrect {
     border-color: #ef4444 !important;
     background: #fef2f2 !important;
+}
+
+.rp-opt-text-box {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    line-height: 1.4;
+}
+
+.rp-opt-en {
+    font-size: 0.98rem;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.rp-opt-vi {
+    font-size: 0.88rem;
+    color: #64748b;
+    font-style: italic;
+}
+
+.rp-option-btn.correct .rp-opt-en, .rp-option-btn.correct .rp-opt-vi {
+    color: #065f46 !important;
+}
+
+.rp-option-btn.incorrect .rp-opt-en, .rp-option-btn.incorrect .rp-opt-vi {
     color: #991b1b !important;
 }
 
-.rp-nav-pill {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    border: 1.5px solid #cbd5e1;
-    background: #ffffff;
-    font-size: 0.9rem;
-    font-weight: 800;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s ease;
-    color: #475569;
+.rp-opt-status-icon {
+    font-size: 1.15rem;
 }
 
-.rp-nav-pill:hover {
-    border-color: #6366f1;
-    color: #6366f1;
-    transform: scale(1.1);
+.rp-opt-status-icon.correct {
+    color: #10b981;
 }
 
-.rp-nav-pill.answered {
-    background: #e0e7ff;
-    border-color: #6366f1;
-    color: #4338ca;
+.rp-opt-status-icon.incorrect {
+    color: #ef4444;
 }
 
-.rp-nav-pill.correct {
-    background: #10b981;
-    border-color: #10b981;
-    color: #ffffff;
-}
-
-.rp-nav-pill.wrong {
-    background: #ef4444;
-    border-color: #ef4444;
-    color: #ffffff;
-}
-
-.rp-font-control-btn {
-    background: #ffffff;
-    border: 1.5px solid #cbd5e1;
-    border-radius: 8px;
-    padding: 6px 12px;
-    font-weight: 800;
-    font-size: 0.88rem;
-    color: #475569;
-    cursor: pointer;
-    transition: all 0.15s;
-}
-.rp-font-control-btn:hover {
-    border-color: #6366f1;
-    color: #6366f1;
-}
-
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
     .rp-split-container {
         grid-template-columns: 1fr;
         height: auto;
         min-height: auto;
     }
     .rp-passage-panel {
-        height: 480px;
-        padding: 20px;
+        height: 520px;
+        padding: 24px;
     }
     .rp-questions-panel {
         height: 600px;
-        padding: 14px;
+        padding: 16px;
     }
 }
 
@@ -5991,8 +6029,8 @@ const readingPracticesData = {
     "id": "rp-01",
     "title": "READING PRACTICE 01: MOUNT RUSHMORE",
     "badge": "Passage 01",
-    "passage": "<div class=\"rp-paragraph\"><span class=\"rp-para-num\">Paragraph 1</span><p>Mount Rushmore is a well-known monument in the Black Hills of South Dakota that features the countenances of four United States presidents: Washington, Jefferson, Roosevelt, and Lincoln. What is not so well known is that the process of creating this national treasure was not exactly an uneventful one.</p></div>\n\n<div class=\"rp-paragraph\"><span class=\"rp-para-num\">Paragraph 2</span><p>Mount Rushmore was the project of the visionary sculptor John Gutzen de la Mothe Borglum, who was born in Idaho but studied sculpture in Paris in his youth and befriended the famous French sculptor Auguste Rodin. In 1927 Borglum was granted a commission by the federal government to create the sculpture on Mount Rushmore. Though he was <strong>nearly</strong> sixty years old when he started, he was undaunted by the enormity of the project and the obstacles that it engendered. He optimistically asserted that the project would be completed within five years, not caring to recognize the potential problems that such a massive project would involve, the problems of dealing with financing, with government bureaucracy, and with Mother Nature herself. An example of what Mother Nature had to throw at the project was the <strong>fissure</strong> - or large crack - that developed in the granite where Jefferson was being carved. Jefferson had to be moved to the other side of Washington, next to Roosevelt because of the break in the stone. The work that had been started on the first Jefferson had to be dynamited away.</p></div>\n\n<div class=\"rp-paragraph\"><span class=\"rp-para-num\">Paragraph 3</span><p>Mount Rushmore was not completed within the five years predicted by Borglum and was in fact not actually completed within Borglum's lifetime, although <strong>it</strong> was almost finished. Borglum died on March 6. 1941, at the age of seventy' four, after fourteen years of work on the presidents. His son, Lincoln Borglum, who had worked with his father throughout the project, completed the monument <strong><u>within eight months of his father's death</u></strong>.</p></div>",
-    "translation": "<div class=\"rp-trans-para\"><strong>Đoạn 1:</strong> Núi Rushmore là một đài tưởng niệm nổi tiếng ở Black Hills thuộc bang Nam Dakota, khắc họa chân dung của bốn vị tổng thống Hoa Kỳ: Washington, Jefferson, Roosevelt và Lincoln. Điều mà không nhiều người biết là quá trình tạo ra kho báu quốc gia này không hề diễn ra một cách êm ả.</div>\n<div class=\"rp-trans-para\"><strong>Đoạn 2:</strong> Núi Rushmore là dự án của nhà điêu khắc nhìn xa trông rộng John Gutzen de la Mothe Borglum, người sinh ra ở Idaho nhưng đã học điêu khắc ở Paris khi còn trẻ và kết bạn với nhà điêu khắc nổi tiếng người Pháp Auguste Rodin. Năm 1927, Borglum được chính phủ liên bang ủy quyền tạo ra tác phẩm điêu khắc trên Núi Rushmore. Mặc dù ông đã gần sáu mươi tuổi khi bắt đầu, ông không hề nản lòng trước quy mô khổng lồ của dự án và những trở ngại mà nó tạo ra. Ông lạc quan khẳng định rằng dự án sẽ hoàn thành trong vòng 5 năm mà không bận tâm đến những rủi ro tiềm ẩn mà một dự án đồ sộ như vậy sẽ gặp phải: các vấn đề về tài chính, thủ tục hành chính của chính phủ và chính Mẹ Thiên Nhiên. Một ví dụ về những gì Mẹ Thiên Nhiên gây ra cho dự án là một vết nứt lớn xuất hiện trên khối đá granit nơi đang tạc tượng Jefferson. Tượng Jefferson đã phải chuyển sang phía bên kia của Washington, cạnh Roosevelt vì vết nứt này. Phần việc đã bắt đầu trên bức tượng Jefferson đầu tiên đã phải bị cho nổ mìn phá bỏ.</div>\n<div class=\"rp-trans-para\"><strong>Đoạn 3:</strong> Núi Rushmore đã không được hoàn thành trong vòng 5 năm như Borglum dự đoán và trên thực tế cũng chưa thực sự hoàn thành trong suốt cuộc đời của Borglum, mặc dù nó đã gần xong. Borglum qua đời vào ngày 6 tháng 3 năm 1941, ở tuổi 74, sau 14 năm miệt mài làm việc trên các bức tượng tổng thống. Con trai ông, Lincoln Borglum, người đã làm việc cùng cha trong suốt dự án, đã hoàn thành đài tưởng niệm trong vòng tám tháng sau khi cha qua đời.</div>",
+    "passage": "<p>Mount Rushmore is a well-known monument in the Black Hills of South Dakota that features the countenances of four United States presidents: Washington, Jefferson, Roosevelt, and Lincoln. What is not so well known is that the process of creating this national treasure was not exactly an uneventful one.</p>\n\n<p>Mount Rushmore was the project of the visionary sculptor John Gutzen de la Mothe Borglum, who was born in Idaho but studied sculpture in Paris in his youth and befriended the famous French sculptor Auguste Rodin. In 1927 Borglum was granted a commission by the federal government to create the sculpture on Mount Rushmore. Though he was <strong>nearly</strong> sixty years old when he started, he was undaunted by the enormity of the project and the obstacles that it engendered. He optimistically asserted that the project would be completed within five years, not caring to recognize the potential problems that such a massive project would involve, the problems of dealing with financing, with government bureaucracy, and with Mother Nature herself. An example of what Mother Nature had to throw at the project was the <strong>fissure</strong> - or large crack - that developed in the granite where Jefferson was being carved. Jefferson had to be moved to the other side of Washington, next to Roosevelt because of the break in the stone. The work that had been started on the first Jefferson had to be dynamited away.</p>\n\n<p>Mount Rushmore was not completed within the five years predicted by Borglum and was in fact not actually completed within Borglum's lifetime, although <strong>it</strong> was almost finished. Borglum died on March 6. 1941, at the age of seventy' four, after fourteen years of work on the presidents. His son, Lincoln Borglum, who had worked with his father throughout the project, completed the monument <strong><u>within eight months of his father's death</u></strong>.</p>",
+    "translation": "<p><strong>Đoạn 1:</strong> Núi Rushmore là một đài tưởng niệm nổi tiếng ở Black Hills thuộc bang Nam Dakota, khắc họa chân dung của bốn vị tổng thống Hoa Kỳ: Washington, Jefferson, Roosevelt và Lincoln. Điều mà không nhiều người biết là quá trình tạo ra kho báu quốc gia này không hề diễn ra một cách êm ả.</p>\n<p><strong>Đoạn 2:</strong> Núi Rushmore là dự án của nhà điêu khắc nhìn xa trông rộng John Gutzen de la Mothe Borglum, người sinh ra ở Idaho nhưng đã học điêu khắc ở Paris khi còn trẻ và kết bạn với nhà điêu khắc nổi tiếng người Pháp Auguste Rodin. Năm 1927, Borglum được chính phủ liên bang ủy quyền tạo ra tác phẩm điêu khắc trên Núi Rushmore. Mặc dù ông đã gần sáu mươi tuổi khi bắt đầu, ông không hề nản lòng trước quy mô khổng lồ của dự án và những trở ngại mà nó tạo ra. Ông lạc quan khẳng định rằng dự án sẽ hoàn thành trong vòng 5 năm mà không bận tâm đến những rủi ro tiềm ẩn mà một dự án đồ sộ như vậy sẽ gặp phải: các vấn đề về tài chính, thủ tục hành chính của chính phủ và chính Mẹ Thiên Nhiên. Một ví dụ về những gì Mẹ Thiên Nhiên gây ra cho dự án là một vết nứt lớn xuất hiện trên khối đá granit nơi đang tạc tượng Jefferson. Tượng Jefferson đã phải chuyển sang phía bên kia của Washington, cạnh Roosevelt vì vết nứt này. Phần việc đã bắt đầu trên bức tượng Jefferson đầu tiên đã phải bị cho nổ mìn phá bỏ.</p>\n<p><strong>Đoạn 3:</strong> Núi Rushmore đã không được hoàn thành trong vòng 5 năm như Borglum dự đoán và trên thực tế cũng chưa thực sự hoàn thành trong suốt cuộc đời của Borglum, mặc dù nó đã gần xong. Borglum qua đời vào ngày 6 tháng 3 năm 1941, ở tuổi 74, sau 14 năm miệt mài làm việc trên các bức tượng tổng thống. Con trai ông, Lincoln Borglum, người đã làm việc cùng cha trong suốt dự án, đã hoàn thành đài tưởng niệm trong vòng tám tháng sau khi cha qua đời.</p>",
     "questions": [
       {
         "num": 1,
@@ -6190,8 +6228,8 @@ const readingPracticesData = {
     "id": "rp-02",
     "title": "READING PRACTICE 02: NARCOLEPSY",
     "badge": "Passage 02",
-    "passage": "<div class=\"rp-paragraph\"><span class=\"rp-para-num\">Paragraph 1</span><p>Narcolepsy is a disease characterized by <strong>malfunctioning</strong> sleep mechanics. It can consist of a sudden and uncontrollable <strong>bout</strong> of sleep during daylight hours and disturbed sleep during nighttime hours. It occurs more often in men than in women, and it commonly makes its appearance during adolescence or young adulthood. At least a half million Americans are believed to be affected by narcolepsy.</p></div>\n\n<div class=\"rp-paragraph\"><span class=\"rp-para-num\">Paragraph 2</span><p>Narcolepsy can take a number of forms during daylight hours. One common symptom of the disease during daytime hours is a sudden attack of REM (rapid-eye movement) sleep during normal waking hours. This occurs in some people hundreds of times in a single day, while others only have rare occurrences. During a sleep attack, narcoleptics may experience <strong>automatic behavior</strong>; even though asleep, they may continue automatically performing the activity they were involved in prior to falling asleep. They may, for example, continue walking, or driving, or stirring a pot until the activity is interrupted by external forces. Others experience <strong>cataplexy</strong> during daytime hours; cataplexy involves a sudden loss of muscle tone that may cause the head to droop or the knees to wobble in minor attacks or a total collapse in more serious attacks. Cataplexy seems to occur most often in conjunction with intense emotion or excitement.</p></div>\n\n<div class=\"rp-paragraph\"><span class=\"rp-para-num\">Paragraph 3</span><p>During sleep hours, narcolepsy can also manifest itself in a variety of ways. During the transitional phase that precedes the onset of sleep, it is common for hallucinations to occur. These hallucinations, known as <strong>hypnagogic phenomena</strong>, consist of realistic perceptions of sights and sounds during the semi-conscious state between wakefulness and sleep. Narcoleptics may also suffer from night wakening during sleep, <strong>resulting in</strong> extremely fragmented and restless sleep. Then, upon waking, a narcoleptic may experience sleep paralysis, the inability to move, perhaps for several minutes, immediately after waking.</p></div>",
-    "translation": "<div class=\"rp-trans-para\"><strong>Đoạn 1:</strong> Chứng ngủ rũ (Narcolepsy) là một căn bệnh đặc trưng bởi sự rối loạn cơ chế giấc ngủ. Nó có thể bao gồm những cơn buồn ngủ đột ngột và không thể cưỡng lại trong ban ngày và giấc ngủ bị xáo trộn vào ban đêm. Nó xảy ra ở nam giới nhiều hơn nữ giới, và thường xuất hiện ở tuổi vị thành niên hoặc đầu tuổi trưởng thành. Ít nhất nửa triệu người Mỹ được cho là bị ảnh hưởng bởi chứng ngủ rũ.</div>\n<div class=\"rp-trans-para\"><strong>Đoạn 2:</strong> Chứng ngủ rũ có thể biểu hiện dưới nhiều dạng vào ban ngày. Một triệu chứng ban ngày phổ biến là cơn buồn ngủ REM (chuyển động mắt nhanh) đột ngột trong giờ thức bình thường. Điều này xảy ra ở một số người hàng trăm lần trong một ngày, trong khi những người khác chỉ hiếm khi gặp. Trong cơn buồn ngủ, người mắc bệnh có thể trải qua hành vi tự động (automatic behavior); dù đang ngủ, họ vẫn có thể tiếp tục thực hiện công việc họ đang làm trước khi ngủ. Ví dụ, họ có thể tiếp tục đi bộ, lái xe hoặc khuấy nồi cho đến khi bị ngoại lực can thiệp. Những người khác trải qua chứng mất trương lực cơ (cataplexy); hiện tượng này làm giảm trương lực cơ đột ngột khiến đầu rũ xuống hoặc đầu gối run rẩy trong các cơn nhẹ, hoặc ngã quỵ hoàn toàn trong các cơn nặng. Cataplexy thường xảy ra khi có cảm xúc mạnh hoặc phấn khích.</div>\n<div class=\"rp-trans-para\"><strong>Đoạn 3:</strong> Vào ban đêm, chứng ngủ rũ cũng có thể tự biểu hiện theo nhiều cách. Trong giai đoạn chuyển tiếp trước khi bắt đầu giấc ngủ, hiện tượng ảo giác rất phổ biến. Những ảo giác này, được gọi là hiện tượng hypnagogic, bao gồm những nhận thức chân thực về hình ảnh và âm thanh trong trạng thái nửa tỉnh nửa mê. Người bệnh cũng có thể bị thức giấc giữa đêm, dẫn đến giấc ngủ bị phân mảnh và trằn trọc. Sau đó, khi thức dậy, họ có thể bị liệt khi ngủ, không thể cử động trong vài phút ngay sau khi thức giấc.</div>",
+    "passage": "<p>Narcolepsy is a disease characterized by <strong>malfunctioning</strong> sleep mechanics. It can consist of a sudden and uncontrollable <strong>bout</strong> of sleep during daylight hours and disturbed sleep during nighttime hours. It occurs more often in men than in women, and it commonly makes its appearance during adolescence or young adulthood. At least a half million Americans are believed to be affected by narcolepsy.</p>\n\n<p>Narcolepsy can take a number of forms during daylight hours. One common symptom of the disease during daytime hours is a sudden attack of REM (rapid-eye movement) sleep during normal waking hours. This occurs in some people hundreds of times in a single day, while others only have rare occurrences. During a sleep attack, narcoleptics may experience <strong>automatic behavior</strong>; even though asleep, they may continue automatically performing the activity they were involved in prior to falling asleep. They may, for example, continue walking, or driving, or stirring a pot until the activity is interrupted by external forces. Others experience <strong>cataplexy</strong> during daytime hours; cataplexy involves a sudden loss of muscle tone that may cause the head to droop or the knees to wobble in minor attacks or a total collapse in more serious attacks. Cataplexy seems to occur most often in conjunction with intense emotion or excitement.</p>\n\n<p>During sleep hours, narcolepsy can also manifest itself in a variety of ways. During the transitional phase that precedes the onset of sleep, it is common for hallucinations to occur. These hallucinations, known as <strong>hypnagogic phenomena</strong>, consist of realistic perceptions of sights and sounds during the semi-conscious state between wakefulness and sleep. Narcoleptics may also suffer from night wakening during sleep, <strong>resulting in</strong> extremely fragmented and restless sleep. Then, upon waking, a narcoleptic may experience sleep paralysis, the inability to move, perhaps for several minutes, immediately after waking.</p>",
+    "translation": "<p><strong>Đoạn 1:</strong> Chứng ngủ rũ (Narcolepsy) là một căn bệnh đặc trưng bởi sự rối loạn cơ chế giấc ngủ. Nó có thể bao gồm những cơn buồn ngủ đột ngột và không thể cưỡng lại trong ban ngày và giấc ngủ bị xáo trộn vào ban đêm. Nó xảy ra ở nam giới nhiều hơn nữ giới, và thường xuất hiện ở tuổi vị thành niên hoặc đầu tuổi trưởng thành. Ít nhất nửa triệu người Mỹ được cho là bị ảnh hưởng bởi chứng ngủ rũ.</p>\n<p><strong>Đoạn 2:</strong> Chứng ngủ rũ có thể biểu hiện dưới nhiều dạng vào ban ngày. Một triệu chứng ban ngày phổ biến là cơn buồn ngủ REM (chuyển động mắt nhanh) đột ngột trong giờ thức bình thường. Điều này xảy ra ở một số người hàng trăm lần trong một ngày, trong khi những người khác chỉ hiếm khi gặp. Trong cơn buồn ngủ, người mắc bệnh có thể trải qua hành vi tự động (automatic behavior); dù đang ngủ, họ vẫn có thể tiếp tục thực hiện công việc họ đang làm trước khi ngủ. Ví dụ, họ có thể tiếp tục đi bộ, lái xe hoặc khuấy nồi cho đến khi bị ngoại lực can thiệp. Những người khác trải qua chứng mất trương lực cơ (cataplexy); hiện tượng này làm giảm trương lực cơ đột ngột khiến đầu rũ xuống hoặc đầu gối run rẩy trong các cơn nhẹ, hoặc ngã quỵ hoàn toàn trong các cơn nặng. Cataplexy thường xảy ra khi có cảm xúc mạnh hoặc phấn khích.</p>\n<p><strong>Đoạn 3:</strong> Vào ban đêm, chứng ngủ rũ cũng có thể tự biểu hiện theo nhiều cách. Trong giai đoạn chuyển tiếp trước khi bắt đầu giấc ngủ, hiện tượng ảo giác rất phổ biến. Những ảo giác này, được gọi là hiện tượng hypnagogic, bao gồm những nhận thức chân thực về hình ảnh và âm thanh trong trạng thái nửa tỉnh nửa mê. Người bệnh cũng có thể bị thức giấc giữa đêm, dẫn đến giấc ngủ bị phân mảnh và trằn trọc. Sau đó, khi thức dậy, họ có thể bị liệt khi ngủ, không thể cử động trong vài phút ngay sau khi thức giấc.</p>",
     "questions": [
       {
         "num": 1,
@@ -6389,8 +6427,8 @@ const readingPracticesData = {
     "id": "rp-03",
     "title": "READING PRACTICE 03: THE CINEMA",
     "badge": "Passage 03",
-    "passage": "<div class=\"rp-paragraph\"><span class=\"rp-para-num\">Paragraph 1</span><p>The cinema did not emerge as a form of mass consumption until its technology evolved from the initial \"peepshow\" format to the point where images were projected on a screen in a darkened theater. In the early 1890s, Thomas Edison and his assistant William Dickson invented the Kinetoscope, a peepshow device in which an individual viewed a brief film strip through a magnifying lens. These Kinetoscope arcades were modeled on phonograph parlors, which had proven successful for Edison several years earlier. In these arcades, customers could move from one machine to another, watching short films of dancers, jugglers, or prizefights.</p></div>\n\n<div class=\"rp-paragraph\"><span class=\"rp-para-num\">Paragraph 2</span><p>These Kinetoscope arcades were modeled on phonograph parlors, which had proven successful for Edison several years earlier. In the phonograph parlors, customers listened to recordings through individual ear tubes, moving from one machine to the next of hear a variety of songs or comedic sketches. The Kinetoscope parlors adopted essentially the same approach, providing customers with a similar kind of individualized entertainment for a small fee.</p></div>\n\n<div class=\"rp-paragraph\"><span class=\"rp-para-num\">Paragraph 3</span><p>[A] Exhibitors, however, wanted to maximize their profits, which they could do more <strong>readily</strong> by projecting a handful of films to hundreds of customers at a time (rather than one at a time) and by charging 25 to 50 cents admission. [B] About a year after the opening of the first Kinetoscope parlor in 1894, showmen such as Louis and Auguste Lumière, Thomas Armat and Charles Francis Jenkins, and Orville and Woodville Latham (with the assistance of Edison's former assistant, William Dickson) perfected projection devices. [C] These early projection devices were used in vaudeville theaters, legitimate theaters, local town halls, makeshift storefront theaters, fairgrounds, and amusement parks to show films to a mass audience. [D]</p></div>\n\n<div class=\"rp-paragraph\"><span class=\"rp-para-num\">Paragraph 4</span><p>With the advent of projection in 1895-1896, motion pictures became the ultimate form of mass consumption. Previously, large audiences had viewed spectacles at the theater, where vaudeville, popular dramas, musical and minstrel shows, classical plays, lectures, and slide-and-lantern shows had been presented to several hundred spectators at a time. But the movies differed significantly from these other forms of entertainment, which depended on either live performance or (in the case of the slide and-lantern shows) the active involvement of a master of ceremonies who assembled the final program.</p></div>\n\n<div class=\"rp-paragraph\"><span class=\"rp-para-num\">Paragraph 5</span><p>Although early exhibitors regularly accompanied movies with live acts, the substance of the movies themselves is mass-produced, prerecorded material that can easily be reproduced by theaters with little or no active participation by the exhibitor. Even though early exhibitors shaped their film programs by mixing films and other entertainments together in whichever way they thought would be most attractive to audiences or by accompanying them with lectures, their creative control remained limited. What audiences came to see was the technological marvel of the movies; the lifelike reproduction of the commonplace motion of trains, of waves striking the shore, and of people walking in the street; and the magic made possible by trick photography and the manipulation of the camera.</p></div>\n\n<div class=\"rp-paragraph\"><span class=\"rp-para-num\">Paragraph 6</span><p>With the advent of projection, the viewer's relationship with the image was no longer private, as it had been with earlier peepshow devices such as the Kinetoscope and the Mutoscope, which was a similar machine that reproduced motion by means of successive images on individual photographic cards instead of on strips of celluloid. <strong>It</strong> suddenly became public - an experience that the viewer shared with dozens, scores, and even hundreds of others. At the same time, the image that the spectator looked at expanded from the minuscule peepshow dimensions of 1 or 2 inches (in height) to the life-size proportions of 6 or 9 feet.</p></div>",
-    "translation": "<div class=\"rp-trans-para\"><strong>Đoạn 1:</strong> Điện ảnh đã không trở thành một hình thức tiêu thụ đại chúng cho đến khi công nghệ của nó phát triển từ định dạng \"peepshow\" (kính nhìn trộm đơn lẻ) ban đầu đến mức hình ảnh có thể được chiếu lên màn hình trong một rạp chiếu phim tối. Vào đầu những năm 1890, Thomas Edison và trợ lý William Dickson đã phát minh ra Kinetoscope, một thiết bị nhìn lén trong đó một cá nhân xem một đoạn phim ngắn qua một thấu kính phóng đại. Những khu vui chơi Kinetoscope này được mô phỏng theo các phòng nghe máy quay đĩa (phonograph parlors), vốn đã chứng minh sự thành công cho Edison vài năm trước đó. Trong các khu vui chơi này, khách hàng có thể di chuyển từ máy này sang máy khác, xem các bộ phim ngắn về các vũ công, người tung hứng hoặc các trận đấu quyền anh.</div>\n<div class=\"rp-trans-para\"><strong>Đoạn 2:</strong> Những khu vui chơi Kinetoscope này được mô phỏng theo các phòng nghe máy quay đĩa. Trong các phòng nghe máy quay đĩa, khách hàng nghe các bản thu âm qua các ống nghe cá nhân, di chuyển từ máy này sang máy khác để nghe nhiều bài hát hoặc các tiểu phẩm hài hước khác nhau. Các phòng Kinetoscope về cơ bản cũng áp dụng cách tiếp cận tương tự, cung cấp cho khách hàng loại hình giải trí mang tính cá nhân hóa tương tự với một khoản phí nhỏ.</div>\n<div class=\"rp-trans-para\"><strong>Đoạn 3:</strong> [A] Tuy nhiên, các nhà chiếu phim muốn tối đa hóa lợi nhuận của họ, điều mà họ có thể thực hiện dễ dàng hơn bằng cách chiếu một số bộ phim cho hàng trăm khách hàng cùng một lúc (thay vì từng người một) và thu phí vào cửa từ 25 đến 50 xu. [B] Khoảng một năm sau khi khai trương phòng Kinetoscope đầu tiên vào năm 1894, các nhà làm trò như Louis và Auguste Lumière, Thomas Armat và Charles Francis Jenkins, cùng Orville và Woodville Latham (với sự giúp đỡ của cựu trợ lý của Edison là William Dickson) đã hoàn thiện các thiết bị máy chiếu. [C] Những thiết bị máy chiếu ban đầu này được sử dụng trong các rạp hát tạp kỹ, rạp hát chính thống, tòa thị chính địa phương, các rạp chiếu tạm bợ ở mặt tiền cửa hàng, hội chợ và công viên giải trí để chiếu phim cho đông đảo khán giả. [D]</div>\n<div class=\"rp-trans-para\"><strong>Đoạn 4:</strong> Với sự ra đời của máy chiếu vào năm 1895-1896, phim ảnh đã trở thành hình thức tiêu thụ đại chúng đỉnh cao. Trước đây, đông đảo khán giả tụ tập tại nhà hát để xem các buổi diễn tạp kỹ, kịch nổi tiếng, nhạc kịch, các vở kịch cổ điển, bài giảng và trình chiếu đèn lồng. Nhưng phim ảnh khác biệt đáng kể so với các hình thức giải trí khác đòi hỏi biểu diễn trực tiếp hoặc sự tham gia tích cực của người dẫn chương trình.</div>\n<div class=\"rp-trans-para\"><strong>Đoạn 5:</strong> Mặc dù các nhà chiếu phim thời kỳ đầu thường kết hợp phim với các tiết mục biểu diễn trực tiếp, bản thân nội dung phim đã được sản xuất hàng loạt, thu âm trước và có thể dễ dàng tái tạo tại các rạp với rất ít hoặc không cần sự tham gia của nhà chiếu phim. Khán giả đến rạp là để xem kỳ quan công nghệ của phim ảnh: sự tái hiện sống động như thật chuyển động của đoàn tàu, sóng vỗ bờ, dòng người đi bộ trên phố và phép thuật của nghệ thuật quay phim.</div>\n<div class=\"rp-trans-para\"><strong>Đoạn 6:</strong> Với sự ra đời của máy chiếu, mối quan hệ của người xem với hình ảnh không còn mang tính riêng tư như trước. Nó đột nhiên trở thành trải nghiệm cộng đồng mà người xem chia sẻ với hàng chục, hàng trăm người khác. Đồng thời, hình ảnh mở rộng từ kích thước nhỏ bé 1-2 inch lên kích thước to lớn như người thật 6-9 feet.</div>",
+    "passage": "<p>The cinema did not emerge as a form of mass consumption until its technology evolved from the initial \"peepshow\" format to the point where images were projected on a screen in a darkened theater. In the early 1890s, Thomas Edison and his assistant William Dickson invented the Kinetoscope, a peepshow device in which an individual viewed a brief film strip through a magnifying lens. These Kinetoscope arcades were modeled on phonograph parlors, which had proven successful for Edison several years earlier. In these arcades, customers could move from one machine to another, watching short films of dancers, jugglers, or prizefights.</p>\n\n<p>These Kinetoscope arcades were modeled on phonograph parlors, which had proven successful for Edison several years earlier. In the phonograph parlors, customers listened to recordings through individual ear tubes, moving from one machine to the next of hear a variety of songs or comedic sketches. The Kinetoscope parlors adopted essentially the same approach, providing customers with a similar kind of individualized entertainment for a small fee.</p>\n\n<p>[A] Exhibitors, however, wanted to maximize their profits, which they could do more <strong>readily</strong> by projecting a handful of films to hundreds of customers at a time (rather than one at a time) and by charging 25 to 50 cents admission. [B] About a year after the opening of the first Kinetoscope parlor in 1894, showmen such as Louis and Auguste Lumière, Thomas Armat and Charles Francis Jenkins, and Orville and Woodville Latham (with the assistance of Edison's former assistant, William Dickson) perfected projection devices. [C] These early projection devices were used in vaudeville theaters, legitimate theaters, local town halls, makeshift storefront theaters, fairgrounds, and amusement parks to show films to a mass audience. [D]</p>\n\n<p>With the advent of projection in 1895-1896, motion pictures became the ultimate form of mass consumption. Previously, large audiences had viewed spectacles at the theater, where vaudeville, popular dramas, musical and minstrel shows, classical plays, lectures, and slide-and-lantern shows had been presented to several hundred spectators at a time. But the movies differed significantly from these other forms of entertainment, which depended on either live performance or (in the case of the slide and-lantern shows) the active involvement of a master of ceremonies who assembled the final program.</p>\n\n<p>Although early exhibitors regularly accompanied movies with live acts, the substance of the movies themselves is mass-produced, prerecorded material that can easily be reproduced by theaters with little or no active participation by the exhibitor. Even though early exhibitors shaped their film programs by mixing films and other entertainments together in whichever way they thought would be most attractive to audiences or by accompanying them with lectures, their creative control remained limited. What audiences came to see was the technological marvel of the movies; the lifelike reproduction of the commonplace motion of trains, of waves striking the shore, and of people walking in the street; and the magic made possible by trick photography and the manipulation of the camera.</p>\n\n<p>With the advent of projection, the viewer's relationship with the image was no longer private, as it had been with earlier peepshow devices such as the Kinetoscope and the Mutoscope, which was a similar machine that reproduced motion by means of successive images on individual photographic cards instead of on strips of celluloid. <strong>It</strong> suddenly became public - an experience that the viewer shared with dozens, scores, and even hundreds of others. At the same time, the image that the spectator looked at expanded from the minuscule peepshow dimensions of 1 or 2 inches (in height) to the life-size proportions of 6 or 9 feet.</p>",
+    "translation": "<p><strong>Đoạn 1:</strong> Điện ảnh đã không trở thành một hình thức tiêu thụ đại chúng cho đến khi công nghệ của nó phát triển từ định dạng \"peepshow\" (kính nhìn trộm đơn lẻ) ban đầu đến mức hình ảnh có thể được chiếu lên màn hình trong một rạp chiếu phim tối. Vào đầu những năm 1890, Thomas Edison và trợ lý William Dickson đã phát minh ra Kinetoscope, một thiết bị nhìn lén trong đó một cá nhân xem một đoạn phim ngắn qua một thấu kính phóng đại. Những khu vui chơi Kinetoscope này được mô phỏng theo các phòng nghe máy quay đĩa (phonograph parlors), vốn đã chứng minh sự thành công cho Edison vài năm trước đó. Trong các khu vui chơi này, khách hàng có thể di chuyển từ máy này sang máy khác, xem các bộ phim ngắn về các vũ công, người tung hứng hoặc các trận đấu quyền anh.</p>\n<p><strong>Đoạn 2:</strong> Những khu vui chơi Kinetoscope này được mô phỏng theo các phòng nghe máy quay đĩa. Trong các phòng nghe máy quay đĩa, khách hàng nghe các bản thu âm qua các ống nghe cá nhân, di chuyển từ máy này sang máy khác để nghe nhiều bài hát hoặc các tiểu phẩm hài hước khác nhau. Các phòng Kinetoscope về cơ bản cũng áp dụng cách tiếp cận tương tự, cung cấp cho khách hàng loại hình giải trí mang tính cá nhân hóa tương tự với một khoản phí nhỏ.</p>\n<p><strong>Đoạn 3:</strong> [A] Tuy nhiên, các nhà chiếu phim muốn tối đa hóa lợi nhuận của họ, điều mà họ có thể thực hiện dễ dàng hơn bằng cách chiếu một số bộ phim cho hàng trăm khách hàng cùng một lúc (thay vì từng người một) và thu phí vào cửa từ 25 đến 50 xu. [B] Khoảng một năm sau khi khai trương phòng Kinetoscope đầu tiên vào năm 1894, các nhà làm trò như Louis và Auguste Lumière, Thomas Armat và Charles Francis Jenkins, cùng Orville và Woodville Latham (với sự giúp đỡ của cựu trợ lý của Edison là William Dickson) đã hoàn thiện các thiết bị máy chiếu. [C] Những thiết bị máy chiếu ban đầu này được sử dụng trong các rạp hát tạp kỹ, rạp hát chính thống, tòa thị chính địa phương, các rạp chiếu tạm bợ ở mặt tiền cửa hàng, hội chợ và công viên giải trí để chiếu phim cho đông đảo khán giả. [D]</p>\n<p><strong>Đoạn 4:</strong> Với sự ra đời của máy chiếu vào năm 1895-1896, phim ảnh đã trở thành hình thức tiêu thụ đại chúng đỉnh cao. Trước đây, đông đảo khán giả tụ tập tại nhà hát để xem các buổi diễn tạp kỹ, kịch nổi tiếng, nhạc kịch, các vở kịch cổ điển, bài giảng và trình chiếu đèn lồng. Nhưng phim ảnh khác biệt đáng kể so với các hình thức giải trí khác đòi hỏi biểu diễn trực tiếp hoặc sự tham gia tích cực của người dẫn chương trình.</p>\n<p><strong>Đoạn 5:</strong> Mặc dù các nhà chiếu phim thời kỳ đầu thường kết hợp phim với các tiết mục biểu diễn trực tiếp, bản thân nội dung phim đã được sản xuất hàng loạt, thu âm trước và có thể dễ dàng tái tạo tại các rạp với rất ít hoặc không cần sự tham gia của nhà chiếu phim. Khán giả đến rạp là để xem kỳ quan công nghệ của phim ảnh: sự tái hiện sống động như thật chuyển động của đoàn tàu, sóng vỗ bờ, dòng người đi bộ trên phố và phép thuật của nghệ thuật quay phim.</p>\n<p><strong>Đoạn 6:</strong> Với sự ra đời của máy chiếu, mối quan hệ của người xem với hình ảnh không còn mang tính riêng tư như trước. Nó đột nhiên trở thành trải nghiệm cộng đồng mà người xem chia sẻ với hàng chục, hàng trăm người khác. Đồng thời, hình ảnh mở rộng từ kích thước nhỏ bé 1-2 inch lên kích thước to lớn như người thật 6-9 feet.</p>",
     "questions": [
       {
         "num": 1,
@@ -6588,8 +6626,8 @@ const readingPracticesData = {
     "id": "rp-04",
     "title": "READING PRACTICE 04: DESERTIFICATION",
     "badge": "Passage 04",
-    "passage": "<div class=\"rp-paragraph\"><span class=\"rp-para-num\">Paragraph 1</span><p>The deserts, which already occupy approximately a fourth of the Earth's land surface, have in recent decades been increasing at an alarming pace. The expansion of desert-like conditions into areas where they did not previously exist is called <strong>desertification</strong>. It has been estimated that an additional one-fourth of the Earth's land surface is <strong>threatened</strong> by this process.</p></div>\n\n<div class=\"rp-paragraph\"><span class=\"rp-para-num\">Paragraph 2</span><p>Desertification is accomplished primarily through the loss of stabilizing natural vegetation and the subsequent accelerated erosion of the soil by wind and water. In some cases, the loose soil is blown completely away, leaving a stony surface. In other cases, the finer particles may be removed, while the sand-sized particles are accumulated to form mobile hills or ridges of sand.</p></div>\n\n<div class=\"rp-paragraph\"><span class=\"rp-para-num\">Paragraph 3</span><p>Even in the areas that retain a soil cover, the reduction of vegetation typically results in the loss of the soil's ability to absorb substantial quantities of water. The impact of raindrops on the loose soil tends to transfer fine clay particles into the tiniest soil spaces, sealing them and producing a surface that allows very little water penetration. Water absorption is greatly reduced, consequently runoff is increased, resulting in accelerated erosion rates. The gradual drying of the soil caused by its diminished ability to absorb water results in the further loss of vegetation, so that a cycle of progressive surface deterioration is established.</p></div>\n\n<div class=\"rp-paragraph\"><span class=\"rp-para-num\">Paragraph 4</span><p>In some regions, the increase in desert areas is occurring largely as the result of a trend toward drier climatic conditions. Continued gradual global warming has produced an increase in aridity for some areas over the past few thousand years. The process may be accelerated in subsequent decades if global warming resulting from air pollution seriously increases.</p></div>\n\n<div class=\"rp-paragraph\"><span class=\"rp-para-num\">Paragraph 5</span><p>There is little doubt, however, that desertification in most areas results primarily from human activities rather than natural processes. The semiarid lands bordering the deserts exist in a <strong>delicate</strong> ecological balance and are limited in their potential to adjust to increased environmental pressures. Expanding populations are subjecting the land to increasing pressures to provide them with food and fuel. In wet periods, the land may be able to respond to these stresses. During the dry periods that are common phenomena along the desert margins, though, the pressure on the land is often far in excess of its diminished capacity, and desertification results.</p></div>\n\n<div class=\"rp-paragraph\"><span class=\"rp-para-num\">Paragraph 6</span><p>Four specific activities have been identified as major contributors to the desertification processes: over-cultivation, over-grazing, firewood gathering, and over-irrigation. The cultivation of crops has expanded into <strong>progressively</strong> drier regions as population densities have grown. These regions are especially likely to have periods of severe dryness, so that crop failures are common. Since the raising of most crops necessitates the prior removal of the natural vegetation, crop failures leave extensive tracts of land devoid of a plant cover and susceptible to wind and water erosion.</p></div>\n\n<div class=\"rp-paragraph\"><span class=\"rp-para-num\">Paragraph 7</span><p>The raising of livestock is a major economic activity in semiarid lands, where grasses are generally the dominant type of natural vegetation. The consequences of an excessive number of livestock grazing in an area are the reduction of the vegetation cover and the trampling and pulverization of the soil. This is usually followed by the drying of the soil and accelerated erosion.</p></div>\n\n<div class=\"rp-paragraph\"><span class=\"rp-para-num\">Paragraph 8</span><p>Firewood is the chief fuel used for cooking and heating in many countries. The increased pressures of expanding populations have led to the removal of woody plants so that many cities and towns are surrounded by large areas completely lacking in trees and shrubs. The increasing use of dried animal waste as a substitute fuel has also hurt the soil because this valuable soil conditioner and source of plant nutrients is no longer being returned to the land.</p></div>\n\n<div class=\"rp-paragraph\"><span class=\"rp-para-num\">Paragraph 9</span><p>The final major human cause of desertification is soil salinization resulting from over-irrigation. Excess water from irrigation sinks down into the water table. If no drainage system exists, the water table rises, bringing dissolved salts to the surface. The water evaporates and the salts are left behind, creating a white crustal layer that prevents air and water from reaching the underlying soil.</p></div>\n\n<div class=\"rp-paragraph\"><span class=\"rp-para-num\">Paragraph 10</span><p><u>The extreme seriousness of desertification results from the vast areas of land and the tremendous numbers of people affected, as well as from the great difficulty of reversing or even slowing the process.</u> Once the soil has been removed by erosion, only the passage of centuries or millennia will enable new soil to form. In areas where considerable soil still remains, though, a rigorously enforced program of land protection and cover-crop planting may make it possible to reverse the present deterioration of the surface.</p></div>",
-    "translation": "<div class=\"rp-trans-para\"><strong>Đoạn 1:</strong> Các sa mạc, hiện đã chiếm khoảng 1/4 diện tích bề mặt đất liền của Trái Đất, trong những thập kỷ gần đây đã và đang gia tăng với tốc độ đáng báo động. Sự mở rộng của các điều kiện giống sa mạc vào những khu vực trước đây chưa từng có được gọi là sa mạc hóa (desertification). Người ta ước tính rằng thêm 1/4 diện tích đất liền của Trái Đất đang bị đe dọa bởi quá trình này.</div>\n<div class=\"rp-trans-para\"><strong>Đoạn 2:</strong> Sa mạc hóa diễn ra chủ yếu thông qua việc mất đi thảm thực vật tự nhiên có tác dụng ổn định đất và hệ quả là sự xói mòn đất nhanh chóng do gió và nước. Trong một số trường hợp, lớp đất mặt tơi xốp bị thổi bay hoàn toàn, trơ lại bề mặt đầy đá. Trong các trường hợp khác, các hạt mịn hơn bị cuốn đi, trong khi các hạt có kích thước bằng cát tích tụ lại tạo thành các đồi hoặc gờ cát di động.</div>\n<div class=\"rp-trans-para\"><strong>Đoạn 3:</strong> Ngay cả ở những khu vực vẫn còn lớp đất phủ, việc giảm thảm thực vật thường dẫn đến việc đất mất khả năng hấp thụ một lượng nước lớn. Tác động của các hạt mưa rơi xuống đất tơi xốp có xu hướng đẩy các hạt sét mịn vào những khe đất nhỏ nhất, bịt kín chúng lại và tạo ra một bề mặt khiến nước rất khó thấm qua. Khả năng hấp thụ nước bị giảm mạnh, do đó dòng chảy mặt tăng lên, dẫn đến tốc độ xói mòn tăng nhanh. Sự khô cằn dần của đất do khả năng hấp thụ nước suy giảm dẫn đến việc mất thêm thảm thực vật, từ đó hình thành một vòng luẩn quẩn suy thoái bề mặt đất ngày càng nghiêm trọng.</div>\n<div class=\"rp-trans-para\"><strong>Đoạn 4:</strong> Ở một số vùng, sự gia tăng diện tích sa mạc xảy ra phần lớn là do xu hướng điều kiện khí hậu trở nên khô hạn hơn. Sự nóng lên toàn cầu liên tục đã làm tăng độ khô hạn ở một số khu vực trong vài nghìn năm qua. Quá trình này có thể được đẩy nhanh trong những thập kỷ tiếp theo nếu sự nóng lên toàn cầu do ô nhiễm không khí tăng mạnh.</div>\n<div class=\"rp-trans-para\"><strong>Đoạn 5:</strong> Tuy nhiên, hầu như không còn nghi ngờ gì rằng sa mạc hóa ở hầu hết các khu vực chủ yếu bắt nguồn từ các hoạt động của con người hơn là các quá trình tự nhiên. Các vùng đất bán khô hạn giáp ranh với sa mạc tồn tại trong một sự cân bằng sinh thái mong manh và bị hạn chế về khả năng thích ứng với áp lực môi trường gia tăng. Dân số ngày càng tăng đang đặt vùng đất này dưới áp lực nặng nề để cung cấp lương thực và chất đốt. Vào những giai đoạn ẩm ướt, đất có thể chịu đựng được những áp lực này. Tuy nhiên, trong các đợt khô hạn vốn là hiện tượng phổ biến dọc theo rìa sa mạc, áp lực lên đất thường vượt xa khả năng chịu đựng suy giảm của nó, và kết quả là sa mạc hóa xảy ra.</div>\n<div class=\"rp-trans-para\"><strong>Đoạn 6:</strong> Bốn hoạt động cụ thể đã được xác định là nguyên nhân chính gây ra quá trình sa mạc hóa: canh tác quá mức, chăn thả quá mức, thu lượm củi và tưới tiêu quá mức. Việc trồng trọt hoa màu đã mở rộng sang các vùng ngày càng khô hạn hơn khi mật độ dân số tăng lên. Những vùng này đặc biệt dễ có những đợt khô hạn khắc nghiệt, dẫn đến mất mùa thường xuyên. Vì việc trồng hầu hết các loại cây trồng đòi hỏi phải loại bỏ thảm thực vật tự nhiên trước đó, nên mất mùa khiến những vùng đất rộng lớn không còn lớp thực vật che phủ và dễ bị gió và nước xói mòn.</div>\n<div class=\"rp-trans-para\"><strong>Đoạn 7:</strong> Chăn nuôi gia súc là một hoạt động kinh tế lớn ở các vùng đất bán khô hạn, nơi cỏ là loại thực vật tự nhiên chiếm ưu thế. Hậu quả của số lượng gia súc gặm cỏ quá mức trong một khu vực là sự suy giảm thảm thực vật cũng như sự giẫm đạp và nghiền vụn đất. Điều này thường kéo theo việc đất bị khô và xói mòn tăng tốc.</div>\n<div class=\"rp-trans-para\"><strong>Đoạn 8:</strong> Củi là chất đốt chính dùng để nấu ăn và sưởi ấm ở nhiều quốc gia. Áp lực ngày càng tăng của dân số đông đã dẫn đến việc chặt phá các loài cây thân gỗ, khiến nhiều thành phố và thị trấn bị bao quanh bởi những khu vực rộng lớn hoàn toàn không có cây cối và cây bụi. Việc gia tăng sử dụng phân động vật phơi khô làm chất đốt thay thế cũng gây tổn hại cho đất vì nguồn phân bón và chất dinh dưỡng quý giá này không còn được trả lại cho đất.</div>\n<div class=\"rp-trans-para\"><strong>Đoạn 9:</strong> Nguyên nhân lớn cuối cùng do con người gây ra sa mạc hóa là sự nhiễm mặn của đất do tưới tiêu quá mức. Nước thừa từ quá trình tưới ngấm xuống tầng nước ngầm. Nếu không có hệ thống thoát nước, mực nước ngầm sẽ dâng cao, mang theo muối hòa tan lên bề mặt. Nước bốc hơi và muối đọng lại, tạo thành một lớp váng trắng ngăn không khí và nước tiếp cận lớp đất bên dưới.</div>\n<div class=\"rp-trans-para\"><strong>Đoạn 10:</strong> Mức độ cực kỳ nghiêm trọng của nạn sa mạc hóa bắt nguồn từ diện tích đất đai rộng lớn và số lượng người bị ảnh hưởng khổng lồ, cũng như từ sự khó khăn to lớn trong việc đảo ngược hoặc thậm chí làm chậm lại quá trình này. Một khi đất đã bị xói mòn, phải mất hàng thế kỷ hoặc hàng thiên niên kỷ thì đất mới có thể hình thành lại. Tuy nhiên, ở những khu vực vẫn còn lượng đất đáng kể, một chương trình bảo vệ đất và trồng cây che phủ được thực thi nghiêm ngặt có thể giúp đảo ngược sự suy thoái bề mặt hiện tại.</div>",
+    "passage": "<p>The deserts, which already occupy approximately a fourth of the Earth's land surface, have in recent decades been increasing at an alarming pace. The expansion of desert-like conditions into areas where they did not previously exist is called <strong>desertification</strong>. It has been estimated that an additional one-fourth of the Earth's land surface is <strong>threatened</strong> by this process.</p>\n\n<p>Desertification is accomplished primarily through the loss of stabilizing natural vegetation and the subsequent accelerated erosion of the soil by wind and water. In some cases, the loose soil is blown completely away, leaving a stony surface. In other cases, the finer particles may be removed, while the sand-sized particles are accumulated to form mobile hills or ridges of sand.</p>\n\n<p>Even in the areas that retain a soil cover, the reduction of vegetation typically results in the loss of the soil's ability to absorb substantial quantities of water. The impact of raindrops on the loose soil tends to transfer fine clay particles into the tiniest soil spaces, sealing them and producing a surface that allows very little water penetration. Water absorption is greatly reduced, consequently runoff is increased, resulting in accelerated erosion rates. The gradual drying of the soil caused by its diminished ability to absorb water results in the further loss of vegetation, so that a cycle of progressive surface deterioration is established.</p>\n\n<p>In some regions, the increase in desert areas is occurring largely as the result of a trend toward drier climatic conditions. Continued gradual global warming has produced an increase in aridity for some areas over the past few thousand years. The process may be accelerated in subsequent decades if global warming resulting from air pollution seriously increases.</p>\n\n<p>There is little doubt, however, that desertification in most areas results primarily from human activities rather than natural processes. The semiarid lands bordering the deserts exist in a <strong>delicate</strong> ecological balance and are limited in their potential to adjust to increased environmental pressures. Expanding populations are subjecting the land to increasing pressures to provide them with food and fuel. In wet periods, the land may be able to respond to these stresses. During the dry periods that are common phenomena along the desert margins, though, the pressure on the land is often far in excess of its diminished capacity, and desertification results.</p>\n\n<p>Four specific activities have been identified as major contributors to the desertification processes: over-cultivation, over-grazing, firewood gathering, and over-irrigation. The cultivation of crops has expanded into <strong>progressively</strong> drier regions as population densities have grown. These regions are especially likely to have periods of severe dryness, so that crop failures are common. Since the raising of most crops necessitates the prior removal of the natural vegetation, crop failures leave extensive tracts of land devoid of a plant cover and susceptible to wind and water erosion.</p>\n\n<p>The raising of livestock is a major economic activity in semiarid lands, where grasses are generally the dominant type of natural vegetation. The consequences of an excessive number of livestock grazing in an area are the reduction of the vegetation cover and the trampling and pulverization of the soil. This is usually followed by the drying of the soil and accelerated erosion.</p>\n\n<p>Firewood is the chief fuel used for cooking and heating in many countries. The increased pressures of expanding populations have led to the removal of woody plants so that many cities and towns are surrounded by large areas completely lacking in trees and shrubs. The increasing use of dried animal waste as a substitute fuel has also hurt the soil because this valuable soil conditioner and source of plant nutrients is no longer being returned to the land.</p>\n\n<p>The final major human cause of desertification is soil salinization resulting from over-irrigation. Excess water from irrigation sinks down into the water table. If no drainage system exists, the water table rises, bringing dissolved salts to the surface. The water evaporates and the salts are left behind, creating a white crustal layer that prevents air and water from reaching the underlying soil.</p>\n\n<p><u>The extreme seriousness of desertification results from the vast areas of land and the tremendous numbers of people affected, as well as from the great difficulty of reversing or even slowing the process.</u> Once the soil has been removed by erosion, only the passage of centuries or millennia will enable new soil to form. In areas where considerable soil still remains, though, a rigorously enforced program of land protection and cover-crop planting may make it possible to reverse the present deterioration of the surface.</p>",
+    "translation": "<p><strong>Đoạn 1:</strong> Các sa mạc, hiện đã chiếm khoảng 1/4 diện tích bề mặt đất liền của Trái Đất, trong những thập kỷ gần đây đã và đang gia tăng với tốc độ đáng báo động. Sự mở rộng của các điều kiện giống sa mạc vào những khu vực trước đây chưa từng có được gọi là sa mạc hóa (desertification). Người ta ước tính rằng thêm 1/4 diện tích đất liền của Trái Đất đang bị đe dọa bởi quá trình này.</p>\n<p><strong>Đoạn 2:</strong> Sa mạc hóa diễn ra chủ yếu thông qua việc mất đi thảm thực vật tự nhiên có tác dụng ổn định đất và hệ quả là sự xói mòn đất nhanh chóng do gió và nước. Trong một số trường hợp, lớp đất mặt tơi xốp bị thổi bay hoàn toàn, trơ lại bề mặt đầy đá. Trong các trường hợp khác, các hạt mịn hơn bị cuốn đi, trong khi các hạt có kích thước bằng cát tích tụ lại tạo thành các đồi hoặc gờ cát di động.</p>\n<p><strong>Đoạn 3:</strong> Ngay cả ở những khu vực vẫn còn lớp đất phủ, việc giảm thảm thực vật thường dẫn đến việc đất mất khả năng hấp thụ một lượng nước lớn. Tác động của các hạt mưa rơi xuống đất tơi xốp có xu hướng đẩy các hạt sét mịn vào những khe đất nhỏ nhất, bịt kín chúng lại và tạo ra một bề mặt khiến nước rất khó thấm qua. Khả năng hấp thụ nước bị giảm mạnh, do đó dòng chảy mặt tăng lên, dẫn đến tốc độ xói mòn tăng nhanh. Sự khô cằn dần của đất do khả năng hấp thụ nước suy giảm dẫn đến việc mất thêm thảm thực vật, từ đó hình thành một vòng luẩn quẩn suy thoái bề mặt đất ngày càng nghiêm trọng.</p>\n<p><strong>Đoạn 4:</strong> Ở một số vùng, sự gia tăng diện tích sa mạc xảy ra phần lớn là do xu hướng điều kiện khí hậu trở nên khô hạn hơn. Sự nóng lên toàn cầu liên tục đã làm tăng độ khô hạn ở một số khu vực trong vài nghìn năm qua. Quá trình này có thể được đẩy nhanh trong những thập kỷ tiếp theo nếu sự nóng lên toàn cầu do ô nhiễm không khí tăng mạnh.</p>\n<p><strong>Đoạn 5:</strong> Tuy nhiên, hầu như không còn nghi ngờ gì rằng sa mạc hóa ở hầu hết các khu vực chủ yếu bắt nguồn từ các hoạt động của con người hơn là các quá trình tự nhiên. Các vùng đất bán khô hạn giáp ranh với sa mạc tồn tại trong một sự cân bằng sinh thái mong manh và bị hạn chế về khả năng thích ứng với áp lực môi trường gia tăng. Dân số ngày càng tăng đang đặt vùng đất này dưới áp lực nặng nề để cung cấp lương thực và chất đốt. Vào những giai đoạn ẩm ướt, đất có thể chịu đựng được những áp lực này. Tuy nhiên, trong các đợt khô hạn vốn là hiện tượng phổ biến dọc theo rìa sa mạc, áp lực lên đất thường vượt xa khả năng chịu đựng suy giảm của nó, và kết quả là sa mạc hóa xảy ra.</p>\n<p><strong>Đoạn 6:</strong> Bốn hoạt động cụ thể đã được xác định là nguyên nhân chính gây ra quá trình sa mạc hóa: canh tác quá mức, chăn thả quá mức, thu lượm củi và tưới tiêu quá mức. Việc trồng trọt hoa màu đã mở rộng sang các vùng ngày càng khô hạn hơn khi mật độ dân số tăng lên. Những vùng này đặc biệt dễ có những đợt khô hạn khắc nghiệt, dẫn đến mất mùa thường xuyên. Vì việc trồng hầu hết các loại cây trồng đòi hỏi phải loại bỏ thảm thực vật tự nhiên trước đó, nên mất mùa khiến những vùng đất rộng lớn không còn lớp thực vật che phủ và dễ bị gió và nước xói mòn.</p>\n<p><strong>Đoạn 7:</strong> Chăn nuôi gia súc là một hoạt động kinh tế lớn ở các vùng đất bán khô hạn, nơi cỏ là loại thực vật tự nhiên chiếm ưu thế. Hậu quả của số lượng gia súc gặm cỏ quá mức trong một khu vực là sự suy giảm thảm thực vật cũng như sự giẫm đạp và nghiền vụn đất. Điều này thường kéo theo việc đất bị khô và xói mòn tăng tốc.</p>\n<p><strong>Đoạn 8:</strong> Củi là chất đốt chính dùng để nấu ăn và sưởi ấm ở nhiều quốc gia. Áp lực ngày càng tăng của dân số đông đã dẫn đến việc chặt phá các loài cây thân gỗ, khiến nhiều thành phố và thị trấn bị bao quanh bởi những khu vực rộng lớn hoàn toàn không có cây cối và cây bụi. Việc gia tăng sử dụng phân động vật phơi khô làm chất đốt thay thế cũng gây tổn hại cho đất vì nguồn phân bón và chất dinh dưỡng quý giá này không còn được trả lại cho đất.</p>\n<p><strong>Đoạn 9:</strong> Nguyên nhân lớn cuối cùng do con người gây ra sa mạc hóa là sự nhiễm mặn của đất do tưới tiêu quá mức. Nước thừa từ quá trình tưới ngấm xuống tầng nước ngầm. Nếu không có hệ thống thoát nước, mực nước ngầm sẽ dâng cao, mang theo muối hòa tan lên bề mặt. Nước bốc hơi và muối đọng lại, tạo thành một lớp váng trắng ngăn không khí và nước tiếp cận lớp đất bên dưới.</p>\n<p><strong>Đoạn 10:</strong> Mức độ cực kỳ nghiêm trọng của nạn sa mạc hóa bắt nguồn từ diện tích đất đai rộng lớn và số lượng người bị ảnh hưởng khổng lồ, cũng như từ sự khó khăn to lớn trong việc đảo ngược hoặc thậm chí làm chậm lại quá trình này. Một khi đất đã bị xói mòn, phải mất hàng thế kỷ hoặc hàng thiên niên kỷ thì đất mới có thể hình thành lại. Tuy nhiên, ở những khu vực vẫn còn lượng đất đáng kể, một chương trình bảo vệ đất và trồng cây che phủ được thực thi nghiêm ngặt có thể giúp đảo ngược sự suy thoái bề mặt hiện tại.</p>",
     "questions": [
       {
         "num": 1,
@@ -8223,56 +8261,60 @@ const mockTestPassages = [
      SECTION: READING PRACTICE (SPLIT SCREEN)
      ========================================================================== -->
 <div class="content-section hidden" id="sec-reading-practice">
-    <div class="content-card" style="padding: 20px 24px; max-width: 1440px; margin: 0 auto;">
-        <!-- Header Bar -->
-        <div class="rp-header-bar" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; margin-bottom: 16px; padding-bottom: 14px; border-bottom: 1.5px solid var(--border-color);">
-            <div>
-                <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
-                    <span id="rp-badge" style="background: #6366f1; color: white; padding: 4px 12px; border-radius: 20px; font-weight: 800; font-size: 0.85rem;">Passage 01</span>
-                    <h2 id="rp-title" style="margin: 0; font-size: 1.35rem; font-weight: 800; color: var(--text-color);">READING PRACTICE 01: MOUNT RUSHMORE</h2>
-                </div>
-                <p style="margin: 4px 0 0 0; color: var(--text-muted); font-size: 0.9rem;">
-                    <i class="fa-solid fa-highlighter" style="color: #6366f1;"></i> Bôi đen từ/câu trên bài đọc để <strong>Highlight</strong> hoặc <strong>Gạch chân</strong> từ vựng quan trọng.
-                </p>
+    <div class="rp-container-wide">
+        <!-- Top Bar: Part Tabs (Phần 1, Phần 2, Phần 3, Phần 4) & Score Display -->
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 14px; background: #ffffff; padding: 12px 20px; border-radius: 14px; border: 1.5px solid #e2e8f0; box-shadow: 0 2px 6px rgba(0,0,0,0.02);">
+            <!-- Part Switcher Tabs -->
+            <div class="rp-part-tabs-bar" style="margin-bottom: 0;">
+                <button class="rp-part-tab-btn active" id="rp-part-tab-rp-01" onclick="switchRPPart('rp-01')">
+                    <span>Phần 1: Mount Rushmore</span>
+                    <span class="rp-part-score-tag" id="rp-tab-score-rp-01">0/10</span>
+                </button>
+                <button class="rp-part-tab-btn" id="rp-part-tab-rp-02" onclick="switchRPPart('rp-02')">
+                    <span>Phần 2: Narcolepsy</span>
+                    <span class="rp-part-score-tag" id="rp-tab-score-rp-02">0/10</span>
+                </button>
+                <button class="rp-part-tab-btn" id="rp-part-tab-rp-03" onclick="switchRPPart('rp-03')">
+                    <span>Phần 3: The Cinema</span>
+                    <span class="rp-part-score-tag" id="rp-tab-score-rp-03">0/10</span>
+                </button>
+                <button class="rp-part-tab-btn" id="rp-part-tab-rp-04" onclick="switchRPPart('rp-04')">
+                    <span>Phần 4: Desertification</span>
+                    <span class="rp-part-score-tag" id="rp-tab-score-rp-04">0/10</span>
+                </button>
             </div>
+
+            <!-- Right Controls: Font size, Translation, Reset -->
             <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
-                <div style="display: flex; align-items: center; gap: 6px; background: #ffffff; border: 1.5px solid #cbd5e1; padding: 4px 8px; border-radius: 10px;">
-                    <span style="font-size: 0.82rem; font-weight: 800; color: #64748b; margin-right: 4px;"><i class="fa-solid fa-text-height" style="color: #6366f1;"></i> Cỡ chữ:</span>
-                    <button class="rp-font-control-btn" id="rp-btn-font-dec" title="Thu nhỏ chữ">A-</button>
-                    <button class="rp-font-control-btn" id="rp-btn-font-inc" title="Phóng to chữ">A+</button>
+                <div style="display: flex; align-items: center; gap: 4px; background: #f8fafc; border: 1.5px solid #cbd5e1; padding: 4px 8px; border-radius: 8px;">
+                    <span style="font-size: 0.82rem; font-weight: 800; color: #64748b;"><i class="fa-solid fa-text-height" style="color: #3b82f6;"></i> Cỡ chữ:</span>
+                    <button class="rp-font-control-btn" id="rp-btn-font-dec" title="Thu nhỏ chữ" style="padding: 4px 10px; font-weight: 800; cursor: pointer; border: 1px solid #cbd5e1; border-radius: 6px; background: #fff;">A-</button>
+                    <button class="rp-font-control-btn" id="rp-btn-font-inc" title="Phóng to chữ" style="padding: 4px 10px; font-weight: 800; cursor: pointer; border: 1px solid #cbd5e1; border-radius: 6px; background: #fff;">A+</button>
                 </div>
-                <div class="rp-score-badge" style="background: #ffffff; border: 1.5px solid #cbd5e1; border-radius: 10px; padding: 8px 14px; font-weight: 800; font-size: 0.92rem; display: flex; gap: 10px;">
-                    <span>Đã làm: <strong id="rp-attempted-count" style="color: #6366f1;">0</strong>/10</span>
+                <div class="rp-score-badge" style="background: #f8fafc; border: 1.5px solid #cbd5e1; border-radius: 8px; padding: 6px 14px; font-weight: 800; font-size: 0.92rem; display: flex; gap: 10px;">
+                    <span>Đã làm: <strong id="rp-attempted-count" style="color: #3b82f6;">0</strong>/10</span>
                     <span style="color: #cbd5e1;">|</span>
                     <span>Đúng: <strong id="rp-correct-count" style="color: #10b981;">0</strong></span>
                 </div>
-                <button id="rp-btn-toggle-trans" style="background: #f8fafc; color: #334155; border: 1.5px solid #cbd5e1; border-radius: 10px; padding: 8px 14px; font-weight: 700; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; gap: 6px;">
-                    <i class="fa-solid fa-language" style="color: #6366f1;"></i> <span id="rp-trans-btn-text">Dịch Bài Đọc</span>
+                <button id="rp-btn-toggle-trans" style="background: #ffffff; color: #1e293b; border: 1.5px solid #cbd5e1; border-radius: 8px; padding: 6px 12px; font-weight: 700; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+                    <i class="fa-solid fa-language" style="color: #3b82f6;"></i> <span id="rp-trans-btn-text">Dịch Bài Đọc</span>
                 </button>
-                <button id="rp-btn-reset" style="background: #ffffff; color: #dc2626; border: 1.5px solid #fca5a5; border-radius: 10px; padding: 8px 14px; font-weight: 700; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+                <button id="rp-btn-reset" style="background: #ffffff; color: #dc2626; border: 1.5px solid #fca5a5; border-radius: 8px; padding: 6px 12px; font-weight: 700; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; gap: 6px;">
                     <i class="fa-solid fa-rotate-left"></i> Làm lại
                 </button>
             </div>
         </div>
 
-        <!-- Question Navigator Pills -->
-        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; background: #f8fafc; padding: 10px 14px; border-radius: 10px; border: 1px solid var(--border-color);">
-            <span style="font-size: 0.88rem; font-weight: 800; color: #475569;"><i class="fa-solid fa-list-ol" style="color: #6366f1;"></i> Câu hỏi:</span>
-            <div id="rp-navigator-pills" style="display: flex; gap: 6px; flex-wrap: wrap;">
-                <!-- 10 pills injected dynamically -->
-            </div>
-        </div>
-
         <!-- Split Screen Container -->
         <div class="rp-split-container">
-            <!-- Left: Passage Panel -->
+            <!-- Left: Spacious Passage Panel -->
             <div class="rp-passage-panel" id="rp-passage-container">
                 <div id="rp-passage-content" class="selectable-text rp-passage-body">
                     <!-- Passage text injected dynamically -->
                 </div>
-                <div id="rp-passage-translation" style="display: none; margin-top: 24px; padding: 18px; background: #f0fdf4; border-left: 4px solid #10b981; border-radius: 10px; font-size: 0.98rem; line-height: 1.8; color: #166534;">
-                    <h4 style="margin: 0 0 10px 0; color: #15803d; font-weight: 800; display: flex; align-items: center; gap: 6px;">
-                        <i class="fa-solid fa-language"></i> BẢN DỊCH TIẾNG VIỆT
+                <div id="rp-passage-translation" style="display: none; margin-top: 28px; padding: 20px; background: #f0fdf4; border-left: 4px solid #10b981; border-radius: 12px; font-size: 1.05rem; line-height: 2.0; color: #166534;">
+                    <h4 style="margin: 0 0 14px 0; color: #15803d; font-weight: 800; font-size: 1.1rem; display: flex; align-items: center; gap: 8px;">
+                        <i class="fa-solid fa-language"></i> BẢN DỊCH TIẾNG VIỆT TOÀN BÀI
                     </h4>
                     <div id="rp-passage-translation-body"></div>
                 </div>
@@ -8280,6 +8322,10 @@ const mockTestPassages = [
 
             <!-- Right: Scrollable Questions Panel -->
             <div class="rp-questions-panel" id="rp-questions-container">
+                <div class="rp-info-banner">
+                    <i class="fa-solid fa-circle-info" style="font-size: 1.1rem;"></i>
+                    <span>Chọn đáp án và bấm <strong>"Kiểm tra đáp án"</strong> để xem giải thích chi tiết và bản dịch từng câu.</span>
+                </div>
                 <!-- 10 question cards injected dynamically -->
             </div>
         </div>
@@ -12003,8 +12049,9 @@ document.addEventListener('click', function(e) {
     }
 });
 
+
 // ==========================================================================
-// READING PRACTICE INTERACTIVE CONTROLLER
+// READING PRACTICE INTERACTIVE CONTROLLER (SUPER WIDE & STRUCTURED)
 // ==========================================================================
 let currentRPState = {
     rpId: 'rp-01',
@@ -12012,15 +12059,41 @@ let currentRPState = {
     checked: Array(10).fill(false)
 };
 
+let allRPProgress = {
+    'rp-01': { attempted: 0, correct: 0 },
+    'rp-02': { attempted: 0, correct: 0 },
+    'rp-03': { attempted: 0, correct: 0 },
+    'rp-04': { attempted: 0, correct: 0 }
+};
 
-// Font size adjuster for Reading Practice
-let currentRPFontSize = 18;
+let currentRPFontSize = 18.5; // default comfortable font size
+
 function adjustRPFontSize(delta) {
-    currentRPFontSize = Math.max(15, Math.min(26, currentRPFontSize + delta));
+    currentRPFontSize = Math.max(15, Math.min(28, currentRPFontSize + delta));
     const passageEl = document.getElementById('rp-passage-content');
     if (passageEl) {
         passageEl.style.fontSize = `${currentRPFontSize}px`;
     }
+}
+
+function switchRPPart(rpId) {
+    // Update active tab button
+    document.querySelectorAll('.rp-part-tab-btn').forEach(btn => btn.classList.remove('active'));
+    const targetTab = document.getElementById(`rp-part-tab-${rpId}`);
+    if (targetTab) targetTab.classList.add('active');
+
+    // Update sidebar active link
+    document.querySelectorAll('.sub-tab-link').forEach(l => {
+        if (l.dataset.section === 'reading-practice') {
+            if (l.dataset.rpId === rpId) {
+                l.classList.add('active');
+            } else {
+                l.classList.remove('active');
+            }
+        }
+    });
+
+    loadReadingPractice(rpId);
 }
 
 function loadReadingPractice(rpId) {
@@ -12033,16 +12106,16 @@ function loadReadingPractice(rpId) {
         checked: Array(data.questions.length).fill(false)
     };
 
-    // Update Header
-    const badgeEl = document.getElementById('rp-badge');
-    const titleEl = document.getElementById('rp-title');
-    if (badgeEl) badgeEl.textContent = data.badge || 'Reading Practice';
-    if (titleEl) titleEl.textContent = data.title;
+    // Update active part tab
+    document.querySelectorAll('.rp-part-tab-btn').forEach(btn => btn.classList.remove('active'));
+    const targetTab = document.getElementById(`rp-part-tab-${rpId}`);
+    if (targetTab) targetTab.classList.add('active');
 
     // Load Passage
     const passageContent = document.getElementById('rp-passage-content');
     if (passageContent) {
         passageContent.innerHTML = data.passage;
+        passageContent.style.fontSize = `${currentRPFontSize}px`;
     }
 
     // Load Passage Translation
@@ -12053,13 +12126,10 @@ function loadReadingPractice(rpId) {
     if (transContainer) transContainer.style.display = 'none';
     if (transBtnText) transBtnText.textContent = 'Dịch Bài Đọc';
 
-    // Render Navigator Pills
-    renderRPNavigator(data.questions.length);
-
     // Render Questions
     renderRPQuestions(data.questions);
 
-    // Update score
+    // Update score display
     updateRPScore();
 
     // Reset scroll positions
@@ -12069,54 +12139,36 @@ function loadReadingPractice(rpId) {
     if (qPanel) qPanel.scrollTop = 0;
 }
 
-function renderRPNavigator(total) {
-    const container = document.getElementById('rp-navigator-pills');
-    if (!container) return;
-    container.innerHTML = '';
-
-    for (let i = 0; i < total; i++) {
-        const btn = document.createElement('button');
-        btn.className = 'rp-nav-pill';
-        btn.id = `rp-nav-pill-${i}`;
-        btn.textContent = i + 1;
-        btn.title = `Nhảy đến câu ${i + 1}`;
-        btn.onclick = () => {
-            scrollToRPQuestion(i);
-        };
-        container.appendChild(btn);
-    }
-}
-
-function scrollToRPQuestion(qIdx) {
-    const card = document.getElementById(`rp-qcard-${qIdx}`);
-    if (card) {
-        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        document.querySelectorAll('.rp-qcard').forEach(c => c.classList.remove('active-target'));
-        card.classList.add('active-target');
-        setTimeout(() => card.classList.remove('active-target'), 1500);
-    }
-}
-
 function renderRPQuestions(questions) {
     const container = document.getElementById('rp-questions-container');
     if (!container) return;
-    container.innerHTML = '';
+    
+    // Retain top info banner
+    container.innerHTML = `
+        <div class="rp-info-banner">
+            <i class="fa-solid fa-circle-info" style="font-size: 1.1rem; color: #2563eb;"></i>
+            <span>Bấm chọn đáp án và nhấn <strong>"Kiểm tra đáp án"</strong> để xem giải thích chi tiết và bản dịch từng câu.</span>
+        </div>
+    `;
 
     questions.forEach((q, qIdx) => {
         const card = document.createElement('div');
         card.className = 'rp-qcard';
         card.id = `rp-qcard-${qIdx}`;
 
-        // Header
+        // Header with red Câu badge & Vietnamese question text right underneath
         const header = document.createElement('div');
         header.className = 'rp-qcard-header';
         header.innerHTML = `
-            <span class="rp-qnum">Câu ${qIdx + 1}</span>
-            <div class="rp-qtext">${q.question}</div>
+            <span class="rp-qnum-badge">Câu ${qIdx + 1}</span>
+            <div class="rp-qtext-group">
+                <div class="rp-qtext-en">${q.question}</div>
+                ${q.translationQuestion ? `<div class="rp-qtext-vi">${q.translationQuestion}</div>` : ''}
+            </div>
         `;
         card.appendChild(header);
 
-        // Options List
+        // Options List (English + Vietnamese translation)
         const optList = document.createElement('div');
         optList.className = 'rp-options-list';
 
@@ -12124,10 +12176,23 @@ function renderRPQuestions(questions) {
             const btn = document.createElement('button');
             btn.className = 'rp-option-btn';
             btn.id = `rp-opt-btn-${qIdx}-${optIdx}`;
-            btn.innerHTML = `<strong>${String.fromCharCode(65 + optIdx)}.</strong> <span>${optText.replace(/^[A-D]\.\s*/, '')}</span>`;
+            
+            const viText = (q.translationOptions && q.translationOptions[optIdx]) ? q.translationOptions[optIdx].replace(/^[A-D]\.\s*/, '') : '';
+            const enText = optText.replace(/^[A-D]\.\s*/, '');
+
+            btn.innerHTML = `
+                <div style="display: flex; align-items: flex-start; gap: 12px;">
+                    <strong style="color: #64748b; font-size: 1rem;">${String.fromCharCode(65 + optIdx)}.</strong>
+                    <div class="rp-opt-text-box">
+                        <div class="rp-opt-en">${enText}</div>
+                        ${viText ? `<div class="rp-opt-vi">${viText}</div>` : ''}
+                    </div>
+                </div>
+                <div id="rp-opt-icon-${qIdx}-${optIdx}"></div>
+            `;
             
             btn.onclick = () => {
-                if (currentRPState.checked[qIdx]) return; // locked after check
+                if (currentRPState.checked[qIdx]) return;
                 selectRPOption(qIdx, optIdx);
             };
             optList.appendChild(btn);
@@ -12139,55 +12204,29 @@ function renderRPQuestions(questions) {
         actionRow.style.display = 'flex';
         actionRow.style.justifyContent = 'space-between';
         actionRow.style.alignItems = 'center';
-        actionRow.style.marginTop = '12px';
+        actionRow.style.marginTop = '14px';
         actionRow.style.gap = '10px';
         actionRow.style.flexWrap = 'wrap';
 
         const checkBtn = document.createElement('button');
         checkBtn.id = `rp-check-btn-${qIdx}`;
-        checkBtn.style.cssText = 'background: #6366f1; color: white; border: none; border-radius: 8px; padding: 7px 16px; font-weight: 700; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; gap: 6px;';
+        checkBtn.style.cssText = 'background: #3b82f6; color: white; border: none; border-radius: 8px; padding: 8px 18px; font-weight: 700; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 2px 6px rgba(59, 130, 246, 0.25);';
         checkBtn.innerHTML = '<i class="fa-solid fa-check"></i> Kiểm tra đáp án';
         checkBtn.onclick = () => checkRPAnswer(qIdx);
 
-        const toggleExpBtn = document.createElement('button');
-        toggleExpBtn.id = `rp-toggle-exp-${qIdx}`;
-        toggleExpBtn.style.cssText = 'display: none; background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; border-radius: 8px; padding: 7px 14px; font-weight: 700; font-size: 0.85rem; cursor: pointer;';
-        toggleExpBtn.innerHTML = '<i class="fa-solid fa-lightbulb" style="color: #eab308;"></i> Xem giải thích';
-        toggleExpBtn.onclick = () => {
-            const expBox = document.getElementById(`rp-exp-box-${qIdx}`);
-            if (expBox) {
-                expBox.style.display = (expBox.style.display === 'none') ? 'block' : 'none';
-            }
-        };
-
         actionRow.appendChild(checkBtn);
-        actionRow.appendChild(toggleExpBtn);
         card.appendChild(actionRow);
 
-        // Explanation & Translation Box
+        // Explanation Box
         const expBox = document.createElement('div');
         expBox.id = `rp-exp-box-${qIdx}`;
-        expBox.style.cssText = 'display: none; margin-top: 14px; padding: 14px; border-radius: 10px; font-size: 0.92rem; line-height: 1.65;';
+        expBox.style.cssText = 'display: none; margin-top: 14px; padding: 14px 18px; border-radius: 10px; font-size: 0.95rem; line-height: 1.7;';
         
-        let transOptHtml = '';
-        if (q.translationOptions && q.translationOptions.length) {
-            transOptHtml = `
-                <div style="margin-top: 10px; padding-top: 10px; border-top: 1px dashed #cbd5e1; font-size: 0.88rem; color: #475569;">
-                    <strong><i class="fa-solid fa-language"></i> Dịch câu hỏi:</strong> ${q.translationQuestion || ''}<br/>
-                    <strong style="margin-top: 4px; display: inline-block;">Dịch phương án:</strong>
-                    <ul style="margin: 4px 0 0 0; padding-left: 18px;">
-                        ${q.translationOptions.map(to => `<li>${to}</li>`).join('')}
-                    </ul>
-                </div>
-            `;
-        }
-
         expBox.innerHTML = `
-            <div id="rp-exp-header-${qIdx}" style="font-weight: 800; font-size: 0.95rem; margin-bottom: 6px;"></div>
+            <div id="rp-exp-header-${qIdx}" style="font-weight: 800; font-size: 0.98rem; margin-bottom: 6px;"></div>
             <div id="rp-exp-body-${qIdx}" style="color: #1e293b;">
                 <strong>🔍 Giải thích chi tiết:</strong> ${q.explanation}
             </div>
-            ${transOptHtml}
         `;
         card.appendChild(expBox);
 
@@ -12198,7 +12237,6 @@ function renderRPQuestions(questions) {
 function selectRPOption(qIdx, optIdx) {
     currentRPState.answers[qIdx] = optIdx;
     
-    // Update button styling
     const data = readingPracticesData[currentRPState.rpId];
     const totalOpts = data.questions[qIdx].options.length;
     for (let i = 0; i < totalOpts; i++) {
@@ -12210,12 +12248,6 @@ function selectRPOption(qIdx, optIdx) {
                 btn.classList.remove('selected');
             }
         }
-    }
-
-    // Update Nav pill to answered (blue)
-    const pill = document.getElementById(`rp-nav-pill-${qIdx}`);
-    if (pill && !currentRPState.checked[qIdx]) {
-        pill.className = 'rp-nav-pill answered';
     }
 
     updateRPScore();
@@ -12236,23 +12268,20 @@ function checkRPAnswer(qIdx) {
     // Play sound
     playSound(isCorrect ? 'success' : 'fail');
 
-    // Update option buttons UI
+    // Update option buttons UI with checkmark / cross icon
     for (let i = 0; i < q.options.length; i++) {
         const btn = document.getElementById(`rp-opt-btn-${qIdx}-${i}`);
+        const iconDiv = document.getElementById(`rp-opt-icon-${qIdx}-${i}`);
         if (btn) {
             btn.classList.remove('selected');
             if (i === q.correctIdx) {
                 btn.classList.add('correct');
+                if (iconDiv) iconDiv.innerHTML = '<i class="fa-regular fa-circle-check rp-opt-status-icon correct"></i>';
             } else if (i === selected && !isCorrect) {
                 btn.classList.add('incorrect');
+                if (iconDiv) iconDiv.innerHTML = '<i class="fa-regular fa-circle-xmark rp-opt-status-icon incorrect"></i>';
             }
         }
-    }
-
-    // Update Nav Pill
-    const pill = document.getElementById(`rp-nav-pill-${qIdx}`);
-    if (pill) {
-        pill.className = isCorrect ? 'rp-nav-pill correct' : 'rp-nav-pill wrong';
     }
 
     // Disable Check Button
@@ -12308,7 +12337,19 @@ function updateRPScore() {
     const corrEl = document.getElementById('rp-correct-count');
     if (attEl) attEl.textContent = attempted;
     if (corrEl) corrEl.textContent = correct;
+
+    // Update tab score tag
+    const tabTag = document.getElementById(`rp-tab-score-${currentRPState.rpId}`);
+    if (tabTag) {
+        tabTag.textContent = `${correct}/${data.questions.length}`;
+        if (correct >= 7) {
+            tabTag.className = 'rp-part-score-tag good';
+        } else {
+            tabTag.className = 'rp-part-score-tag';
+        }
+    }
 }
+
 
 // Global Event Listeners for RP buttons
 document.addEventListener('DOMContentLoaded', () => {
