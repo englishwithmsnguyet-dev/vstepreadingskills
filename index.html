@@ -3644,6 +3644,15 @@ em, i {
    ========================================================================== */
 
 
+
+/* Hide Hero Header and Dashboard Cockpit in Reading Practice mode */
+.main-content.rp-mode > header.hero,
+.main-content.rp-mode > .dashboard-cockpit,
+.main-content:has(#sec-reading-practice:not(.hidden)) > header.hero,
+.main-content:has(#sec-reading-practice:not(.hidden)) > .dashboard-cockpit {
+    display: none !important;
+}
+
 /* Hide Word Bank and Vocab Quiz when in Reading Practice */
 .main-content.rp-mode #vocabulary-box-section,
 .main-content.rp-mode #vocab-quiz-section,
@@ -9117,14 +9126,21 @@ function initSidebarNav() {
                 const vocabBox = document.getElementById('vocabulary-box-section');
                 const vocabQuiz = document.getElementById('vocab-quiz-section');
                 
+                const heroHeader = document.querySelector('.main-content > header.hero');
+                const cockpit = document.querySelector('.dashboard-cockpit');
+
                 if (targetId === '#sec-reading-practice') {
                     if (mainEl) mainEl.classList.add('rp-mode');
                     if (vocabBox) vocabBox.style.display = 'none';
                     if (vocabQuiz) vocabQuiz.style.display = 'none';
+                    if (heroHeader) heroHeader.style.display = 'none';
+                    if (cockpit) cockpit.style.display = 'none';
                 } else {
                     if (mainEl) mainEl.classList.remove('rp-mode');
                     if (vocabBox) vocabBox.style.display = '';
                     if (vocabQuiz) vocabQuiz.style.display = '';
+                    if (heroHeader) heroHeader.style.display = '';
+                    if (cockpit) cockpit.style.display = '';
                 }
                 
                 // Toggle hero header and cockpit visibility based on whether it is Trang Chu
