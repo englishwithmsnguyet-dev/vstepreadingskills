@@ -3639,109 +3639,154 @@ em, i {
 /* ==========================================================================
    READING PRACTICE SPLIT SCREEN STYLES
    ========================================================================== */
+
 .rp-split-container {
     display: grid;
-    grid-template-columns: 1.15fr 1fr;
-    gap: 20px;
-    height: calc(100vh - 250px);
-    min-height: 620px;
+    grid-template-columns: 1.25fr 1fr;
+    gap: 24px;
+    height: calc(100vh - 210px);
+    min-height: 700px;
     border-radius: var(--radius-md);
     overflow: hidden;
-    margin-top: 10px;
+    margin-top: 12px;
 }
 
 .rp-passage-panel {
-    background: var(--surface-solid);
-    border: 1.5px solid var(--border-color);
+    background: #ffffff;
+    border: 1.5px solid #cbd5e1;
     border-radius: var(--radius-md);
-    padding: 24px 28px;
+    padding: 28px 36px;
     overflow-y: auto;
     height: 100%;
     user-select: text;
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.rp-passage-body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-size: 1.16rem;
+    line-height: 2.0;
+    color: #1e293b;
+    letter-spacing: 0.15px;
+}
+
+.rp-paragraph {
+    margin-bottom: 24px;
+    text-align: justify;
+}
+
+.rp-para-num {
+    display: inline-block;
+    background: #ede9fe;
+    color: #6d28d9;
+    font-weight: 800;
+    font-size: 0.78rem;
+    padding: 2px 8px;
+    border-radius: 6px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    user-select: none;
+}
+
+.rp-paragraph p {
+    margin: 0;
+    line-height: 2.0;
+}
+
+.rp-trans-para {
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px dashed #bbf7d0;
     line-height: 1.85;
 }
 
+.rp-trans-para:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
 .rp-questions-panel {
-    background: var(--bg-color);
-    border: 1.5px solid var(--border-color);
+    background: #f8fafc;
+    border: 1.5px solid #cbd5e1;
     border-radius: var(--radius-md);
-    padding: 16px;
+    padding: 20px;
     overflow-y: auto;
     height: 100%;
     display: flex;
     flex-direction: column;
-    gap: 18px;
-    box-shadow: var(--shadow-sm);
+    gap: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
 }
 
 .rp-qcard {
-    background: var(--surface-solid);
-    border: 1.5px solid var(--border-color);
-    border-radius: 12px;
-    padding: 18px;
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 20px;
     transition: all 0.2s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
 }
 
 .rp-qcard.active-target {
     border-color: #6366f1;
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
 }
 
 .rp-qcard-header {
     display: flex;
-    justify-content: space-between;
     align-items: flex-start;
-    gap: 10px;
-    margin-bottom: 14px;
+    gap: 12px;
+    margin-bottom: 16px;
 }
 
 .rp-qnum {
     background: #eff6ff;
     color: #2563eb;
     font-weight: 800;
-    font-size: 0.85rem;
-    padding: 4px 10px;
-    border-radius: 8px;
-    border: 1px solid #bfdbfe;
+    font-size: 0.9rem;
+    padding: 5px 12px;
+    border-radius: 10px;
+    border: 1.5px solid #bfdbfe;
     white-space: nowrap;
 }
 
 .rp-qtext {
     font-weight: 700;
-    font-size: 1.02rem;
-    color: var(--text-color);
-    line-height: 1.55;
+    font-size: 1.05rem;
+    color: #0f172a;
+    line-height: 1.6;
     flex: 1;
 }
 
 .rp-options-list {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    margin-bottom: 12px;
+    gap: 10px;
+    margin-bottom: 14px;
 }
 
 .rp-option-btn {
     text-align: left;
-    background: var(--surface-solid);
-    border: 1.5px solid var(--border-color);
-    border-radius: 10px;
-    padding: 11px 16px;
-    font-size: 0.98rem;
-    color: var(--text-color);
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 12px 18px;
+    font-size: 1rem;
+    color: #334155;
     cursor: pointer;
     transition: all 0.15s ease;
     display: flex;
     align-items: center;
-    gap: 10px;
-    line-height: 1.45;
+    gap: 12px;
+    line-height: 1.5;
 }
 
 .rp-option-btn:hover {
     border-color: #6366f1;
     background: #f5f3ff;
+    transform: translateX(3px);
 }
 
 .rp-option-btn.selected {
@@ -3765,24 +3810,25 @@ em, i {
 }
 
 .rp-nav-pill {
-    width: 34px;
-    height: 34px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
-    border: 1.5px solid var(--border-color);
-    background: var(--surface-solid);
-    font-size: 0.85rem;
+    border: 1.5px solid #cbd5e1;
+    background: #ffffff;
+    font-size: 0.9rem;
     font-weight: 800;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     transition: all 0.2s ease;
-    color: var(--text-color);
+    color: #475569;
 }
 
 .rp-nav-pill:hover {
     border-color: #6366f1;
     color: #6366f1;
+    transform: scale(1.1);
 }
 
 .rp-nav-pill.answered {
@@ -3803,6 +3849,22 @@ em, i {
     color: #ffffff;
 }
 
+.rp-font-control-btn {
+    background: #ffffff;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-weight: 800;
+    font-size: 0.88rem;
+    color: #475569;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+.rp-font-control-btn:hover {
+    border-color: #6366f1;
+    color: #6366f1;
+}
+
 @media (max-width: 992px) {
     .rp-split-container {
         grid-template-columns: 1fr;
@@ -3810,10 +3872,12 @@ em, i {
         min-height: auto;
     }
     .rp-passage-panel {
-        height: 450px;
+        height: 480px;
+        padding: 20px;
     }
     .rp-questions-panel {
         height: 600px;
+        padding: 14px;
     }
 }
 
@@ -5927,8 +5991,8 @@ const readingPracticesData = {
     "id": "rp-01",
     "title": "READING PRACTICE 01: MOUNT RUSHMORE",
     "badge": "Passage 01",
-    "passage": "<p>Mount Rushmore is a well-known monument in the Black Hills of South Dakota that features the countenances of four United States presidents: Washington, Jefferson, Roosevelt, and Lincoln. What is not so well known is that the process of creating this national treasure was not exactly an uneventful one.</p>\n<p>Mount Rushmore was the project of the visionary sculptor John Gutzen de la Mothe Borglum, who was born in Idaho but studied sculpture in Paris in his youth and befriended the famous French sculptor Auguste Rodin. In 1927 Borglum was granted a commission by the federal government to create the sculpture on Mount Rushmore. Though he was <strong>nearly</strong> sixty years old when he started, he was undaunted by the enormity of the project and the obstacles that it engendered. He optimistically asserted that the project would be completed within five years, not caring to recognize the potential problems that such a massive project would involve, the problems of dealing with financing, with government bureaucracy, and with Mother Nature herself. An example of what Mother Nature had to throw at the project was the <strong>fissure</strong> - or large crack - that developed in the granite where Jefferson was being carved. Jefferson had to be moved to the other side of Washington, next to Roosevelt because of the break in the stone. The work that had been started on the first Jefferson had to be dynamited away.</p>\n<p>Mount Rushmore was not completed within the five years predicted by Borglum and was in fact not actually completed within Borglum's lifetime, although <strong>it</strong> was almost finished. Borglum died on March 6, 1941, at the age of seventy-four, after fourteen years of work on the presidents. His son, Lincoln Borglum, who had worked with his father throughout the project, completed the monument <strong><u>within eight months of his father's death</u></strong>.</p>",
-    "translation": "<p>Núi Rushmore là một đài tưởng niệm nổi tiếng ở Black Hills thuộc bang Nam Dakota, khắc họa chân dung của bốn vị tổng thống Hoa Kỳ: Washington, Jefferson, Roosevelt và Lincoln. Điều mà không nhiều người biết là quá trình tạo ra kho báu quốc gia này không hề diễn ra một cách êm ả.</p>\n<p>Núi Rushmore là dự án của nhà điêu khắc nhìn xa trông rộng John Gutzen de la Mothe Borglum, người sinh ra ở Idaho nhưng đã học điêu khắc ở Paris khi còn trẻ và kết bạn với nhà điêu khắc nổi tiếng người Pháp Auguste Rodin. Năm 1927, Borglum được chính phủ liên bang ủy quyền tạo ra tác phẩm điêu khắc trên Núi Rushmore. Mặc dù ông đã gần sáu mươi tuổi khi bắt đầu, ông không hề nản lòng trước quy mô khổng lồ của dự án và những trở ngại mà nó tạo ra. Ông lạc quan khẳng định rằng dự án sẽ hoàn thành trong vòng 5 năm mà không bận tâm đến những rủi ro tiềm ẩn mà một dự án đồ sộ như vậy sẽ gặp phải: các vấn đề về tài chính, thủ tục hành chính của chính phủ và chính Mẹ Thiên Nhiên. Một ví dụ về những gì Mẹ Thiên Nhiên gây ra cho dự án là một vết nứt lớn xuất hiện trên khối đá granit nơi đang tạc tượng Jefferson. Tượng Jefferson đã phải chuyển sang phía bên kia của Washington, cạnh Roosevelt vì vết nứt này. Phần việc đã bắt đầu trên bức tượng Jefferson đầu tiên đã phải bị cho nổ mìn phá bỏ.</p>\n<p>Núi Rushmore đã không được hoàn thành trong vòng 5 năm như Borglum dự đoán và trên thực tế cũng chưa thực sự hoàn thành trong suốt cuộc đời của Borglum, mặc dù nó đã gần xong. Borglum qua đời vào ngày 6 tháng 3 năm 1941, ở tuổi 74, sau 14 năm miệt mài làm việc trên các bức tượng tổng thống. Con trai ông, Lincoln Borglum, người đã làm việc cùng cha trong suốt dự án, đã hoàn thành đài tưởng niệm trong vòng tám tháng sau khi cha qua đời.</p>",
+    "passage": "<div class=\"rp-paragraph\"><span class=\"rp-para-num\">Paragraph 1</span><p>Mount Rushmore is a well-known monument in the Black Hills of South Dakota that features the countenances of four United States presidents: Washington, Jefferson, Roosevelt, and Lincoln. What is not so well known is that the process of creating this national treasure was not exactly an uneventful one.</p></div>\n\n<div class=\"rp-paragraph\"><span class=\"rp-para-num\">Paragraph 2</span><p>Mount Rushmore was the project of the visionary sculptor John Gutzen de la Mothe Borglum, who was born in Idaho but studied sculpture in Paris in his youth and befriended the famous French sculptor Auguste Rodin. In 1927 Borglum was granted a commission by the federal government to create the sculpture on Mount Rushmore. Though he was <strong>nearly</strong> sixty years old when he started, he was undaunted by the enormity of the project and the obstacles that it engendered. He optimistically asserted that the project would be completed within five years, not caring to recognize the potential problems that such a massive project would involve, the problems of dealing with financing, with government bureaucracy, and with Mother Nature herself. An example of what Mother Nature had to throw at the project was the <strong>fissure</strong> - or large crack - that developed in the granite where Jefferson was being carved. Jefferson had to be moved to the other side of Washington, next to Roosevelt because of the break in the stone. The work that had been started on the first Jefferson had to be dynamited away.</p></div>\n\n<div class=\"rp-paragraph\"><span class=\"rp-para-num\">Paragraph 3</span><p>Mount Rushmore was not completed within the five years predicted by Borglum and was in fact not actually completed within Borglum's lifetime, although <strong>it</strong> was almost finished. Borglum died on March 6. 1941, at the age of seventy' four, after fourteen years of work on the presidents. His son, Lincoln Borglum, who had worked with his father throughout the project, completed the monument <strong><u>within eight months of his father's death</u></strong>.</p></div>",
+    "translation": "<div class=\"rp-trans-para\"><strong>Đoạn 1:</strong> Núi Rushmore là một đài tưởng niệm nổi tiếng ở Black Hills thuộc bang Nam Dakota, khắc họa chân dung của bốn vị tổng thống Hoa Kỳ: Washington, Jefferson, Roosevelt và Lincoln. Điều mà không nhiều người biết là quá trình tạo ra kho báu quốc gia này không hề diễn ra một cách êm ả.</div>\n<div class=\"rp-trans-para\"><strong>Đoạn 2:</strong> Núi Rushmore là dự án của nhà điêu khắc nhìn xa trông rộng John Gutzen de la Mothe Borglum, người sinh ra ở Idaho nhưng đã học điêu khắc ở Paris khi còn trẻ và kết bạn với nhà điêu khắc nổi tiếng người Pháp Auguste Rodin. Năm 1927, Borglum được chính phủ liên bang ủy quyền tạo ra tác phẩm điêu khắc trên Núi Rushmore. Mặc dù ông đã gần sáu mươi tuổi khi bắt đầu, ông không hề nản lòng trước quy mô khổng lồ của dự án và những trở ngại mà nó tạo ra. Ông lạc quan khẳng định rằng dự án sẽ hoàn thành trong vòng 5 năm mà không bận tâm đến những rủi ro tiềm ẩn mà một dự án đồ sộ như vậy sẽ gặp phải: các vấn đề về tài chính, thủ tục hành chính của chính phủ và chính Mẹ Thiên Nhiên. Một ví dụ về những gì Mẹ Thiên Nhiên gây ra cho dự án là một vết nứt lớn xuất hiện trên khối đá granit nơi đang tạc tượng Jefferson. Tượng Jefferson đã phải chuyển sang phía bên kia của Washington, cạnh Roosevelt vì vết nứt này. Phần việc đã bắt đầu trên bức tượng Jefferson đầu tiên đã phải bị cho nổ mìn phá bỏ.</div>\n<div class=\"rp-trans-para\"><strong>Đoạn 3:</strong> Núi Rushmore đã không được hoàn thành trong vòng 5 năm như Borglum dự đoán và trên thực tế cũng chưa thực sự hoàn thành trong suốt cuộc đời của Borglum, mặc dù nó đã gần xong. Borglum qua đời vào ngày 6 tháng 3 năm 1941, ở tuổi 74, sau 14 năm miệt mài làm việc trên các bức tượng tổng thống. Con trai ông, Lincoln Borglum, người đã làm việc cùng cha trong suốt dự án, đã hoàn thành đài tưởng niệm trong vòng tám tháng sau khi cha qua đời.</div>",
     "questions": [
       {
         "num": 1,
@@ -6126,8 +6190,8 @@ const readingPracticesData = {
     "id": "rp-02",
     "title": "READING PRACTICE 02: NARCOLEPSY",
     "badge": "Passage 02",
-    "passage": "<p>Narcolepsy is a disease characterized by malfunctioning sleep mechanics. It can consist of a sudden and uncontrollable <strong>bout</strong> of sleep during normal waking hours and is often accompanied by hallucinations and a temporary inability to move (paralysis). The disease is not rare, but it is underdiagnosed; in the United States alone, it is estimated that there are <strong>more than 500,000 narcoleptics</strong>. The symptoms of narcolepsy typically develop in teenagers or young adults in their <strong>early twenties</strong>, but it can appear at any age.</p>\n<p>Narcolepsy can take a number of forms during daylight hours. One common symptom of the disease during daytime hours is <strong>automatic behavior</strong>, which occurs when patients perform tasks without conscious awareness. Another common daytime symptom is <strong>cataplexy</strong>, a sudden loss of muscle tone triggered by strong emotions such as laughter, anger, or surprise, <strong>resulting in</strong> a sudden collapse to the floor.</p>\n<p>During sleep hours, narcolepsy can also manifest itself in a variety of ways. During the transitional phase that precedes sleep, patients often experience <strong>hypnagogic phenomena</strong>, which are vivid and often terrifying hallucinations that occur <strong>just as a person is falling asleep</strong>. They may also suffer from sleep paralysis upon awakening, leaving them unable to speak or move for several minutes, as well as frequent awakenings throughout the night that severely disrupt REM sleep.</p>",
-    "translation": "<p>Chứng ngủ rũ (Narcolepsy) là một căn bệnh đặc trưng bởi sự rối loạn cơ chế giấc ngủ. Nó có thể bao gồm những cơn buồn ngủ đột ngột và không thể cưỡng lại trong giờ thức bình thường và thường đi kèm với ảo giác cũng như tình trạng tạm thời không thể cử động (tê liệt khi ngủ). Căn bệnh này không hiếm nhưng thường chưa được chẩn đoán đầy đủ; chỉ riêng tại Hoa Kỳ, ước tính có hơn 500.000 người mắc chứng ngủ rũ. Các triệu chứng của chứng ngủ rũ thường phát triển ở thanh thiếu niên hoặc người trẻ ở độ tuổi đầu hai mươi, nhưng nó có thể xuất hiện ở mọi lứa tuổi.</p>\n<p>Chứng ngủ rũ có thể biểu hiện dưới nhiều dạng vào ban ngày. Một triệu chứng ban ngày phổ biến là hành vi tự động (automatic behavior), xảy ra khi bệnh nhân thực hiện các công việc mà không có nhận thức tỉnh táo. Một triệu chứng ban ngày phổ biến khác là chứng đột quỵ thể nhẹ / mất trương lực cơ (cataplexy), tình trạng mất trương lực cơ đột ngột do cảm xúc mạnh kích thích như cười, giận dữ hoặc ngạc nhiên, dẫn đến việc ngã quỵ đột ngột xuống sàn.</p>\n<p>Vào ban đêm, chứng ngủ rũ cũng có thể tự biểu hiện theo nhiều cách. Trong giai đoạn chuyển tiếp trước khi ngủ, bệnh nhân thường trải qua hiện tượng ảo giác lúc bắt đầu ngủ (hypnagogic phenomena), là những ảo giác sống động và thường đáng sợ xảy ra ngay khi một người đang chìm vào giấc ngủ. Họ cũng có thể bị liệt khi thức dậy, khiến họ không thể nói hoặc cử động trong vài phút, cũng như thường xuyên thức giấc trong đêm làm gián đoạn nghiêm trọng giấc ngủ REM.</p>",
+    "passage": "<div class=\"rp-paragraph\"><span class=\"rp-para-num\">Paragraph 1</span><p>Narcolepsy is a disease characterized by <strong>malfunctioning</strong> sleep mechanics. It can consist of a sudden and uncontrollable <strong>bout</strong> of sleep during daylight hours and disturbed sleep during nighttime hours. It occurs more often in men than in women, and it commonly makes its appearance during adolescence or young adulthood. At least a half million Americans are believed to be affected by narcolepsy.</p></div>\n\n<div class=\"rp-paragraph\"><span class=\"rp-para-num\">Paragraph 2</span><p>Narcolepsy can take a number of forms during daylight hours. One common symptom of the disease during daytime hours is a sudden attack of REM (rapid-eye movement) sleep during normal waking hours. This occurs in some people hundreds of times in a single day, while others only have rare occurrences. During a sleep attack, narcoleptics may experience <strong>automatic behavior</strong>; even though asleep, they may continue automatically performing the activity they were involved in prior to falling asleep. They may, for example, continue walking, or driving, or stirring a pot until the activity is interrupted by external forces. Others experience <strong>cataplexy</strong> during daytime hours; cataplexy involves a sudden loss of muscle tone that may cause the head to droop or the knees to wobble in minor attacks or a total collapse in more serious attacks. Cataplexy seems to occur most often in conjunction with intense emotion or excitement.</p></div>\n\n<div class=\"rp-paragraph\"><span class=\"rp-para-num\">Paragraph 3</span><p>During sleep hours, narcolepsy can also manifest itself in a variety of ways. During the transitional phase that precedes the onset of sleep, it is common for hallucinations to occur. These hallucinations, known as <strong>hypnagogic phenomena</strong>, consist of realistic perceptions of sights and sounds during the semi-conscious state between wakefulness and sleep. Narcoleptics may also suffer from night wakening during sleep, <strong>resulting in</strong> extremely fragmented and restless sleep. Then, upon waking, a narcoleptic may experience sleep paralysis, the inability to move, perhaps for several minutes, immediately after waking.</p></div>",
+    "translation": "<div class=\"rp-trans-para\"><strong>Đoạn 1:</strong> Chứng ngủ rũ (Narcolepsy) là một căn bệnh đặc trưng bởi sự rối loạn cơ chế giấc ngủ. Nó có thể bao gồm những cơn buồn ngủ đột ngột và không thể cưỡng lại trong ban ngày và giấc ngủ bị xáo trộn vào ban đêm. Nó xảy ra ở nam giới nhiều hơn nữ giới, và thường xuất hiện ở tuổi vị thành niên hoặc đầu tuổi trưởng thành. Ít nhất nửa triệu người Mỹ được cho là bị ảnh hưởng bởi chứng ngủ rũ.</div>\n<div class=\"rp-trans-para\"><strong>Đoạn 2:</strong> Chứng ngủ rũ có thể biểu hiện dưới nhiều dạng vào ban ngày. Một triệu chứng ban ngày phổ biến là cơn buồn ngủ REM (chuyển động mắt nhanh) đột ngột trong giờ thức bình thường. Điều này xảy ra ở một số người hàng trăm lần trong một ngày, trong khi những người khác chỉ hiếm khi gặp. Trong cơn buồn ngủ, người mắc bệnh có thể trải qua hành vi tự động (automatic behavior); dù đang ngủ, họ vẫn có thể tiếp tục thực hiện công việc họ đang làm trước khi ngủ. Ví dụ, họ có thể tiếp tục đi bộ, lái xe hoặc khuấy nồi cho đến khi bị ngoại lực can thiệp. Những người khác trải qua chứng mất trương lực cơ (cataplexy); hiện tượng này làm giảm trương lực cơ đột ngột khiến đầu rũ xuống hoặc đầu gối run rẩy trong các cơn nhẹ, hoặc ngã quỵ hoàn toàn trong các cơn nặng. Cataplexy thường xảy ra khi có cảm xúc mạnh hoặc phấn khích.</div>\n<div class=\"rp-trans-para\"><strong>Đoạn 3:</strong> Vào ban đêm, chứng ngủ rũ cũng có thể tự biểu hiện theo nhiều cách. Trong giai đoạn chuyển tiếp trước khi bắt đầu giấc ngủ, hiện tượng ảo giác rất phổ biến. Những ảo giác này, được gọi là hiện tượng hypnagogic, bao gồm những nhận thức chân thực về hình ảnh và âm thanh trong trạng thái nửa tỉnh nửa mê. Người bệnh cũng có thể bị thức giấc giữa đêm, dẫn đến giấc ngủ bị phân mảnh và trằn trọc. Sau đó, khi thức dậy, họ có thể bị liệt khi ngủ, không thể cử động trong vài phút ngay sau khi thức giấc.</div>",
     "questions": [
       {
         "num": 1,
@@ -6325,8 +6389,8 @@ const readingPracticesData = {
     "id": "rp-03",
     "title": "READING PRACTICE 03: THE CINEMA",
     "badge": "Passage 03",
-    "passage": "<p>The cinema did not emerge as a form of mass consumption until its technology evolved from the initial \"peepshow\" format to the point where images could be projected on a screen in a darkened theater. In the early 1890s, Thomas Edison and his assistant William Dickson invented the Kinetoscope, a peepshow device in which an individual viewed a brief film strip through a magnifying lens. These Kinetoscope arcades were modeled on phonograph parlors, which had proven successful for Edison several years earlier. In these arcades, customers could move from one machine to another, watching short films of dancers, jugglers, or prizefights.</p>\n<p>[A] Exhibitors, however, wanted to maximize their profits, which they could do more <strong>readily</strong> by projecting a handful of films to an entire audience rather than selling individual views to one person at a time. [B] <u>Edison initially resisted projection technology because he believed that selling single-viewer machines was far more profitable than selling a few projectors to theaters.</u> [C] But European inventors soon perfected projection systems that drew large crowds, forcing American entrepreneurs to adapt. [D]</p>\n<p>With the advent of projection in 1895-1896, motion pictures became the ultimate form of mass consumption. Previously, large audiences had gathered to view magic-lantern shows or live theatrical spectacles. Although early exhibitors regularly accompanied movies with live acts, the substance of the movies themselves was mass-produced, standardized, and did not require the continuous presence of live performers for each showing. Exhibitors played an active role, deciding how to combine films, music, and spoken narrative into an attractive program for the public.</p>\n<p>With the advent of projection, the viewer's relationship with the image was no longer private, as it had been with earlier peepshows. <strong>It</strong> transformed cinema into a communal, shared social experience where large groups of people reacted together to the life-sized images on the big screen.</p>",
-    "translation": "<p>Điện ảnh đã không trở thành một hình thức tiêu thụ đại chúng cho đến khi công nghệ của nó phát triển từ định dạng \"peepshow\" (kính nhìn trộm đơn lẻ) ban đầu đến mức hình ảnh có thể được chiếu lên màn hình trong một rạp chiếu phim tối. Vào đầu những năm 1890, Thomas Edison và trợ lý William Dickson đã phát minh ra Kinetoscope, một thiết bị nhìn lén trong đó một cá nhân xem một đoạn phim ngắn qua một thấu kính phóng đại. Những khu vui chơi Kinetoscope này được mô phỏng theo các phòng nghe máy quay đĩa (phonograph parlors), vốn đã chứng minh sự thành công cho Edison vài năm trước đó. Trong các khu vui chơi này, khách hàng có thể di chuyển từ máy này sang máy khác, xem các bộ phim ngắn về các vũ công, người tung hứng hoặc các trận đấu quyền anh.</p>\n<p>[A] Tuy nhiên, các nhà chiếu phim muốn tối đa hóa lợi nhuận của họ, điều mà họ có thể thực hiện dễ dàng hơn bằng cách chiếu một số bộ phim cho toàn bộ khán giả thay vì bán từng lượt xem cá nhân cho từng người một. [B] Ban đầu, Edison đã phản đối công nghệ máy chiếu vì ông tin rằng việc bán các máy xem đơn lẻ mang lại nhiều lợi nhuận hơn nhiều so với việc chỉ bán một vài máy chiếu cho các rạp hát. [C] Nhưng các nhà phát minh châu Âu đã sớm hoàn thiện các hệ thống máy chiếu thu hút đông đảo đám đông, buộc các doanh nhân Mỹ phải thích nghi. [D]</p>\n<p>Với sự ra đời của máy chiếu vào năm 1895-1896, phim ảnh đã trở thành hình thức tiêu thụ đại chúng đỉnh cao. Trước đây, đông đảo khán giả tụ tập để xem các buổi trình chiếu đèn lồng ma thuật hoặc các buổi biểu diễn sân khấu trực tiếp. Mặc dù các nhà chiếu phim thời kỳ đầu thường kết hợp phim với các màn biểu diễn trực tiếp, bản thân nội dung phim đã được sản xuất hàng loạt, chuẩn hóa và không đòi hỏi sự hiện diện liên tục của các nghệ sĩ biểu diễn trực tiếp cho mỗi suất chiếu. Các nhà chiếu phim đóng vai trò tích cực, quyết định cách kết hợp phim ảnh, âm nhạc và lời dẫn chuyện thành một chương trình hấp dẫn cho công chúng.</p>\n<p>Với sự ra đời của máy chiếu, mối quan hệ của người xem với hình ảnh không còn mang tính riêng tư như đối với các máy peepshow trước đây. Nó đã biến điện ảnh thành một trải nghiệm xã hội mang tính cộng đồng, được chia sẻ rộng rãi, nơi các nhóm người cùng nhau phản ứng trước những hình ảnh có kích thước như người thật trên màn ảnh lớn.</p>",
+    "passage": "<div class=\"rp-paragraph\"><span class=\"rp-para-num\">Paragraph 1</span><p>The cinema did not emerge as a form of mass consumption until its technology evolved from the initial \"peepshow\" format to the point where images were projected on a screen in a darkened theater. In the early 1890s, Thomas Edison and his assistant William Dickson invented the Kinetoscope, a peepshow device in which an individual viewed a brief film strip through a magnifying lens. These Kinetoscope arcades were modeled on phonograph parlors, which had proven successful for Edison several years earlier. In these arcades, customers could move from one machine to another, watching short films of dancers, jugglers, or prizefights.</p></div>\n\n<div class=\"rp-paragraph\"><span class=\"rp-para-num\">Paragraph 2</span><p>These Kinetoscope arcades were modeled on phonograph parlors, which had proven successful for Edison several years earlier. In the phonograph parlors, customers listened to recordings through individual ear tubes, moving from one machine to the next of hear a variety of songs or comedic sketches. The Kinetoscope parlors adopted essentially the same approach, providing customers with a similar kind of individualized entertainment for a small fee.</p></div>\n\n<div class=\"rp-paragraph\"><span class=\"rp-para-num\">Paragraph 3</span><p>[A] Exhibitors, however, wanted to maximize their profits, which they could do more <strong>readily</strong> by projecting a handful of films to hundreds of customers at a time (rather than one at a time) and by charging 25 to 50 cents admission. [B] About a year after the opening of the first Kinetoscope parlor in 1894, showmen such as Louis and Auguste Lumière, Thomas Armat and Charles Francis Jenkins, and Orville and Woodville Latham (with the assistance of Edison's former assistant, William Dickson) perfected projection devices. [C] These early projection devices were used in vaudeville theaters, legitimate theaters, local town halls, makeshift storefront theaters, fairgrounds, and amusement parks to show films to a mass audience. [D]</p></div>\n\n<div class=\"rp-paragraph\"><span class=\"rp-para-num\">Paragraph 4</span><p>With the advent of projection in 1895-1896, motion pictures became the ultimate form of mass consumption. Previously, large audiences had viewed spectacles at the theater, where vaudeville, popular dramas, musical and minstrel shows, classical plays, lectures, and slide-and-lantern shows had been presented to several hundred spectators at a time. But the movies differed significantly from these other forms of entertainment, which depended on either live performance or (in the case of the slide and-lantern shows) the active involvement of a master of ceremonies who assembled the final program.</p></div>\n\n<div class=\"rp-paragraph\"><span class=\"rp-para-num\">Paragraph 5</span><p>Although early exhibitors regularly accompanied movies with live acts, the substance of the movies themselves is mass-produced, prerecorded material that can easily be reproduced by theaters with little or no active participation by the exhibitor. Even though early exhibitors shaped their film programs by mixing films and other entertainments together in whichever way they thought would be most attractive to audiences or by accompanying them with lectures, their creative control remained limited. What audiences came to see was the technological marvel of the movies; the lifelike reproduction of the commonplace motion of trains, of waves striking the shore, and of people walking in the street; and the magic made possible by trick photography and the manipulation of the camera.</p></div>\n\n<div class=\"rp-paragraph\"><span class=\"rp-para-num\">Paragraph 6</span><p>With the advent of projection, the viewer's relationship with the image was no longer private, as it had been with earlier peepshow devices such as the Kinetoscope and the Mutoscope, which was a similar machine that reproduced motion by means of successive images on individual photographic cards instead of on strips of celluloid. <strong>It</strong> suddenly became public - an experience that the viewer shared with dozens, scores, and even hundreds of others. At the same time, the image that the spectator looked at expanded from the minuscule peepshow dimensions of 1 or 2 inches (in height) to the life-size proportions of 6 or 9 feet.</p></div>",
+    "translation": "<div class=\"rp-trans-para\"><strong>Đoạn 1:</strong> Điện ảnh đã không trở thành một hình thức tiêu thụ đại chúng cho đến khi công nghệ của nó phát triển từ định dạng \"peepshow\" (kính nhìn trộm đơn lẻ) ban đầu đến mức hình ảnh có thể được chiếu lên màn hình trong một rạp chiếu phim tối. Vào đầu những năm 1890, Thomas Edison và trợ lý William Dickson đã phát minh ra Kinetoscope, một thiết bị nhìn lén trong đó một cá nhân xem một đoạn phim ngắn qua một thấu kính phóng đại. Những khu vui chơi Kinetoscope này được mô phỏng theo các phòng nghe máy quay đĩa (phonograph parlors), vốn đã chứng minh sự thành công cho Edison vài năm trước đó. Trong các khu vui chơi này, khách hàng có thể di chuyển từ máy này sang máy khác, xem các bộ phim ngắn về các vũ công, người tung hứng hoặc các trận đấu quyền anh.</div>\n<div class=\"rp-trans-para\"><strong>Đoạn 2:</strong> Những khu vui chơi Kinetoscope này được mô phỏng theo các phòng nghe máy quay đĩa. Trong các phòng nghe máy quay đĩa, khách hàng nghe các bản thu âm qua các ống nghe cá nhân, di chuyển từ máy này sang máy khác để nghe nhiều bài hát hoặc các tiểu phẩm hài hước khác nhau. Các phòng Kinetoscope về cơ bản cũng áp dụng cách tiếp cận tương tự, cung cấp cho khách hàng loại hình giải trí mang tính cá nhân hóa tương tự với một khoản phí nhỏ.</div>\n<div class=\"rp-trans-para\"><strong>Đoạn 3:</strong> [A] Tuy nhiên, các nhà chiếu phim muốn tối đa hóa lợi nhuận của họ, điều mà họ có thể thực hiện dễ dàng hơn bằng cách chiếu một số bộ phim cho hàng trăm khách hàng cùng một lúc (thay vì từng người một) và thu phí vào cửa từ 25 đến 50 xu. [B] Khoảng một năm sau khi khai trương phòng Kinetoscope đầu tiên vào năm 1894, các nhà làm trò như Louis và Auguste Lumière, Thomas Armat và Charles Francis Jenkins, cùng Orville và Woodville Latham (với sự giúp đỡ của cựu trợ lý của Edison là William Dickson) đã hoàn thiện các thiết bị máy chiếu. [C] Những thiết bị máy chiếu ban đầu này được sử dụng trong các rạp hát tạp kỹ, rạp hát chính thống, tòa thị chính địa phương, các rạp chiếu tạm bợ ở mặt tiền cửa hàng, hội chợ và công viên giải trí để chiếu phim cho đông đảo khán giả. [D]</div>\n<div class=\"rp-trans-para\"><strong>Đoạn 4:</strong> Với sự ra đời của máy chiếu vào năm 1895-1896, phim ảnh đã trở thành hình thức tiêu thụ đại chúng đỉnh cao. Trước đây, đông đảo khán giả tụ tập tại nhà hát để xem các buổi diễn tạp kỹ, kịch nổi tiếng, nhạc kịch, các vở kịch cổ điển, bài giảng và trình chiếu đèn lồng. Nhưng phim ảnh khác biệt đáng kể so với các hình thức giải trí khác đòi hỏi biểu diễn trực tiếp hoặc sự tham gia tích cực của người dẫn chương trình.</div>\n<div class=\"rp-trans-para\"><strong>Đoạn 5:</strong> Mặc dù các nhà chiếu phim thời kỳ đầu thường kết hợp phim với các tiết mục biểu diễn trực tiếp, bản thân nội dung phim đã được sản xuất hàng loạt, thu âm trước và có thể dễ dàng tái tạo tại các rạp với rất ít hoặc không cần sự tham gia của nhà chiếu phim. Khán giả đến rạp là để xem kỳ quan công nghệ của phim ảnh: sự tái hiện sống động như thật chuyển động của đoàn tàu, sóng vỗ bờ, dòng người đi bộ trên phố và phép thuật của nghệ thuật quay phim.</div>\n<div class=\"rp-trans-para\"><strong>Đoạn 6:</strong> Với sự ra đời của máy chiếu, mối quan hệ của người xem với hình ảnh không còn mang tính riêng tư như trước. Nó đột nhiên trở thành trải nghiệm cộng đồng mà người xem chia sẻ với hàng chục, hàng trăm người khác. Đồng thời, hình ảnh mở rộng từ kích thước nhỏ bé 1-2 inch lên kích thước to lớn như người thật 6-9 feet.</div>",
     "questions": [
       {
         "num": 1,
@@ -6524,8 +6588,8 @@ const readingPracticesData = {
     "id": "rp-04",
     "title": "READING PRACTICE 04: DESERTIFICATION",
     "badge": "Passage 04",
-    "passage": "<p>The deserts, which already occupy approximately a fourth of the Earth's land surface, have in recent decades been increasing at an alarming pace. The expansion of desert-like conditions into areas where they did not previously exist is called <strong>desertification</strong>. It has been estimated that an additional one-fourth of the Earth's land surface is <strong>threatened</strong> by this process.</p>\n<p>Desertification is accomplished primarily through the loss of stabilizing natural vegetation and the subsequent accelerated erosion of the soil by wind and water. In some cases, the loose soil is blown completely away, leaving a stony surface. In other cases, the finer particles may be removed, while the sand-sized particles are accumulated to form mobile hills or ridges of sand.</p>\n<p>Even in the areas that retain a soil cover, the reduction of vegetation typically results in the loss of the soil's ability to absorb substantial quantities of water. The impact of raindrops on the loose soil tends to transfer fine clay particles into the tiniest soil spaces, sealing them and producing a surface that allows very little water penetration. Water absorption is greatly reduced, consequently runoff is increased, resulting in accelerated erosion rates. The gradual drying of the soil caused by its diminished ability to absorb water results in the further loss of vegetation, so that a cycle of progressive surface deterioration is established.</p>\n<p>In some regions, the increase in desert areas is occurring largely as the result of a trend toward drier climatic conditions. Continued gradual global warming has produced an increase in aridity for some areas over the past few thousand years. The process may be accelerated in subsequent decades if global warming resulting from air pollution seriously increases.</p>\n<p>There is little doubt, however, that desertification in most areas results primarily from human activities rather than natural processes. The semiarid lands bordering the deserts exist in a <strong>delicate</strong> ecological balance and are limited in their potential to adjust to increased environmental pressures. Expanding populations are subjecting the land to increasing pressures to provide them with food and fuel. In wet periods, the land may be able to respond to these stresses. During the dry periods that are common phenomena along the desert margins, though, the pressure on the land is often far in excess of its diminished capacity, and desertification results.</p>\n<p>Four specific activities have been identified as major contributors to the desertification processes: over-cultivation, over-grazing, firewood gathering, and over-irrigation. The cultivation of crops has expanded into <strong>progressively</strong> drier regions as population densities have grown. These regions are especially likely to have periods of severe dryness, so that crop failures are common. Since the raising of most crops necessitates the prior removal of the natural vegetation, crop failures leave extensive tracts of land devoid of a plant cover and susceptible to wind and water erosion.</p>\n<p>The raising of livestock is a major economic activity in semiarid lands, where grasses are generally the dominant type of natural vegetation. The consequences of an excessive number of livestock grazing in an area are the reduction of the vegetation cover and the trampling and pulverization of the soil. This is usually followed by the drying of the soil and accelerated erosion.</p>\n<p>Firewood is the chief fuel used for cooking and heating in many countries. The increased pressures of expanding populations have led to the removal of woody plants so that many cities and towns are surrounded by large areas completely lacking in trees and shrubs. The increasing use of dried animal waste as a substitute fuel has also hurt the soil because this valuable soil conditioner and source of plant nutrients is no longer being returned to the land.</p>\n<p>The final major human cause of desertification is soil salinization resulting from over-irrigation. Excess water from irrigation sinks down into the water table. If no drainage system exists, the water table rises, bringing dissolved salts to the surface. The water evaporates and the salts are left behind, creating a white crustal layer that prevents air and water from reaching the underlying soil.</p>\n<p><u>The extreme seriousness of desertification results from the vast areas of land and the tremendous numbers of people affected, as well as from the great difficulty of reversing or even slowing the process.</u> Once the soil has been removed by erosion, only the passage of centuries or millennia will enable new soil to form. In areas where considerable soil still remains, though, a rigorously enforced program of land protection and cover-crop planting may make it possible to reverse the present deterioration of the surface.</p>",
-    "translation": "<p>Các sa mạc, hiện đã chiếm khoảng 1/4 diện tích bề mặt đất liền của Trái Đất, trong những thập kỷ gần đây đã và đang gia tăng với tốc độ đáng báo động. Sự mở rộng của các điều kiện giống sa mạc vào những khu vực trước đây chưa từng có được gọi là sa mạc hóa (desertification). Người ta ước tính rằng thêm 1/4 diện tích đất liền của Trái Đất đang bị đe dọa bởi quá trình này.</p>\n<p>Sa mạc hóa diễn ra chủ yếu thông qua việc mất đi thảm thực vật tự nhiên có tác dụng ổn định đất và hệ quả là sự xói mòn đất nhanh chóng do gió và nước. Trong một số trường hợp, lớp đất mặt tơi xốp bị thổi bay hoàn toàn, trơ lại bề mặt đầy đá. Trong các trường hợp khác, các hạt mịn hơn bị cuốn đi, trong khi các hạt có kích thước bằng cát tích tụ lại tạo thành các đồi hoặc gờ cát di động.</p>\n<p>Ngay cả ở những khu vực vẫn còn lớp đất phủ, việc giảm thảm thực vật thường dẫn đến việc đất mất khả năng hấp thụ một lượng nước lớn. Tác động của các hạt mưa rơi xuống đất tơi xốp có xu hướng đẩy các hạt sét mịn vào những khe đất nhỏ nhất, bịt kín chúng lại và tạo ra một bề mặt khiến nước rất khó thấm qua. Khả năng hấp thụ nước bị giảm mạnh, do đó dòng chảy mặt tăng lên, dẫn đến tốc độ xói mòn tăng nhanh. Sự khô cằn dần của đất do khả năng hấp thụ nước suy giảm dẫn đến việc mất thêm thảm thực vật, từ đó hình thành một vòng luẩn quẩn suy thoái bề mặt đất ngày càng nghiêm trọng.</p>\n<p>Ở một số vùng, sự gia tăng diện tích sa mạc xảy ra phần lớn là do xu hướng điều kiện khí hậu trở nên khô hạn hơn. Sự nóng lên toàn cầu liên tục đã làm tăng độ khô hạn ở một số khu vực trong vài nghìn năm qua. Quá trình này có thể được đẩy nhanh trong những thập kỷ tiếp theo nếu sự nóng lên toàn cầu do ô nhiễm không khí tăng mạnh.</p>\n<p>Tuy nhiên, hầu như không còn nghi ngờ gì rằng sa mạc hóa ở hầu hết các khu vực chủ yếu bắt nguồn từ các hoạt động của con người hơn là các quá trình tự nhiên. Các vùng đất bán khô hạn giáp ranh với sa mạc tồn tại trong một sự cân bằng sinh thái mong manh và bị hạn chế về khả năng thích ứng với áp lực môi trường gia tăng. Dân số ngày càng tăng đang đặt vùng đất này dưới áp lực nặng nề để cung cấp lương thực và chất đốt. Vào những giai đoạn ẩm ướt, đất có thể chịu đựng được những áp lực này. Tuy nhiên, trong các đợt khô hạn vốn là hiện tượng phổ biến dọc theo rìa sa mạc, áp lực lên đất thường vượt xa khả năng chịu đựng suy giảm của nó, và kết quả là sa mạc hóa xảy ra.</p>\n<p>Bốn hoạt động cụ thể đã được xác định là nguyên nhân chính gây ra quá trình sa mạc hóa: canh tác quá mức, chăn thả quá mức, thu lượm củi và tưới tiêu quá mức. Việc trồng trọt hoa màu đã mở rộng sang các vùng ngày càng khô hạn hơn khi mật độ dân số tăng lên. Những vùng này đặc biệt dễ có những đợt khô hạn khắc nghiệt, dẫn đến mất mùa thường xuyên. Vì việc trồng hầu hết các loại cây trồng đòi hỏi phải loại bỏ thảm thực vật tự nhiên trước đó, nên mất mùa khiến những vùng đất rộng lớn không còn lớp thực vật che phủ và dễ bị gió và nước xói mòn.</p>\n<p>Chăn nuôi gia súc là một hoạt động kinh tế lớn ở các vùng đất bán khô hạn, nơi cỏ là loại thực vật tự nhiên chiếm ưu thế. Hậu quả của số lượng gia súc gặm cỏ quá mức trong một khu vực là sự suy giảm thảm thực vật cũng như sự giẫm đạp và nghiền vụn đất. Điều này thường kéo theo việc đất bị khô và xói mòn tăng tốc.</p>\n<p>Củi là chất đốt chính dùng để nấu ăn và sưởi ấm ở nhiều quốc gia. Áp lực ngày càng tăng của dân số đông đã dẫn đến việc chặt phá các loài cây thân gỗ, khiến nhiều thành phố và thị trấn bị bao quanh bởi những khu vực rộng lớn hoàn toàn không có cây cối và cây bụi. Việc gia tăng sử dụng phân động vật phơi khô làm chất đốt thay thế cũng gây tổn hại cho đất vì nguồn phân bón và chất dinh dưỡng quý giá này không còn được trả lại cho đất.</p>\n<p>Nguyên nhân lớn cuối cùng do con người gây ra sa mạc hóa là sự nhiễm mặn của đất do tưới tiêu quá mức. Nước thừa từ quá trình tưới ngấm xuống tầng nước ngầm. Nếu không có hệ thống thoát nước, mực nước ngầm sẽ dâng cao, mang theo muối hòa tan lên bề mặt. Nước bốc hơi và muối đọng lại, tạo thành một lớp váng trắng ngăn không khí và nước tiếp cận lớp đất bên dưới.</p>\n<p>Mức độ cực kỳ nghiêm trọng của nạn sa mạc hóa bắt nguồn từ diện tích đất đai rộng lớn và số lượng người bị ảnh hưởng khổng lồ, cũng như từ sự khó khăn to lớn trong việc đảo ngược hoặc thậm chí làm chậm lại quá trình này. Một khi đất đã bị xói mòn, phải mất hàng thế kỷ hoặc hàng thiên niên kỷ thì đất mới có thể hình thành lại. Tuy nhiên, ở những khu vực vẫn còn lượng đất đáng kể, một chương trình bảo vệ đất và trồng cây che phủ được thực thi nghiêm ngặt có thể giúp đảo ngược sự suy thoái bề mặt hiện tại.</p>",
+    "passage": "<div class=\"rp-paragraph\"><span class=\"rp-para-num\">Paragraph 1</span><p>The deserts, which already occupy approximately a fourth of the Earth's land surface, have in recent decades been increasing at an alarming pace. The expansion of desert-like conditions into areas where they did not previously exist is called <strong>desertification</strong>. It has been estimated that an additional one-fourth of the Earth's land surface is <strong>threatened</strong> by this process.</p></div>\n\n<div class=\"rp-paragraph\"><span class=\"rp-para-num\">Paragraph 2</span><p>Desertification is accomplished primarily through the loss of stabilizing natural vegetation and the subsequent accelerated erosion of the soil by wind and water. In some cases, the loose soil is blown completely away, leaving a stony surface. In other cases, the finer particles may be removed, while the sand-sized particles are accumulated to form mobile hills or ridges of sand.</p></div>\n\n<div class=\"rp-paragraph\"><span class=\"rp-para-num\">Paragraph 3</span><p>Even in the areas that retain a soil cover, the reduction of vegetation typically results in the loss of the soil's ability to absorb substantial quantities of water. The impact of raindrops on the loose soil tends to transfer fine clay particles into the tiniest soil spaces, sealing them and producing a surface that allows very little water penetration. Water absorption is greatly reduced, consequently runoff is increased, resulting in accelerated erosion rates. The gradual drying of the soil caused by its diminished ability to absorb water results in the further loss of vegetation, so that a cycle of progressive surface deterioration is established.</p></div>\n\n<div class=\"rp-paragraph\"><span class=\"rp-para-num\">Paragraph 4</span><p>In some regions, the increase in desert areas is occurring largely as the result of a trend toward drier climatic conditions. Continued gradual global warming has produced an increase in aridity for some areas over the past few thousand years. The process may be accelerated in subsequent decades if global warming resulting from air pollution seriously increases.</p></div>\n\n<div class=\"rp-paragraph\"><span class=\"rp-para-num\">Paragraph 5</span><p>There is little doubt, however, that desertification in most areas results primarily from human activities rather than natural processes. The semiarid lands bordering the deserts exist in a <strong>delicate</strong> ecological balance and are limited in their potential to adjust to increased environmental pressures. Expanding populations are subjecting the land to increasing pressures to provide them with food and fuel. In wet periods, the land may be able to respond to these stresses. During the dry periods that are common phenomena along the desert margins, though, the pressure on the land is often far in excess of its diminished capacity, and desertification results.</p></div>\n\n<div class=\"rp-paragraph\"><span class=\"rp-para-num\">Paragraph 6</span><p>Four specific activities have been identified as major contributors to the desertification processes: over-cultivation, over-grazing, firewood gathering, and over-irrigation. The cultivation of crops has expanded into <strong>progressively</strong> drier regions as population densities have grown. These regions are especially likely to have periods of severe dryness, so that crop failures are common. Since the raising of most crops necessitates the prior removal of the natural vegetation, crop failures leave extensive tracts of land devoid of a plant cover and susceptible to wind and water erosion.</p></div>\n\n<div class=\"rp-paragraph\"><span class=\"rp-para-num\">Paragraph 7</span><p>The raising of livestock is a major economic activity in semiarid lands, where grasses are generally the dominant type of natural vegetation. The consequences of an excessive number of livestock grazing in an area are the reduction of the vegetation cover and the trampling and pulverization of the soil. This is usually followed by the drying of the soil and accelerated erosion.</p></div>\n\n<div class=\"rp-paragraph\"><span class=\"rp-para-num\">Paragraph 8</span><p>Firewood is the chief fuel used for cooking and heating in many countries. The increased pressures of expanding populations have led to the removal of woody plants so that many cities and towns are surrounded by large areas completely lacking in trees and shrubs. The increasing use of dried animal waste as a substitute fuel has also hurt the soil because this valuable soil conditioner and source of plant nutrients is no longer being returned to the land.</p></div>\n\n<div class=\"rp-paragraph\"><span class=\"rp-para-num\">Paragraph 9</span><p>The final major human cause of desertification is soil salinization resulting from over-irrigation. Excess water from irrigation sinks down into the water table. If no drainage system exists, the water table rises, bringing dissolved salts to the surface. The water evaporates and the salts are left behind, creating a white crustal layer that prevents air and water from reaching the underlying soil.</p></div>\n\n<div class=\"rp-paragraph\"><span class=\"rp-para-num\">Paragraph 10</span><p><u>The extreme seriousness of desertification results from the vast areas of land and the tremendous numbers of people affected, as well as from the great difficulty of reversing or even slowing the process.</u> Once the soil has been removed by erosion, only the passage of centuries or millennia will enable new soil to form. In areas where considerable soil still remains, though, a rigorously enforced program of land protection and cover-crop planting may make it possible to reverse the present deterioration of the surface.</p></div>",
+    "translation": "<div class=\"rp-trans-para\"><strong>Đoạn 1:</strong> Các sa mạc, hiện đã chiếm khoảng 1/4 diện tích bề mặt đất liền của Trái Đất, trong những thập kỷ gần đây đã và đang gia tăng với tốc độ đáng báo động. Sự mở rộng của các điều kiện giống sa mạc vào những khu vực trước đây chưa từng có được gọi là sa mạc hóa (desertification). Người ta ước tính rằng thêm 1/4 diện tích đất liền của Trái Đất đang bị đe dọa bởi quá trình này.</div>\n<div class=\"rp-trans-para\"><strong>Đoạn 2:</strong> Sa mạc hóa diễn ra chủ yếu thông qua việc mất đi thảm thực vật tự nhiên có tác dụng ổn định đất và hệ quả là sự xói mòn đất nhanh chóng do gió và nước. Trong một số trường hợp, lớp đất mặt tơi xốp bị thổi bay hoàn toàn, trơ lại bề mặt đầy đá. Trong các trường hợp khác, các hạt mịn hơn bị cuốn đi, trong khi các hạt có kích thước bằng cát tích tụ lại tạo thành các đồi hoặc gờ cát di động.</div>\n<div class=\"rp-trans-para\"><strong>Đoạn 3:</strong> Ngay cả ở những khu vực vẫn còn lớp đất phủ, việc giảm thảm thực vật thường dẫn đến việc đất mất khả năng hấp thụ một lượng nước lớn. Tác động của các hạt mưa rơi xuống đất tơi xốp có xu hướng đẩy các hạt sét mịn vào những khe đất nhỏ nhất, bịt kín chúng lại và tạo ra một bề mặt khiến nước rất khó thấm qua. Khả năng hấp thụ nước bị giảm mạnh, do đó dòng chảy mặt tăng lên, dẫn đến tốc độ xói mòn tăng nhanh. Sự khô cằn dần của đất do khả năng hấp thụ nước suy giảm dẫn đến việc mất thêm thảm thực vật, từ đó hình thành một vòng luẩn quẩn suy thoái bề mặt đất ngày càng nghiêm trọng.</div>\n<div class=\"rp-trans-para\"><strong>Đoạn 4:</strong> Ở một số vùng, sự gia tăng diện tích sa mạc xảy ra phần lớn là do xu hướng điều kiện khí hậu trở nên khô hạn hơn. Sự nóng lên toàn cầu liên tục đã làm tăng độ khô hạn ở một số khu vực trong vài nghìn năm qua. Quá trình này có thể được đẩy nhanh trong những thập kỷ tiếp theo nếu sự nóng lên toàn cầu do ô nhiễm không khí tăng mạnh.</div>\n<div class=\"rp-trans-para\"><strong>Đoạn 5:</strong> Tuy nhiên, hầu như không còn nghi ngờ gì rằng sa mạc hóa ở hầu hết các khu vực chủ yếu bắt nguồn từ các hoạt động của con người hơn là các quá trình tự nhiên. Các vùng đất bán khô hạn giáp ranh với sa mạc tồn tại trong một sự cân bằng sinh thái mong manh và bị hạn chế về khả năng thích ứng với áp lực môi trường gia tăng. Dân số ngày càng tăng đang đặt vùng đất này dưới áp lực nặng nề để cung cấp lương thực và chất đốt. Vào những giai đoạn ẩm ướt, đất có thể chịu đựng được những áp lực này. Tuy nhiên, trong các đợt khô hạn vốn là hiện tượng phổ biến dọc theo rìa sa mạc, áp lực lên đất thường vượt xa khả năng chịu đựng suy giảm của nó, và kết quả là sa mạc hóa xảy ra.</div>\n<div class=\"rp-trans-para\"><strong>Đoạn 6:</strong> Bốn hoạt động cụ thể đã được xác định là nguyên nhân chính gây ra quá trình sa mạc hóa: canh tác quá mức, chăn thả quá mức, thu lượm củi và tưới tiêu quá mức. Việc trồng trọt hoa màu đã mở rộng sang các vùng ngày càng khô hạn hơn khi mật độ dân số tăng lên. Những vùng này đặc biệt dễ có những đợt khô hạn khắc nghiệt, dẫn đến mất mùa thường xuyên. Vì việc trồng hầu hết các loại cây trồng đòi hỏi phải loại bỏ thảm thực vật tự nhiên trước đó, nên mất mùa khiến những vùng đất rộng lớn không còn lớp thực vật che phủ và dễ bị gió và nước xói mòn.</div>\n<div class=\"rp-trans-para\"><strong>Đoạn 7:</strong> Chăn nuôi gia súc là một hoạt động kinh tế lớn ở các vùng đất bán khô hạn, nơi cỏ là loại thực vật tự nhiên chiếm ưu thế. Hậu quả của số lượng gia súc gặm cỏ quá mức trong một khu vực là sự suy giảm thảm thực vật cũng như sự giẫm đạp và nghiền vụn đất. Điều này thường kéo theo việc đất bị khô và xói mòn tăng tốc.</div>\n<div class=\"rp-trans-para\"><strong>Đoạn 8:</strong> Củi là chất đốt chính dùng để nấu ăn và sưởi ấm ở nhiều quốc gia. Áp lực ngày càng tăng của dân số đông đã dẫn đến việc chặt phá các loài cây thân gỗ, khiến nhiều thành phố và thị trấn bị bao quanh bởi những khu vực rộng lớn hoàn toàn không có cây cối và cây bụi. Việc gia tăng sử dụng phân động vật phơi khô làm chất đốt thay thế cũng gây tổn hại cho đất vì nguồn phân bón và chất dinh dưỡng quý giá này không còn được trả lại cho đất.</div>\n<div class=\"rp-trans-para\"><strong>Đoạn 9:</strong> Nguyên nhân lớn cuối cùng do con người gây ra sa mạc hóa là sự nhiễm mặn của đất do tưới tiêu quá mức. Nước thừa từ quá trình tưới ngấm xuống tầng nước ngầm. Nếu không có hệ thống thoát nước, mực nước ngầm sẽ dâng cao, mang theo muối hòa tan lên bề mặt. Nước bốc hơi và muối đọng lại, tạo thành một lớp váng trắng ngăn không khí và nước tiếp cận lớp đất bên dưới.</div>\n<div class=\"rp-trans-para\"><strong>Đoạn 10:</strong> Mức độ cực kỳ nghiêm trọng của nạn sa mạc hóa bắt nguồn từ diện tích đất đai rộng lớn và số lượng người bị ảnh hưởng khổng lồ, cũng như từ sự khó khăn to lớn trong việc đảo ngược hoặc thậm chí làm chậm lại quá trình này. Một khi đất đã bị xói mòn, phải mất hàng thế kỷ hoặc hàng thiên niên kỷ thì đất mới có thể hình thành lại. Tuy nhiên, ở những khu vực vẫn còn lượng đất đáng kể, một chương trình bảo vệ đất và trồng cây che phủ được thực thi nghiêm ngặt có thể giúp đảo ngược sự suy thoái bề mặt hiện tại.</div>",
     "questions": [
       {
         "num": 1,
@@ -8172,7 +8236,12 @@ const mockTestPassages = [
                 </p>
             </div>
             <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
-                <div class="rp-score-badge" style="background: var(--surface-solid); border: 1.5px solid var(--border-color); border-radius: 12px; padding: 8px 14px; font-weight: 800; font-size: 0.92rem; display: flex; gap: 10px;">
+                <div style="display: flex; align-items: center; gap: 6px; background: #ffffff; border: 1.5px solid #cbd5e1; padding: 4px 8px; border-radius: 10px;">
+                    <span style="font-size: 0.82rem; font-weight: 800; color: #64748b; margin-right: 4px;"><i class="fa-solid fa-text-height" style="color: #6366f1;"></i> Cỡ chữ:</span>
+                    <button class="rp-font-control-btn" id="rp-btn-font-dec" title="Thu nhỏ chữ">A-</button>
+                    <button class="rp-font-control-btn" id="rp-btn-font-inc" title="Phóng to chữ">A+</button>
+                </div>
+                <div class="rp-score-badge" style="background: #ffffff; border: 1.5px solid #cbd5e1; border-radius: 10px; padding: 8px 14px; font-weight: 800; font-size: 0.92rem; display: flex; gap: 10px;">
                     <span>Đã làm: <strong id="rp-attempted-count" style="color: #6366f1;">0</strong>/10</span>
                     <span style="color: #cbd5e1;">|</span>
                     <span>Đúng: <strong id="rp-correct-count" style="color: #10b981;">0</strong></span>
@@ -8198,7 +8267,7 @@ const mockTestPassages = [
         <div class="rp-split-container">
             <!-- Left: Passage Panel -->
             <div class="rp-passage-panel" id="rp-passage-container">
-                <div id="rp-passage-content" class="selectable-text">
+                <div id="rp-passage-content" class="selectable-text rp-passage-body">
                     <!-- Passage text injected dynamically -->
                 </div>
                 <div id="rp-passage-translation" style="display: none; margin-top: 24px; padding: 18px; background: #f0fdf4; border-left: 4px solid #10b981; border-radius: 10px; font-size: 0.98rem; line-height: 1.8; color: #166534;">
@@ -11943,6 +12012,17 @@ let currentRPState = {
     checked: Array(10).fill(false)
 };
 
+
+// Font size adjuster for Reading Practice
+let currentRPFontSize = 18;
+function adjustRPFontSize(delta) {
+    currentRPFontSize = Math.max(15, Math.min(26, currentRPFontSize + delta));
+    const passageEl = document.getElementById('rp-passage-content');
+    if (passageEl) {
+        passageEl.style.fontSize = `${currentRPFontSize}px`;
+    }
+}
+
 function loadReadingPractice(rpId) {
     const data = readingPracticesData[rpId];
     if (!data) return;
@@ -12233,6 +12313,11 @@ function updateRPScore() {
 // Global Event Listeners for RP buttons
 document.addEventListener('DOMContentLoaded', () => {
     // Toggle Passage Translation
+    const btnFontInc = document.getElementById('rp-btn-font-inc');
+    const btnFontDec = document.getElementById('rp-btn-font-dec');
+    if (btnFontInc) btnFontInc.addEventListener('click', () => adjustRPFontSize(2));
+    if (btnFontDec) btnFontDec.addEventListener('click', () => adjustRPFontSize(-2));
+
     const btnTrans = document.getElementById('rp-btn-toggle-trans');
     if (btnTrans) {
         btnTrans.addEventListener('click', () => {
