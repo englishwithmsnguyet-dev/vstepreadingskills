@@ -3635,6 +3635,188 @@ em, i {
 }
 
 
+
+/* ==========================================================================
+   READING PRACTICE SPLIT SCREEN STYLES
+   ========================================================================== */
+.rp-split-container {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 20px;
+    height: calc(100vh - 250px);
+    min-height: 620px;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.rp-passage-panel {
+    background: var(--surface-solid);
+    border: 1.5px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 24px 28px;
+    overflow-y: auto;
+    height: 100%;
+    user-select: text;
+    box-shadow: var(--shadow-sm);
+    line-height: 1.85;
+}
+
+.rp-questions-panel {
+    background: var(--bg-color);
+    border: 1.5px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 16px;
+    overflow-y: auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    box-shadow: var(--shadow-sm);
+}
+
+.rp-qcard {
+    background: var(--surface-solid);
+    border: 1.5px solid var(--border-color);
+    border-radius: 12px;
+    padding: 18px;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+}
+
+.rp-qcard.active-target {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+.rp-qcard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.rp-qnum {
+    background: #eff6ff;
+    color: #2563eb;
+    font-weight: 800;
+    font-size: 0.85rem;
+    padding: 4px 10px;
+    border-radius: 8px;
+    border: 1px solid #bfdbfe;
+    white-space: nowrap;
+}
+
+.rp-qtext {
+    font-weight: 700;
+    font-size: 1.02rem;
+    color: var(--text-color);
+    line-height: 1.55;
+    flex: 1;
+}
+
+.rp-options-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.rp-option-btn {
+    text-align: left;
+    background: var(--surface-solid);
+    border: 1.5px solid var(--border-color);
+    border-radius: 10px;
+    padding: 11px 16px;
+    font-size: 0.98rem;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    line-height: 1.45;
+}
+
+.rp-option-btn:hover {
+    border-color: #6366f1;
+    background: #f5f3ff;
+}
+
+.rp-option-btn.selected {
+    border-color: #6366f1;
+    background: #ede9fe;
+    color: #4f46e5;
+    font-weight: 700;
+}
+
+.rp-option-btn.correct {
+    border-color: #10b981 !important;
+    background: #ecfdf5 !important;
+    color: #065f46 !important;
+    font-weight: 700;
+}
+
+.rp-option-btn.incorrect {
+    border-color: #ef4444 !important;
+    background: #fef2f2 !important;
+    color: #991b1b !important;
+}
+
+.rp-nav-pill {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1.5px solid var(--border-color);
+    background: var(--surface-solid);
+    font-size: 0.85rem;
+    font-weight: 800;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    color: var(--text-color);
+}
+
+.rp-nav-pill:hover {
+    border-color: #6366f1;
+    color: #6366f1;
+}
+
+.rp-nav-pill.answered {
+    background: #e0e7ff;
+    border-color: #6366f1;
+    color: #4338ca;
+}
+
+.rp-nav-pill.correct {
+    background: #10b981;
+    border-color: #10b981;
+    color: #ffffff;
+}
+
+.rp-nav-pill.wrong {
+    background: #ef4444;
+    border-color: #ef4444;
+    color: #ffffff;
+}
+
+@media (max-width: 992px) {
+    .rp-split-container {
+        grid-template-columns: 1fr;
+        height: auto;
+        min-height: auto;
+    }
+    .rp-passage-panel {
+        height: 450px;
+    }
+    .rp-questions-panel {
+        height: 600px;
+    }
+}
+
 </style>
 
 
@@ -5740,6 +5922,805 @@ const dangsData = {
         ]
     }
 };
+const readingPracticesData = {
+  "rp-01": {
+    "id": "rp-01",
+    "title": "READING PRACTICE 01: MOUNT RUSHMORE",
+    "badge": "Passage 01",
+    "passage": "<p>Mount Rushmore is a well-known monument in the Black Hills of South Dakota that features the countenances of four United States presidents: Washington, Jefferson, Roosevelt, and Lincoln. What is not so well known is that the process of creating this national treasure was not exactly an uneventful one.</p>\n<p>Mount Rushmore was the project of the visionary sculptor John Gutzen de la Mothe Borglum, who was born in Idaho but studied sculpture in Paris in his youth and befriended the famous French sculptor Auguste Rodin. In 1927 Borglum was granted a commission by the federal government to create the sculpture on Mount Rushmore. Though he was <strong>nearly</strong> sixty years old when he started, he was undaunted by the enormity of the project and the obstacles that it engendered. He optimistically asserted that the project would be completed within five years, not caring to recognize the potential problems that such a massive project would involve, the problems of dealing with financing, with government bureaucracy, and with Mother Nature herself. An example of what Mother Nature had to throw at the project was the <strong>fissure</strong> - or large crack - that developed in the granite where Jefferson was being carved. Jefferson had to be moved to the other side of Washington, next to Roosevelt because of the break in the stone. The work that had been started on the first Jefferson had to be dynamited away.</p>\n<p>Mount Rushmore was not completed within the five years predicted by Borglum and was in fact not actually completed within Borglum's lifetime, although <strong>it</strong> was almost finished. Borglum died on March 6, 1941, at the age of seventy-four, after fourteen years of work on the presidents. His son, Lincoln Borglum, who had worked with his father throughout the project, completed the monument <strong><u>within eight months of his father's death</u></strong>.</p>",
+    "translation": "<p>Núi Rushmore là một đài tưởng niệm nổi tiếng ở Black Hills thuộc bang Nam Dakota, khắc họa chân dung của bốn vị tổng thống Hoa Kỳ: Washington, Jefferson, Roosevelt và Lincoln. Điều mà không nhiều người biết là quá trình tạo ra kho báu quốc gia này không hề diễn ra một cách êm ả.</p>\n<p>Núi Rushmore là dự án của nhà điêu khắc nhìn xa trông rộng John Gutzen de la Mothe Borglum, người sinh ra ở Idaho nhưng đã học điêu khắc ở Paris khi còn trẻ và kết bạn với nhà điêu khắc nổi tiếng người Pháp Auguste Rodin. Năm 1927, Borglum được chính phủ liên bang ủy quyền tạo ra tác phẩm điêu khắc trên Núi Rushmore. Mặc dù ông đã gần sáu mươi tuổi khi bắt đầu, ông không hề nản lòng trước quy mô khổng lồ của dự án và những trở ngại mà nó tạo ra. Ông lạc quan khẳng định rằng dự án sẽ hoàn thành trong vòng 5 năm mà không bận tâm đến những rủi ro tiềm ẩn mà một dự án đồ sộ như vậy sẽ gặp phải: các vấn đề về tài chính, thủ tục hành chính của chính phủ và chính Mẹ Thiên Nhiên. Một ví dụ về những gì Mẹ Thiên Nhiên gây ra cho dự án là một vết nứt lớn xuất hiện trên khối đá granit nơi đang tạc tượng Jefferson. Tượng Jefferson đã phải chuyển sang phía bên kia của Washington, cạnh Roosevelt vì vết nứt này. Phần việc đã bắt đầu trên bức tượng Jefferson đầu tiên đã phải bị cho nổ mìn phá bỏ.</p>\n<p>Núi Rushmore đã không được hoàn thành trong vòng 5 năm như Borglum dự đoán và trên thực tế cũng chưa thực sự hoàn thành trong suốt cuộc đời của Borglum, mặc dù nó đã gần xong. Borglum qua đời vào ngày 6 tháng 3 năm 1941, ở tuổi 74, sau 14 năm miệt mài làm việc trên các bức tượng tổng thống. Con trai ông, Lincoln Borglum, người đã làm việc cùng cha trong suốt dự án, đã hoàn thành đài tưởng niệm trong vòng tám tháng sau khi cha qua đời.</p>",
+    "questions": [
+      {
+        "num": 1,
+        "question": "Which of the following best expresses the main idea of the passage?",
+        "options": [
+          "A. Mount Rushmore is a famous American monument",
+          "B. John Gutzen de la Mothe Borglum created Mount Rushmore",
+          "C. Mount Rushmore has sculptures of four United States presidents on it",
+          "D. Mount Rushmore was a huge project filled with numerous obstacles"
+        ],
+        "correctIdx": 3,
+        "explanation": "Đoạn văn mở đầu bằng việc chỉ ra quá trình xây dựng Núi Rushmore không hề suôn sẻ ('not exactly an uneventful one') và toàn bộ các đoạn sau đều kể về các khó khăn, trở ngại (vấn đề thời tiết, đá nứt, nổ mìn làm lại, thời gian kéo dài 14 năm thay vì 5 năm dự kiến). Do đó, ý chính là dự án khổng lồ chứa đầy những trở ngại.",
+        "translationQuestion": "Câu nào sau đây thể hiện rõ nhất ý chính của đoạn văn?",
+        "translationOptions": [
+          "A. Núi Rushmore là một đài tưởng niệm nổi tiếng của Mỹ",
+          "B. John Gutzen de la Mothe Borglum đã tạo ra Núi Rushmore",
+          "C. Núi Rushmore có tác phẩm điêu khắc của 4 vị tổng thống Hoa Kỳ",
+          "D. Núi Rushmore là một dự án khổng lồ chứa đầy những trở ngại"
+        ]
+      },
+      {
+        "num": 2,
+        "question": "Which of the following best describes the relationship between Borglum and Rodin in Borglum's early years?",
+        "options": [
+          "A. Borglum was far more famous than Rodin as a sculptor",
+          "B. Borglum and Rodin were friends",
+          "C. Borglum and Rodin were born and raised in the same place",
+          "D. Borglum studied about Rodin in Paris"
+        ],
+        "correctIdx": 1,
+        "explanation": "Đoạn 2 nêu rõ: 'studied sculpture in Paris in his youth and befriended the famous French sculptor Auguste Rodin' (kết bạn với nhà điêu khắc nổi tiếng Auguste Rodin) -> Quan hệ giữa họ là bạn bè (friends).",
+        "translationQuestion": "Điều nào sau đây mô tả đúng nhất mối quan hệ giữa Borglum và Rodin trong những năm đầu đời của Borglum?",
+        "translationOptions": [
+          "A. Borglum nổi tiếng hơn Rodin nhiều với tư cách là một nhà điêu khắc",
+          "B. Borglum và Rodin là bạn bè",
+          "C. Borglum và Rodin sinh ra và lớn lên ở cùng một nơi",
+          "D. Borglum đã học về Rodin ở Paris"
+        ]
+      },
+      {
+        "num": 3,
+        "question": "The word \"nearly\" in paragraph 2 could best be replaced by which of the following?",
+        "options": [
+          "A. Barely",
+          "B. Closely",
+          "C. Almost",
+          "D. Over"
+        ],
+        "correctIdx": 2,
+        "explanation": "'nearly sixty years old' = gần 60 tuổi. Từ đồng nghĩa chính xác nhất là 'almost' (gần như, xấp xỉ).",
+        "translationQuestion": "Từ \"nearly\" ở đoạn 2 có thể được thay thế tốt nhất bằng từ nào sau đây?",
+        "translationOptions": [
+          "A. Vừa mới, suýt không",
+          "B. Chặt chẽ",
+          "C. Gần như, xấp xỉ",
+          "D. Hơn, vượt quá"
+        ]
+      },
+      {
+        "num": 4,
+        "question": "Which of the following is NOT true about Borglum?",
+        "options": [
+          "A. He predicted that Mount Rushmore would be finished around 1932",
+          "B. Borglum worked on Mount Rushmore for more than a decade",
+          "C. Mount Rushmore was finished when Borglum predicted it would be",
+          "D. He began Mount Rushmore around the age of sixty"
+        ],
+        "correctIdx": 2,
+        "explanation": "Đoạn 3 viết: 'Mount Rushmore was not completed within the five years predicted by Borglum' (Núi Rushmore đã KHÔNG hoàn thành trong vòng 5 năm như Borglum dự đoán). Vì vậy câu C là câu SAI sự thật.",
+        "translationQuestion": "Điều nào sau đây KHÔNG đúng về Borglum?",
+        "translationOptions": [
+          "A. Ông dự đoán Núi Rushmore sẽ hoàn thành vào khoảng năm 1932 (1927 + 5 năm)",
+          "B. Borglum đã làm việc trên Núi Rushmore hơn một thập kỷ (14 năm)",
+          "C. Núi Rushmore đã hoàn thành đúng vào thời gian Borglum dự đoán",
+          "D. Ông bắt đầu làm Núi Rushmore vào khoảng 60 tuổi"
+        ]
+      },
+      {
+        "num": 5,
+        "question": "It can be inferred from the passage that Borglum was someone who ______.",
+        "options": [
+          "A. set realistic goals",
+          "B. was always afraid that bad things were going to happen",
+          "C. never tried anything too challenging",
+          "D. expected the best to happen"
+        ],
+        "correctIdx": 3,
+        "explanation": "Đoạn 2 nêu: 'He optimistically asserted that the project would be completed within five years, not caring to recognize the potential problems...' -> Ông rất lạc quan, không bận tâm đến rủi ro mà luôn kỳ vọng điều tốt đẹp nhất sẽ đến (expected the best to happen).",
+        "translationQuestion": "Có thể suy ra từ đoạn văn rằng Borglum là một người ______.",
+        "translationOptions": [
+          "A. Đặt ra những mục tiêu thực tế",
+          "B. Luôn sợ rằng những điều tồi tệ sẽ xảy ra",
+          "C. Không bao giờ thử bất cứ điều gì quá thử thách",
+          "D. Luôn kỳ vọng những điều tốt đẹp nhất sẽ xảy ra"
+        ]
+      },
+      {
+        "num": 6,
+        "question": "The word \"fissure\" in paragraph 2 is closest in meaning to _______.",
+        "options": [
+          "A. break",
+          "B. softness",
+          "C. discoloration",
+          "D. unevenness"
+        ],
+        "correctIdx": 0,
+        "explanation": "Bài đọc có câu giải thích ngay: 'the fissure - or large crack... because of the break in the stone' -> fissure đồng nghĩa với 'break' / 'crack' (vết nứt, đường gãy trên đá).",
+        "translationQuestion": "Từ \"fissure\" ở đoạn 2 gần nghĩa nhất với từ nào?",
+        "translationOptions": [
+          "A. Vết nứt, chỗ gãy",
+          "B. Độ mềm",
+          "C. Sự đổi màu",
+          "D. Sự gồ ghề"
+        ]
+      },
+      {
+        "num": 7,
+        "question": "Why does the author mention the fact that the carving of Thomas Jefferson was moved?",
+        "options": [
+          "A. It demonstrates Borglum's artistic style",
+          "B. It is an example of a problem caused by nature",
+          "C. It shows what a perfectionist Borglum was",
+          "D. It gives insight into Jefferson's character"
+        ],
+        "correctIdx": 1,
+        "explanation": "Đoạn 2 bắt đầu ví dụ bằng: 'An example of what Mother Nature had to throw at the project was the fissure... Jefferson had to be moved...' -> Việc chuyển vị trí tạc tượng Jefferson là một ví dụ về trở ngại do thiên nhiên gây ra.",
+        "translationQuestion": "Tại sao tác giả lại đề cập đến việc bức tượng tạc Thomas Jefferson bị di dời vị trí?",
+        "translationOptions": [
+          "A. Nó thể hiện phong cách nghệ thuật của Borglum",
+          "B. Nó là một ví dụ về một vấn đề do tự nhiên gây ra",
+          "C. Nó cho thấy Borglum là một người cầu toàn như thế nào",
+          "D. Nó giúp hiểu sâu hơn về tính cách của Jefferson"
+        ]
+      },
+      {
+        "num": 8,
+        "question": "The pronoun \"it\" in paragraph 3 refers to which of the following?",
+        "options": [
+          "A. Mount Rushmore",
+          "B. The first Jefferson",
+          "C. Fourteen years of work",
+          "D. Borglum's lifetime"
+        ],
+        "correctIdx": 0,
+        "explanation": "Đoạn 3: 'Mount Rushmore was not completed... although it was almost finished.' -> 'it' ở đây thay thế cho chủ ngữ chính 'Mount Rushmore'.",
+        "translationQuestion": "Đại từ \"it\" trong đoạn 3 ám chỉ điều nào sau đây?",
+        "translationOptions": [
+          "A. Núi Rushmore",
+          "B. Bức tượng Jefferson đầu tiên",
+          "C. 14 năm làm việc",
+          "D. Cuộc đời của Borglum"
+        ]
+      },
+      {
+        "num": 9,
+        "question": "Which of the following is closest in meaning to the expression \"within eight months of his father's death\"?",
+        "options": [
+          "A. Less than eight months before his father's death",
+          "B. Less than eight months after his father's death",
+          "C. More than eight months after his father's death",
+          "D. More than eight months before his father's death"
+        ],
+        "correctIdx": 1,
+        "explanation": "'within eight months of his father's death' nghĩa là trong khoảng thời gian chưa đầy 8 tháng sau khi người cha qua đời ('Less than eight months after...').",
+        "translationQuestion": "Cụm từ \"within eight months of his father's death\" gần nghĩa nhất với cụm nào sau đây?",
+        "translationOptions": [
+          "A. Chưa đầy 8 tháng trước khi cha ông qua đời",
+          "B. Chưa đầy 8 tháng sau khi cha ông qua đời",
+          "C. Hơn 8 tháng sau khi cha ông qua đời",
+          "D. Hơn 8 tháng trước khi cha ông qua đời"
+        ]
+      },
+      {
+        "num": 10,
+        "question": "This passage would most likely be assigned reading in a course on _______.",
+        "options": [
+          "A. management",
+          "B. geography",
+          "C. art history",
+          "D. government"
+        ],
+        "correctIdx": 2,
+        "explanation": "Bài đọc xoay quanh quá trình sáng tạo và lịch sử hình thành một công trình điêu khắc nghệ thuật nổi tiếng thế giới, do đó phù hợp nhất trong một khóa học về Lịch sử Nghệ thuật (art history).",
+        "translationQuestion": "Bài đọc này rất có thể là bài tập đọc trong một khóa học về môn _______.",
+        "translationOptions": [
+          "A. Quản trị",
+          "B. Địa lý",
+          "C. Lịch sử nghệ thuật",
+          "D. Chính quyền / Chính trị"
+        ]
+      }
+    ]
+  },
+  "rp-02": {
+    "id": "rp-02",
+    "title": "READING PRACTICE 02: NARCOLEPSY",
+    "badge": "Passage 02",
+    "passage": "<p>Narcolepsy is a disease characterized by malfunctioning sleep mechanics. It can consist of a sudden and uncontrollable <strong>bout</strong> of sleep during normal waking hours and is often accompanied by hallucinations and a temporary inability to move (paralysis). The disease is not rare, but it is underdiagnosed; in the United States alone, it is estimated that there are <strong>more than 500,000 narcoleptics</strong>. The symptoms of narcolepsy typically develop in teenagers or young adults in their <strong>early twenties</strong>, but it can appear at any age.</p>\n<p>Narcolepsy can take a number of forms during daylight hours. One common symptom of the disease during daytime hours is <strong>automatic behavior</strong>, which occurs when patients perform tasks without conscious awareness. Another common daytime symptom is <strong>cataplexy</strong>, a sudden loss of muscle tone triggered by strong emotions such as laughter, anger, or surprise, <strong>resulting in</strong> a sudden collapse to the floor.</p>\n<p>During sleep hours, narcolepsy can also manifest itself in a variety of ways. During the transitional phase that precedes sleep, patients often experience <strong>hypnagogic phenomena</strong>, which are vivid and often terrifying hallucinations that occur <strong>just as a person is falling asleep</strong>. They may also suffer from sleep paralysis upon awakening, leaving them unable to speak or move for several minutes, as well as frequent awakenings throughout the night that severely disrupt REM sleep.</p>",
+    "translation": "<p>Chứng ngủ rũ (Narcolepsy) là một căn bệnh đặc trưng bởi sự rối loạn cơ chế giấc ngủ. Nó có thể bao gồm những cơn buồn ngủ đột ngột và không thể cưỡng lại trong giờ thức bình thường và thường đi kèm với ảo giác cũng như tình trạng tạm thời không thể cử động (tê liệt khi ngủ). Căn bệnh này không hiếm nhưng thường chưa được chẩn đoán đầy đủ; chỉ riêng tại Hoa Kỳ, ước tính có hơn 500.000 người mắc chứng ngủ rũ. Các triệu chứng của chứng ngủ rũ thường phát triển ở thanh thiếu niên hoặc người trẻ ở độ tuổi đầu hai mươi, nhưng nó có thể xuất hiện ở mọi lứa tuổi.</p>\n<p>Chứng ngủ rũ có thể biểu hiện dưới nhiều dạng vào ban ngày. Một triệu chứng ban ngày phổ biến là hành vi tự động (automatic behavior), xảy ra khi bệnh nhân thực hiện các công việc mà không có nhận thức tỉnh táo. Một triệu chứng ban ngày phổ biến khác là chứng đột quỵ thể nhẹ / mất trương lực cơ (cataplexy), tình trạng mất trương lực cơ đột ngột do cảm xúc mạnh kích thích như cười, giận dữ hoặc ngạc nhiên, dẫn đến việc ngã quỵ đột ngột xuống sàn.</p>\n<p>Vào ban đêm, chứng ngủ rũ cũng có thể tự biểu hiện theo nhiều cách. Trong giai đoạn chuyển tiếp trước khi ngủ, bệnh nhân thường trải qua hiện tượng ảo giác lúc bắt đầu ngủ (hypnagogic phenomena), là những ảo giác sống động và thường đáng sợ xảy ra ngay khi một người đang chìm vào giấc ngủ. Họ cũng có thể bị liệt khi thức dậy, khiến họ không thể nói hoặc cử động trong vài phút, cũng như thường xuyên thức giấc trong đêm làm gián đoạn nghiêm trọng giấc ngủ REM.</p>",
+    "questions": [
+      {
+        "num": 1,
+        "question": "According to the passage, narcolepsy is a _______.",
+        "options": [
+          "A. syndrome",
+          "B. symptom",
+          "C. disease",
+          "D. disorder"
+        ],
+        "correctIdx": 2,
+        "explanation": "Câu đầu tiên của bài đọc khẳng định: 'Narcolepsy is a disease characterized by malfunctioning sleep mechanics' -> Chọn disease.",
+        "translationQuestion": "Theo đoạn văn, chứng ngủ rũ là một _______.",
+        "translationOptions": [
+          "A. Hội chứng",
+          "B. Triệu chứng",
+          "C. Căn bệnh",
+          "D. Sự rối loạn"
+        ]
+      },
+      {
+        "num": 2,
+        "question": "The word \"malfunctioning\" in paragraph 1 is closest in meaning to ________.",
+        "options": [
+          "A. regularly waking",
+          "B. improperly working",
+          "C. harshly interpreting",
+          "D. incorrectly classifying"
+        ],
+        "correctIdx": 1,
+        "explanation": "'malfunctioning' = hoạt động sai lệch, trục trặc = 'improperly working'.",
+        "translationQuestion": "Từ \"malfunctioning\" ở đoạn 1 gần nghĩa nhất với từ nào?",
+        "translationOptions": [
+          "A. Thức giấc đều đặn",
+          "B. Hoạt động sai chức năng / trục trặc",
+          "C. Giải thích khắc nghiệt",
+          "D. Phân loại không chính xác"
+        ]
+      },
+      {
+        "num": 3,
+        "question": "At what age does narcolepsy typically produce symptoms?",
+        "options": [
+          "A. 10",
+          "B. 20",
+          "C. 30",
+          "D. 40"
+        ],
+        "correctIdx": 1,
+        "explanation": "Đoạn 1 nêu: 'The symptoms of narcolepsy typically develop in teenagers or young adults in their early twenties' -> Độ tuổi đầu 20 (20).",
+        "translationQuestion": "Ở độ tuổi nào chứng ngủ rũ thường bắt đầu xuất hiện các triệu chứng?",
+        "translationOptions": [
+          "A. 10 tuổi",
+          "B. 20 tuổi",
+          "C. 30 tuổi",
+          "D. 40 tuổi"
+        ]
+      },
+      {
+        "num": 4,
+        "question": "Approximately how many narcoleptics are there in the United States?",
+        "options": [
+          "A. Fewer than 500,000",
+          "B. More than 500,000",
+          "C. Fewer than 1,500,000",
+          "D. More than 1,500,000"
+        ],
+        "correctIdx": 1,
+        "explanation": "Đoạn 1 nêu rõ: 'in the United States alone, it is estimated that there are more than 500,000 narcoleptics'.",
+        "translationQuestion": "Có khoảng bao nhiêu người mắc chứng ngủ rũ ở Hoa Kỳ?",
+        "translationOptions": [
+          "A. Dưới 500.000 người",
+          "B. Hơn 500.000 người",
+          "C. Dưới 1.500.000 người",
+          "D. Hơn 1.500.000 người"
+        ]
+      },
+      {
+        "num": 5,
+        "question": "The word \"bout\" in paragraph 1 is closest in meaning to ______.",
+        "options": [
+          "A. period",
+          "B. illness",
+          "C. lack",
+          "D. symptom"
+        ],
+        "correctIdx": 0,
+        "explanation": "'a bout of sleep' = một cơn/đợt/khoảng thời gian buồn ngủ = 'a period of sleep'.",
+        "translationQuestion": "Từ \"bout\" ở đoạn 1 gần nghĩa nhất với từ nào?",
+        "translationOptions": [
+          "A. Khoảng thời gian / đợt / cơn",
+          "B. Căn bệnh",
+          "C. Sự thiếu hụt",
+          "D. Triệu chứng"
+        ]
+      },
+      {
+        "num": 6,
+        "question": "Which of the following would be most likely to occur during daily activities?",
+        "options": [
+          "A. Hallucinations",
+          "B. Automatic behavior",
+          "C. Sleep paralysis",
+          "D. Night wakening"
+        ],
+        "correctIdx": 1,
+        "explanation": "Đoạn 2 nêu: 'One common symptom of the disease during daytime hours is automatic behavior, which occurs when patients perform tasks without conscious awareness' (xảy ra khi bệnh nhân đang làm các công việc hàng ngày mà mất nhận thức).",
+        "translationQuestion": "Điều nào sau đây có nhiều khả năng xảy ra nhất trong các hoạt động thường ngày?",
+        "translationOptions": [
+          "A. Ảo giác",
+          "B. Hành vi tự động vô thức",
+          "C. Tê liệt khi ngủ",
+          "D. Thức giấc giữa đêm"
+        ]
+      },
+      {
+        "num": 7,
+        "question": "Which of the following involves a complete collapse?",
+        "options": [
+          "A. Cataplexy",
+          "B. Automatic behavior",
+          "C. REM sleep",
+          "D. Hallucinations"
+        ],
+        "correctIdx": 0,
+        "explanation": "Đoạn 2 viết: 'cataplexy, a sudden loss of muscle tone... resulting in a sudden collapse to the floor' -> Cataplexy làm mất trương lực cơ dẫn đến ngã quỵ hoàn toàn xuống sàn.",
+        "translationQuestion": "Hiện tượng nào sau đây liên quan đến việc bị ngã quỵ hoàn toàn?",
+        "translationOptions": [
+          "A. Chứng mất trương lực cơ (Cataplexy)",
+          "B. Hành vi tự động",
+          "C. Giấc ngủ REM",
+          "D. Ảo giác"
+        ]
+      },
+      {
+        "num": 8,
+        "question": "The word \"resulting in\" in paragraph 2 is closest in meaning to ______.",
+        "options": [
+          "A. bringing on",
+          "B. making up",
+          "C. leading to",
+          "D. getting to"
+        ],
+        "correctIdx": 2,
+        "explanation": "'resulting in' = dẫn đến, gây ra = 'leading to'.",
+        "translationQuestion": "Cụm từ \"resulting in\" ở đoạn 2 gần nghĩa nhất với cụm nào?",
+        "translationOptions": [
+          "A. Mang lại",
+          "B. Cấu thành",
+          "C. Dẫn đến",
+          "D. Đi đến"
+        ]
+      },
+      {
+        "num": 9,
+        "question": "When would hypnagogic phenomena most likely occur?",
+        "options": [
+          "A. Soon after waking",
+          "B. Just after going to bed",
+          "C. After getting up",
+          "D. In the middle of the night"
+        ],
+        "correctIdx": 1,
+        "explanation": "Đoạn 3 giải thích: 'hypnagogic phenomena... occur just as a person is falling asleep' (ngay khi vừa chìm vào giấc ngủ / vừa lên giường nằm ngủ) -> Just after going to bed.",
+        "translationQuestion": "Hiện tượng ảo giác hypnagogic có nhiều khả năng xảy ra nhất vào thời điểm nào?",
+        "translationOptions": [
+          "A. Ngay sau khi thức dậy",
+          "B. Ngay sau khi vừa lên giường chuẩn bị ngủ",
+          "C. Sau khi rời khỏi giường",
+          "D. Vào lúc nửa đêm"
+        ]
+      },
+      {
+        "num": 10,
+        "question": "Which of the following would be the most appropriate title for the passage?",
+        "options": [
+          "A. Cure for Narcolepsy",
+          "B. A Good Night's Sleep",
+          "C. Hallucinations during Sleep",
+          "D. An Unusual Sleep Disturbance"
+        ],
+        "correctIdx": 3,
+        "explanation": "Toàn bài mô tả về chứng rối loạn giấc ngủ bất thường mang tên narcolepsy (định nghĩa, các triệu chứng ban ngày và ban đêm). Tiêu đề khái quát và phù hợp nhất là 'An Unusual Sleep Disturbance' (Một chứng rối loạn giấc ngủ bất thường).",
+        "translationQuestion": "Tiêu đề nào sau đây là thích hợp nhất cho bài đọc?",
+        "translationOptions": [
+          "A. Cách chữa trị chứng ngủ rũ",
+          "B. Một giấc ngủ ngon ban đêm",
+          "C. Ảo giác trong khi ngủ",
+          "D. Một chứng rối loạn giấc ngủ bất thường"
+        ]
+      }
+    ]
+  },
+  "rp-03": {
+    "id": "rp-03",
+    "title": "READING PRACTICE 03: THE CINEMA",
+    "badge": "Passage 03",
+    "passage": "<p>The cinema did not emerge as a form of mass consumption until its technology evolved from the initial \"peepshow\" format to the point where images could be projected on a screen in a darkened theater. In the early 1890s, Thomas Edison and his assistant William Dickson invented the Kinetoscope, a peepshow device in which an individual viewed a brief film strip through a magnifying lens. These Kinetoscope arcades were modeled on phonograph parlors, which had proven successful for Edison several years earlier. In these arcades, customers could move from one machine to another, watching short films of dancers, jugglers, or prizefights.</p>\n<p>[A] Exhibitors, however, wanted to maximize their profits, which they could do more <strong>readily</strong> by projecting a handful of films to an entire audience rather than selling individual views to one person at a time. [B] <u>Edison initially resisted projection technology because he believed that selling single-viewer machines was far more profitable than selling a few projectors to theaters.</u> [C] But European inventors soon perfected projection systems that drew large crowds, forcing American entrepreneurs to adapt. [D]</p>\n<p>With the advent of projection in 1895-1896, motion pictures became the ultimate form of mass consumption. Previously, large audiences had gathered to view magic-lantern shows or live theatrical spectacles. Although early exhibitors regularly accompanied movies with live acts, the substance of the movies themselves was mass-produced, standardized, and did not require the continuous presence of live performers for each showing. Exhibitors played an active role, deciding how to combine films, music, and spoken narrative into an attractive program for the public.</p>\n<p>With the advent of projection, the viewer's relationship with the image was no longer private, as it had been with earlier peepshows. <strong>It</strong> transformed cinema into a communal, shared social experience where large groups of people reacted together to the life-sized images on the big screen.</p>",
+    "translation": "<p>Điện ảnh đã không trở thành một hình thức tiêu thụ đại chúng cho đến khi công nghệ của nó phát triển từ định dạng \"peepshow\" (kính nhìn trộm đơn lẻ) ban đầu đến mức hình ảnh có thể được chiếu lên màn hình trong một rạp chiếu phim tối. Vào đầu những năm 1890, Thomas Edison và trợ lý William Dickson đã phát minh ra Kinetoscope, một thiết bị nhìn lén trong đó một cá nhân xem một đoạn phim ngắn qua một thấu kính phóng đại. Những khu vui chơi Kinetoscope này được mô phỏng theo các phòng nghe máy quay đĩa (phonograph parlors), vốn đã chứng minh sự thành công cho Edison vài năm trước đó. Trong các khu vui chơi này, khách hàng có thể di chuyển từ máy này sang máy khác, xem các bộ phim ngắn về các vũ công, người tung hứng hoặc các trận đấu quyền anh.</p>\n<p>[A] Tuy nhiên, các nhà chiếu phim muốn tối đa hóa lợi nhuận của họ, điều mà họ có thể thực hiện dễ dàng hơn bằng cách chiếu một số bộ phim cho toàn bộ khán giả thay vì bán từng lượt xem cá nhân cho từng người một. [B] Ban đầu, Edison đã phản đối công nghệ máy chiếu vì ông tin rằng việc bán các máy xem đơn lẻ mang lại nhiều lợi nhuận hơn nhiều so với việc chỉ bán một vài máy chiếu cho các rạp hát. [C] Nhưng các nhà phát minh châu Âu đã sớm hoàn thiện các hệ thống máy chiếu thu hút đông đảo đám đông, buộc các doanh nhân Mỹ phải thích nghi. [D]</p>\n<p>Với sự ra đời của máy chiếu vào năm 1895-1896, phim ảnh đã trở thành hình thức tiêu thụ đại chúng đỉnh cao. Trước đây, đông đảo khán giả tụ tập để xem các buổi trình chiếu đèn lồng ma thuật hoặc các buổi biểu diễn sân khấu trực tiếp. Mặc dù các nhà chiếu phim thời kỳ đầu thường kết hợp phim với các màn biểu diễn trực tiếp, bản thân nội dung phim đã được sản xuất hàng loạt, chuẩn hóa và không đòi hỏi sự hiện diện liên tục của các nghệ sĩ biểu diễn trực tiếp cho mỗi suất chiếu. Các nhà chiếu phim đóng vai trò tích cực, quyết định cách kết hợp phim ảnh, âm nhạc và lời dẫn chuyện thành một chương trình hấp dẫn cho công chúng.</p>\n<p>Với sự ra đời của máy chiếu, mối quan hệ của người xem với hình ảnh không còn mang tính riêng tư như đối với các máy peepshow trước đây. Nó đã biến điện ảnh thành một trải nghiệm xã hội mang tính cộng đồng, được chia sẻ rộng rãi, nơi các nhóm người cùng nhau phản ứng trước những hình ảnh có kích thước như người thật trên màn ảnh lớn.</p>",
+    "questions": [
+      {
+        "num": 1,
+        "question": "According to paragraph 1, all of the following were true of viewing films in Kinetoscope parlors EXCEPT _____.",
+        "options": [
+          "A. prizefights were the only subjects for films",
+          "B. customers could view one film after another",
+          "C. one individual at a time viewed a film",
+          "D. each film was short"
+        ],
+        "correctIdx": 0,
+        "explanation": "Đoạn 1 nêu các chủ đề phim gồm: 'dancers, jugglers, or prizefights' (vũ công, tung hứng, đấu quyền anh) -> Nói prizefights là chủ đề 'duy nhất' (the only subjects) là SAI (đáp án cần chọn cho câu EXCEPT).",
+        "translationQuestion": "Theo đoạn 1, tất cả các điều sau đây đều đúng về việc xem phim trong các phòng Kinetoscope NGOẠI TRỪ _____.",
+        "translationOptions": [
+          "A. Các trận đấu quyền anh là chủ đề duy nhất của phim",
+          "B. Khách hàng có thể xem hết phim này đến phim khác",
+          "C. Mỗi lần xem chỉ có một người xem một phim",
+          "D. Mỗi bộ phim đều có độ dài ngắn"
+        ]
+      },
+      {
+        "num": 2,
+        "question": "The author discusses phonograph parlors in paragraph 1 in order to _____.",
+        "options": [
+          "A. describe the model used to design Kinetoscope parlors",
+          "B. explain Edison's financial success",
+          "C. contrast their popularity to that of Kinetoscope parlors",
+          "D. illustrate how much more technologically advanced Kinetoscope parlors were"
+        ],
+        "correctIdx": 0,
+        "explanation": "Đoạn 1 viết: 'These Kinetoscope arcades were modeled on phonograph parlors...' -> Tác giả nhắc đến phonograph parlors để mô tả mô hình kiểu mẫu được dùng để thiết kế nên các phòng Kinetoscope.",
+        "translationQuestion": "Tác giả đề cập đến các phòng nghe máy quay đĩa (phonograph parlors) trong đoạn 1 nhằm mục đích _____.",
+        "translationOptions": [
+          "A. Mô tả mô hình được dùng để thiết kế các phòng Kinetoscope",
+          "B. Giải thích sự thành công về mặt tài chính của Edison",
+          "C. So sánh sự nổi tiếng của chúng với các phòng Kinetoscope",
+          "D. Minh họa xem các phòng Kinetoscope tiên tiến hơn về mặt công nghệ như thế nào"
+        ]
+      },
+      {
+        "num": 3,
+        "question": "Which of the sentences below best expresses the essential information in the underlined sentence from the passage?",
+        "options": [
+          "A. Edison initially resisted projection because he believed selling single-viewer machines was far more profitable than selling a few projectors",
+          "B. Edison was more interested in developing a variety of machines than in developing projection technology",
+          "C. Edison would not develop projection technology unless exhibitors agreed to purchase more than one projector",
+          "D. Edison refused to work on projection technology because exhibitors would replace their projectors"
+        ],
+        "correctIdx": 0,
+        "explanation": "Câu gạch chân: 'Edison initially resisted projection technology because he believed that selling single-viewer machines was far more profitable than selling a few projectors to theaters' -> Ý chính được diễn đạt chuẩn xác nhất ở câu A.",
+        "translationQuestion": "Câu nào dưới đây thể hiện đúng nhất thông tin cốt lõi trong câu được gạch chân?",
+        "translationOptions": [
+          "A. Edison ban đầu phản đối máy chiếu vì ông tin việc bán máy xem đơn lẻ có lợi nhuận cao hơn nhiều so với việc chỉ bán vài máy chiếu",
+          "B. Edison quan tâm đến việc phát triển nhiều loại máy hơn là công nghệ chiếu phim",
+          "C. Edison sẽ không phát triển công nghệ chiếu trừ khi các nhà rạp đồng ý mua nhiều hơn một máy chiếu",
+          "D. Edison từ chối làm máy chiếu vì nghĩ các nhà rạp sẽ thay thế máy chiếu của họ"
+        ]
+      },
+      {
+        "num": 4,
+        "question": "The word \"readily\" in the passage is closest in meaning to ______.",
+        "options": [
+          "A. easily",
+          "B. frequently",
+          "C. intelligently",
+          "D. obviously"
+        ],
+        "correctIdx": 0,
+        "explanation": "'do more readily' = thực hiện một cách dễ dàng, thuận lợi hơn = 'easily'.",
+        "translationQuestion": "Từ \"readily\" trong đoạn văn gần nghĩa nhất với từ nào?",
+        "translationOptions": [
+          "A. Dễ dàng, thuận lợi",
+          "B. Thường xuyên",
+          "C. Một cách thông minh",
+          "D. Rõ ràng"
+        ]
+      },
+      {
+        "num": 5,
+        "question": "The word \"assistant\" in paragraph 1 is closest in meaning to _______.",
+        "options": [
+          "A. helper",
+          "B. leader",
+          "C. critic",
+          "D. opponent"
+        ],
+        "correctIdx": 0,
+        "explanation": "'assistant' = người trợ tá, phụ tá = 'helper'.",
+        "translationQuestion": "Từ \"assistant\" ở đoạn 1 gần nghĩa nhất với từ nào?",
+        "translationOptions": [
+          "A. Người trợ giúp / cộng sự",
+          "B. Người lãnh đạo",
+          "C. Nhà phê bình",
+          "D. Đối thủ"
+        ]
+      },
+      {
+        "num": 6,
+        "question": "According to paragraph 3, how did the early movies differ from previous spectacles that were presented to large audiences?",
+        "options": [
+          "A. They were more educational",
+          "B. They were viewed by larger audiences",
+          "C. They were a more expensive form of entertainment",
+          "D. They did not require the continuous presence of live performers"
+        ],
+        "correctIdx": 3,
+        "explanation": "Đoạn 3 nêu: 'mass-produced, standardized, and did not require the continuous presence of live performers for each showing' (không cần sự hiện diện liên tục của các nghệ sĩ biểu diễn trực tiếp).",
+        "translationQuestion": "Theo đoạn 3, những bộ phim thời kỳ đầu khác biệt như thế nào so với các chương trình biểu diễn trước đó?",
+        "translationOptions": [
+          "A. Chúng mang tính giáo dục cao hơn",
+          "B. Chúng được xem bởi lượng khán giả đông hơn",
+          "C. Chúng là một hình thức giải trí đắt đỏ hơn",
+          "D. Chúng không đòi hỏi sự hiện diện liên tục của các diễn viên biểu diễn trực tiếp"
+        ]
+      },
+      {
+        "num": 7,
+        "question": "According to paragraph 3, what role did early exhibitors play in the presentation of movies in theaters?",
+        "options": [
+          "A. They often took part in the live-action performances",
+          "B. They advised filmmakers on appropriate movie content",
+          "C. They decided how to combine various components of the film program",
+          "D. They produced and prerecorded the material shown in theaters"
+        ],
+        "correctIdx": 2,
+        "explanation": "Đoạn 3 viết: 'Exhibitors played an active role, deciding how to combine films, music, and spoken narrative into an attractive program...' -> Họ quyết định cách kết hợp các thành phần của chương trình chiếu phim.",
+        "translationQuestion": "Theo đoạn 3, các nhà chiếu phim thời kỳ đầu đóng vai trò gì trong việc trình chiếu phim tại rạp?",
+        "translationOptions": [
+          "A. Họ thường tham gia vào các màn biểu diễn trực tiếp",
+          "B. Họ tư vấn cho các nhà làm phim về nội dung phù hợp",
+          "C. Họ quyết định cách kết hợp các yếu tố khác nhau của chương trình phim",
+          "D. Họ tự sản xuất và thu âm trước các nội dung chiếu trong rạp"
+        ]
+      },
+      {
+        "num": 8,
+        "question": "The word \"It\" in paragraph 4 refers to ________.",
+        "options": [
+          "A. The advent of projection",
+          "B. The viewer's relationship with the image",
+          "C. A similar machine",
+          "D. The peepshow format"
+        ],
+        "correctIdx": 0,
+        "explanation": "Đoạn 4: 'With the advent of projection... It transformed cinema into a communal, shared social experience...' -> Đại từ 'It' thay thế cho sự ra đời của công nghệ chiếu phim ('The advent of projection').",
+        "translationQuestion": "Từ \"It\" trong đoạn 4 ám chỉ điều gì?",
+        "translationOptions": [
+          "A. Sự ra đời của máy chiếu phim",
+          "B. Mối quan hệ của người xem với hình ảnh",
+          "C. Một cỗ máy tương tự",
+          "D. Định dạng xem qua kính ngắm đơn lẻ"
+        ]
+      },
+      {
+        "num": 9,
+        "question": "According to paragraph 4, the images seen by viewers in the earlier peepshows, compared to the images projected on the screen, were relatively ________.",
+        "options": [
+          "A. small and viewed privately",
+          "B. unfocused",
+          "C. inexpensive to create",
+          "D. limited in subject matter"
+        ],
+        "correctIdx": 0,
+        "explanation": "Đoạn 4 đối chiếu: peepshows mang tính 'private' và nhìn qua thấu kính nhỏ, trong khi máy chiếu mang lại 'life-sized images on the big screen' (hình ảnh to như người thật trên màn ảnh lớn) -> peepshow có kích thước nhỏ và xem riêng tư.",
+        "translationQuestion": "Theo đoạn 4, hình ảnh mà người xem nhìn thấy trong các máy peepshow trước đây so với hình ảnh chiếu trên màn hình thì tương đối ________.",
+        "translationOptions": [
+          "A. Nhỏ và chỉ xem được ở góc độ riêng tư cá nhân",
+          "B. Bị mờ nét",
+          "C. Rẻ tiền để tạo ra",
+          "D. Bị hạn chế về mặt chủ đề"
+        ]
+      },
+      {
+        "num": 10,
+        "question": "Look at the four squares [__] that indicate where the following sentence can be added to the passage: \"When this widespread use of projection technology began to hurt his Kinetoscope business, Edison acquired a projector developed by Armat and introduced it as 'Edison's latest marvel, the Vitascope.'\" Where would the sentence best fit?",
+        "options": [
+          "A. [A]",
+          "B. [B]",
+          "C. [C]",
+          "D. [D]"
+        ],
+        "correctIdx": 3,
+        "explanation": "Câu trước vị trí [D] nói: 'European inventors soon perfected projection systems that drew large crowds, forcing American entrepreneurs to adapt' (buộc các doanh nhân Mỹ phải thích nghi). Do đó, câu nói về việc Edison mua lại máy chiếu của Armat để thích nghi lắp vào vị trí [D] là hoàn toàn hợp lý và liền mạch.",
+        "translationQuestion": "Câu sau đây phù hợp nhất tại vị trí nào [A], [B], [C] hay [D]: \"Khi việc sử dụng rộng rãi công nghệ máy chiếu này bắt đầu gây tổn hại đến hoạt động kinh doanh Kinetoscope của mình, Edison đã mua lại một máy chiếu do Armat phát triển và giới thiệu nó là 'Kỳ quan mới nhất của Edison, máy Vitascope'.\"?",
+        "translationOptions": [
+          "A. Vị trí [A]",
+          "B. Vị trí [B]",
+          "C. Vị trí [C]",
+          "D. Vị trí [D]"
+        ]
+      }
+    ]
+  },
+  "rp-04": {
+    "id": "rp-04",
+    "title": "READING PRACTICE 04: DESERTIFICATION",
+    "badge": "Passage 04",
+    "passage": "<p>The deserts, which already occupy approximately a fourth of the Earth's land surface, have in recent decades been increasing at an alarming pace. The expansion of desert-like conditions into areas where they did not previously exist is called <strong>desertification</strong>. It has been estimated that an additional one-fourth of the Earth's land surface is <strong>threatened</strong> by this process.</p>\n<p>Desertification is accomplished primarily through the loss of stabilizing natural vegetation and the subsequent accelerated erosion of the soil by wind and water. In some cases, the loose soil is blown completely away, leaving a stony surface. In other cases, the finer particles may be removed, while the sand-sized particles are accumulated to form mobile hills or ridges of sand.</p>\n<p>Even in the areas that retain a soil cover, the reduction of vegetation typically results in the loss of the soil's ability to absorb substantial quantities of water. The impact of raindrops on the loose soil tends to transfer fine clay particles into the tiniest soil spaces, sealing them and producing a surface that allows very little water penetration. Water absorption is greatly reduced, consequently runoff is increased, resulting in accelerated erosion rates. The gradual drying of the soil caused by its diminished ability to absorb water results in the further loss of vegetation, so that a cycle of progressive surface deterioration is established.</p>\n<p>In some regions, the increase in desert areas is occurring largely as the result of a trend toward drier climatic conditions. Continued gradual global warming has produced an increase in aridity for some areas over the past few thousand years. The process may be accelerated in subsequent decades if global warming resulting from air pollution seriously increases.</p>\n<p>There is little doubt, however, that desertification in most areas results primarily from human activities rather than natural processes. The semiarid lands bordering the deserts exist in a <strong>delicate</strong> ecological balance and are limited in their potential to adjust to increased environmental pressures. Expanding populations are subjecting the land to increasing pressures to provide them with food and fuel. In wet periods, the land may be able to respond to these stresses. During the dry periods that are common phenomena along the desert margins, though, the pressure on the land is often far in excess of its diminished capacity, and desertification results.</p>\n<p>Four specific activities have been identified as major contributors to the desertification processes: over-cultivation, over-grazing, firewood gathering, and over-irrigation. The cultivation of crops has expanded into <strong>progressively</strong> drier regions as population densities have grown. These regions are especially likely to have periods of severe dryness, so that crop failures are common. Since the raising of most crops necessitates the prior removal of the natural vegetation, crop failures leave extensive tracts of land devoid of a plant cover and susceptible to wind and water erosion.</p>\n<p>The raising of livestock is a major economic activity in semiarid lands, where grasses are generally the dominant type of natural vegetation. The consequences of an excessive number of livestock grazing in an area are the reduction of the vegetation cover and the trampling and pulverization of the soil. This is usually followed by the drying of the soil and accelerated erosion.</p>\n<p>Firewood is the chief fuel used for cooking and heating in many countries. The increased pressures of expanding populations have led to the removal of woody plants so that many cities and towns are surrounded by large areas completely lacking in trees and shrubs. The increasing use of dried animal waste as a substitute fuel has also hurt the soil because this valuable soil conditioner and source of plant nutrients is no longer being returned to the land.</p>\n<p>The final major human cause of desertification is soil salinization resulting from over-irrigation. Excess water from irrigation sinks down into the water table. If no drainage system exists, the water table rises, bringing dissolved salts to the surface. The water evaporates and the salts are left behind, creating a white crustal layer that prevents air and water from reaching the underlying soil.</p>\n<p><u>The extreme seriousness of desertification results from the vast areas of land and the tremendous numbers of people affected, as well as from the great difficulty of reversing or even slowing the process.</u> Once the soil has been removed by erosion, only the passage of centuries or millennia will enable new soil to form. In areas where considerable soil still remains, though, a rigorously enforced program of land protection and cover-crop planting may make it possible to reverse the present deterioration of the surface.</p>",
+    "translation": "<p>Các sa mạc, hiện đã chiếm khoảng 1/4 diện tích bề mặt đất liền của Trái Đất, trong những thập kỷ gần đây đã và đang gia tăng với tốc độ đáng báo động. Sự mở rộng của các điều kiện giống sa mạc vào những khu vực trước đây chưa từng có được gọi là sa mạc hóa (desertification). Người ta ước tính rằng thêm 1/4 diện tích đất liền của Trái Đất đang bị đe dọa bởi quá trình này.</p>\n<p>Sa mạc hóa diễn ra chủ yếu thông qua việc mất đi thảm thực vật tự nhiên có tác dụng ổn định đất và hệ quả là sự xói mòn đất nhanh chóng do gió và nước. Trong một số trường hợp, lớp đất mặt tơi xốp bị thổi bay hoàn toàn, trơ lại bề mặt đầy đá. Trong các trường hợp khác, các hạt mịn hơn bị cuốn đi, trong khi các hạt có kích thước bằng cát tích tụ lại tạo thành các đồi hoặc gờ cát di động.</p>\n<p>Ngay cả ở những khu vực vẫn còn lớp đất phủ, việc giảm thảm thực vật thường dẫn đến việc đất mất khả năng hấp thụ một lượng nước lớn. Tác động của các hạt mưa rơi xuống đất tơi xốp có xu hướng đẩy các hạt sét mịn vào những khe đất nhỏ nhất, bịt kín chúng lại và tạo ra một bề mặt khiến nước rất khó thấm qua. Khả năng hấp thụ nước bị giảm mạnh, do đó dòng chảy mặt tăng lên, dẫn đến tốc độ xói mòn tăng nhanh. Sự khô cằn dần của đất do khả năng hấp thụ nước suy giảm dẫn đến việc mất thêm thảm thực vật, từ đó hình thành một vòng luẩn quẩn suy thoái bề mặt đất ngày càng nghiêm trọng.</p>\n<p>Ở một số vùng, sự gia tăng diện tích sa mạc xảy ra phần lớn là do xu hướng điều kiện khí hậu trở nên khô hạn hơn. Sự nóng lên toàn cầu liên tục đã làm tăng độ khô hạn ở một số khu vực trong vài nghìn năm qua. Quá trình này có thể được đẩy nhanh trong những thập kỷ tiếp theo nếu sự nóng lên toàn cầu do ô nhiễm không khí tăng mạnh.</p>\n<p>Tuy nhiên, hầu như không còn nghi ngờ gì rằng sa mạc hóa ở hầu hết các khu vực chủ yếu bắt nguồn từ các hoạt động của con người hơn là các quá trình tự nhiên. Các vùng đất bán khô hạn giáp ranh với sa mạc tồn tại trong một sự cân bằng sinh thái mong manh và bị hạn chế về khả năng thích ứng với áp lực môi trường gia tăng. Dân số ngày càng tăng đang đặt vùng đất này dưới áp lực nặng nề để cung cấp lương thực và chất đốt. Vào những giai đoạn ẩm ướt, đất có thể chịu đựng được những áp lực này. Tuy nhiên, trong các đợt khô hạn vốn là hiện tượng phổ biến dọc theo rìa sa mạc, áp lực lên đất thường vượt xa khả năng chịu đựng suy giảm của nó, và kết quả là sa mạc hóa xảy ra.</p>\n<p>Bốn hoạt động cụ thể đã được xác định là nguyên nhân chính gây ra quá trình sa mạc hóa: canh tác quá mức, chăn thả quá mức, thu lượm củi và tưới tiêu quá mức. Việc trồng trọt hoa màu đã mở rộng sang các vùng ngày càng khô hạn hơn khi mật độ dân số tăng lên. Những vùng này đặc biệt dễ có những đợt khô hạn khắc nghiệt, dẫn đến mất mùa thường xuyên. Vì việc trồng hầu hết các loại cây trồng đòi hỏi phải loại bỏ thảm thực vật tự nhiên trước đó, nên mất mùa khiến những vùng đất rộng lớn không còn lớp thực vật che phủ và dễ bị gió và nước xói mòn.</p>\n<p>Chăn nuôi gia súc là một hoạt động kinh tế lớn ở các vùng đất bán khô hạn, nơi cỏ là loại thực vật tự nhiên chiếm ưu thế. Hậu quả của số lượng gia súc gặm cỏ quá mức trong một khu vực là sự suy giảm thảm thực vật cũng như sự giẫm đạp và nghiền vụn đất. Điều này thường kéo theo việc đất bị khô và xói mòn tăng tốc.</p>\n<p>Củi là chất đốt chính dùng để nấu ăn và sưởi ấm ở nhiều quốc gia. Áp lực ngày càng tăng của dân số đông đã dẫn đến việc chặt phá các loài cây thân gỗ, khiến nhiều thành phố và thị trấn bị bao quanh bởi những khu vực rộng lớn hoàn toàn không có cây cối và cây bụi. Việc gia tăng sử dụng phân động vật phơi khô làm chất đốt thay thế cũng gây tổn hại cho đất vì nguồn phân bón và chất dinh dưỡng quý giá này không còn được trả lại cho đất.</p>\n<p>Nguyên nhân lớn cuối cùng do con người gây ra sa mạc hóa là sự nhiễm mặn của đất do tưới tiêu quá mức. Nước thừa từ quá trình tưới ngấm xuống tầng nước ngầm. Nếu không có hệ thống thoát nước, mực nước ngầm sẽ dâng cao, mang theo muối hòa tan lên bề mặt. Nước bốc hơi và muối đọng lại, tạo thành một lớp váng trắng ngăn không khí và nước tiếp cận lớp đất bên dưới.</p>\n<p>Mức độ cực kỳ nghiêm trọng của nạn sa mạc hóa bắt nguồn từ diện tích đất đai rộng lớn và số lượng người bị ảnh hưởng khổng lồ, cũng như từ sự khó khăn to lớn trong việc đảo ngược hoặc thậm chí làm chậm lại quá trình này. Một khi đất đã bị xói mòn, phải mất hàng thế kỷ hoặc hàng thiên niên kỷ thì đất mới có thể hình thành lại. Tuy nhiên, ở những khu vực vẫn còn lượng đất đáng kể, một chương trình bảo vệ đất và trồng cây che phủ được thực thi nghiêm ngặt có thể giúp đảo ngược sự suy thoái bề mặt hiện tại.</p>",
+    "questions": [
+      {
+        "num": 1,
+        "question": "The word \"threatened\" in paragraph 1 is closest in meaning to _______.",
+        "options": [
+          "A. restricted",
+          "B. endangered",
+          "C. prevented",
+          "D. rejected"
+        ],
+        "correctIdx": 1,
+        "explanation": "'threatened' = bị đe dọa, lâm nguy = 'endangered'.",
+        "translationQuestion": "Từ \"threatened\" ở đoạn 1 gần nghĩa nhất với từ nào?",
+        "translationOptions": [
+          "A. Bị hạn chế",
+          "B. Bị đe dọa, lâm nguy",
+          "C. Bị ngăn cản",
+          "D. Bị từ chối"
+        ]
+      },
+      {
+        "num": 2,
+        "question": "According to paragraph 3, the loss of natural vegetation has which of the following consequences for soil?",
+        "options": [
+          "A. Reduced water absorption",
+          "B. Increased numbers of spaces in the soil",
+          "C. Increased stony content",
+          "D. Reduced water runoff"
+        ],
+        "correctIdx": 0,
+        "explanation": "Đoạn 3 nêu rõ: 'reduction of vegetation typically results in the loss of the soil's ability to absorb substantial quantities of water' -> Giảm khả năng thấm và giữ nước của đất (Reduced water absorption).",
+        "translationQuestion": "Theo đoạn 3, việc mất thảm thực vật tự nhiên gây ra hậu quả nào sau đây đối với đất?",
+        "translationOptions": [
+          "A. Giảm khả năng hấp thụ nước của đất",
+          "B. Tăng số lượng khe hở trong đất",
+          "C. Tăng lượng đất đá",
+          "D. Giảm dòng chảy mặt của nước"
+        ]
+      },
+      {
+        "num": 3,
+        "question": "The word \"delicate\" in paragraph 5 is closest in meaning to _______.",
+        "options": [
+          "A. predictable",
+          "B. fragile",
+          "C. complex",
+          "D. valuable"
+        ],
+        "correctIdx": 1,
+        "explanation": "'delicate balance' = sự cân bằng mong manh, dễ bị phá vỡ = 'fragile'.",
+        "translationQuestion": "Từ \"delicate\" ở đoạn 5 gần nghĩa nhất với từ nào?",
+        "translationOptions": [
+          "A. Có thể đoán trước",
+          "B. Mong manh, dễ vỡ",
+          "C. Phức tạp",
+          "D. Quý giá"
+        ]
+      },
+      {
+        "num": 4,
+        "question": "According to paragraph 5, in dry periods, border areas have difficulty _________.",
+        "options": [
+          "A. adjusting to stresses created by settlement and expanding populations",
+          "B. providing water for irrigating crops",
+          "C. retaining their fertility after desertification",
+          "D. attracting populations in search of food and fuel"
+        ],
+        "correctIdx": 0,
+        "explanation": "Đoạn 5 nêu: 'limited in their potential to adjust to increased environmental pressures... During the dry periods... the pressure on the land is often far in excess of its diminished capacity' -> Vùng rìa khó thích nghi với áp lực môi trường và gia tăng dân số.",
+        "translationQuestion": "Theo đoạn 5, vào các thời kỳ khô hạn, các vùng đất giáp ranh gặp khó khăn trong việc _________.",
+        "translationOptions": [
+          "A. Thích ứng với các áp lực do định cư và dân số gia tăng gây ra",
+          "B. Cung cấp nước tưới tiêu cho cây trồng",
+          "C. Duy trì độ phì nhiêu sau khi sa mạc hóa",
+          "D. Thu hút dân cư tìm kiếm thức ăn và chất đốt"
+        ]
+      },
+      {
+        "num": 5,
+        "question": "The word \"progressively\" in paragraph 6 is closest in meaning to ____________.",
+        "options": [
+          "A. impressively",
+          "B. openly",
+          "C. objectively",
+          "D. increasingly"
+        ],
+        "correctIdx": 3,
+        "explanation": "'progressively drier regions' = các khu vực ngày càng khô hạn hơn = 'increasingly'.",
+        "translationQuestion": "Từ \"progressively\" ở đoạn 6 gần nghĩa nhất với từ nào?",
+        "translationOptions": [
+          "A. Ấn tượng",
+          "B. Cởi mở",
+          "C. Khách quan",
+          "D. Ngày càng tăng, dần dần"
+        ]
+      },
+      {
+        "num": 6,
+        "question": "According to paragraph 6, which of the following is often associated with raising crops?",
+        "options": [
+          "A. Failure to plant crops suited to the particular area",
+          "B. Excessive use of dried animal waste",
+          "C. Lack of proper irrigation techniques",
+          "D. Removal of the original vegetation"
+        ],
+        "correctIdx": 3,
+        "explanation": "Đoạn 6 nêu: 'Since the raising of most crops necessitates the prior removal of the natural vegetation...' -> Việc trồng trọt gắn liền với việc chặt bỏ/loại bỏ thảm thực vật ban đầu.",
+        "translationQuestion": "Theo đoạn 6, điều nào sau đây thường đi liền với việc trồng trọt hoa màu?",
+        "translationOptions": [
+          "A. Không trồng được cây phù hợp với khu vực",
+          "B. Lạm dụng phân động vật phơi khô",
+          "C. Thiếu kỹ thuật tưới tiêu phù hợp",
+          "D. Loại bỏ thảm thực vật ban đầu"
+        ]
+      },
+      {
+        "num": 7,
+        "question": "According to paragraph 9, the ground's absorption of excess water is a factor in desertification because it can ________.",
+        "options": [
+          "A. limit the evaporation of water",
+          "B. interfere with the irrigation of land",
+          "C. bring salts to the surface",
+          "D. require more absorption of air by the soil"
+        ],
+        "correctIdx": 2,
+        "explanation": "Đoạn 9 nêu: 'the water table rises, bringing dissolved salts to the surface. The water evaporates and the salts are left behind...' -> Nước thừa làm dâng mực nước ngầm, mang muối hòa tan lên bề mặt gây nhiễm mặn đất.",
+        "translationQuestion": "Theo đoạn 9, việc đất hấp thụ nước dư thừa là một nhân tố gây sa mạc hóa vì nó có thể ________.",
+        "translationOptions": [
+          "A. Hạn chế sự bay hơi của nước",
+          "B. Gây cản trở việc tưới tiêu đất",
+          "C. Mang muối hòa tan lên trên bề mặt đất",
+          "D. Đòi hỏi đất phải hấp thụ nhiều không khí hơn"
+        ]
+      },
+      {
+        "num": 8,
+        "question": "All of the following are mentioned in the passage as contributing to desertification EXCEPT ________.",
+        "options": [
+          "A. soil erosion",
+          "B. insufficient irrigation",
+          "C. global warming",
+          "D. the raising of livestock"
+        ],
+        "correctIdx": 1,
+        "explanation": "Bài đọc nêu nguyên nhân là 'over-irrigation' (tưới tiêu quá mức gây nhiễm mặn), chứ KHÔNG PHẢI 'insufficient irrigation' (tưới tiêu không đủ). Do đó B là đáp án sai (cần chọn cho câu EXCEPT).",
+        "translationQuestion": "Tất cả các yếu tố sau đây đều được đề cập là nguyên nhân góp phần gây sa mạc hóa NGOẠI TRỪ ________.",
+        "translationOptions": [
+          "A. Sự xói mòn đất",
+          "B. Tưới tiêu không đủ",
+          "C. Sự nóng lên toàn cầu",
+          "D. Hoạt động chăn nuôi gia súc"
+        ]
+      },
+      {
+        "num": 9,
+        "question": "Which of the sentences below best expresses the essential information in the underlined sentence in the passage?",
+        "options": [
+          "A. The spread of deserts is considered a very serious problem that can be solved only if large numbers of people in various countries are involved",
+          "B. Slowing down the process of desertification is difficult because of population growth that has spread over large areas",
+          "C. Desertification is a significant problem because it is so hard to reverse and affects large areas of land and great numbers of people",
+          "D. Desertification is extremely hard to reverse unless the population is reduced in the vast areas affected"
+        ],
+        "correctIdx": 2,
+        "explanation": "Câu gạch chân: 'The extreme seriousness of desertification results from the vast areas of land and the tremendous numbers of people affected, as well as from the great difficulty of reversing or even slowing the process' -> Thể hiện rõ nhất ở đáp án C (sa mạc hóa là vấn đề nghiêm trọng vì rất khó đảo ngược và ảnh hưởng đến diện tích đất rộng lớn cùng số lượng người khổng lồ).",
+        "translationQuestion": "Câu nào dưới đây thể hiện chính xác nhất thông tin cốt lõi trong câu được gạch chân ở đoạn cuối?",
+        "translationOptions": [
+          "A. Sự lan rộng của sa mạc là vấn đề chỉ có thể giải quyết nếu đông đảo người dân tham gia",
+          "B. Làm chậm sa mạc hóa rất khó vì sự gia tăng dân số lan rộng",
+          "C. Sa mạc hóa là một vấn đề nghiêm trọng vì nó rất khó đảo ngược và ảnh hưởng đến diện tích đất lớn cũng như số lượng người khổng lồ",
+          "D. Sa mạc hóa cực kỳ khó đảo ngược trừ khi giảm dân số ở các vùng bị ảnh hưởng"
+        ]
+      },
+      {
+        "num": 10,
+        "question": "As inferred from the passage, which of the following does the author most likely believe about the future of desertification?",
+        "options": [
+          "A. Desertification will continue to increase unless rigorously enforced land protection programs are implemented",
+          "B. Desertification will soon occur in all areas of the world",
+          "C. Governments will easily stop all further desertification",
+          "D. The factors influencing desertification occur in cycles and will naturally disappear"
+        ],
+        "correctIdx": 0,
+        "explanation": "Đoạn cuối nhấn mạnh: 'a rigorously enforced program of land protection and cover-crop planting may make it possible to reverse the present deterioration of the surface' -> Nếu không có các chương trình bảo vệ đất được thực thi nghiêm ngặt thì sa mạc hóa sẽ tiếp tục gia tăng.",
+        "translationQuestion": "Theo suy luận từ đoạn văn, tác giả có nhiều khả năng tin vào điều nào nhất về tương lai của nạn sa mạc hóa?",
+        "translationOptions": [
+          "A. Sa mạc hóa sẽ tiếp tục gia tăng trừ khi các chương trình bảo vệ đất được thực thi nghiêm ngặt",
+          "B. Sa mạc hóa sẽ sớm xảy ra ở tất cả các khu vực trên thế giới",
+          "C. Các chính phủ sẽ dễ dàng ngăn chặn hoàn toàn sa mạc hóa",
+          "D. Các yếu tố ảnh hưởng đến sa mạc hóa diễn ra theo chu kỳ và sẽ tự biến mất"
+        ]
+      }
+    ]
+  }
+};
+
 
 const mockTestPassages = [
     {
@@ -6429,6 +7410,40 @@ const mockTestPassages = [
 <span class="sub-icon"><i class="fa-solid fa-circle-right"></i></span>
 <span class="sub-text">Dạng 08: Tìm câu đồng nghĩa</span>
 <span class="status-indicator" id="status-dang-08"><i class="fa-solid fa-circle-notch"></i></span>
+<span class="lock-indicator" style="margin-left: auto; color: var(--accent-amber); font-size: 0.82rem;"><i class="fa-solid fa-lock"></i></span>
+</a></li>
+</ul>
+</li>
+<!-- Chapter 03: Reading Practice -->
+<li class="lesson-group active">
+<div class="lesson-group-header">
+<span class="tab-icon"><i class="fa-solid fa-book-open-reader"></i></span>
+<div class="tab-text">READING PRACTICE</div>
+<span class="group-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+</div>
+<ul class="sub-nav-links">
+<li><a class="sub-tab-link" data-locked="true" data-section="reading-practice" data-rp-id="rp-01" href="#sec-reading-practice">
+<span class="sub-icon"><i class="fa-solid fa-file-lines"></i></span>
+<span class="sub-text">Reading Practice 01</span>
+<span class="status-indicator" id="status-rp-01"><i class="fa-solid fa-circle-notch"></i></span>
+<span class="lock-indicator" style="margin-left: auto; color: var(--accent-amber); font-size: 0.82rem;"><i class="fa-solid fa-lock"></i></span>
+</a></li>
+<li><a class="sub-tab-link" data-locked="true" data-section="reading-practice" data-rp-id="rp-02" href="#sec-reading-practice">
+<span class="sub-icon"><i class="fa-solid fa-file-lines"></i></span>
+<span class="sub-text">Reading Practice 02</span>
+<span class="status-indicator" id="status-rp-02"><i class="fa-solid fa-circle-notch"></i></span>
+<span class="lock-indicator" style="margin-left: auto; color: var(--accent-amber); font-size: 0.82rem;"><i class="fa-solid fa-lock"></i></span>
+</a></li>
+<li><a class="sub-tab-link" data-locked="true" data-section="reading-practice" data-rp-id="rp-03" href="#sec-reading-practice">
+<span class="sub-icon"><i class="fa-solid fa-file-lines"></i></span>
+<span class="sub-text">Reading Practice 03</span>
+<span class="status-indicator" id="status-rp-03"><i class="fa-solid fa-circle-notch"></i></span>
+<span class="lock-indicator" style="margin-left: auto; color: var(--accent-amber); font-size: 0.82rem;"><i class="fa-solid fa-lock"></i></span>
+</a></li>
+<li><a class="sub-tab-link" data-locked="true" data-section="reading-practice" data-rp-id="rp-04" href="#sec-reading-practice">
+<span class="sub-icon"><i class="fa-solid fa-file-lines"></i></span>
+<span class="sub-text">Reading Practice 04</span>
+<span class="status-indicator" id="status-rp-04"><i class="fa-solid fa-circle-notch"></i></span>
 <span class="lock-indicator" style="margin-left: auto; color: var(--accent-amber); font-size: 0.82rem;"><i class="fa-solid fa-lock"></i></span>
 </a></li>
 </ul>
@@ -7139,6 +8154,69 @@ const mockTestPassages = [
 <button class="primary-btn btn-md" id="btn-vocab-quiz-retry" style="padding: 10px 24px; font-weight: bold; font-size: 0.9rem; cursor: pointer; border: none; border-radius: 12px; background: var(--primary-color); color: white;"><i class="fa-solid fa-arrows-rotate"></i> Luyện tập lại</button>
 </div>
 </section>
+
+<!-- ==========================================================================
+     SECTION: READING PRACTICE (SPLIT SCREEN)
+     ========================================================================== -->
+<section id="sec-reading-practice" class="content-section" style="display: none;">
+    <div class="content-card" style="padding: 20px 24px; max-width: 1440px; margin: 0 auto;">
+        <!-- Header Bar -->
+        <div class="rp-header-bar" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; margin-bottom: 16px; padding-bottom: 14px; border-bottom: 1.5px solid var(--border-color);">
+            <div>
+                <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                    <span id="rp-badge" style="background: #6366f1; color: white; padding: 4px 12px; border-radius: 20px; font-weight: 800; font-size: 0.85rem;">Passage 01</span>
+                    <h2 id="rp-title" style="margin: 0; font-size: 1.35rem; font-weight: 800; color: var(--text-color);">READING PRACTICE 01: MOUNT RUSHMORE</h2>
+                </div>
+                <p style="margin: 4px 0 0 0; color: var(--text-muted); font-size: 0.9rem;">
+                    <i class="fa-solid fa-highlighter" style="color: #6366f1;"></i> Bôi đen từ/câu trên bài đọc để <strong>Highlight</strong> hoặc <strong>Gạch chân</strong> từ vựng quan trọng.
+                </p>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                <div class="rp-score-badge" style="background: var(--surface-solid); border: 1.5px solid var(--border-color); border-radius: 12px; padding: 8px 14px; font-weight: 800; font-size: 0.92rem; display: flex; gap: 10px;">
+                    <span>Đã làm: <strong id="rp-attempted-count" style="color: #6366f1;">0</strong>/10</span>
+                    <span style="color: #cbd5e1;">|</span>
+                    <span>Đúng: <strong id="rp-correct-count" style="color: #10b981;">0</strong></span>
+                </div>
+                <button id="rp-btn-toggle-trans" style="background: #f8fafc; color: #334155; border: 1.5px solid #cbd5e1; border-radius: 10px; padding: 8px 14px; font-weight: 700; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+                    <i class="fa-solid fa-language" style="color: #6366f1;"></i> <span id="rp-trans-btn-text">Dịch Bài Đọc</span>
+                </button>
+                <button id="rp-btn-reset" style="background: #ffffff; color: #dc2626; border: 1.5px solid #fca5a5; border-radius: 10px; padding: 8px 14px; font-weight: 700; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+                    <i class="fa-solid fa-rotate-left"></i> Làm lại
+                </button>
+            </div>
+        </div>
+
+        <!-- Question Navigator Pills -->
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; background: #f8fafc; padding: 10px 14px; border-radius: 10px; border: 1px solid var(--border-color);">
+            <span style="font-size: 0.88rem; font-weight: 800; color: #475569;"><i class="fa-solid fa-list-ol" style="color: #6366f1;"></i> Câu hỏi:</span>
+            <div id="rp-navigator-pills" style="display: flex; gap: 6px; flex-wrap: wrap;">
+                <!-- 10 pills injected dynamically -->
+            </div>
+        </div>
+
+        <!-- Split Screen Container -->
+        <div class="rp-split-container">
+            <!-- Left: Passage Panel -->
+            <div class="rp-passage-panel" id="rp-passage-container">
+                <div id="rp-passage-content" class="selectable-text">
+                    <!-- Passage text injected dynamically -->
+                </div>
+                <div id="rp-passage-translation" style="display: none; margin-top: 24px; padding: 18px; background: #f0fdf4; border-left: 4px solid #10b981; border-radius: 10px; font-size: 0.98rem; line-height: 1.8; color: #166534;">
+                    <h4 style="margin: 0 0 10px 0; color: #15803d; font-weight: 800; display: flex; align-items: center; gap: 6px;">
+                        <i class="fa-solid fa-language"></i> BẢN DỊCH TIẾNG VIỆT
+                    </h4>
+                    <div id="rp-passage-translation-body"></div>
+                </div>
+            </div>
+
+            <!-- Right: Scrollable Questions Panel -->
+            <div class="rp-questions-panel" id="rp-questions-container">
+                <!-- 10 question cards injected dynamically -->
+            </div>
+        </div>
+    </div>
+</section>
+
 </main>
 </div>
 <!-- Vocabulary Tooltip -->
@@ -7799,6 +8877,9 @@ function initSidebarNav() {
                 if (link.dataset.dangId) {
                     reqLevel = parseInt(link.dataset.dangId.replace('dang-', ''), 10);
                 } else if (link.dataset.section === 'synonym-lab' || link.dataset.section === 'mock-test') {
+                reqLevel = 99;
+            } else if (link.dataset.section === 'reading-practice') {
+                reqLevel = 1;
                     reqLevel = 99;
                 } else {
                     reqLevel = 1;
@@ -7888,6 +8969,10 @@ function initSidebarNav() {
                 if (sectionName === 'scanning-theory') state.progress.scanningTheory = true;
                 if (sectionName === 'synonym-lab') state.progress.synonymLab = true;
                 if (sectionName === 'mock-test') state.progress.mockExam = true;
+                if (sectionName === 'reading-practice') {
+                    const rpId = link.dataset.rpId || 'rp-01';
+                    loadReadingPractice(rpId);
+                }
                 
                 // Dynamic Chapter 2 Loader
                 const dangId = link.dataset.dangId;
@@ -10847,6 +11932,333 @@ document.addEventListener('click', function(e) {
         }
     }
 });
+
+// ==========================================================================
+// READING PRACTICE INTERACTIVE CONTROLLER
+// ==========================================================================
+let currentRPState = {
+    rpId: 'rp-01',
+    answers: Array(10).fill(null),
+    checked: Array(10).fill(false)
+};
+
+function loadReadingPractice(rpId) {
+    const data = readingPracticesData[rpId];
+    if (!data) return;
+
+    currentRPState = {
+        rpId: rpId,
+        answers: Array(data.questions.length).fill(null),
+        checked: Array(data.questions.length).fill(false)
+    };
+
+    // Update Header
+    const badgeEl = document.getElementById('rp-badge');
+    const titleEl = document.getElementById('rp-title');
+    if (badgeEl) badgeEl.textContent = data.badge || 'Reading Practice';
+    if (titleEl) titleEl.textContent = data.title;
+
+    // Load Passage
+    const passageContent = document.getElementById('rp-passage-content');
+    if (passageContent) {
+        passageContent.innerHTML = data.passage;
+    }
+
+    // Load Passage Translation
+    const transBody = document.getElementById('rp-passage-translation-body');
+    const transContainer = document.getElementById('rp-passage-translation');
+    const transBtnText = document.getElementById('rp-trans-btn-text');
+    if (transBody) transBody.innerHTML = data.translation;
+    if (transContainer) transContainer.style.display = 'none';
+    if (transBtnText) transBtnText.textContent = 'Dịch Bài Đọc';
+
+    // Render Navigator Pills
+    renderRPNavigator(data.questions.length);
+
+    // Render Questions
+    renderRPQuestions(data.questions);
+
+    // Update score
+    updateRPScore();
+
+    // Reset scroll positions
+    const pPanel = document.getElementById('rp-passage-container');
+    const qPanel = document.getElementById('rp-questions-container');
+    if (pPanel) pPanel.scrollTop = 0;
+    if (qPanel) qPanel.scrollTop = 0;
+}
+
+function renderRPNavigator(total) {
+    const container = document.getElementById('rp-navigator-pills');
+    if (!container) return;
+    container.innerHTML = '';
+
+    for (let i = 0; i < total; i++) {
+        const btn = document.createElement('button');
+        btn.className = 'rp-nav-pill';
+        btn.id = `rp-nav-pill-${i}`;
+        btn.textContent = i + 1;
+        btn.title = `Nhảy đến câu ${i + 1}`;
+        btn.onclick = () => {
+            scrollToRPQuestion(i);
+        };
+        container.appendChild(btn);
+    }
+}
+
+function scrollToRPQuestion(qIdx) {
+    const card = document.getElementById(`rp-qcard-${qIdx}`);
+    if (card) {
+        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        document.querySelectorAll('.rp-qcard').forEach(c => c.classList.remove('active-target'));
+        card.classList.add('active-target');
+        setTimeout(() => card.classList.remove('active-target'), 1500);
+    }
+}
+
+function renderRPQuestions(questions) {
+    const container = document.getElementById('rp-questions-container');
+    if (!container) return;
+    container.innerHTML = '';
+
+    questions.forEach((q, qIdx) => {
+        const card = document.createElement('div');
+        card.className = 'rp-qcard';
+        card.id = `rp-qcard-${qIdx}`;
+
+        // Header
+        const header = document.createElement('div');
+        header.className = 'rp-qcard-header';
+        header.innerHTML = `
+            <span class="rp-qnum">Câu ${qIdx + 1}</span>
+            <div class="rp-qtext">${q.question}</div>
+        `;
+        card.appendChild(header);
+
+        // Options List
+        const optList = document.createElement('div');
+        optList.className = 'rp-options-list';
+
+        q.options.forEach((optText, optIdx) => {
+            const btn = document.createElement('button');
+            btn.className = 'rp-option-btn';
+            btn.id = `rp-opt-btn-${qIdx}-${optIdx}`;
+            btn.innerHTML = `<strong>${String.fromCharCode(65 + optIdx)}.</strong> <span>${optText.replace(/^[A-D]\.\s*/, '')}</span>`;
+            
+            btn.onclick = () => {
+                if (currentRPState.checked[qIdx]) return; // locked after check
+                selectRPOption(qIdx, optIdx);
+            };
+            optList.appendChild(btn);
+        });
+        card.appendChild(optList);
+
+        // Actions & Feedback
+        const actionRow = document.createElement('div');
+        actionRow.style.display = 'flex';
+        actionRow.style.justifyContent = 'space-between';
+        actionRow.style.alignItems = 'center';
+        actionRow.style.marginTop = '12px';
+        actionRow.style.gap = '10px';
+        actionRow.style.flexWrap = 'wrap';
+
+        const checkBtn = document.createElement('button');
+        checkBtn.id = `rp-check-btn-${qIdx}`;
+        checkBtn.style.cssText = 'background: #6366f1; color: white; border: none; border-radius: 8px; padding: 7px 16px; font-weight: 700; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; gap: 6px;';
+        checkBtn.innerHTML = '<i class="fa-solid fa-check"></i> Kiểm tra đáp án';
+        checkBtn.onclick = () => checkRPAnswer(qIdx);
+
+        const toggleExpBtn = document.createElement('button');
+        toggleExpBtn.id = `rp-toggle-exp-${qIdx}`;
+        toggleExpBtn.style.cssText = 'display: none; background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; border-radius: 8px; padding: 7px 14px; font-weight: 700; font-size: 0.85rem; cursor: pointer;';
+        toggleExpBtn.innerHTML = '<i class="fa-solid fa-lightbulb" style="color: #eab308;"></i> Xem giải thích';
+        toggleExpBtn.onclick = () => {
+            const expBox = document.getElementById(`rp-exp-box-${qIdx}`);
+            if (expBox) {
+                expBox.style.display = (expBox.style.display === 'none') ? 'block' : 'none';
+            }
+        };
+
+        actionRow.appendChild(checkBtn);
+        actionRow.appendChild(toggleExpBtn);
+        card.appendChild(actionRow);
+
+        // Explanation & Translation Box
+        const expBox = document.createElement('div');
+        expBox.id = `rp-exp-box-${qIdx}`;
+        expBox.style.cssText = 'display: none; margin-top: 14px; padding: 14px; border-radius: 10px; font-size: 0.92rem; line-height: 1.65;';
+        
+        let transOptHtml = '';
+        if (q.translationOptions && q.translationOptions.length) {
+            transOptHtml = `
+                <div style="margin-top: 10px; padding-top: 10px; border-top: 1px dashed #cbd5e1; font-size: 0.88rem; color: #475569;">
+                    <strong><i class="fa-solid fa-language"></i> Dịch câu hỏi:</strong> ${q.translationQuestion || ''}<br/>
+                    <strong style="margin-top: 4px; display: inline-block;">Dịch phương án:</strong>
+                    <ul style="margin: 4px 0 0 0; padding-left: 18px;">
+                        ${q.translationOptions.map(to => `<li>${to}</li>`).join('')}
+                    </ul>
+                </div>
+            `;
+        }
+
+        expBox.innerHTML = `
+            <div id="rp-exp-header-${qIdx}" style="font-weight: 800; font-size: 0.95rem; margin-bottom: 6px;"></div>
+            <div id="rp-exp-body-${qIdx}" style="color: #1e293b;">
+                <strong>🔍 Giải thích chi tiết:</strong> ${q.explanation}
+            </div>
+            ${transOptHtml}
+        `;
+        card.appendChild(expBox);
+
+        container.appendChild(card);
+    });
+}
+
+function selectRPOption(qIdx, optIdx) {
+    currentRPState.answers[qIdx] = optIdx;
+    
+    // Update button styling
+    const data = readingPracticesData[currentRPState.rpId];
+    const totalOpts = data.questions[qIdx].options.length;
+    for (let i = 0; i < totalOpts; i++) {
+        const btn = document.getElementById(`rp-opt-btn-${qIdx}-${i}`);
+        if (btn) {
+            if (i === optIdx) {
+                btn.classList.add('selected');
+            } else {
+                btn.classList.remove('selected');
+            }
+        }
+    }
+
+    // Update Nav pill to answered (blue)
+    const pill = document.getElementById(`rp-nav-pill-${qIdx}`);
+    if (pill && !currentRPState.checked[qIdx]) {
+        pill.className = 'rp-nav-pill answered';
+    }
+
+    updateRPScore();
+}
+
+function checkRPAnswer(qIdx) {
+    const selected = currentRPState.answers[qIdx];
+    if (selected === null) {
+        alert('⚠️ Vui lòng chọn một phương án trước khi kiểm tra!');
+        return;
+    }
+
+    currentRPState.checked[qIdx] = true;
+    const data = readingPracticesData[currentRPState.rpId];
+    const q = data.questions[qIdx];
+    const isCorrect = (selected === q.correctIdx);
+
+    // Play sound
+    playSound(isCorrect ? 'success' : 'fail');
+
+    // Update option buttons UI
+    for (let i = 0; i < q.options.length; i++) {
+        const btn = document.getElementById(`rp-opt-btn-${qIdx}-${i}`);
+        if (btn) {
+            btn.classList.remove('selected');
+            if (i === q.correctIdx) {
+                btn.classList.add('correct');
+            } else if (i === selected && !isCorrect) {
+                btn.classList.add('incorrect');
+            }
+        }
+    }
+
+    // Update Nav Pill
+    const pill = document.getElementById(`rp-nav-pill-${qIdx}`);
+    if (pill) {
+        pill.className = isCorrect ? 'rp-nav-pill correct' : 'rp-nav-pill wrong';
+    }
+
+    // Disable Check Button
+    const checkBtn = document.getElementById(`rp-check-btn-${qIdx}`);
+    if (checkBtn) {
+        checkBtn.style.display = 'none';
+    }
+
+    // Show Explanation
+    const expBox = document.getElementById(`rp-exp-box-${qIdx}`);
+    const expHeader = document.getElementById(`rp-exp-header-${qIdx}`);
+    if (expBox && expHeader) {
+        expBox.style.display = 'block';
+        if (isCorrect) {
+            expBox.style.background = '#f0fdf4';
+            expBox.style.border = '1.5px solid #86efac';
+            expHeader.style.color = '#15803d';
+            expHeader.innerHTML = `<i class="fa-solid fa-circle-check"></i> CHÍNH XÁC! (Đáp án: ${String.fromCharCode(65 + q.correctIdx)})`;
+        } else {
+            expBox.style.background = '#fef2f2';
+            expBox.style.border = '1.5px solid #fca5a5';
+            expHeader.style.color = '#b91c1c';
+            expHeader.innerHTML = `<i class="fa-solid fa-circle-xmark"></i> CHƯA ĐÚNG. Đáp án đúng là: ${String.fromCharCode(65 + q.correctIdx)}`;
+        }
+    }
+
+    updateRPScore();
+
+    // Check if all answered
+    const totalChecked = currentRPState.checked.filter(Boolean).length;
+    if (totalChecked === data.questions.length) {
+        const totalCorrect = currentRPState.answers.reduce((acc, ans, idx) => acc + (ans === data.questions[idx].correctIdx ? 1 : 0), 0);
+        if (totalCorrect >= 7 && window.confetti) {
+            window.confetti({ particleCount: 120, spread: 80, origin: { y: 0.6 } });
+        }
+    }
+}
+
+function updateRPScore() {
+    const data = readingPracticesData[currentRPState.rpId];
+    if (!data) return;
+
+    let attempted = 0;
+    let correct = 0;
+    currentRPState.answers.forEach((ans, idx) => {
+        if (ans !== null) attempted++;
+        if (currentRPState.checked[idx] && ans === data.questions[idx].correctIdx) {
+            correct++;
+        }
+    });
+
+    const attEl = document.getElementById('rp-attempted-count');
+    const corrEl = document.getElementById('rp-correct-count');
+    if (attEl) attEl.textContent = attempted;
+    if (corrEl) corrEl.textContent = correct;
+}
+
+// Global Event Listeners for RP buttons
+document.addEventListener('DOMContentLoaded', () => {
+    // Toggle Passage Translation
+    const btnTrans = document.getElementById('rp-btn-toggle-trans');
+    if (btnTrans) {
+        btnTrans.addEventListener('click', () => {
+            const transBox = document.getElementById('rp-passage-translation');
+            const btnText = document.getElementById('rp-trans-btn-text');
+            if (transBox) {
+                const isHidden = (transBox.style.display === 'none');
+                transBox.style.display = isHidden ? 'block' : 'none';
+                if (btnText) btnText.textContent = isHidden ? 'Ẩn Bản Dịch' : 'Dịch Bài Đọc';
+                if (isHidden) {
+                    transBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+            }
+        });
+    }
+
+    // Reset RP
+    const btnReset = document.getElementById('rp-btn-reset');
+    if (btnReset) {
+        btnReset.addEventListener('click', () => {
+            if (confirm('🔄 Bạn có chắc chắn muốn làm lại bài đọc này từ đầu không?')) {
+                loadReadingPractice(currentRPState.rpId);
+            }
+        });
+    }
+});
+
 </script>
 </body>
 </html>
