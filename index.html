@@ -3640,6 +3640,57 @@ em, i {
 /* ==========================================================================
    SUPER WIDE MODERN READING PRACTICE INTERFACE (LIKE VSTEP TEST REF)
    ========================================================================== */
+
+/* Full-width expander for Reading Practice */
+.main-content:has(#sec-reading-practice:not(.hidden)) {
+    max-width: 100% !important;
+    padding: 16px 32px !important;
+}
+
+.main-content.rp-mode {
+    max-width: 100% !important;
+    padding: 16px 32px !important;
+}
+
+#sec-reading-practice {
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.rp-container-wide {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.rp-split-container {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 28px;
+    height: calc(100vh - 165px);
+    min-height: 750px;
+    width: 100%;
+}
+
+.rp-passage-panel {
+    background: #ffffff;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 16px;
+    padding: 36px 48px;
+    overflow-y: auto;
+    height: 100%;
+    user-select: text;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+.rp-passage-body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-size: 1.18rem;
+    line-height: 2.15;
+    color: #1e293b;
+    letter-spacing: 0.15px;
+}
+
 #sec-reading-practice {
     padding: 0 10px !important;
     width: 100% !important;
@@ -9047,6 +9098,16 @@ function initSidebarNav() {
                 
                 // Show target view
                 targetSec.classList.remove('hidden');
+                
+                // Expand main-content to full screen if reading practice
+                const mainEl = document.querySelector('.main-content');
+                if (mainEl) {
+                    if (targetId === '#sec-reading-practice') {
+                        mainEl.classList.add('rp-mode');
+                    } else {
+                        mainEl.classList.remove('rp-mode');
+                    }
+                }
                 
                 // Toggle hero header and cockpit visibility based on whether it is Trang Chu
                 toggleLandingPageHeader(targetId === '#sec-trang-chu');
