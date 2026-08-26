@@ -434,10 +434,12 @@ em, i {
 
 /* Main Content Area Styling */
 .main-content {
-    flex: 1 1 0;
-    min-width: 0;
-    padding: 30px 36px;
+    flex-grow: 1;
+    padding: 40px;
     overflow-y: auto;
+    max-width: 1050px;
+    margin: 0 auto;
+    min-width: 0;
 }
 
 /* Header/Hero Section */
@@ -3645,33 +3647,26 @@ em, i {
 
 
 
-/* Hide Hero Header and Dashboard Cockpit in Reading Practice mode */
+/* Wide-mode rules ONLY for Reading Practice and Reading Mock Test */
+.main-content.wide-mode,
+.main-content:has(#sec-reading-practice:not(.hidden)),
+.main-content:has(#sec-mock-test:not(.hidden)) {
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 16px 28px !important;
+    width: 100% !important;
+}
+
+/* Hide Header Hero, Cockpit, Word Bank and Vocab Quiz ONLY in Reading Practice mode */
 .main-content.rp-mode > header.hero,
 .main-content.rp-mode > .dashboard-cockpit,
 .main-content:has(#sec-reading-practice:not(.hidden)) > header.hero,
-.main-content:has(#sec-reading-practice:not(.hidden)) > .dashboard-cockpit {
-    display: none !important;
-}
-
-/* Hide Word Bank and Vocab Quiz when in Reading Practice */
+.main-content:has(#sec-reading-practice:not(.hidden)) > .dashboard-cockpit,
 .main-content.rp-mode #vocabulary-box-section,
 .main-content.rp-mode #vocab-quiz-section,
 .main-content:has(#sec-reading-practice:not(.hidden)) #vocabulary-box-section,
 .main-content:has(#sec-reading-practice:not(.hidden)) #vocab-quiz-section {
     display: none !important;
-}
-
-/* Full-width expander for Reading Practice (Preserving Sidebar) */
-.main-content:has(#sec-reading-practice:not(.hidden)) {
-    padding: 14px 24px !important;
-    width: 100% !important;
-    min-width: 0 !important;
-}
-
-.main-content.rp-mode {
-    padding: 14px 24px !important;
-    width: 100% !important;
-    min-width: 0 !important;
 }
 
 #sec-reading-practice {
