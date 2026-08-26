@@ -3643,6 +3643,15 @@ em, i {
    SUPER WIDE MODERN READING PRACTICE INTERFACE (LIKE VSTEP TEST REF)
    ========================================================================== */
 
+
+/* Hide Word Bank and Vocab Quiz when in Reading Practice */
+.main-content.rp-mode #vocabulary-box-section,
+.main-content.rp-mode #vocab-quiz-section,
+.main-content:has(#sec-reading-practice:not(.hidden)) #vocabulary-box-section,
+.main-content:has(#sec-reading-practice:not(.hidden)) #vocab-quiz-section {
+    display: none !important;
+}
+
 /* Full-width expander for Reading Practice (Preserving Sidebar) */
 .main-content:has(#sec-reading-practice:not(.hidden)) {
     padding: 14px 24px !important;
@@ -9103,14 +9112,19 @@ function initSidebarNav() {
                 // Show target view
                 targetSec.classList.remove('hidden');
                 
-                // Expand main-content to full screen if reading practice
+                // Expand main-content to full screen if reading practice & hide global vocab box
                 const mainEl = document.querySelector('.main-content');
-                if (mainEl) {
-                    if (targetId === '#sec-reading-practice') {
-                        mainEl.classList.add('rp-mode');
-                    } else {
-                        mainEl.classList.remove('rp-mode');
-                    }
+                const vocabBox = document.getElementById('vocabulary-box-section');
+                const vocabQuiz = document.getElementById('vocab-quiz-section');
+                
+                if (targetId === '#sec-reading-practice') {
+                    if (mainEl) mainEl.classList.add('rp-mode');
+                    if (vocabBox) vocabBox.style.display = 'none';
+                    if (vocabQuiz) vocabQuiz.style.display = 'none';
+                } else {
+                    if (mainEl) mainEl.classList.remove('rp-mode');
+                    if (vocabBox) vocabBox.style.display = '';
+                    if (vocabQuiz) vocabQuiz.style.display = '';
                 }
                 
                 // Toggle hero header and cockpit visibility based on whether it is Trang Chu
