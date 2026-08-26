@@ -8158,7 +8158,7 @@ const mockTestPassages = [
 <!-- ==========================================================================
      SECTION: READING PRACTICE (SPLIT SCREEN)
      ========================================================================== -->
-<section id="sec-reading-practice" class="content-section" style="display: none;">
+<div class="content-section hidden" id="sec-reading-practice">
     <div class="content-card" style="padding: 20px 24px; max-width: 1440px; margin: 0 auto;">
         <!-- Header Bar -->
         <div class="rp-header-bar" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; margin-bottom: 16px; padding-bottom: 14px; border-bottom: 1.5px solid var(--border-color);">
@@ -8215,7 +8215,7 @@ const mockTestPassages = [
             </div>
         </div>
     </div>
-</section>
+</div>
 
 </main>
 </div>
@@ -8877,10 +8877,9 @@ function initSidebarNav() {
                 if (link.dataset.dangId) {
                     reqLevel = parseInt(link.dataset.dangId.replace('dang-', ''), 10);
                 } else if (link.dataset.section === 'synonym-lab' || link.dataset.section === 'mock-test') {
-                reqLevel = 99;
-            } else if (link.dataset.section === 'reading-practice') {
-                reqLevel = 1;
                     reqLevel = 99;
+                } else if (link.dataset.section === 'reading-practice') {
+                    reqLevel = 1;
                 } else {
                     reqLevel = 1;
                 }
@@ -11742,8 +11741,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 reqLevel = parseInt(link.dataset.dangId.replace('dang-', ''), 10);
             } else if (link.dataset.section === 'synonym-lab' || link.dataset.section === 'mock-test') {
                 reqLevel = 99;
+            } else if (link.dataset.section === 'reading-practice') {
+                reqLevel = 1;
             } else {
-                reqLevel = 1; // Default to 1 if no id or specific section
+                reqLevel = 1;
             }
             if (level >= reqLevel) {
                 link.dataset.locked = 'false';
