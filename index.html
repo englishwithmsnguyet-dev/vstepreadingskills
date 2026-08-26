@@ -12226,7 +12226,7 @@ function renderRPQuestions(questions) {
     container.innerHTML = `
         <div class="rp-info-banner">
             <i class="fa-solid fa-circle-info" style="font-size: 1.1rem; color: #2563eb;"></i>
-            <span>Bấm chọn đáp án và nhấn <strong>"Kiểm tra đáp án"</strong> để xem giải thích chi tiết và bản dịch từng câu.</span>
+            <span>Bấm chọn đáp án và nhấn <strong>"Kiểm tra đáp án"</strong> để xem kết quả, giải thích chi tiết và bản dịch tiếng Việt.</span>
         </div>
     `;
 
@@ -12235,19 +12235,19 @@ function renderRPQuestions(questions) {
         card.className = 'rp-qcard';
         card.id = `rp-qcard-${qIdx}`;
 
-        // Header with red Câu badge & Vietnamese question text right underneath
+        // Header with number-only badge (1, 2, ...) & hidden Vietnamese translation until answered
         const header = document.createElement('div');
         header.className = 'rp-qcard-header';
         header.innerHTML = `
-            <span class="rp-qnum-badge">Câu ${qIdx + 1}</span>
+            <span class="rp-qnum-badge" style="min-width: 28px; text-align: center;">${qIdx + 1}</span>
             <div class="rp-qtext-group">
                 <div class="rp-qtext-en">${q.question}</div>
-                ${q.translationQuestion ? `<div class="rp-qtext-vi">${q.translationQuestion}</div>` : ''}
+                ${q.translationQuestion ? `<div class="rp-qtext-vi" id="rp-qtext-vi-${qIdx}" style="display: none; margin-top: 6px; color: #475569; font-style: italic;">${q.translationQuestion}</div>` : ''}
             </div>
         `;
         card.appendChild(header);
 
-        // Options List (English + Vietnamese translation)
+        // Options List (English only by default, Vietnamese hidden until answered)
         const optList = document.createElement('div');
         optList.className = 'rp-options-list';
 
@@ -12260,11 +12260,11 @@ function renderRPQuestions(questions) {
             const enText = optText.replace(/^[A-D]\.\s*/, '');
 
             btn.innerHTML = `
-                <div style="display: flex; align-items: flex-start; gap: 12px;">
+                <div style="display: flex; align-items: flex-start; gap: 12px; flex: 1;">
                     <strong style="color: #64748b; font-size: 1rem;">${String.fromCharCode(65 + optIdx)}.</strong>
-                    <div class="rp-opt-text-box">
+                    <div class="rp-opt-text-box" style="flex: 1;">
                         <div class="rp-opt-en">${enText}</div>
-                        ${viText ? `<div class="rp-opt-vi">${viText}</div>` : ''}
+                        ${viText ? `<div class="rp-opt-vi" id="rp-opt-vi-${qIdx}-${optIdx}" style="display: none; margin-top: 4px; font-size: 0.88rem; color: #64748b; font-style: italic;">${viText}</div>` : ''}
                     </div>
                 </div>
                 <div id="rp-opt-icon-${qIdx}-${optIdx}"></div>
@@ -12361,6 +12361,15 @@ function checkRPAnswer(qIdx) {
                 if (iconDiv) iconDiv.innerHTML = '<i class="fa-regular fa-circle-xmark rp-opt-status-icon incorrect"></i>';
             }
         }
+    }
+
+    // Reveal Vietnamese translation for Question & Options
+    const qVi = document.getElementById(`rp-qtext-vi-${qIdx}`);
+    if (qVi) qVi.style.display = 'block';
+
+    for (let i = 0; i < q.options.length; i++) {
+        const optVi = document.getElementById(`rp-opt-vi-${qIdx}-${i}`);
+        if (optVi) optVi.style.display = 'block';
     }
 
     // Disable Check Button
