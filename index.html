@@ -105,6 +105,9 @@ em, i {
 /* Sidebar Navigation Styling */
 .sidebar {
     width: 290px;
+    min-width: 290px;
+    max-width: 290px;
+    flex-shrink: 0;
     height: 100vh;
     position: sticky;
     top: 0;
@@ -431,11 +434,10 @@ em, i {
 
 /* Main Content Area Styling */
 .main-content {
-    flex-grow: 1;
-    padding: 40px;
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 30px 36px;
     overflow-y: auto;
-    max-width: 1050px;
-    margin: 0 auto;
 }
 
 /* Header/Hero Section */
@@ -3641,15 +3643,17 @@ em, i {
    SUPER WIDE MODERN READING PRACTICE INTERFACE (LIKE VSTEP TEST REF)
    ========================================================================== */
 
-/* Full-width expander for Reading Practice */
+/* Full-width expander for Reading Practice (Preserving Sidebar) */
 .main-content:has(#sec-reading-practice:not(.hidden)) {
-    max-width: 100% !important;
-    padding: 16px 32px !important;
+    padding: 14px 24px !important;
+    width: 100% !important;
+    min-width: 0 !important;
 }
 
 .main-content.rp-mode {
-    max-width: 100% !important;
-    padding: 16px 32px !important;
+    padding: 14px 24px !important;
+    width: 100% !important;
+    min-width: 0 !important;
 }
 
 #sec-reading-practice {
