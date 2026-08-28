@@ -8738,11 +8738,11 @@ const mockTestPassages = [
 </div>
 <div class="tabs-container">
 <div class="tabs-nav">
-<button class="tab-btn active" data-dang-tab="tab-dang-theory">
+<button class="tab-btn active" data-dang-tab="tab-dang-theory" onclick="switchDangTab('tab-dang-theory')">
 <i class="fa-solid fa-book"></i> Lý Thuyết &amp; Mẹo Làm Bài
                             </button>
 
-<button class="tab-btn" data-dang-tab="tab-dang-practice">
+<button class="tab-btn" data-dang-tab="tab-dang-practice" onclick="switchDangTab('tab-dang-practice')">
 <i class="fa-solid fa-pen-to-square"></i> Luyện Tập Phản Xạ
                             </button>
 </div>
@@ -14814,24 +14814,50 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Global initialization for Chapter 2 Dạng tabs
-function initDangDetailTabs() {
-    const tabBtns = document.querySelectorAll('[data-dang-tab]');
-    const tabPanels = document.querySelectorAll('#sec-dang-chi-tiet .tab-panel');
-    
-    tabBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            playSound('click');
-            const targetPanelId = btn.dataset.dangTab;
-            
-            tabBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            
-            tabPanels.forEach(p => {
-                if (p.id === targetPanelId) p.classList.add('active');
-                else p.classList.remove('active');
-            });
+// Global Tab Switcher for Chapter 2 Dạng tabs (Lý Thuyết & Luyện Tập Phản Xạ)
+function switchDangTab(targetPanelId) {
+    try {
+        playSound('click');
+        const tabBtns = document.querySelectorAll('#sec-dang-chi-tiet .tab-btn');
+        const tabPanels = document.querySelectorAll('#sec-dang-chi-tiet .tab-panel');
+        
+        tabBtns.forEach(btn => {
+            const tId = btn.getAttribute('data-dang-tab');
+            if (tId === targetPanelId) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
         });
+        
+        tabPanels.forEach(panel => {
+            if (panel.id === targetPanelId) {
+                panel.classList.add('active');
+            } else {
+                panel.classList.remove('active');
+            }
+        });
+        
+        if (targetPanelId === 'tab-dang-practice') {
+            if (typeof updatePracticeLiveDashboard === 'function') {
+                updatePracticeLiveDashboard();
+            }
+        }
+    } catch(e) {
+        console.error("Error switching dang tab:", e);
+    }
+}
+window.switchDangTab = switchDangTab;
+
+function initDangDetailTabs() {
+    document.addEventListener('click', function(e) {
+        const btn = e.target.closest('#sec-dang-chi-tiet .tab-btn');
+        if (btn) {
+            const targetId = btn.getAttribute('data-dang-tab');
+            if (targetId) {
+                switchDangTab(targetId);
+            }
+        }
     });
 }
 
