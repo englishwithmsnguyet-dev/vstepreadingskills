@@ -4630,6 +4630,50 @@ em, i {
     border-color: #4f46e5;
 }
 
+
+/* Pair Distinct Colors for Synonym Matching */
+.synonym-item.matched-pair-1 {
+    background: #eff6ff !important;
+    border-color: #3b82f6 !important;
+    color: #1d4ed8 !important;
+    box-shadow: 0 2px 6px rgba(59, 130, 246, 0.15) !important;
+}
+.synonym-item.matched-pair-2 {
+    background: #f0fdf4 !important;
+    border-color: #10b981 !important;
+    color: #047857 !important;
+    box-shadow: 0 2px 6px rgba(16, 185, 129, 0.15) !important;
+}
+.synonym-item.matched-pair-3 {
+    background: #fffbeb !important;
+    border-color: #f59e0b !important;
+    color: #b45309 !important;
+    box-shadow: 0 2px 6px rgba(245, 158, 11, 0.15) !important;
+}
+.synonym-item.matched-pair-4 {
+    background: #faf5ff !important;
+    border-color: #a855f7 !important;
+    color: #7e22ce !important;
+    box-shadow: 0 2px 6px rgba(168, 85, 247, 0.15) !important;
+}
+.synonym-item.matched-pair-5 {
+    background: #fff1f2 !important;
+    border-color: #f43f5e !important;
+    color: #be123c !important;
+    box-shadow: 0 2px 6px rgba(244, 63, 94, 0.15) !important;
+}
+.synonym-item.matched-pair-6 {
+    background: #f0fdfa !important;
+    border-color: #06b6d4 !important;
+    color: #0e7490 !important;
+    box-shadow: 0 2px 6px rgba(6, 182, 212, 0.15) !important;
+}
+
+.synonym-item.matched.highlight-partner {
+    transform: scale(1.03) !important;
+    box-shadow: 0 0 0 3px currentColor !important;
+}
+
 </style>
 
 
@@ -11241,7 +11285,7 @@ function loadSynonymSet(setIdx) {
         div.className = 'synonym-item';
         div.dataset.id = item.id;
         div.dataset.type = 'q';
-        div.innerHTML = `<span>${item.q}</span> <i class="fa-solid fa-circle-question" style="color:#3b82f6; font-size:1.1rem;"></i>`;
+        div.innerHTML = `<span>${item.q}</span> <i class="fa-solid fa-circle-question" style="color:#94a3b8; font-size:1.1rem;"></i>`;
         
         div.addEventListener('click', () => {
             playSound('click');
@@ -11267,7 +11311,7 @@ function loadSynonymSet(setIdx) {
         div.className = 'synonym-item';
         div.dataset.match = item.id;
         div.dataset.type = 'p';
-        div.innerHTML = `<i class="fa-solid fa-link" style="color:#10b981; font-size:1rem;"></i> <span>${item.p}</span>`;
+        div.innerHTML = `<i class="fa-solid fa-link" style="color:#94a3b8; font-size:1rem;"></i> <span>${item.p}</span>`;
 
         div.addEventListener('click', () => {
             if (!state.synonymGame.selectedQ) return;
@@ -11279,12 +11323,42 @@ function loadSynonymSet(setIdx) {
             if (matchId === qId) {
                 playSound('success');
                 qCard.classList.remove('selected');
-                qCard.classList.add('matched');
-                div.classList.add('matched');
+                
+                // Add distinct pair-specific color class
+                const pairClass = `matched-pair-${qId}`;
+                qCard.classList.add('matched', pairClass);
+                div.classList.add('matched', pairClass);
 
-                // Connect text with green check
-                qCard.innerHTML = `<span>${qCard.querySelector('span').textContent}</span> <i class="fa-solid fa-circle-check text-green" style="font-size:1.2rem;"></i>`;
-                div.innerHTML = `<i class="fa-solid fa-circle-check text-green" style="font-size:1.2rem;"></i> <span>${div.querySelector('span').textContent}</span>`;
+                const pairColors = [
+                    { bg: "#2563eb", text: "#ffffff", border: "#3b82f6" },
+                    { bg: "#059669", text: "#ffffff", border: "#10b981" },
+                    { bg: "#d97706", text: "#ffffff", border: "#f59e0b" },
+                    { bg: "#7c3aed", text: "#ffffff", border: "#a855f7" },
+                    { bg: "#e11d48", text: "#ffffff", border: "#f43f5e" },
+                    { bg: "#0891b2", text: "#ffffff", border: "#06b6d4" }
+                ];
+                const pColor = pairColors[(qId - 1) % pairColors.length];
+
+                const badgeHtml = `<span style="background:${pColor.bg}; color:${pColor.text}; padding:3px 10px; border-radius:12px; font-size:0.75rem; font-weight:800; display:inline-flex; align-items:center; gap:5px; box-shadow:0 1px 3px rgba(0,0,0,0.1);"><i class="fa-solid fa-link"></i> Cặp #${qId}</span>`;
+
+                // Update contents with matching badges
+                const qText = qCard.querySelector('span').textContent;
+                const pText = div.querySelector('span').textContent;
+
+                qCard.innerHTML = `<span style="font-weight:700;">${qText}</span> ${badgeHtml}`;
+                div.innerHTML = `${badgeHtml} <span style="font-weight:700;">${pText}</span>`;
+
+                // Sync hover glow between matched partners
+                const addSyncHover = (cardA, cardB) => {
+                    cardA.addEventListener('mouseenter', () => {
+                        cardB.classList.add('highlight-partner');
+                    });
+                    cardA.addEventListener('mouseleave', () => {
+                        cardB.classList.remove('highlight-partner');
+                    });
+                };
+                addSyncHover(qCard, div);
+                addSyncHover(div, qCard);
 
                 state.synonymGame.matches++;
                 state.synonymGame.selectedQ = null;
