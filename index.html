@@ -10057,11 +10057,28 @@ function initStudentProfile() {
         // Hide Modal
         elements.nameModal.classList.add('hidden');
         
-        // Bind UI Displays
-        const fullNameWithClass = `${state.studentName} (${state.studentClass})`;
-        elements.displayName.textContent = fullNameWithClass;
+        // Teacher Recognition Check (Tên: PTMN - Lớp: GV)
+        const isTeacher = (nameVal.toUpperCase() === 'PTMN' && classVal.toUpperCase() === 'GV') || 
+                          (classVal.toUpperCase() === 'GV') || 
+                          (nameVal.toUpperCase() === 'PTMN');
+        
+        if (isTeacher) {
+            state.unlockedLevel = 99;
+            state.unlockedAll = true;
+            if (window.updateLockStatus) {
+                window.updateLockStatus(99);
+            }
+            
+            const teacherBadge = `<span style="background: linear-gradient(135deg, #fef08a 0%, #fde047 100%); color: #854d0e; padding: 4px 12px; border-radius: 20px; font-weight: 800; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 2px 6px rgba(234, 179, 8, 0.25);"><i class="fa-solid fa-chalkboard-user"></i> GIÁO VIÊN</span>`;
+            elements.displayName.innerHTML = `${teacherBadge} <span style="font-weight: 800; margin-left: 6px;">${state.studentName} (${state.studentClass})</span>`;
+            elements.cockpitStudentName.innerHTML = `${teacherBadge} <span style="font-weight: 800; margin-left: 6px;">Giáo viên: ${state.studentName} (${state.studentClass})</span>`;
+        } else {
+            const fullNameWithClass = `${state.studentName} (${state.studentClass})`;
+            elements.displayName.textContent = fullNameWithClass;
+            elements.cockpitStudentName.textContent = `Học viên: ${fullNameWithClass}`;
+        }
+        
         elements.studentDisplay.classList.remove('hidden');
-        elements.cockpitStudentName.textContent = `Học viên: ${fullNameWithClass}`;
         
         // Save Name & Class in LocalStorage
         localStorage.setItem('vstep_student_name', state.studentName);
@@ -10170,6 +10187,8 @@ function initSidebarNav() {
                         'ONB103': 6,
                         'CB210': 99,
                         'CB206': 99,
+                        'GV': 99,
+                        'PTMN': 99,
                         'MISSNGUYET2026': 99
                     };
                     
