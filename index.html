@@ -8145,16 +8145,16 @@ const mockTestPassages = [
 <span class="group-arrow"><i class="fa-solid fa-chevron-down"></i></span>
 </div>
 <ul class="sub-nav-links">
+<li><a class="sub-tab-link" data-locked="true" data-section="mock-test" href="#sec-mock-test">
+<span class="sub-icon"><i class="fa-solid fa-laptop-code"></i></span>
+<span class="sub-text">READING MOCK TEST</span>
+<span class="status-indicator" id="status-vstep-mock-test"><i class="fa-solid fa-circle-notch"></i></span>
+<span class="lock-indicator" style="margin-left: auto; color: var(--accent-amber); font-size: 0.82rem;"><i class="fa-solid fa-lock"></i></span>
+</a></li>
 <li><a class="sub-tab-link" data-locked="true" data-section="synonym-lab" href="#sec-synonym-lab">
 <span class="sub-icon"><i class="fa-solid fa-shuffle"></i></span>
 <span class="sub-text">LUYỆN TỪ ĐỒNG NGHĨA</span>
 <span class="status-indicator" id="status-synonym-lab"><i class="fa-solid fa-circle-notch"></i></span>
-<span class="lock-indicator" style="margin-left: auto; color: var(--accent-amber); font-size: 0.82rem;"><i class="fa-solid fa-lock"></i></span>
-</a></li>
-<li><a class="sub-tab-link" data-locked="true" data-section="mock-test" href="#sec-mock-test">
-<span class="sub-icon"><i class="fa-solid fa-laptop-code"></i></span>
-<span class="sub-text">THI THỬ VSTEP</span>
-<span class="status-indicator" id="status-vstep-mock-test"><i class="fa-solid fa-circle-notch"></i></span>
 <span class="lock-indicator" style="margin-left: auto; color: var(--accent-amber); font-size: 0.82rem;"><i class="fa-solid fa-lock"></i></span>
 </a></li>
 </ul>
@@ -8648,39 +8648,150 @@ const mockTestPassages = [
 </div>
 <!-- SECTION: Synonym Lab -->
 <div class="content-section hidden" id="sec-synonym-lab">
-<section class="lesson-section glass-panel">
-<h2 class="section-title"><i class="fa-solid fa-shuffle section-icon"></i> PHÒNG LAB DIỄN ĐẠT ĐỒNG NGHĨA <span class="en-title">(Synonym Paraphrasing Lab)</span></h2>
-<div class="vstep-callout tip">
-<div class="vstep-callout-icon"><i class="fa-solid fa-lightbulb"></i></div>
-<div class="vstep-callout-content">
-<h4>Chìa khóa vượt qua bài thi VSTEP Reading:</h4>
-<p>Đề thi VSTEP hầu như <strong>không bao giờ dùng lại từ gốc</strong> trong câu hỏi. Đáp án đúng luôn được diễn đạt lại bằng từ đồng nghĩa (paraphrased). Hãy kết nối các thẻ từ khóa dưới đây để rèn luyện tư duy phản xạ này!</p>
+    <section class="lesson-section glass-panel">
+        <h2 class="section-title"><i class="fa-solid fa-shuffle section-icon"></i> LUYỆN TỪ ĐỒNG NGHĨA & PARAPHRASING <span class="en-title">(VSTEP Synonym & Paraphrase Mastery)</span></h2>
+        
+        <!-- Strategy Callout -->
+        <div class="vstep-callout tip" style="margin-bottom: 24px;">
+            <div class="vstep-callout-icon"><i class="fa-solid fa-lightbulb"></i></div>
+            <div class="vstep-callout-content">
+                <h4 style="color: #0369a1; font-weight: 800; font-size: 1.1rem; margin-bottom: 6px;">Chìa khóa vàng chinh phục VSTEP Reading B1 - B2 - C1:</h4>
+                <p style="margin-bottom: 0; line-height: 1.7; font-size: 1rem; color: #334155;">
+                    Trong bài thi VSTEP Reading, hơn <strong>80% câu hỏi và phương án trả lời đúng</strong> đều được diễn đạt lại (<em>paraphrased</em>) so với văn bản gốc. Hiểu và phản xạ nhanh với các cụm từ đồng nghĩa chính là vũ khí giúp bạn định vị thông tin chuẩn xác và không bao giờ bị "bẫy từ vựng" đánh lừa!
+                </p>
+            </div>
+        </div>
+
+        <!-- Part 1: Theory of Paraphrasing in VSTEP -->
+        <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 14px; padding: 24px; margin-bottom: 28px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);">
+            <h3 style="color: #1e3a8a; font-weight: 800; font-size: 1.25rem; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+                <i class="fa-solid fa-book-bookmark" style="color: #2563eb;"></i> I. 4 KỸ THUẬT PARAPHRASE KINH ĐIỂN TRONG ĐỀ THI VSTEP
+            </h3>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px;">
+                <div style="background: #f8fafc; border-left: 4px solid #3b82f6; border-radius: 10px; padding: 16px;">
+                    <div style="font-weight: 800; color: #1d4ed8; font-size: 1.02rem; margin-bottom: 6px;">1. Thay từ đồng nghĩa (Synonyms)</div>
+                    <p style="font-size: 0.92rem; color: #475569; margin-bottom: 8px; line-height: 1.6;">Thay thế từ khóa bằng từ/cụm từ tương đương.</p>
+                    <div style="background: #ffffff; padding: 8px 12px; border-radius: 6px; font-size: 0.88rem; border: 1px dashed #cbd5e1; color: #0f172a;">
+                        <em>Ví dụ:</em> <strong>massive</strong> $\leftrightarrow$ <strong>huge / enormous</strong>
+                    </div>
+                </div>
+
+                <div style="background: #f8fafc; border-left: 4px solid #10b981; border-radius: 10px; padding: 16px;">
+                    <div style="font-weight: 800; color: #047857; font-size: 1.02rem; margin-bottom: 6px;">2. Biến đổi từ loại (Word Family)</div>
+                    <p style="font-size: 0.92rem; color: #475569; margin-bottom: 8px; line-height: 1.6;">Chuyển đổi giữa Động từ - Danh từ - Tính từ.</p>
+                    <div style="background: #ffffff; padding: 8px 12px; border-radius: 6px; font-size: 0.88rem; border: 1px dashed #cbd5e1; color: #0f172a;">
+                        <em>Ví dụ:</em> <strong>destroy</strong> $(v) \leftrightarrow$ <strong>cause destruction</strong> $(n)$
+                    </div>
+                </div>
+
+                <div style="background: #f8fafc; border-left: 4px solid #f59e0b; border-radius: 10px; padding: 16px;">
+                    <div style="font-weight: 800; color: #b45309; font-size: 1.02rem; margin-bottom: 6px;">3. Chủ động $\leftrightarrow$ Bị động (Voice Shift)</div>
+                    <p style="font-size: 0.92rem; color: #475569; margin-bottom: 8px; line-height: 1.6;">Đổi cấu trúc câu để thay đổi trọng tâm thông tin.</p>
+                    <div style="background: #ffffff; padding: 8px 12px; border-radius: 6px; font-size: 0.88rem; border: 1px dashed #cbd5e1; color: #0f172a;">
+                        <em>Ví dụ:</em> <strong>Borglum devised</strong> $\leftrightarrow$ <strong>was designed by</strong>
+                    </div>
+                </div>
+
+                <div style="background: #f8fafc; border-left: 4px solid #8b5cf6; border-radius: 10px; padding: 16px;">
+                    <div style="font-weight: 800; color: #6d28d9; font-size: 1.02rem; margin-bottom: 6px;">4. Diễn giải định nghĩa (Definition)</div>
+                    <p style="font-size: 0.92rem; color: #475569; margin-bottom: 8px; line-height: 1.6;">Dùng mệnh đề giải thích thay cho một từ học thuật.</p>
+                    <div style="background: #ffffff; padding: 8px 12px; border-radius: 6px; font-size: 0.88rem; border: 1px dashed #cbd5e1; color: #0f172a;">
+                        <em>Ví dụ:</em> <strong>annual</strong> $\leftrightarrow$ <strong>happening once a year</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Part 2: Interactive Synonym Matching Game -->
+        <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 14px; padding: 24px; margin-bottom: 28px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
+                <h3 style="color: #1e3a8a; font-weight: 800; font-size: 1.25rem; margin: 0; display: flex; align-items: center; gap: 8px;">
+                    <i class="fa-solid fa-gamepad" style="color: #8b5cf6;"></i> II. PHÒNG LAB GHÉP THẺ ĐỒNG NGHĨA TƯƠNG TÁC
+                </h3>
+                
+                <!-- Set Selector Tabs -->
+                <div style="display: flex; gap: 6px; flex-wrap: wrap;" id="synonym-set-tabs">
+                    <button class="cbt-part-tab-btn active" onclick="loadSynonymSet(0)">Bộ 01 (Cơ bản B1)</button>
+                    <button class="cbt-part-tab-btn" onclick="loadSynonymSet(1)">Bộ 02 (Nâng cao B2)</button>
+                    <button class="cbt-part-tab-btn" onclick="loadSynonymSet(2)">Bộ 03 (Học thuật VSTEP)</button>
+                    <button class="cbt-part-tab-btn" onclick="loadSynonymSet(3)">Bộ 04 (Paraphrase Cụm từ)</button>
+                </div>
+            </div>
+
+            <p style="font-size: 0.95rem; color: #64748b; margin-bottom: 18px;">
+                👉 <strong>Cách chơi:</strong> Nhấp chọn 1 thẻ ở cột trái (<strong>Từ khóa Câu hỏi</strong>), sau đó nhấp chọn thẻ có nghĩa tương đương ở cột phải (<strong>Diễn đạt trong Bài đọc</strong>) để hoàn thành cặp ghép!
+            </p>
+
+            <div class="synonym-board-container">
+                <div class="synonym-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div>
+                        <div style="font-weight: 800; color: #2563eb; font-size: 1rem; margin-bottom: 10px; display: flex; align-items: center; gap: 6px;">
+                            <i class="fa-solid fa-circle-question"></i> TỪ KHÓA CÂU HỎI (QUESTION KEY)
+                        </div>
+                        <div class="synonym-deck" id="question-deck" style="display: flex; flex-direction: column; gap: 10px;">
+                            <!-- Dynamic Questions Deck -->
+                        </div>
+                    </div>
+
+                    <div>
+                        <div style="font-weight: 800; color: #16a34a; font-size: 1rem; margin-bottom: 10px; display: flex; align-items: center; gap: 6px;">
+                            <i class="fa-solid fa-link"></i> DIỄN ĐẠT TRONG BÀI ĐỌC (PASSAGE PHRASE)
+                        </div>
+                        <div class="synonym-deck" id="passage-deck" style="display: flex; flex-direction: column; gap: 10px;">
+                            <!-- Dynamic Passage Deck -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-feedback hidden" id="synonym-feedback" style="margin-top: 20px; background: #f0fdf4; border: 1.5px solid #86efac; border-radius: 12px; padding: 16px 20px; text-align: center;">
+                    <i class="fa-solid fa-circle-check text-green" style="font-size: 1.4rem; color: #16a34a; margin-right: 8px;"></i> 
+                    <span style="font-weight: 800; color: #166534; font-size: 1.05rem;">Tuyệt vời! Bạn đã kết nối chính xác toàn bộ các cặp từ đồng nghĩa trong bộ này!</span>
+                    <div style="margin-top: 10px;">
+                        <button class="primary-btn btn-sm" onclick="reloadCurrentSynonymSet()" style="border-radius: 8px; font-weight: 700;">
+                            <i class="fa-solid fa-rotate-right"></i> Luyện tập lại bộ này
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Part 3: Top Essential VSTEP Synonym Table -->
+        <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 14px; padding: 24px; margin-bottom: 28px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);">
+            <h3 style="color: #1e3a8a; font-weight: 800; font-size: 1.25rem; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+                <i class="fa-solid fa-table-list" style="color: #0284c7;"></i> III. BẢNG 30+ CẶP TỪ ĐỒNG NGHĨA XUẤT HIỆN NHIỀU NHẤT TRONG VSTEP READING
+            </h3>
+            
+            <div style="overflow-x: auto;">
+                <table style="width: 100%; border-collapse: collapse; font-size: 0.98rem; text-align: left;">
+                    <thead>
+                        <tr style="background: #f1f5f9; color: #1e293b; border-bottom: 2px solid #cbd5e1;">
+                            <th style="padding: 12px 16px; font-weight: 800;">STT</th>
+                            <th style="padding: 12px 16px; font-weight: 800; color: #2563eb;">Từ khóa thường gặp (Keyword)</th>
+                            <th style="padding: 12px 16px; font-weight: 800; color: #16a34a;">Từ / Cụm từ Paraphrase tương đương</th>
+                            <th style="padding: 12px 16px; font-weight: 800;">Ý nghĩa tiếng Việt</th>
+                        </tr>
+                    </thead>
+                    <tbody style="color: #334155; line-height: 1.6;">
+                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 10px 16px; font-weight: 700;">1</td><td style="padding: 10px 16px; font-weight: 700; color: #1d4ed8;">vital / crucial</td><td style="padding: 10px 16px; font-weight: 600; color: #047857;">essential / extremely important / necessary</td><td style="padding: 10px 16px;">vô cùng quan trọng, cốt yếu</td></tr>
+                        <tr style="border-bottom: 1px solid #e2e8f0; background: #f8fafc;"><td style="padding: 10px 16px; font-weight: 700;">2</td><td style="padding: 10px 16px; font-weight: 700; color: #1d4ed8;">massive / immense</td><td style="padding: 10px 16px; font-weight: 600; color: #047857;">huge / enormous / gigantic</td><td style="padding: 10px 16px;">khổng lồ, to lớn</td></tr>
+                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 10px 16px; font-weight: 700;">3</td><td style="padding: 10px 16px; font-weight: 700; color: #1d4ed8;">prohibit / forbid</td><td style="padding: 10px 16px; font-weight: 600; color: #047857;">ban / make illegal / disallow</td><td style="padding: 10px 16px;">ngăn cấm, cấm chỉ</td></tr>
+                        <tr style="border-bottom: 1px solid #e2e8f0; background: #f8fafc;"><td style="padding: 10px 16px; font-weight: 700;">4</td><td style="padding: 10px 16px; font-weight: 700; color: #1d4ed8;">mandatory / compulsory</td><td style="padding: 10px 16px; font-weight: 600; color: #047857;">required / obligatory / enforced</td><td style="padding: 10px 16px;">bắt buộc theo quy định</td></tr>
+                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 10px 16px; font-weight: 700;">5</td><td style="padding: 10px 16px; font-weight: 700; color: #1d4ed8;">enhance / boost</td><td style="padding: 10px 16px; font-weight: 600; color: #047857;">improve / strengthen / elevate</td><td style="padding: 10px 16px;">nâng cao, cải thiện</td></tr>
+                        <tr style="border-bottom: 1px solid #e2e8f0; background: #f8fafc;"><td style="padding: 10px 16px; font-weight: 700;">6</td><td style="padding: 10px 16px; font-weight: 700; color: #1d4ed8;">deplete / exhaust</td><td style="padding: 10px 16px; font-weight: 600; color: #047857;">use up / run out of / drain</td><td style="padding: 10px 16px;">làm cạn kiệt, suy giảm</td></tr>
+                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 10px 16px; font-weight: 700;">7</td><td style="padding: 10px 16px; font-weight: 700; color: #1d4ed8;">feasible / viable</td><td style="padding: 10px 16px; font-weight: 600; color: #047857;">practical / workable / achievable</td><td style="padding: 10px 16px;">khả thi, có thể thực hiện</td></tr>
+                        <tr style="border-bottom: 1px solid #e2e8f0; background: #f8fafc;"><td style="padding: 10px 16px; font-weight: 700;">8</td><td style="padding: 10px 16px; font-weight: 700; color: #1d4ed8;">obstacle / barrier</td><td style="padding: 10px 16px; font-weight: 600; color: #047857;">hurdle / difficulty / impediment</td><td style="padding: 10px 16px;">rào cản, chướng ngại vật</td></tr>
+                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 10px 16px; font-weight: 700;">9</td><td style="padding: 10px 16px; font-weight: 700; color: #1d4ed8;">abundant / plentiful</td><td style="padding: 10px 16px; font-weight: 600; color: #047857;">in large quantities / copious</td><td style="padding: 10px 16px;">dồi dào, phong phú</td></tr>
+                        <tr style="border-bottom: 1px solid #e2e8f0; background: #f8fafc;"><td style="padding: 10px 16px; font-weight: 700;">10</td><td style="padding: 10px 16px; font-weight: 700; color: #1d4ed8;">revolutionize</td><td style="padding: 10px 16px; font-weight: 600; color: #047857;">transform dramatically / modernize</td><td style="padding: 10px 16px;">cách mạng hóa, thay đổi triệt để</td></tr>
+                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 10px 16px; font-weight: 700;">11</td><td style="padding: 10px 16px; font-weight: 700; color: #1d4ed8;">diverse / varied</td><td style="padding: 10px 16px; font-weight: 600; color: #047857;">different / wide-ranging / multiple</td><td style="padding: 10px 16px;">đa dạng, nhiều chủng loại</td></tr>
+                        <tr style="border-bottom: 1px solid #e2e8f0; background: #f8fafc;"><td style="padding: 10px 16px; font-weight: 700;">12</td><td style="padding: 10px 16px; font-weight: 700; color: #1d4ed8;">ensure / guarantee</td><td style="padding: 10px 16px; font-weight: 600; color: #047857;">make certain / secure</td><td style="padding: 10px 16px;">đảm bảo, chắc chắn</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
 </div>
-</div>
-<div class="synonym-board-container">
-<p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 12px; font-weight: 600;">
-                            Nhấp chọn một thẻ ở cột **Từ khóa Câu hỏi (Question Key)**, sau đó nhấp thẻ tương đương ở cột **Cụm từ trong Bài đọc (Passage Phrase)**:
-                        </p>
-<div class="synonym-grid">
-<div class="synonym-deck" id="question-deck">
-<div class="synonym-item" data-id="1" data-type="q">alternative to reading <i class="fa-solid fa-question"></i></div>
-<div class="synonym-item" data-id="2" data-type="q">busy schedules <i class="fa-solid fa-question"></i></div>
-<div class="synonym-item" data-id="3" data-type="q">senior citizens <i class="fa-solid fa-question"></i></div>
-<div class="synonym-item" data-id="4" data-type="q">critics argue <i class="fa-solid fa-question"></i></div>
-</div>
-<div class="synonym-deck" id="passage-deck">
-<div class="synonym-item" data-match="2" data-type="p"><i class="fa-solid fa-link"></i> packed daily routines</div>
-<div class="synonym-item" data-match="4" data-type="p"><i class="fa-solid fa-link"></i> opposing experts believe</div>
-<div class="synonym-item" data-match="1" data-type="p"><i class="fa-solid fa-link"></i> another option to books</div>
-<div class="synonym-item" data-match="3" data-type="p"><i class="fa-solid fa-link"></i> older members of society</div>
-</div>
-</div>
-<div class="game-feedback hidden" id="synonym-feedback" style="margin-top:20px">
-<i class="fa-solid fa-circle-check text-green"></i> <span>Tuyệt vời! Bạn đã kết nối chính xác tất cả các cấu trúc diễn đạt đồng nghĩa!</span>
-</div>
-</div>
-</section>
-</div>
+
 <!-- SECTION: Mock Test -->
 <div class="content-section hidden" id="sec-mock-test">
     <div class="cbt-mock-container">
@@ -10802,49 +10913,129 @@ function initKeywordsSortingGame() {
     });
 }
 
-// 11. Synonym Drag/Click Matching Board (Chapter 3)
+// ==========================================================================
+// 11. DYNAMIC MULTI-SET SYNONYM MATCHING LAB (Chapter 3)
+// ==========================================================================
+
+const synonymSetsData = [
+    // Set 0: Cơ bản B1
+    [
+        { id: 1, q: "alternative to reading", p: "another option to books", vi: "sự lựa chọn thay thế cho việc đọc" },
+        { id: 2, q: "busy schedules", p: "packed daily routines", vi: "lịch trình bận rộn" },
+        { id: 3, q: "senior citizens", p: "older members of society", vi: "người cao tuổi trong xã hội" },
+        { id: 4, q: "critics argue", p: "opposing experts believe", vi: "các nhà phê bình cho rằng" },
+        { id: 5, q: "expand access", p: "broaden availability", vi: "mở rộng khả năng tiếp cận" }
+    ],
+    // Set 1: Nâng cao B2
+    [
+        { id: 1, q: "massive collision", p: "enormous impact", vi: "vụ va chạm khổng lồ" },
+        { id: 2, q: "uneven distribution", p: "irregular allocation", vi: "sự phân bố không đồng đều" },
+        { id: 3, q: "erase surface features", p: "obliterate geological traces", vi: "xóa nhòa các đặc điểm bề mặt" },
+        { id: 4, q: "primary cause", p: "fundamental factor", vi: "nguyên nhân / yếu tố cốt lõi" },
+        { id: 5, q: "affectional tie", p: "emotional attachment", vi: "mối liên kết tình cảm sâu sắc" }
+    ],
+    // Set 2: Học thuật VSTEP
+    [
+        { id: 1, q: "by happenstance", p: "coincidentally", vi: "một cách tình cờ, ngẫu nhiên" },
+        { id: 2, q: "cumbersome steering", p: "awkward to handle", vi: "cồng kềnh, khó điều khiển" },
+        { id: 3, q: "standardized design", p: "uniform specification", vi: "thiết kế chuẩn hóa đồng nhất" },
+        { id: 4, q: "devised chairs", p: "specially engineered seats", vi: "ghế được chế tạo đặc biệt" },
+        { id: 5, q: "deep fissures", p: "large geological cracks", vi: "các vết nứt địa chất lớn" }
+    ],
+    // Set 3: Paraphrase Cụm từ
+    [
+        { id: 1, q: "prohibit public access", p: "ban citizens from entering", vi: "cấm người dân vào khu vực" },
+        { id: 2, q: "practical and low-cost", p: "feasible and economical", vi: "thiết thực và chi phí tiết kiệm" },
+        { id: 3, q: "diminish rapidly", p: "decline substantially", vi: "suy giảm một cách nhanh chóng" },
+        { id: 4, q: "support student well-being", p: "foster learner mental health", vi: "nâng cao sức khỏe tinh thần học sinh" },
+        { id: 5, q: "revolutionary technique", p: "groundbreaking innovation", vi: "kỹ thuật mang tính đột phá" }
+    ]
+];
+
+let currentSynonymSetIdx = 0;
+
 function initSynonymMatchingGame() {
-    const qDecks = document.querySelectorAll('#question-deck .synonym-item');
-    const pDecks = document.querySelectorAll('#passage-deck .synonym-item');
-    
-    qDecks.forEach(item => {
-        item.addEventListener('click', () => {
+    loadSynonymSet(0);
+}
+
+function loadSynonymSet(setIdx) {
+    currentSynonymSetIdx = setIdx;
+    const setData = synonymSetsData[setIdx];
+    if (!setData) return;
+
+    // Update Set selector tabs
+    const tabBtns = document.querySelectorAll('#synonym-set-tabs button');
+    tabBtns.forEach((btn, idx) => {
+        if (idx === setIdx) btn.classList.add('active');
+        else btn.classList.remove('active');
+    });
+
+    state.synonymGame.matches = 0;
+    state.synonymGame.selectedQ = null;
+    document.getElementById('synonym-feedback').classList.add('hidden');
+
+    const qDeck = document.getElementById('question-deck');
+    const pDeck = document.getElementById('passage-deck');
+    if (!qDeck || !pDeck) return;
+
+    qDeck.innerHTML = '';
+    pDeck.innerHTML = '';
+
+    // Render Question deck in normal order
+    setData.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'synonym-item';
+        div.dataset.id = item.id;
+        div.dataset.type = 'q';
+        div.innerHTML = `${item.q} <i class="fa-solid fa-question" style="color:#3b82f6;"></i>`;
+        
+        div.addEventListener('click', () => {
             playSound('click');
-            if (item.classList.contains('matched')) return;
-            
-            if (state.synonymGame.selectedQ === item) {
-                item.classList.remove('selected');
+            if (div.classList.contains('matched')) return;
+
+            if (state.synonymGame.selectedQ === div) {
+                div.classList.remove('selected');
                 state.synonymGame.selectedQ = null;
             } else {
-                qDecks.forEach(q => q.classList.remove('selected'));
-                item.classList.add('selected');
-                state.synonymGame.selectedQ = item;
+                qDeck.querySelectorAll('.synonym-item').forEach(q => q.classList.remove('selected'));
+                div.classList.add('selected');
+                state.synonymGame.selectedQ = div;
             }
         });
+
+        qDeck.appendChild(div);
     });
-    
-    pDecks.forEach(item => {
-        item.addEventListener('click', () => {
+
+    // Render Passage deck in shuffled order
+    const shuffledPassage = [...setData].sort(() => Math.random() - 0.5);
+    shuffledPassage.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'synonym-item';
+        div.dataset.match = item.id;
+        div.dataset.type = 'p';
+        div.innerHTML = `<i class="fa-solid fa-link" style="color:#10b981;"></i> ${item.p}`;
+
+        div.addEventListener('click', () => {
             if (!state.synonymGame.selectedQ) return;
-            
+
             const qCard = state.synonymGame.selectedQ;
-            const matchId = item.dataset.match;
-            const qId = qCard.dataset.id;
-            
+            const matchId = parseInt(div.dataset.match, 10);
+            const qId = parseInt(qCard.dataset.id, 10);
+
             if (matchId === qId) {
                 playSound('success');
                 qCard.classList.remove('selected');
                 qCard.classList.add('matched');
-                item.classList.add('matched');
-                
-                // Bind matching connectors
-                qCard.innerHTML = `${qCard.textContent} <i class="fa-solid fa-circle-check text-green"></i>`;
-                item.innerHTML = `<i class="fa-solid fa-link"></i> ${item.textContent}`;
-                
+                div.classList.add('matched');
+
+                // Connect text with green check
+                qCard.innerHTML = `${qCard.textContent.trim()} <i class="fa-solid fa-circle-check text-green"></i>`;
+                div.innerHTML = `<i class="fa-solid fa-link text-green"></i> ${div.textContent.trim()}`;
+
                 state.synonymGame.matches++;
                 state.synonymGame.selectedQ = null;
-                
-                if (state.synonymGame.matches === 4) {
+
+                if (state.synonymGame.matches === setData.length) {
                     playSound('complete');
                     document.getElementById('synonym-feedback').classList.remove('hidden');
                     state.progress.synonymLab = true;
@@ -10852,12 +11043,20 @@ function initSynonymMatchingGame() {
                 }
             } else {
                 playSound('fail');
-                item.classList.add('shake');
-                setTimeout(() => item.classList.remove('shake'), 500);
+                div.classList.add('shake');
+                setTimeout(() => div.classList.remove('shake'), 500);
             }
         });
+
+        pDeck.appendChild(div);
     });
 }
+
+function reloadCurrentSynonymSet() {
+    playSound('click');
+    loadSynonymSet(currentSynonymSetIdx);
+}
+
 
 // ==========================================================================
 // 12. AUTHENTIC VSTEP CBT MOCK EXAM SIMULATOR
