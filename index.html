@@ -9064,6 +9064,42 @@ const mockTestPassages = [
                     </div>
                 </div>
             </div>
+                    <!-- Useful Vocabulary Section for Mock Test (Separated from active exam) -->
+            <div style="margin-top: 32px; background: #ffffff; border: 2px solid #e2e8f0; border-radius: 16px; padding: 26px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; flex-wrap: wrap; gap: 14px;">
+                    <div>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <span style="background: #e0e7ff; color: #4338ca; font-weight: 800; font-size: 0.85rem; padding: 4px 12px; border-radius: 20px;">TRAU DỒI TRƯỚC KHI THI</span>
+                            <h3 style="color: #1e3a8a; font-weight: 800; font-size: 1.35rem; margin: 0; display: flex; align-items: center; gap: 8px;">
+                                <i class="fa-solid fa-book-bookmark" style="color: #6366f1;"></i> TỪ VỰNG HỮU ÍCH CHO 4 BÀI ĐỌC
+                            </h3>
+                        </div>
+                        <p style="color: #64748b; font-size: 0.95rem; margin: 6px 0 0 0;">
+                            Xem và ôn tập trước các từ vựng học thuật, cụm từ then chốt xuất hiện trong 4 bài đọc để tối ưu hóa tốc độ và độ chính xác khi làm bài thi.
+                        </p>
+                    </div>
+
+                    <!-- Search Box for Mock Vocab -->
+                    <div class="synonym-search-box" style="min-width: 260px;">
+                        <i class="fa-solid fa-search" style="color: #94a3b8;"></i>
+                        <input type="text" id="mock-vocab-search" placeholder="Tìm từ vựng bài đọc..." style="border: none; outline: none; width: 100%; font-size: 0.92rem; font-weight: 600; color: #1e293b;" oninput="filterMockVocab()">
+                    </div>
+                </div>
+
+                <!-- Passage Vocab Tabs -->
+                <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 18px;" id="mock-vocab-tabs">
+                    <button class="synonym-filter-btn active" data-p="all" onclick="setMockVocabTab('all', this)"><i class="fa-solid fa-layer-group"></i> Tất cả 4 bài</button>
+                    <button class="synonym-filter-btn" data-p="0" onclick="setMockVocabTab('0', this)"><i class="fa-solid fa-dna"></i> Passage 01 (Ethology)</button>
+                    <button class="synonym-filter-btn" data-p="1" onclick="setMockVocabTab('1', this)"><i class="fa-solid fa-moon"></i> Passage 02 (The Moon)</button>
+                    <button class="synonym-filter-btn" data-p="2" onclick="setMockVocabTab('2', this)"><i class="fa-solid fa-car"></i> Passage 03 (Auto Show)</button>
+                    <button class="synonym-filter-btn" data-p="3" onclick="setMockVocabTab('3', this)"><i class="fa-solid fa-mountain"></i> Passage 04 (Rushmore)</button>
+                </div>
+
+                <!-- Vocab Cards Container -->
+                <div id="mock-vocab-cards-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 14px; max-height: 480px; overflow-y: auto; padding-right: 6px;">
+                    <!-- Dynamically populated -->
+                </div>
+            </div>
         </div>
 
         <!-- CBT Active Exam Workspace -->
@@ -11588,6 +11624,366 @@ function renderSynonymDictionary(query = "", category = "all") {
 }
 
 
+
+// ==========================================================================
+// MOCK TEST USEFUL VOCABULARY PREVIEW DATA & ENGINE
+// ==========================================================================
+
+const mockTestUsefulVocabData = [
+    // --- PASSAGE 01 ---
+    {
+        p: 0,
+        pName: "Passage 1",
+        word: "ethology",
+        ipa: "/iːˈθɒl.ə.dʒi/",
+        type: "n",
+        vi: "tập tính học (ngành nghiên cứu hành vi động vật trong tự nhiên)",
+        ex: "Ethology is concerned with the adaptive, or survival, value of behavior.",
+        syns: ["behavioral biology", "study of animal behavior"]
+    },
+    {
+        p: 0,
+        pName: "Passage 1",
+        word: "adaptive",
+        ipa: "/əˈdæp.tɪv/",
+        type: "adj",
+        vi: "có tính thích nghi, giúp sinh tồn",
+        ex: "Ethology focuses on the adaptive value of behavior and its evolutionary history.",
+        syns: ["survival-oriented", "flexible", "evolutionary"]
+    },
+    {
+        p: 0,
+        pName: "Passage 1",
+        word: "diverse",
+        ipa: "/daɪˈvɜːs/",
+        type: "adj",
+        vi: "đa dạng, nhiều chủng loại khác nhau",
+        ex: "Ethologists have observed diverse animal species in their natural habitats.",
+        syns: ["varied", "different", "assorted", "multiple"]
+    },
+    {
+        p: 0,
+        pName: "Passage 1",
+        word: "imprinting",
+        ipa: "/ɪmˈprɪn.tɪŋ/",
+        type: "n",
+        vi: "hiện tượng in vết (gắn bó với mẹ ngay sau khi sinh ở động vật)",
+        ex: "Best known is imprinting, the early-following behavior of geese.",
+        syns: ["early behavioral attachment", "instinctive bonding"]
+    },
+    {
+        p: 0,
+        pName: "Passage 1",
+        word: "ensure",
+        ipa: "/ɪnˈʃɔːr/",
+        type: "v",
+        vi: "đảm bảo, chắc chắn bảo vệ",
+        ex: "Imprinting ensures that the young will stay close to the mother and be protected.",
+        syns: ["guarantee", "make certain", "secure"]
+    },
+    {
+        p: 0,
+        pName: "Passage 1",
+        word: "critical period",
+        ipa: "/ˈkrɪt.ɪ.kəl ˈpɪə.ri.əd/",
+        type: "phrase",
+        vi: "giai đoạn phát triển then chốt / nhạy cảm",
+        ex: "Imprinting takes place during an early, restricted critical period.",
+        syns: ["sensitive phase", "crucial development stage"]
+    },
+    {
+        p: 0,
+        pName: "Passage 1",
+        word: "suitably",
+        ipa: "/ˈsuː.tə.bli/",
+        type: "adv",
+        vi: "một cách phù hợp, thích đáng",
+        ex: "If mother geese are not present, but an object resembling them is suitably stimulating, they will imprint.",
+        syns: ["appropriately", "adequately", "fittingly"]
+    },
+    {
+        p: 0,
+        pName: "Passage 1",
+        word: "affectional tie",
+        ipa: "/əˈfek.ʃən.əl taɪ/",
+        type: "phrase",
+        vi: "mối liên kết / gắn kết tình cảm sâu sắc",
+        ex: "The human infant's relationship to the mother is a built-in affectional tie.",
+        syns: ["emotional bond", "deep attachment", "loving connection"]
+    },
+    {
+        p: 0,
+        pName: "Passage 1",
+        word: "permanently impaired",
+        ipa: "/ˈpɜː.mə.nənt.li ɪmˈpeəd/",
+        type: "phrase",
+        vi: "bị tổn hại vĩnh viễn, không thể phục hồi",
+        ex: "The capacity for social and emotional development may be permanently impaired.",
+        syns: ["irreversibly damaged", "chronically harmed"]
+    },
+
+    // --- PASSAGE 02 ---
+    {
+        p: 1,
+        pName: "Passage 2",
+        word: "massive",
+        ipa: "/ˈmæs.ɪv/",
+        type: "adj",
+        vi: "khổng lồ, to lớn, dữ dội",
+        ex: "The Moon formed following a massive collision between Earth and a Mars-sized body.",
+        syns: ["huge", "enormous", "immense", "gigantic"]
+    },
+    {
+        p: 1,
+        pName: "Passage 2",
+        word: "debris",
+        ipa: "/ˈdeb.riː/",
+        type: "n",
+        vi: "mảnh vụn, mảnh vỡ sau vụ va chạm",
+        ex: "The debris from the impact coalesced in orbit to create the Moon.",
+        syns: ["fragments", "rubble", "remnants", "wreckage"]
+    },
+    {
+        p: 1,
+        pName: "Passage 2",
+        word: "coalesce",
+        ipa: "/ˌkəʊ.əˈles/",
+        type: "v",
+        vi: "hợp nhất, kết tụ lại thành một khối",
+        ex: "The scattered rocky debris began to coalesce over millions of years.",
+        syns: ["merge", "unite", "fuse together", "combine"]
+    },
+    {
+        p: 1,
+        pName: "Passage 2",
+        word: "gravitational influence",
+        ipa: "/ˌɡræv.ɪˈteɪ.ʃən.əl ˈɪn.flu.əns/",
+        type: "phrase",
+        vi: "ảnh hưởng của lực hấp dẫn",
+        ex: "The gravitational influence of the Moon is the primary cause of ocean tides.",
+        syns: ["gravitational pull", "tidal attraction"]
+    },
+    {
+        p: 1,
+        pName: "Passage 2",
+        word: "uneven",
+        ipa: "/ʌnˈiː.vən/",
+        type: "adj",
+        vi: "không đồng đều, gồ ghề, bất thường",
+        ex: "The Moon has an uneven distribution of impact craters across its hemispheres.",
+        syns: ["irregular", "asymmetrical", "non-uniform", "rough"]
+    },
+    {
+        p: 1,
+        pName: "Passage 2",
+        word: "impact craters",
+        ipa: "/ˈɪm.pækt ˈkreɪ.tərz/",
+        type: "phrase",
+        vi: "các hố va chạm thiên thạch",
+        ex: "The lunar surface is covered with ancient impact craters.",
+        syns: ["meteorite depressions", "collision hollows"]
+    },
+    {
+        p: 1,
+        pName: "Passage 2",
+        word: "erase",
+        ipa: "/ɪˈreɪz/",
+        type: "v",
+        vi: "xóa sạch, làm biến mất hoàn toàn",
+        ex: "There is no atmosphere to create wind or rain that could erase these craters.",
+        syns: ["obliterate", "wipe out", "remove completely", "destroy"]
+    },
+
+    // --- PASSAGE 03 ---
+    {
+        p: 2,
+        pName: "Passage 3",
+        word: "horseless carriage",
+        ipa: "/ˈhɔːs.ləs ˈkær.ɪdʒ/",
+        type: "phrase",
+        vi: "xe không ngựa kéo (thuật ngữ sơ khai của xe ô tô)",
+        ex: "The 1900 exhibition introduced the horseless carriage to mainstream America.",
+        syns: ["early automobile", "motorized vehicle"]
+    },
+    {
+        p: 2,
+        pName: "Passage 3",
+        word: "by happenstance",
+        ipa: "/baɪ ˈhæp.ən.stæns/",
+        type: "phrase",
+        vi: "một cách tình cờ, ngẫu nhiên",
+        ex: "By happenstance, gasoline-powered cars gained the upper hand over steam vehicles.",
+        syns: ["coincidentally", "by chance", "accidentally", "fortuitously"]
+    },
+    {
+        p: 2,
+        pName: "Passage 3",
+        word: "launched",
+        ipa: "/lɔːntʃt/",
+        type: "v",
+        vi: "khởi xướng, bắt đầu, mở đường cho ngành",
+        ex: "The dramatic sales launched a new commercial transportation era.",
+        syns: ["initiated", "kick-started", "commenced", "established"]
+    },
+    {
+        p: 2,
+        pName: "Passage 3",
+        word: "fragrant additive",
+        ipa: "/ˈfreɪ.ɡrənt ˈæd.ɪ.tɪv/",
+        type: "phrase",
+        vi: "chất phụ gia có mùi thơm để khử mùi",
+        ex: "Inventors used a fragrant additive to mask the unpleasant exhaust fumes.",
+        syns: ["aromatic supplement", "scented substance"]
+    },
+    {
+        p: 2,
+        pName: "Passage 3",
+        word: "cumbersome",
+        ipa: "/ˈkʌm.bə.səm/",
+        type: "adj",
+        vi: "cồng kềnh, bất tiện, khó điều khiển",
+        ex: "Early cars used cumbersome tillers instead of modern steering wheels.",
+        syns: ["awkward", "unwieldy", "clunky", "hard to handle"]
+    },
+    {
+        p: 2,
+        pName: "Passage 3",
+        word: "standardized design",
+        ipa: "/ˈstæn.də.daɪzd dɪˈzaɪn/",
+        type: "phrase",
+        vi: "thiết kế tiêu chuẩn hóa đồng bộ",
+        ex: "Henry Ford adopted a standardized design to manufacture the Model T rapidly.",
+        syns: ["uniform specification", "mass-production standard"]
+    },
+
+    // --- PASSAGE 04 ---
+    {
+        p: 3,
+        pName: "Passage 4",
+        word: "monument",
+        ipa: "/ˈmɒn.jə.mənt/",
+        type: "n",
+        vi: "đài tưởng niệm, tượng đài lịch sử",
+        ex: "Mount Rushmore is a national monument carved into granite rock.",
+        syns: ["memorial", "historic tribute", "landmark sculpture"]
+    },
+    {
+        p: 3,
+        pName: "Passage 4",
+        word: "devised",
+        ipa: "/dɪˈvaɪzd/",
+        type: "v",
+        vi: "phát minh, sáng chế, thiết kế ra",
+        ex: "Sculptor Borglum devised specialized harness chairs for the miners.",
+        syns: ["invented", "designed", "engineered", "created"]
+    },
+    {
+        p: 3,
+        pName: "Passage 4",
+        word: "fissures",
+        ipa: "/ˈfɪʃ.ərz/",
+        type: "n",
+        vi: "các vết nứt địa chất lớn trong khối đá",
+        ex: "Workers discovered deep geological fissures in the granite surface.",
+        syns: ["cracks", "clefts", "crevices", "fractures"]
+    },
+    {
+        p: 3,
+        pName: "Passage 4",
+        word: "avoided",
+        ipa: "/əˈvɔɪdɪd/",
+        type: "v",
+        vi: "phòng tránh, ngăn ngừa rủi ro",
+        ex: "Water seepage was avoided by applying a special waterproof mixture.",
+        syns: ["prevented", "escaped", "circumvented", "warded off"]
+    },
+    {
+        p: 3,
+        pName: "Passage 4",
+        word: "autumn maintenance",
+        ipa: "/ˈɔː.təm ˈmeɪn.tə.nəns/",
+        type: "phrase",
+        vi: "công tác bảo trì hàng năm vào mùa thu",
+        ex: "Autumn maintenance ensures that freezing water will not fracture the stone faces.",
+        syns: ["yearly servicing", "seasonal preservation work"]
+    }
+];
+
+let activeMockVocabTab = "all";
+
+function setMockVocabTab(pId, btn) {
+    playSound('click');
+    activeMockVocabTab = pId;
+    document.querySelectorAll('#mock-vocab-tabs button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    filterMockVocab();
+}
+
+function filterMockVocab() {
+    const query = (document.getElementById('mock-vocab-search').value || '').trim().toLowerCase();
+    renderMockVocabCards(query, activeMockVocabTab);
+}
+
+function renderMockVocabCards(query = "", passageFilter = "all") {
+    const grid = document.getElementById('mock-vocab-cards-grid');
+    if (!grid) return;
+    grid.innerHTML = '';
+
+    const filtered = mockTestUsefulVocabData.filter(item => {
+        const matchesPassage = (passageFilter === 'all') || (item.p.toString() === passageFilter);
+        const matchesQuery = !query ||
+            item.word.toLowerCase().includes(query) ||
+            item.vi.toLowerCase().includes(query) ||
+            item.syns.some(s => s.toLowerCase().includes(query));
+        return matchesPassage && matchesQuery;
+    });
+
+    if (filtered.length === 0) {
+        grid.innerHTML = `
+            <div style="grid-column: 1 / -1; text-align: center; padding: 24px; color: #64748b;">
+                <i class="fa-solid fa-book-open" style="font-size: 1.8rem; margin-bottom: 8px; color: #94a3b8;"></i>
+                <p style="margin: 0; font-size: 0.95rem;">Không tìm thấy từ vựng nào khớp với "<strong>${query}</strong>".</p>
+            </div>
+        `;
+        return;
+    }
+
+    filtered.forEach(item => {
+        const card = document.createElement('div');
+        card.style.background = '#f8fafc';
+        card.style.border = '1.5px solid #e2e8f0';
+        card.style.borderRadius = '12px';
+        card.style.padding = '14px 16px';
+        card.style.display = 'flex';
+        card.style.flexDirection = 'column';
+        card.style.justifyContent = 'space-between';
+        card.style.transition = 'all 0.2s ease';
+
+        card.innerHTML = `
+            <div>
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px;">
+                    <div>
+                        <strong style="font-size: 1.08rem; color: #1e3a8a;">${item.word}</strong>
+                        <span style="color: #64748b; font-size: 0.82rem; margin-left: 6px;">${item.ipa} (${item.type})</span>
+                    </div>
+                    <span style="background: #e0e7ff; color: #4338ca; font-weight: 800; font-size: 0.72rem; padding: 2px 6px; border-radius: 8px;">${item.pName}</span>
+                </div>
+                <div style="color: #166534; font-weight: 700; font-size: 0.92rem; margin-bottom: 6px;">
+                    💡 ${item.vi}
+                </div>
+                <div style="font-size: 0.82rem; color: #64748b; margin-bottom: 6px;">
+                    <strong>Đồng nghĩa:</strong> ${item.syns.map(s => `<span style="background:#e2e8f0; color:#1e293b; padding:1px 6px; border-radius:4px; margin-right:3px;">${s}</span>`).join('')}
+                </div>
+            </div>
+            <div style="font-size: 0.84rem; color: #475569; font-style: italic; border-top: 1px dashed #cbd5e1; padding-top: 6px; margin-top: 4px;">
+                "${item.ex}"
+            </div>
+        `;
+        grid.appendChild(card);
+    });
+}
+
+
 // ==========================================================================
 // 12. AUTHENTIC VSTEP CBT MOCK EXAM SIMULATOR
 // ==========================================================================
@@ -13536,6 +13932,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initSafely('EyeTracker', initEyeTracker);
     initSafely('KeywordsSortingGame', initKeywordsSortingGame);
     initSafely('SynonymMatchingGame', initSynonymMatchingGame);
+    renderMockVocabCards();
     initSafely('MockControls', setupMockControls);
     initSafely('VocabControls', initVocabControls);
     initSafely('CertificateClose', initCertificateClose);
