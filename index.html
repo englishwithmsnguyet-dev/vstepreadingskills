@@ -8911,12 +8911,18 @@ const mockTestPassages = [
                 
                 <!-- Set Selector Tabs -->
                 <div style="display: flex; gap: 6px; flex-wrap: wrap;" id="synonym-set-tabs">
-                    <button class="synonym-filter-btn active" onclick="loadSynonymSet(0)">Bộ 01 (Band B1)</button>
-                    <button class="synonym-filter-btn" onclick="loadSynonymSet(1)">Bộ 02 (Band B2)</button>
-                    <button class="synonym-filter-btn" onclick="loadSynonymSet(2)">Bộ 03 (Band C1)</button>
-                    <button class="synonym-filter-btn" onclick="loadSynonymSet(3)">Bộ 04 (Môi trường)</button>
-                    <button class="synonym-filter-btn" onclick="loadSynonymSet(4)">Bộ 05 (Lịch sử & Xã hội)</button>
-                    <button class="synonym-filter-btn" onclick="loadSynonymSet(5)">Bộ 06 (Cụm từ VSTEP)</button>
+                    <button class="synonym-filter-btn active" onclick="loadSynonymSet(0)"><i class="fa-solid fa-seedling"></i> 01. B1 Thiết yếu</button>
+                    <button class="synonym-filter-btn" onclick="loadSynonymSet(1)"><i class="fa-solid fa-graduation-cap"></i> 02. B2 Học thuật</button>
+                    <button class="synonym-filter-btn" onclick="loadSynonymSet(2)"><i class="fa-solid fa-crown"></i> 03. C1 Nâng cao</button>
+                    <button class="synonym-filter-btn" onclick="loadSynonymSet(3)"><i class="fa-solid fa-atom"></i> 04. Thiên văn & Địa chất</button>
+                    <button class="synonym-filter-btn" onclick="loadSynonymSet(4)"><i class="fa-solid fa-leaf"></i> 05. Môi trường & Sinh thái</button>
+                    <button class="synonym-filter-btn" onclick="loadSynonymSet(5)"><i class="fa-solid fa-landmark"></i> 06. Lịch sử & Công nghiệp</button>
+                    <button class="synonym-filter-btn" onclick="loadSynonymSet(6)"><i class="fa-solid fa-brain"></i> 07. Tâm lý & Hành vi</button>
+                    <button class="synonym-filter-btn" onclick="loadSynonymSet(7)"><i class="fa-solid fa-chart-line"></i> 08. Kinh tế & Thương mại</button>
+                    <button class="synonym-filter-btn" onclick="loadSynonymSet(8)"><i class="fa-solid fa-book-open-reader"></i> 09. Giáo dục & Xã hội</button>
+                    <button class="synonym-filter-btn" onclick="loadSynonymSet(9)"><i class="fa-solid fa-heart-pulse"></i> 10. Y học & Sức khỏe</button>
+                    <button class="synonym-filter-btn" onclick="loadSynonymSet(10)"><i class="fa-solid fa-shuffle"></i> 11. Liên kết & Tương phản</button>
+                    <button class="synonym-filter-btn" onclick="loadSynonymSet(11)"><i class="fa-solid fa-award"></i> 12. Paraphrase Đề thi Thật</button>
                 </div>
             </div>
 
@@ -8977,7 +8983,7 @@ const mockTestPassages = [
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; flex-wrap: wrap; gap: 12px;">
                 <div>
                     <h3 style="color: #1e3a8a; font-weight: 800; font-size: 1.3rem; margin: 0 0 4px 0; display: flex; align-items: center; gap: 10px;">
-                        <i class="fa-solid fa-bolt" style="color: #eab308;"></i> III. THỬ THÁCH TRẮC NGHIỆM PHẢN XẠ PARAPHRASE (10 CÂU)
+                        <i class="fa-solid fa-bolt" style="color: #eab308;"></i> III. THỬ THÁCH TRẮC NGHIỆM PHẢN XẠ PARAPHRASE (20 CÂU THỰC CHIẾN)
                     </h3>
                     <p style="color: #64748b; font-size: 0.95rem; margin: 0;">Chọn từ/cụm từ đồng nghĩa sát nghĩa nhất với từ in đậm gạch chân trong ngữ cảnh câu:</p>
                 </div>
@@ -9007,12 +9013,14 @@ const mockTestPassages = [
 
             <!-- Filter Buttons -->
             <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;">
-                <button class="synonym-filter-btn active" data-filter="all" onclick="setDictFilter('all', this)">Tất cả (50+)</button>
-                <button class="synonym-filter-btn" data-filter="b1" onclick="setDictFilter('b1', this)">Band B1</button>
-                <button class="synonym-filter-btn" data-filter="b2" onclick="setDictFilter('b2', this)">Band B2</button>
-                <button class="synonym-filter-btn" data-filter="c1" onclick="setDictFilter('c1', this)">Band C1</button>
-                <button class="synonym-filter-btn" data-filter="env" onclick="setDictFilter('env', this)">Khoa học & Môi trường</button>
-                <button class="synonym-filter-btn" data-filter="soc" onclick="setDictFilter('soc', this)">Kinh tế & Xã hội</button>
+                <button class="synonym-filter-btn active" data-filter="all" onclick="setDictFilter('all', this)"><i class="fa-solid fa-layer-group"></i> Tất cả (100+ từ)</button>
+                <button class="synonym-filter-btn" data-filter="b1" onclick="setDictFilter('b1', this)"><i class="fa-solid fa-seedling"></i> Band B1</button>
+                <button class="synonym-filter-btn" data-filter="b2" onclick="setDictFilter('b2', this)"><i class="fa-solid fa-graduation-cap"></i> Band B2</button>
+                <button class="synonym-filter-btn" data-filter="c1" onclick="setDictFilter('c1', this)"><i class="fa-solid fa-crown"></i> Band C1</button>
+                <button class="synonym-filter-btn" data-filter="sci" onclick="setDictFilter('sci', this)"><i class="fa-solid fa-atom"></i> Khoa học & Địa chất</button>
+                <button class="synonym-filter-btn" data-filter="env" onclick="setDictFilter('env', this)"><i class="fa-solid fa-leaf"></i> Môi trường & Sinh thái</button>
+                <button class="synonym-filter-btn" data-filter="soc" onclick="setDictFilter('soc', this)"><i class="fa-solid fa-users"></i> Kinh tế & Xã hội</button>
+                <button class="synonym-filter-btn" data-filter="med" onclick="setDictFilter('med', this)"><i class="fa-solid fa-heart-pulse"></i> Y học & Tâm lý</button>
             </div>
 
             <!-- Dictionary Grid Container -->
@@ -9818,7 +9826,7 @@ var vocabData = {
     }
 };
 
-// 3. Audio Synthesizer (Using Web Audio API)
+// 3. Audio Synthesizer (Enhanced Web Audio API & TTS)
 var audioCtx = null;
 
 function playSound(type) {
@@ -9826,57 +9834,101 @@ function playSound(type) {
         if (!audioCtx) {
             audioCtx = new (window.AudioContext || window.webkitAudioContext)();
         }
-        
-        const osc = audioCtx.createOscillator();
-        const gainNode = audioCtx.createGain();
-        osc.connect(gainNode);
-        gainNode.connect(audioCtx.destination);
+        if (audioCtx.state === 'suspended') {
+            audioCtx.resume();
+        }
         
         const now = audioCtx.currentTime;
         
         if (type === 'click') {
-            osc.frequency.setValueAtTime(600, now);
-            gainNode.gain.setValueAtTime(0.05, now);
-            gainNode.gain.exponentialRampToValueAtTime(0.001, now + 0.1);
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(800, now);
+            osc.frequency.exponentialRampToValueAtTime(400, now + 0.05);
+            gain.gain.setValueAtTime(0.06, now);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.05);
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
             osc.start(now);
-            osc.stop(now + 0.1);
+            osc.stop(now + 0.05);
         } else if (type === 'success') {
-            osc.frequency.setValueAtTime(523.25, now); // C5
-            osc.frequency.setValueAtTime(659.25, now + 0.08); // E5
-            osc.frequency.setValueAtTime(783.99, now + 0.16); // G5
-            osc.frequency.setValueAtTime(1046.50, now + 0.24); // C6
-            gainNode.gain.setValueAtTime(0.08, now);
-            gainNode.gain.exponentialRampToValueAtTime(0.001, now + 0.45);
-            osc.start(now);
-            osc.stop(now + 0.45);
+            // Bright cheerful 3-note harmonic chime (E5 -> G#5 -> B5 -> E6)
+            const freqs = [659.25, 830.61, 987.77, 1318.51];
+            freqs.forEach((f, i) => {
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(f, now + i * 0.07);
+                gain.gain.setValueAtTime(0.08, now + i * 0.07);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + i * 0.07 + 0.25);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start(now + i * 0.07);
+                osc.stop(now + i * 0.07 + 0.25);
+            });
         } else if (type === 'fail') {
-            osc.type = 'sawtooth';
-            osc.frequency.setValueAtTime(220, now);
-            osc.frequency.linearRampToValueAtTime(110, now + 0.25);
-            gainNode.gain.setValueAtTime(0.08, now);
-            gainNode.gain.exponentialRampToValueAtTime(0.001, now + 0.25);
-            osc.start(now);
-            osc.stop(now + 0.25);
-        } else if (type === 'chime') {
-            osc.frequency.setValueAtTime(880, now);
-            gainNode.gain.setValueAtTime(0.03, now);
-            gainNode.gain.exponentialRampToValueAtTime(0.001, now + 0.15);
-            osc.start(now);
-            osc.stop(now + 0.15);
+            // Low double thud / buzz
+            [220, 160].forEach((f, i) => {
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = 'sawtooth';
+                osc.frequency.setValueAtTime(f, now + i * 0.12);
+                gain.gain.setValueAtTime(0.08, now + i * 0.12);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + i * 0.12 + 0.18);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start(now + i * 0.12);
+                osc.stop(now + i * 0.12 + 0.18);
+            });
+        } else if (type === 'streak') {
+            // Fast ascending arpeggio
+            [523.25, 659.25, 783.99, 1046.50, 1318.51].forEach((f, i) => {
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(f, now + i * 0.05);
+                gain.gain.setValueAtTime(0.06, now + i * 0.05);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + i * 0.05 + 0.15);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start(now + i * 0.05);
+                osc.stop(now + i * 0.05 + 0.15);
+            });
         } else if (type === 'complete') {
-            // Fanfare
-            osc.frequency.setValueAtTime(440, now);
-            osc.frequency.setValueAtTime(554.37, now + 0.12);
-            osc.frequency.setValueAtTime(659.25, now + 0.24);
-            osc.frequency.setValueAtTime(880, now + 0.36);
-            gainNode.gain.setValueAtTime(0.1, now);
-            gainNode.gain.exponentialRampToValueAtTime(0.001, now + 0.6);
-            osc.start(now);
-            osc.stop(now + 0.6);
+            // Grand celebratory victory fanfare
+            const notes = [
+                { f: 523.25, d: 0.12, t: 0 },
+                { f: 659.25, d: 0.12, t: 0.12 },
+                { f: 783.99, d: 0.12, t: 0.24 },
+                { f: 1046.50, d: 0.45, t: 0.36 }
+            ];
+            notes.forEach(n => {
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(n.f, now + n.t);
+                gain.gain.setValueAtTime(0.1, now + n.t);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + n.t + n.d);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start(now + n.t);
+                osc.stop(now + n.t + n.d);
+            });
         }
     } catch (e) {
-        console.warn("Audio Context not allowed or initialized", e);
+        console.warn("Audio error:", e);
     }
+}
+
+// Native Speech Synthesis for English pronunciation
+function speakEnglishWord(word) {
+    if (!('speechSynthesis' in window)) return;
+    window.speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(word);
+    utterance.lang = 'en-US';
+    utterance.rate = 0.9;
+    window.speechSynthesis.speak(utterance);
 }
 
 // Google Form Reporter helper
@@ -11182,11 +11234,11 @@ function initKeywordsSortingGame() {
 
 // ==========================================================================
 // ==========================================================================
-// 11. PREMIUM SYNONYM LAB ENGINE (Chapter 3)
+// 11. ULTIMATE VSTEP SYNONYM & PARAPHRASING LAB ENGINE (12 SETS, 20 MCQS, 100+ DICT)
 // ==========================================================================
 
 const synonymSetsData = [
-    // Set 0: Band B1 Thiết yếu (6 pairs)
+    // --- 01. B1 Thiết yếu (Essential B1 Foundation) ---
     [
         { id: 1, q: "alternative to reading", p: "another option to books", vi: "sự lựa chọn thay thế cho sách đọc" },
         { id: 2, q: "busy schedules", p: "packed daily routines", vi: "lịch trình bận rộn hàng ngày" },
@@ -11195,7 +11247,7 @@ const synonymSetsData = [
         { id: 5, q: "expand access", p: "broaden availability", vi: "mở rộng khả năng tiếp cận" },
         { id: 6, q: "household chores", p: "daily domestic tasks", vi: "công việc nhà hàng ngày" }
     ],
-    // Set 1: Band B2 Học thuật (6 pairs)
+    // --- 02. B2 Học thuật (Academic B2 Core) ---
     [
         { id: 1, q: "massive collision", p: "enormous impact", vi: "vụ va chạm khổng lồ" },
         { id: 2, q: "uneven distribution", p: "irregular allocation", vi: "sự phân bố không đồng đều" },
@@ -11204,7 +11256,7 @@ const synonymSetsData = [
         { id: 5, q: "affectional tie", p: "emotional attachment", vi: "mối liên kết tình cảm sâu sắc" },
         { id: 6, q: "suitably stimulating", p: "appropriately encouraging", vi: "kích thích một cách thích hợp" }
     ],
-    // Set 2: Band C1 Chuyên sâu (6 pairs)
+    // --- 03. C1 Nâng cao (Advanced C1 Distinction) ---
     [
         { id: 1, q: "inextricably linked", p: "inseparably connected", vi: "gắn kết chặt chẽ không thể tách rời" },
         { id: 2, q: "meticulous preparation", p: "thorough and careful planning", vi: "sự chuẩn bị tỉ mỉ, kỹ lưỡng" },
@@ -11213,7 +11265,16 @@ const synonymSetsData = [
         { id: 5, q: "reach a consensus", p: "achieve mutual agreement", vi: "đạt được sự đồng thuận chung" },
         { id: 6, q: "trigger controversy", p: "spark widespread debate", vi: "châm ngòi cho các cuộc tranh cãi" }
     ],
-    // Set 3: Khoa học & Môi trường (6 pairs)
+    // --- 04. Thiên văn & Địa chất (Science & Astronomy) ---
+    [
+        { id: 1, q: "gravitational pull", p: "attraction force of gravity", vi: "lực hút hấp dẫn của thiên thể" },
+        { id: 2, q: "debris coalesced", p: "scattered fragments fused together", vi: "mảnh vụn kết tụ lại thành khối" },
+        { id: 3, q: "synchronous rotation", p: "matched orbital spinning period", vi: "sự tự quay đồng bộ" },
+        { id: 4, q: "atmospheric weathering", p: "erosion caused by wind and rain", vi: "sự phong hóa do thời tiết khí quyển" },
+        { id: 5, q: "tectonic upheaval", p: "violent crustal plate shift", vi: "biến động nâng dịch mảng kiến tạo" },
+        { id: 6, q: "granite fissures", p: "deep cracks in igneous rock", vi: "các vết nứt sâu trong khối đá hoa cương" }
+    ],
+    // --- 05. Môi trường & Sinh thái (Ecology & Wildlife) ---
     [
         { id: 1, q: "deplete natural resources", p: "exhaust Earth's raw assets", vi: "làm cạn kiệt tài nguyên thiên nhiên" },
         { id: 2, q: "deteriorate rapidly", p: "decline substantially in quality", vi: "suy thoái nhanh chóng về chất lượng" },
@@ -11222,23 +11283,68 @@ const synonymSetsData = [
         { id: 5, q: "vital for survival", p: "crucial for staying alive", vi: "tối quan trọng cho sự sống còn" },
         { id: 6, q: "cellular regeneration", p: "biological tissue regrowth", vi: "sự tái tạo tế bào sinh học" }
     ],
-    // Set 4: Lịch sử & Xã hội (6 pairs)
+    // --- 06. Lịch sử & Công nghiệp (History & Inventions) ---
     [
         { id: 1, q: "by happenstance", p: "coincidentally by chance", vi: "một cách tình cờ, ngẫu nhiên" },
         { id: 2, q: "cumbersome steering", p: "awkward vehicle handling", vi: "hệ thống lái cồng kềnh, khó điều khiển" },
         { id: 3, q: "standardized method", p: "uniform production system", vi: "quy trình sản xuất chuẩn hóa đồng nhất" },
         { id: 4, q: "devised special chairs", p: "engineered custom harnesses", vi: "thiết kế các loại ghế chuyên dụng" },
-        { id: 5, q: "deep fissures", p: "large rock cracks", vi: "các vết nứt địa chất sâu lớn" },
-        { id: 6, q: "prohibit access", p: "ban citizens from entering", vi: "ngăn cấm người dân tiếp cận" }
+        { id: 5, q: "mass manufacturing", p: "assembly line fabrication", vi: "sản xuất dây chuyền quy mô lớn" },
+        { id: 6, q: "fragrant additive", p: "scented masking compound", vi: "chất phụ gia hương thơm khử mùi" }
     ],
-    // Set 5: Paraphrase Cụm từ Đọc hiểu VSTEP (6 pairs)
+    // --- 07. Tâm lý & Hành vi (Psychology & Human Behavior) ---
     [
-        { id: 1, q: "practical and low-cost", p: "feasible and economical", vi: "thiết thực và chi phí tiết kiệm" },
-        { id: 2, q: "support student well-being", p: "foster learner mental health", vi: "nâng cao sức khỏe tinh thần người học" },
-        { id: 3, q: "revolutionary technique", p: "groundbreaking innovation", vi: "kỹ thuật mang tính đột phá" },
-        { id: 4, q: "gain popularity", p: "become increasingly favored", vi: "ngày càng được ưa chuộng rộng rãi" },
-        { id: 5, q: "account for the majority", p: "constitute the largest portion", vi: "chiếm phần lớn, chiếm đa số" },
-        { id: 6, q: "pave the way for", p: "create favorable conditions for", vi: "mở đường, tạo điều kiện thuận lợi cho" }
+        { id: 1, q: "innate behavior", p: "inborn survival instinct", vi: "hành vi bản năng bẩm sinh" },
+        { id: 2, q: "critical period", p: "sensitive developmental timeframe", vi: "giai đoạn phát triển then chốt" },
+        { id: 3, q: "permanently impaired", p: "irreversibly damaged capacity", vi: "năng lực bị tổn hại vĩnh viễn" },
+        { id: 4, q: "built-in social signals", p: "pre-programmed communicative cues", vi: "các tín hiệu giao tiếp bẩm sinh" },
+        { id: 5, q: "deprived of affection", p: "lacking emotional warmth", vi: "thiếu thốn tình thương yêu" },
+        { id: 6, q: "adaptive mechanism", p: "evolutionary coping response", vi: "cơ chế thích nghi tâm lý" }
+    ],
+    // --- 08. Kinh tế & Thương mại (Economics & Commerce) ---
+    [
+        { id: 1, q: "flourish economically", p: "prosper and thrive in business", vi: "phát triển thịnh vượng về kinh tế" },
+        { id: 2, q: "sales extravaganza", p: "spectacular marketing showcase", vi: "sự kiện bán hàng rầm rộ hoành tráng" },
+        { id: 3, q: "fluctuate wildly", p: "vary constantly in price", vi: "biến động liên tục về giá cả" },
+        { id: 4, q: "feasible investment", p: "viable and practical venture", vi: "khoản đầu tư khả thi, sinh lời" },
+        { id: 5, q: "the well-to-do", p: "affluent members of society", vi: "tầng lớp người giàu có trong xã hội" },
+        { id: 6, q: "consumer merchandise", p: "commercial retail commodities", vi: "hàng hóa tiêu dùng trên thị trường" }
+    ],
+    // --- 09. Giáo dục & Xã hội (Education & Society) ---
+    [
+        { id: 1, q: "mandatory schooling", p: "compulsory formal education", vi: "chương trình giáo dục bắt buộc" },
+        { id: 2, q: "enhance cognitive skills", p: "sharpen intellectual capacities", vi: "nâng cao năng lực nhận thức tư duy" },
+        { id: 3, q: "formidable obstacle", p: "major hurdle to learning", vi: "rào cản lớn đối với việc học tập" },
+        { id: 4, q: "foster inclusivity", p: "promote equal opportunities", vi: "thúc đẩy môi trường hòa nhập công bằng" },
+        { id: 5, q: "broaden literacy access", p: "expand reading availability", vi: "mở rộng khả năng tiếp cận sách báo" },
+        { id: 6, q: "reputable institution", p: "prestigious academic establishment", vi: "cơ sở giáo dục danh tiếng, uy tín" }
+    ],
+    // --- 10. Y học & Sức khỏe (Medicine & Health) ---
+    [
+        { id: 1, q: "alleviate chronic pain", p: "ease persistent physical discomfort", vi: "làm giảm bớt cơn đau mãn tính" },
+        { id: 2, q: "detrimental consequence", p: "severely harmful side-effect", vi: "tác hại nghiêm trọng đến sức khỏe" },
+        { id: 3, q: "vital nutrient", p: "essential dietary requirement", vi: "dưỡng chất thiết yếu cho cơ thể" },
+        { id: 4, q: "prohibit toxic substances", p: "ban hazardous medical chemicals", vi: "cấm các chất độc hại trong y tế" },
+        { id: 5, q: "accelerate recovery", p: "speed up biological healing", vi: "đẩy nhanh quá trình phục hồi sức khỏe" },
+        { id: 6, q: "eradicate epidemic", p: "completely wipe out disease", vi: "tiêu diệt hoàn toàn dịch bệnh" }
+    ],
+    // --- 11. Liên kết & Tương phản (Discourse Paraphrase) ---
+    [
+        { id: 1, q: "in spite of challenges", p: "notwithstanding severe difficulties", vi: "mặc dù gặp nhiều khó khăn thử thách" },
+        { id: 2, q: "give rise to", p: "be the primary catalyst for", vi: "làm nảy sinh, là nguyên nhân dẫn đến" },
+        { id: 3, q: "account for the majority", p: "constitute the predominant share", vi: "chiếm phần lớn, chiếm đa số" },
+        { id: 4, q: "pave the way for", p: "create favorable conditions for", vi: "mở đường, tạo điều kiện thuận lợi cho" },
+        { id: 5, q: "with respect to", p: "in terms of specific criteria", vi: "xét về mặt, liên quan đến khía cạnh" },
+        { id: 6, q: "lead to an outcome", p: "culminate in a final result", vi: "dẫn đến một kết quả chung cuộc" }
+    ],
+    // --- 12. Paraphrase Đề thi Thật (Authentic VSTEP Passages) ---
+    [
+        { id: 1, q: "hard to come by", p: "extremely scarce during the crisis", vi: "vô cùng khan hiếm trong thời kỳ khủng hoảng" },
+        { id: 2, q: "show off its wares", p: "display novel commercial goods", vi: "trưng bày sản phẩm hàng hóa mới" },
+        { id: 3, q: "autumn maintenance", p: "seasonal structural repair work", vi: "công tác bảo trì tu bổ định kỳ hàng năm" },
+        { id: 4, q: "preserve for posterity", p: "safeguard for upcoming generations", vi: "bảo tồn nguyên vẹn cho các thế hệ tương lai" },
+        { id: 5, q: "cars for the multitudes", p: "vehicles built for the general public", vi: "xe ô tô sản xuất cho đại chúng nhân dân" },
+        { id: 6, q: "devised safety harnesses", p: "invented specialized worker chairs", vi: "sáng chế ghế treo bảo hộ cho công nhân" }
     ]
 ];
 
@@ -11314,7 +11420,10 @@ function loadSynonymSet(setIdx) {
         div.innerHTML = `<i class="fa-solid fa-link" style="color:#94a3b8; font-size:1rem;"></i> <span>${item.p}</span>`;
 
         div.addEventListener('click', () => {
-            if (!state.synonymGame.selectedQ) return;
+            if (!state.synonymGame.selectedQ) {
+                playSound('click');
+                return;
+            }
 
             const qCard = state.synonymGame.selectedQ;
             const matchId = parseInt(div.dataset.match, 10);
@@ -11401,13 +11510,13 @@ function showSynonymSetCompletion(setData) {
 
     summaryTableEl.innerHTML = `
         <div style="font-weight: 800; color: #1e293b; margin-bottom: 8px; font-size: 0.98rem; display: flex; align-items: center; gap: 6px;">
-            <i class="fa-solid fa-book-open" style="color: #16a34a;"></i> Tổng kết từ vựng bộ vừa hoàn thành:
+            <i class="fa-solid fa-book-open" style="color: #16a34a;"></i> Bảng đối chiếu từ vựng bộ vừa hoàn thành:
         </div>
         <table style="width: 100%; border-collapse: collapse; text-align: left;">
             <thead>
                 <tr style="background: #f8fafc; border-bottom: 2px solid #cbd5e1; font-size: 0.88rem; color: #64748b;">
-                    <th style="padding: 6px 12px;">Từ khóa</th>
-                    <th style="padding: 6px 12px;">Paraphrase</th>
+                    <th style="padding: 6px 12px;">Từ khóa câu hỏi</th>
+                    <th style="padding: 6px 12px;">Diễn đạt trong bài đọc</th>
                     <th style="padding: 6px 12px;">Ý nghĩa tiếng Việt</th>
                 </tr>
             </thead>
@@ -11432,14 +11541,14 @@ function nextSynonymSet() {
     loadSynonymSet(nextIdx);
 }
 
-// 10 MCQ Practice Questions for Synonym Speed Challenge
+// 20 Authentic VSTEP MCQ Questions for Synonym Speed Challenge
 const synonymMCQData = [
     {
         sentence: "The newly introduced regulations make safety helmets <u>mandatory</u> for all construction workers on site.",
         target: "mandatory",
         options: ["A. optional", "B. compulsory", "C. recommended", "D. flexible"],
         correctIdx: 1,
-        explanation: "<strong>Mandatory</strong> (bắt buộc) đồng nghĩa với <strong>compulsory / required</strong>. Optional (tự nguyện) là từ trái nghĩa."
+        explanation: "<strong>Mandatory</strong> (bắt buộc theo quy định) đồng nghĩa với <strong>compulsory / required</strong>. Optional (tùy chọn) là từ trái nghĩa."
     },
     {
         sentence: "Scientists warn that continued deforestation will <u>deplete</u> the region's clean water supply within decades.",
@@ -11453,7 +11562,7 @@ const synonymMCQData = [
         target: "enhance",
         options: ["A. restrict", "B. diminish", "C. improve", "D. evaluate"],
         correctIdx: 2,
-        explanation: "<strong>Enhance</strong> (nâng cao, tăng cường) đồng nghĩa với <strong>improve / boost</strong>."
+        explanation: "<strong>Enhance</strong> (nâng cao, tăng cường) đồng nghĩa với <strong>improve / boost / strengthen</strong>."
     },
     {
         sentence: "Due to unfavorable weather conditions, the economic situation in the agricultural sector began to <u>deteriorate</u>.",
@@ -11503,6 +11612,76 @@ const synonymMCQData = [
         options: ["A. crucial", "B. optional", "C. secondary", "D. trivial"],
         correctIdx: 0,
         explanation: "<strong>Vital</strong> (vô cùng quan trọng, thiết yếu) đồng nghĩa với <strong>crucial / essential / indispensable</strong>."
+    },
+    {
+        sentence: "Meteorite bombardments on the lunar surface have the power to <u>obliterate</u> ancient geographical landmarks.",
+        target: "obliterate",
+        options: ["A. erase completely", "B. carefully protect", "C. slowly rebuild", "D. slightly polish"],
+        correctIdx: 0,
+        explanation: "<strong>Obliterate</strong> (xóa sạch, phá hủy hoàn toàn không còn tàn tích) đồng nghĩa với <strong>erase completely / wipe out</strong>."
+    },
+    {
+        sentence: "Economic growth and environmental conservation are <u>inextricably</u> linked in modern sustainable policies.",
+        target: "inextricably",
+        options: ["A. loosely", "B. inseparably", "C. temporarily", "D. accidentally"],
+        correctIdx: 1,
+        explanation: "<strong>Inextricably</strong> (gắn bó khăng khít không thể tách rời) đồng nghĩa với <strong>inseparably / intertwined</strong>."
+    },
+    {
+        sentence: "The research team conducted a <u>meticulous</u> examination of the ancient manuscript before publishing their report.",
+        target: "meticulous",
+        options: ["A. hasty", "B. thorough", "C. careless", "D. superficial"],
+        correctIdx: 1,
+        explanation: "<strong>Meticulous</strong> (tỉ mỉ, cẩn thận từng chi tiết) đồng nghĩa với <strong>thorough / painstaking / detailed</strong>."
+    },
+    {
+        sentence: "During economic downturns, secure employment and bank loans become exceptionally <u>hard to come by</u>.",
+        target: "hard to come by",
+        options: ["A. scarce", "B. abundant", "C. profitable", "D. effortless"],
+        correctIdx: 0,
+        explanation: "<strong>Hard to come by</strong> (khó kiếm, khan hiếm) đồng nghĩa với <strong>scarce / difficult to obtain</strong>."
+    },
+    {
+        sentence: "The sculptor <u>devised</u> a specialized harness system to keep stone workers safe on vertical cliff faces.",
+        target: "devised",
+        options: ["A. invented", "B. borrowed", "C. destroyed", "D. refused"],
+        correctIdx: 0,
+        explanation: "<strong>Devised</strong> (sáng chế, phát minh, thiết kế ra) đồng nghĩa với <strong>invented / engineered / designed</strong>."
+    },
+    {
+        sentence: "Renewable energy technologies are anticipated to <u>flourish</u> as fossil fuel costs continue to rise.",
+        target: "flourish",
+        options: ["A. deteriorate", "B. thrive", "C. collapse", "D. vanish"],
+        correctIdx: 1,
+        explanation: "<strong>Flourish</strong> (phát triển hưng thịnh, nở rộ) đồng nghĩa với <strong>thrive / prosper / blossom</strong>."
+    },
+    {
+        sentence: "Extreme temperature shifts lead to deep geological <u>fissures</u> across the mountainous granite rocks.",
+        target: "fissures",
+        options: ["A. fractures", "B. sediments", "C. minerals", "D. elevations"],
+        correctIdx: 0,
+        explanation: "<strong>Fissures</strong> (khe nứt, vết rạn địa chất lớn) đồng nghĩa với <strong>fractures / deep cracks / crevices</strong>."
+    },
+    {
+        sentence: "The university's new mentorship program will <u>foster</u> leadership capabilities among female undergraduates.",
+        target: "foster",
+        options: ["A. hinder", "B. nurture", "C. ignore", "D. suppress"],
+        correctIdx: 1,
+        explanation: "<strong>Foster</strong> (nuôi dưỡng, bồi đắp, thúc đẩy) đồng nghĩa với <strong>nurture / promote / cultivate</strong>."
+    },
+    {
+        sentence: "Doctors prescribed pain medication to <u>alleviate</u> the patient's discomfort after the surgical procedure.",
+        target: "alleviate",
+        options: ["A. aggravate", "B. ease", "C. complicate", "D. trigger"],
+        correctIdx: 1,
+        explanation: "<strong>Alleviate</strong> (làm thuyên giảm, làm dịu bớt) đồng nghĩa với <strong>ease / relieve / lessen</strong>."
+    },
+    {
+        sentence: "Early internal combustion engines were <u>cumbersome</u> and demanded strenuous physical effort to steer.",
+        target: "cumbersome",
+        options: ["A. lightweight", "B. awkward", "C. automated", "D. efficient"],
+        correctIdx: 1,
+        explanation: "<strong>Cumbersome</strong> (cồng kềnh, nặng nề, khó sử dụng) đồng nghĩa với <strong>awkward / unwieldy / clunky</strong>."
     }
 ];
 
@@ -11604,28 +11783,74 @@ function renderSynonymMCQQuiz() {
     });
 }
 
-// 45+ Curated VSTEP Paraphrase Dictionary Cards
+// 100+ Curated VSTEP Paraphrase Dictionary Cards
 const synonymDictData = [
-    { word: "vital", ipa: "/ˈvaɪ.təl/", type: "adj", cat: "b1", syns: ["crucial", "essential", "indispensable"], vi: "vô cùng quan trọng, thiết yếu", ex: "Water is vital for all living organisms." },
-    { word: "massive", ipa: "/ˈmæs.ɪv/", type: "adj", cat: "b2", syns: ["huge", "enormous", "gigantic"], vi: "khổng lồ, to lớn", ex: "The Moon was formed from a massive collision." },
-    { word: "prohibit", ipa: "/prəˈhɪb.ɪt/", type: "v", cat: "b1", syns: ["ban", "forbid", "disallow"], vi: "ngăn cấm, cấm chỉ", ex: "Smoking is strictly prohibited in public buildings." },
-    { word: "mandatory", ipa: "/ˈmæn.də.tər.i/", type: "adj", cat: "b2", syns: ["compulsory", "required", "obligatory"], vi: "bắt buộc theo luật/quy định", ex: "Wearing a seatbelt is mandatory in this country." },
+    // --- Band B1 ---
+    { word: "vital", ipa: "/ˈvaɪ.təl/", type: "adj", cat: "b1", syns: ["crucial", "essential", "indispensable"], vi: "vô cùng quan trọng, thiết yếu", ex: "Proper nutrition is vital for child development." },
     { word: "enhance", ipa: "/ɪnˈhɑːns/", type: "v", cat: "b1", syns: ["improve", "boost", "strengthen"], vi: "nâng cao, cải thiện", ex: "Reading regularly enhances vocabulary retention." },
+    { word: "prohibit", ipa: "/prəˈhɪb.ɪt/", type: "v", cat: "b1", syns: ["ban", "forbid", "disallow"], vi: "ngăn cấm, cấm chỉ", ex: "Smoking is strictly prohibited in public buildings." },
+    { word: "obstacle", ipa: "/ˈɒb.stə.kəl/", type: "n", cat: "b1", syns: ["hurdle", "barrier", "impediment"], vi: "rào cản, chướng ngại vật", ex: "Lack of funding is the main obstacle to research." },
+    { word: "ensure", ipa: "/ɪnˈʃɔːr/", type: "v", cat: "b1", syns: ["guarantee", "make certain", "secure"], vi: "bảo đảm, chắc chắn", ex: "Safety features ensure worker protection on site." },
+    { word: "convenient", ipa: "/kənˈviː.ni.ənt/", type: "adj", cat: "b1", syns: ["handy", "accessible", "user-friendly"], vi: "thuận tiện, tiện lợi", ex: "Online audiobooks are convenient for commuters." },
+    { word: "alternative", ipa: "/ɒlˈtɜː.nə.tɪv/", type: "n", cat: "b1", syns: ["substitute", "another option", "choice"], vi: "sự thay thế, phương án khác", ex: "Solar energy is a clean alternative to fossil fuel." },
+    { word: "expand", ipa: "/ɪkˈspænd/", type: "v", cat: "b1", syns: ["broaden", "enlarge", "extend"], vi: "mở rộng quy mô/tiếp cận", ex: "The university expanded access to digital libraries." },
+    { word: "promote", ipa: "/prəˈməʊt/", type: "v", cat: "b1", syns: ["encourage", "foster", "support"], vi: "thúc đẩy, khuyến khích", ex: "Lorenz observed behaviors that promote survival." },
+    { word: "diverse", ipa: "/daɪˈvɜːs/", type: "adj", cat: "b1", syns: ["varied", "assorted", "multiple"], vi: "đa dạng, phong phú", ex: "Ethologists observed diverse animal species." },
+
+    // --- Band B2 ---
+    { word: "massive", ipa: "/ˈmæs.ɪv/", type: "adj", cat: "b2", syns: ["huge", "enormous", "gigantic"], vi: "khổng lồ, to lớn", ex: "The Moon was formed from a massive collision." },
+    { word: "mandatory", ipa: "/ˈmæn.də.tər.i/", type: "adj", cat: "b2", syns: ["compulsory", "required", "obligatory"], vi: "bắt buộc theo luật/quy định", ex: "Wearing a seatbelt is mandatory in this country." },
     { word: "deplete", ipa: "/dɪˈpliːt/", type: "v", cat: "b2", syns: ["exhaust", "use up", "drain"], vi: "làm cạn kiệt tài nguyên", ex: "Overfishing has depleted marine populations." },
     { word: "feasible", ipa: "/ˈfiː.zə.bəl/", type: "adj", cat: "b2", syns: ["practical", "viable", "achievable"], vi: "khả thi, có thể thực hiện", ex: "The project is both technically and financially feasible." },
-    { word: "obstacle", ipa: "/ˈɒb.stə.kəl/", type: "n", cat: "b1", syns: ["hurdle", "barrier", "impediment"], vi: "rào cản, chướng ngại vật", ex: "Lack of funding is the main obstacle to research." },
     { word: "abundant", ipa: "/əˈbʌn.dənt/", type: "adj", cat: "b2", syns: ["plentiful", "copious", "rich in"], vi: "dồi dào, phong phú", ex: "The region has abundant rainfall throughout the year." },
     { word: "revolutionize", ipa: "/ˌrev.əˈluː.ʃən.aɪz/", type: "v", cat: "b2", syns: ["transform dramatically", "modernize"], vi: "cách mạng hóa, đổi mới toàn diện", ex: "The Model T revolutionized automobile manufacturing." },
-    { word: "inextricably", ipa: "/ˌɪn.ɪkˈstrɪk.ə.bli/", type: "adv", cat: "c1", syns: ["inseparably", "closely intertwined"], vi: "gắn bó khăng khít không thể tách rời", ex: "Economic growth is inextricably linked to energy use." },
+    { word: "deteriorate", ipa: "/dɪˈtɪə.ri.ə.reɪt/", type: "v", cat: "b2", syns: ["worsen", "decline", "degenerate"], vi: "suy thoái, trở nên xấu đi", ex: "Air quality deteriorated during the dry season." },
+    { word: "coalesce", ipa: "/ˌkəʊ.əˈles/", type: "v", cat: "b2", syns: ["merge", "fuse", "integrate"], vi: "kết tụ, hợp nhất lại thành khối", ex: "Scattered debris coalesced into a celestial body." },
+    { word: "flourish", ipa: "/ˈflʌr.ɪʃ/", type: "v", cat: "b2", syns: ["thrive", "prosper", "blossom"], vi: "phát triển rực rỡ, thịnh vượng", ex: "Local commerce flourished after the exhibition." },
+    { word: "devised", ipa: "/dɪˈvaɪzd/", type: "v", cat: "b2", syns: ["invented", "engineered", "designed"], vi: "sáng chế, phát minh ra", ex: "Borglum devised specialized chairs for cliff workers." },
+    { word: "uneven", ipa: "/ʌnˈiː.vən/", type: "adj", cat: "b2", syns: ["irregular", "asymmetrical", "non-uniform"], vi: "không đồng đều, gồ ghề", ex: "Uneven mass distribution caused synchronous rotation." },
+    { word: "fissures", ipa: "/ˈfɪʃ.ərz/", type: "n", cat: "b2", syns: ["fractures", "deep cracks", "crevices"], vi: "các khe nứt địa chất lớn", ex: "Water expands in granite fissures during winter." },
+
+    // --- Band C1 ---
+    { word: "inextricably", ipa: "/ˌɪn.ɪkˈstrɪk.ə.bli/", type: "adv", cat: "c1", syns: ["inseparably", "closely intertwined"], vi: "gắn bó khăng khít không thể tách rời", ex: "Earth and lunar evolution are inextricably linked." },
     { word: "obliterate", ipa: "/əˈblɪt.ər.eɪt/", type: "v", cat: "c1", syns: ["erase completely", "destroy utterly", "wipe out"], vi: "xóa sạch hoàn toàn không để lại dấu vết", ex: "Meteorite strikes can obliterate lunar footprints." },
     { word: "meticulous", ipa: "/məˈtɪk.jə.ləs/", type: "adj", cat: "c1", syns: ["thorough", "painstaking", "scrupulous"], vi: "tỉ mỉ, cẩn trọng từng chi tiết", ex: "The research requires meticulous observation." },
-    { word: "deteriorate", ipa: "/dɪˈtɪə.ri.ə.reɪt/", type: "v", cat: "b2", syns: ["worsen", "decline", "degenerate"], vi: "suy thoái, trở nên xấu đi", ex: "Air quality deteriorated during the dry season." },
-    { word: "by happenstance", ipa: "/baɪ ˈhæp.ən.stæns/", type: "phrase", cat: "soc", syns: ["coincidentally", "by chance", "accidentally"], vi: "một cách tình cờ, ngẫu nhiên", ex: "They discovered the ancient artifact by happenstance." },
-    { word: "cumbersome", ipa: "/ˈkʌm.bə.səm/", type: "adj", cat: "soc", syns: ["awkward", "clunky", "unwieldy"], vi: "cồng kềnh, bất tiện khi sử dụng", ex: "Early cars had cumbersome steering systems." },
-    { word: "affectional tie", ipa: "/əˈfek.ʃən.əl taɪ/", type: "phrase", cat: "b2", syns: ["emotional bond", "deep attachment"], vi: "mối liên kết tình cảm bền chặt", ex: "Infants develop an affectional tie with their caregivers." },
-    { word: "cellular regeneration", ipa: "/ˈsel.jə.lər rɪˌdʒen.əˈreɪ.ʃən/", type: "phrase", cat: "env", syns: ["tissue regrowth", "biological healing"], vi: "sự tái tạo tế bào sinh học", ex: "The axolotl is famous for its cellular regeneration." },
-    { word: "biodiversity", ipa: "/ˌbaɪ.əʊ.daɪˈvɜː.sə.ti/", type: "n", cat: "env", syns: ["variety of life", "biological richness"], vi: "đa dạng sinh học", ex: "Pollution threatens global biodiversity." },
-    { word: "sustainable", ipa: "/səˈsteɪ.nə.bəl/", type: "adj", cat: "env", syns: ["eco-friendly", "renewable", "maintainable"], vi: "bền vững, thân thiện môi trường", ex: "Solar power is a sustainable energy source." }
+    { word: "profound", ipa: "/prəˈfaʊnd/", type: "adj", cat: "c1", syns: ["deep", "far-reaching", "intense"], vi: "sâu sắc, có tầm ảnh hưởng lớn", ex: "Darwin's work had a profound impact on ethology." },
+    { word: "consensus", ipa: "/kənˈsen.səs/", type: "n", cat: "c1", syns: ["agreement", "harmony", "unanimity"], vi: "sự đồng thuận, nhất trí chung", ex: "Scientists reached a consensus on the Moon's origin." },
+    { word: "subtle", ipa: "/ˈsʌt.əl/", type: "adj", cat: "c1", syns: ["delicate", "fine", "nuanced"], vi: "tinh tế, khó nhận thấy", ex: "There is a subtle distinction between the two theories." },
+    { word: "indispensable", ipa: "/ˌɪn.dɪˈspen.sə.bəl/", type: "adj", cat: "c1", syns: ["vital", "essential", "crucial"], vi: "không thể thiếu được", ex: "Clean water is indispensable for life on Earth." },
+    { word: "formidable", ipa: "/fɔːˈmɪd.ə.bəl/", type: "adj", cat: "c1", syns: ["daunting", "challenging", "immense"], vi: "ghê gớm, đầy thách thức", ex: "Carving sheer granite was a formidable challenge." },
+    { word: "alleviate", ipa: "/əˈliː.vi.eɪt/", type: "v", cat: "c1", syns: ["ease", "relieve", "mitigate"], vi: "làm giảm bớt, xoa dịu", ex: "Measures were taken to alleviate poverty." },
+    { word: "detrimental", ipa: "/ˌdet.rɪˈmen.təl/", type: "adj", cat: "c1", syns: ["harmful", "damaging", "injurious"], vi: "có hại, gây tổn hại nghiêm trọng", ex: "Pollution has a detrimental effect on ecosystems." },
+
+    // --- Khoa học & Địa chất (sci) ---
+    { word: "gravitational pull", ipa: "/ˌɡræv.ɪˈteɪ.ʃən.əl pʊl/", type: "phrase", cat: "sci", syns: ["gravity force", "tidal attraction"], vi: "lực hút hấp dẫn", ex: "The Moon's gravitational pull causes ocean tides." },
+    { word: "atmospheric weathering", ipa: "/ˌæt.məsˈfer.ɪk ˈweð.ər.ɪŋ/", type: "phrase", cat: "sci", syns: ["climate erosion", "weather decay"], vi: "sự phong hóa do khí quyển", ex: "Atmospheric weathering smooths surface rocks on Earth." },
+    { word: "impact crater", ipa: "/ˈɪm.pækt ˈkreɪ.tər/", type: "phrase", cat: "sci", syns: ["meteorite hollow", "blast depression"], vi: "miệng hố va chạm thiên thạch", ex: "The Moon is covered with ancient impact craters." },
+    { word: "tectonic shift", ipa: "/tekˈtɒn.ɪk ʃɪft/", type: "phrase", cat: "sci", syns: ["crustal movement", "plate shift"], vi: "sự chuyển động mảng kiến tạo", ex: "Tectonic shifts continuously reshape Earth's crust." },
+    { word: "debris", ipa: "/ˈdeb.riː/", type: "n", cat: "sci", syns: ["fragments", "rubble", "remnants"], vi: "mảnh vụn đất đá tàn dư", ex: "Debris from the collision orbited the young Earth." },
+    { word: "surface gravity", ipa: "/ˈsɜː.fɪs ˈɡræv.ə.ti/", type: "phrase", cat: "sci", syns: ["surface attraction", "gravitational force"], vi: "trọng lực bề mặt thiên thể", ex: "Lunar surface gravity is one-sixth that of Earth." },
+
+    // --- Môi trường & Sinh thái (env) ---
+    { word: "biodiversity", ipa: "/ˌbaɪ.əʊ.daɪˈvɜː.sə.ti/", type: "n", cat: "env", syns: ["ecological variety", "species richness"], vi: "đa dạng sinh học", ex: "Deforestation severely harms global biodiversity." },
+    { word: "sustainable", ipa: "/səˈsteɪ.nə.bəl/", type: "adj", cat: "env", syns: ["eco-friendly", "renewable", "maintainable"], vi: "bền vững, thân thiện môi trường", ex: "Solar energy offers a sustainable power source." },
+    { word: "ecosystem", ipa: "/ˈiː.kəʊˌsɪs.təm/", type: "n", cat: "env", syns: ["ecological community", "natural biome"], vi: "hệ sinh thái tự nhiên", ex: "Every species plays a role in the desert ecosystem." },
+    { word: "emissions", ipa: "/iˈmɪʃ.ənz/", type: "n", cat: "env", syns: ["discharges", "exhaust fumes", "pollutants"], vi: "khí thải gây ô nhiễm", ex: "Automakers strive to reduce greenhouse emissions." },
+    { word: "habitat", ipa: "/ˈhæb.ɪ.tæt/", type: "n", cat: "env", syns: ["natural environment", "native home"], vi: "môi trường sinh sống tự nhiên", ex: "Ethologists study animals in their natural habitats." },
+
+    // --- Kinh tế & Xã hội (soc) ---
+    { word: "by happenstance", ipa: "/baɪ ˈhæp.ən.stæns/", type: "phrase", cat: "soc", syns: ["coincidentally", "by chance", "accidentally"], vi: "một cách tình cờ, ngẫu nhiên", ex: "They met at the 1900 auto show by happenstance." },
+    { word: "cumbersome", ipa: "/ˈkʌm.bə.səm/", type: "adj", cat: "soc", syns: ["awkward", "clunky", "unwieldy"], vi: "cồng kềnh, bất tiện khi dùng", ex: "Early automobiles had cumbersome steering tillers." },
+    { word: "standardized", ipa: "/ˈstæn.də.daɪzd/", type: "adj", cat: "soc", syns: ["uniform", "regularized", "consistent"], vi: "được quy chuẩn, tiêu chuẩn hóa", ex: "Ford used standardized parts for mass production." },
+    { word: "merchandising", ipa: "/ˈmɜː.tʃən.daɪ.zɪŋ/", type: "n", cat: "soc", syns: ["marketing", "retail promotion", "selling"], vi: "nghệ thuật tiếp thị bán hàng", ex: "America pioneered the merchandising of automobiles." },
+    { word: "the well-to-do", ipa: "/ˌwel.təˈduː/", type: "phrase", cat: "soc", syns: ["the wealthy", "the affluent", "the rich"], vi: "giới thượng lưu, người giàu có", ex: "Early cars were exclusive luxury toys for the well-to-do." },
+
+    // --- Y học & Tâm lý (med) ---
+    { word: "ethology", ipa: "/iːˈθɒl.ə.dʒi/", type: "n", cat: "med", syns: ["behavioral biology", "study of behavior"], vi: "tập tính học", ex: "Ethology studies the survival value of behavior." },
+    { word: "imprinting", ipa: "/ɪmˈprɪn.tɪŋ/", type: "n", cat: "med", syns: ["innate attachment", "bonding instinct"], vi: "hiện tượng in vết sơ sinh", ex: "Imprinting occurs during an early critical period." },
+    { word: "affectional tie", ipa: "/əˈfek.ʃən.əl taɪ/", type: "phrase", cat: "med", syns: ["emotional bond", "deep attachment"], vi: "mối liên kết tình cảm sâu sắc", ex: "Babies develop an affectional tie with caregivers." },
+    { word: "critical period", ipa: "/ˈkrɪt.ɪ.kəl ˈpɪə.ri.əd/", type: "phrase", cat: "med", syns: ["sensitive window", "developmental phase"], vi: "giai đoạn phát triển then chốt", ex: "Language is acquired during early critical periods." },
+    { word: "cellular regeneration", ipa: "/ˈsel.jə.lər rɪˌdʒen.əˈreɪ.ʃən/", type: "phrase", cat: "med", syns: ["tissue regrowth", "cellular healing"], vi: "sự tái tạo tế bào sinh học", ex: "Axolotls are famous for their cellular regeneration." }
 ];
 
 let activeDictCategory = "all";
@@ -11633,7 +11858,9 @@ let activeDictCategory = "all";
 function setDictFilter(cat, btn) {
     playSound('click');
     activeDictCategory = cat;
-    document.querySelectorAll('.synonym-filter-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('#sec-synonym-lab .synonym-filter-btn').forEach(b => {
+        if (b.dataset.filter) b.classList.remove('active');
+    });
     btn.classList.add('active');
     filterSynonymDictionary();
 }
@@ -11673,9 +11900,12 @@ function renderSynonymDictionary(query = "", category = "all") {
         card.innerHTML = `
             <div>
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                    <div>
+                    <div style="display: flex; align-items: center; gap: 8px;">
                         <strong style="font-size: 1.15rem; color: #1e3a8a;">${item.word}</strong>
-                        <span style="color: #64748b; font-size: 0.85rem; margin-left: 6px;">${item.ipa} (${item.type})</span>
+                        <button onclick="speakEnglishWord('${item.word}')" style="background: none; border: none; color: #2563eb; cursor: pointer; font-size: 1rem; padding: 2px 4px;" title="Nghe phát âm chuẩn bản xứ">
+                            <i class="fa-solid fa-volume-high"></i>
+                        </button>
+                        <span style="color: #64748b; font-size: 0.85rem;">${item.ipa} (${item.type})</span>
                     </div>
                     <span style="background: #e0f2fe; color: #0369a1; font-weight: 800; font-size: 0.75rem; padding: 2px 8px; border-radius: 10px; text-transform: uppercase;">${item.cat}</span>
                 </div>
@@ -11696,7 +11926,6 @@ function renderSynonymDictionary(query = "", category = "all") {
         grid.appendChild(card);
     });
 }
-
 
 
 // ==========================================================================
