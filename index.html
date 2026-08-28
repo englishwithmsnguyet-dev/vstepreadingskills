@@ -3987,6 +3987,453 @@ em, i {
     }
 }
 
+
+/* ==========================================================================
+   AUTHENTIC VSTEP CBT MOCK TEST STYLING
+   ========================================================================== */
+.cbt-mock-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto;
+    font-family: var(--font-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
+}
+
+.cbt-landing-hero {
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #6366f1 100%);
+    color: white;
+    border-radius: 16px;
+    padding: 32px 36px;
+    margin-bottom: 28px;
+    box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.25);
+    position: relative;
+    overflow: hidden;
+}
+
+.cbt-landing-hero::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+.cbt-landing-hero h2 {
+    font-size: 1.85rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    letter-spacing: -0.5px;
+}
+
+.cbt-landing-hero p {
+    font-size: 1.05rem;
+    opacity: 0.95;
+    line-height: 1.7;
+    max-width: 800px;
+    margin-bottom: 20px;
+}
+
+.cbt-full-test-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+    border: 2.5px solid #22c55e;
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    box-shadow: 0 4px 15px rgba(34, 197, 94, 0.12);
+    transition: all 0.25s ease;
+}
+
+.cbt-full-test-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(34, 197, 94, 0.2);
+}
+
+.cbt-passages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 16px;
+}
+
+.cbt-passage-card {
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 22px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.cbt-passage-card:hover {
+    border-color: #3b82f6;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px -3px rgba(59, 130, 246, 0.15);
+}
+
+/* CBT Simulator Active Top Bar */
+.cbt-top-bar {
+    background: #1e293b;
+    color: #ffffff;
+    border-radius: 14px 14px 0 0;
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.cbt-timer-badge {
+    background: #0f172a;
+    border: 1.5px solid #334155;
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-size: 1.15rem;
+    font-weight: 800;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #38bdf8;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.cbt-timer-badge.warning {
+    color: #f87171;
+    border-color: #ef4444;
+    animation: pulseTimer 1s infinite alternate;
+}
+
+@keyframes pulseTimer {
+    from { opacity: 0.8; transform: scale(1); }
+    to { opacity: 1; transform: scale(1.04); }
+}
+
+.cbt-part-tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.cbt-part-tab-btn {
+    background: #334155;
+    color: #cbd5e1;
+    border: 1.5px solid transparent;
+    padding: 7px 16px;
+    border-radius: 20px;
+    font-size: 0.92rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.cbt-part-tab-btn:hover {
+    background: #475569;
+    color: #ffffff;
+}
+
+.cbt-part-tab-btn.active {
+    background: #2563eb;
+    color: #ffffff;
+    border-color: #60a5fa;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.4);
+}
+
+.cbt-part-tab-btn .tab-count {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 2px 7px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+}
+
+/* Split Workspace */
+.cbt-split-workspace {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 0;
+    background: #ffffff;
+    border: 1.5px solid #cbd5e1;
+    border-top: none;
+    border-radius: 0 0 14px 14px;
+    min-height: 650px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+.cbt-passage-column {
+    border-right: 2px solid #e2e8f0;
+    padding: 24px 30px;
+    max-height: 720px;
+    overflow-y: auto;
+    background: #ffffff;
+}
+
+.cbt-passage-column::-webkit-scrollbar {
+    width: 8px;
+}
+.cbt-passage-column::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+.cbt-passage-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 14px;
+    border-bottom: 2px solid #f1f5f9;
+    margin-bottom: 18px;
+}
+
+.cbt-passage-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #1e293b;
+    margin: 0;
+}
+
+.cbt-font-controls {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #f1f5f9;
+    padding: 4px 8px;
+    border-radius: 8px;
+}
+
+.cbt-font-btn {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    padding: 3px 8px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #475569;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.cbt-font-btn:hover {
+    background: #2563eb;
+    color: #ffffff;
+    border-color: #2563eb;
+}
+
+.cbt-passage-body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 18.5px;
+    line-height: 2.15;
+    color: #1e293b;
+    text-align: justify;
+}
+
+.cbt-passage-body strong {
+    font-weight: 800;
+    color: #0f172a;
+    background: rgba(254, 240, 138, 0.45);
+    padding: 1px 4px;
+    border-radius: 3px;
+}
+
+/* Question & Answer Column */
+.cbt-question-column {
+    padding: 24px 28px;
+    background: #f8fafc;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-height: 720px;
+    overflow-y: auto;
+}
+
+.cbt-q-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.cbt-q-badge {
+    background: #2563eb;
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 0.95rem;
+    padding: 5px 14px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+}
+
+.cbt-q-prompt {
+    font-size: 1.12rem;
+    font-weight: 700;
+    line-height: 1.7;
+    color: #0f172a;
+    margin-bottom: 20px;
+}
+
+.cbt-options-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.cbt-option-item {
+    background: #ffffff;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 14px 18px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #334155;
+}
+
+.cbt-option-item:hover {
+    border-color: #93c5fd;
+    background: #f0f7ff;
+}
+
+.cbt-option-item.selected {
+    border-color: #2563eb;
+    background: #eff6ff;
+    color: #1e3a8a;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.12);
+}
+
+.cbt-option-radio {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 2px solid #94a3b8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+    transition: all 0.2s ease;
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #64748b;
+}
+
+.cbt-option-item.selected .cbt-option-radio {
+    border-color: #2563eb;
+    background: #2563eb;
+    color: #ffffff;
+}
+
+/* Palette & Bottom Navigation */
+.cbt-bottom-toolbar {
+    margin-top: auto;
+    padding-top: 18px;
+    border-top: 1.5px solid #e2e8f0;
+}
+
+.cbt-nav-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.cbt-palette-grid {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 6px;
+}
+
+.cbt-pal-btn {
+    aspect-ratio: 1;
+    background: #ffffff;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #475569;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s ease;
+}
+
+.cbt-pal-btn:hover {
+    border-color: #2563eb;
+    color: #2563eb;
+}
+
+.cbt-pal-btn.answered {
+    background: #dbeafe;
+    border-color: #3b82f6;
+    color: #1d4ed8;
+}
+
+.cbt-pal-btn.active {
+    background: #2563eb !important;
+    border-color: #1d4ed8 !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3);
+}
+
+.cbt-pal-btn.correct {
+    background: #dcfce7 !important;
+    border-color: #22c55e !important;
+    color: #15803d !important;
+}
+
+.cbt-pal-btn.incorrect {
+    background: #fee2e2 !important;
+    border-color: #ef4444 !important;
+    color: #b91c1c !important;
+}
+
+/* Tutor Mode Box */
+.cbt-explanation-card {
+    background: #ffffff;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 16px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+}
+
+@media (max-width: 992px) {
+    .cbt-split-workspace {
+        grid-template-columns: 1fr;
+    }
+    .cbt-passage-column {
+        border-right: none;
+        border-bottom: 2px solid #e2e8f0;
+        max-height: 450px;
+    }
+    .cbt-palette-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
 </style>
 
 
@@ -6895,7 +7342,7 @@ const readingPracticesData = {
 const mockTestPassages = [
     {
         "title": "PASSAGE 01: Ethology & Child Development",
-        "passage": "Ethology is concerned with the study of adaptive, or survival, value of behavior and its Evolutionary history. Ethological theory began to be applied to research on children in the 1960’s but has become even more influential today. The origins of ethology can be traced to the work of Darwin. Its modem foundations were laid by two European zoologists, Konrad Lorenz and Niko Tinbergen.<br><br>Watching the behaviors diverse animal species in their natural habitats, Lorenz, and Tinbergen observed behavior patterns that promote survival. The most well-known of these is imprinting, the early following behavior of certain baby birds that ensures that the young will stay close to their mother and be fed and protected from danger. Imprinting takes place during an early, restricted time period of development. If the mother goose is not present during this time, but an object resembling her in important features is, young goslings may imprint on it instead.<br><br>Observations of imprinting led to major concept that has been applied in child development – the critical period. It refers to a limited times span during which the child is biologically prepared to acquire certain adaptive behaviors but needs the support of suitably stimulating environment. Many researchers have conducted studies to find out whether complex cognitive and social behaviors must be learned during restricted time periods. For example, if children are deprived of adequate food or physical and social stimulation during the early years of life, will their intelligence be permanently impaired? If language is not mastered during the preschool years, is the child’s capacity to acquire it reduced?<br><br>Inspired by observations of imprinting, in 1969 the British psychoanalyst John Bowlby applied ethological theory to the understanding of the relationship between an infant and its parents. He argued that attachment behaviors of babies, such as smiling, babbling, grasping, and crying, are built- in social signals that encourage the parents to approach, care for, and interact with the baby. By keeping a parent near, these behaviors help ensure that the baby will be fed, protected from danger, and provided with the stimulation and affection necessary for healthy growth. The development of attachment in human infants is a lengthy process involving changes in psychological structures that lead to a deep affectional tie between parent and baby.",
+        "passage": "Ethology is concerned with the study of adaptive, or survival, value of behavior and its Evolutionary history. Ethological theory began to be applied to research on children in the 1960’s but has become even more influential today. The origins of ethology can be traced to the work of Darwin. Its modem foundations were laid by two European zoologists, Konrad Lorenz and Niko Tinbergen.<br><br>Watching the behaviors <strong>diverse</strong> animal species in their natural habitats, Lorenz, and Tinbergen observed behavior patterns that promote survival. The most well-known of these is imprinting, the early following behavior of certain baby birds that <strong>ensures</strong> that the young will stay close to their mother and be fed and protected from danger. Imprinting takes place during an early, restricted time period of development. If the mother goose is not present during this time, but an object resembling her in important features is, young goslings may imprint on <strong>it</strong> instead.<br><br>Observations of imprinting led to major concept that has been applied in child development – the critical period. It refers to a limited times span during which the child is biologically prepared to acquire certain adaptive behaviors but needs the support of <strong>suitably</strong> stimulating environment. Many researchers have conducted studies to find out whether complex cognitive and social behaviors must be learned during restricted time periods. For example, if children are deprived of adequate food or physical and social stimulation during the early years of life, will their intelligence be permanently impaired? If language is not mastered during the preschool years, is the child’s capacity to acquire it reduced?<br><br>Inspired by observations of imprinting, in 1969 the British psychoanalyst John Bowlby applied ethological theory to the understanding of the relationship between an infant and its parents. He argued that attachment behaviors of babies, such as smiling, babbling, grasping, and crying, are built- in social signals that encourage the parents to approach, care for, and interact with the baby. By keeping a parent near, these behaviors help ensure that the baby will be fed, protected from danger, and provided with the stimulation and affection necessary for healthy growth. The development of attachment in human infants is a lengthy process involving changes in psychological structures that lead to a deep <strong>affectional tie</strong> between parent and baby.",
         "questions": [
             {
                 "question": "What was Darwin’s contribution to ethology?",
@@ -7011,7 +7458,7 @@ const mockTestPassages = [
     },
     {
         "title": "PASSAGE 02: Origin and Environment of the Moon",
-        "passage": "The Moon has been worshipped by primitive peoples and has inspired humans to create everything from lunar calendars to love sonnets, but what do we really know about it? The most accepted theory about the origin of the Moon is that it was formed of the debris from a massive collision with the young Earth about 4.6 billion years ago. A huge body, perhaps the size of Mars, struck the Earth, throwing out an immense amount of debris that coalesced and cooled; in orbit around the Earth.<br><br>The development of the Earth is inextricably linked to the Moon; the Moon’s gravitational influence upon the Earth is the primary cause of ocean tides. In fact, the Moon has more than twice the effect upon the tides than the Sun does. The Moon makes one rotation and completes a revolution around the Earth every 27 days 7 hours and 43 minutes. This synchronous rotation is caused by an uneven distribution of mass in the Moon (essentially, it is heavier on one side than the other) and has allowed the Earth’s gravity to keep one side of the Moon permanently facing the Earth. It is an average distance from the Earth of 384,403 km.<br><br>The Moon has no atmosphere; without an atmosphere, the Moon has nothing to protect it from meteorite impacts, and thus the surface of the Moon is covered with impact craters, both large and small. The Moon also has no active tectonic or volcanic activity, so the erosive effects of atmospheric weathering, tectonic shifts, and volcanic upheavals that tend to erase and reform the Earth’s surface features are not at work on the Moon. In fact, even tiny surface features such as the footprint left by an astronaut in the lunar soil are likely to last for millions of years, unless obliterated by a chance of meteorite strike. The surface gravity of the Moon is about one-sixth of that of the Earth’s. Therefore, a man weighing 82 kilograms on Earth would only weigh 14 kilograms on the Moon.",
+        "passage": "The Moon has been worshipped by primitive peoples and has inspired humans to create everything from lunar calendars to love sonnets, but what do we really know about it? The most accepted theory about the origin of the Moon is that it was formed of the debris from a <strong>massive</strong> collision with the young Earth about 4.6 billion years ago. A huge body, perhaps the size of Mars, struck the Earth, throwing out an immense amount of <strong>debris</strong> that coalesced and cooled; in orbit around the Earth.<br><br>The development of the Earth is inextricably linked to the Moon; the Moon’s gravitational influence upon the Earth is the primary cause of ocean tides. In fact, the Moon has more than twice the effect upon the tides than the Sun does. The Moon makes one rotation and completes a revolution around the Earth every 27 days 7 hours and 43 minutes. This synchronous rotation is caused by an <strong>uneven</strong> distribution of mass in the Moon (essentially, it is heavier on one side than the other) and has allowed the Earth’s gravity to keep one side of the Moon permanently facing the Earth. It is an average distance from the Earth of 384,403 km.<br><br>The Moon has no atmosphere; without an atmosphere, the Moon has nothing to protect it from meteorite impacts, and thus the surface of the Moon is covered with <strong>impact craters</strong>, both large and small. The Moon also has no active tectonic or volcanic activity, so the erosive effects of atmospheric weathering, tectonic shifts, and volcanic upheavals that tend to <strong>erase</strong> and reform the Earth’s surface features are not at work on the Moon. In fact, even tiny surface features such as the footprint left by an astronaut in the lunar soil are likely to last for millions of years, unless obliterated by a chance of meteorite' strike. The surface gravity of the Moon is about one-sixth of that of the Earth’s. Therefore, a man weighing 82 kilograms on Earth would only weigh 14 kilograms on the Moon.<br><br>The geographical features of the Earth most like those of the Moon are, in fact, places such as the Hawaiian volcanic craters and the huge meteor crater in Arizona. The climate of the Moon is very unlike either Hawaii or Arizona; however, in fact the temperature on the Moon ranges between 123 degrees centigrade to -233 degree centigrade.",
         "questions": [
             {
                 "question": "Which of the following is the word “massive” closest in meaning to?",
@@ -7127,7 +7574,7 @@ const mockTestPassages = [
     },
     {
         "title": "PASSAGE 03: New York National Automobile Show",
-        "passage": "The National Automobile Show in New York has been one of the top auto shows in the United States since 1900. On November 3 of that year, about 8,000 people looked over the “horseless carriages.” It was the opening day and the first opportunity for the automobile industry to show off its wares to a large crowd; however, the black-tie audience treated the occasion more as a social affair than as a sales extravaganza. It was also on the first day of this show that William McKinley became the first U.S. president to ride in a car.<br><br>The automobile was not invented in the United States. That distinction belongs to Germany. Nikolaus Otto built the first practical internal-combustion engine there in 1876. Then, German engineer Karl Benz built what are regarded as the first modern automobiles in the mid-1880s. But the United States pioneered the merchandising of the automobile. The auto show proved to be an effective means of getting the public excited about automotive products.<br><br>By happenstance, the number of people at the first New York show equaled the entire car population of the United States at that time. In 1900, 10 million bicycles and an unknown number of horse- drawn carriages provided the prime means of personal transportation. Only about 4,000 cars were assembled in the United States in 1900, and only a quarter of those were gasoline powered. The rest ran on steam or electricity.<br><br>After viewing the cars made by forty car makers, the show’s audience favored electric cars because they were quiet. The risk of a boiler explosion turned people away from steamers, and the gasoline- powered cars produced smelly fumes. The Duryea Motor Wagon Company, which launched the American auto industry in 1895, offered a fragrant additive designed to mask the smells of the naphtha that it burned. Many of the 1900 models were cumbersome - the Gas mobile, the Franklin, and the Orient, for example, steered with a tiller like a boat instead of with a steering wheel. None of them was equipped with an automatic starter.<br><br>These early model cars were practically handmade and were not very dependable. They were basically toys of the well-to-do. In fact, Woodrow Wilson, then a professor at Princeton University and later President of the United States, predicted that automobiles would cause conflict between the wealthy and the poor. However, among the exhibitors at the 1900 show was a young engineer named Henry Ford. But before the end of the decade, he would revolutionize the automobile industry with his Model T Ford. The Model T, first produced in 1909, featured a standardized design and a streamlined method of production—the assembly line. Its lower costs made it available to the mass market.<br><br>Cars at the 1900 show ranged in price from $1,000 to $1,500, or roughly $14,000 to $21,000 in today’s prices. By 1913, the Model T was selling for less than $300, and soon the price would drop even further. “I will build cars for the multitudes,” Ford said, and he kept his promise.",
+        "passage": "The National Automobile Show in New York has been one of the top auto shows in the United States since 1900. On November 3 of that year, about 8,000 people looked over the “horseless carriages.” It was the opening day and the first opportunity for the automobile industry to show off its wares to a large crowd; however, the black-tie audience treated the occasion more as a social affair than as a sales extravaganza. It was also on the first day of this show that William McKinley became the first U.S. president to ride in a car.<br><br>The automobile was not invented in the United States. That distinction belongs to Germany. Nikolaus Otto built the first practical internal-combustion engine there in 1876. Then, German engineer Karl Benz built what are regarded as the first modern automobiles in the mid-1880s. But the United States pioneered the merchandising of the automobile. The auto show proved to be an effective means of getting the public excited about automotive products.<br><br><strong>By happenstance,</strong> the number of people at the first New York show equaled the entire car population of the United States at that time. In 1900, 10 million bicycles and an unknown number of horse- drawn carriages provided the prime means of personal transportation. Only about 4,000 cars were assembled in the United States in 1900, and only a quarter of those were gasoline powered. The rest ran on steam or electricity.<br><br>After viewing the cars made by forty car makers, the show’s audience favored electric cars because they were quiet. The risk of a boiler explosion turned people away from steamers, and the gasoline- powered cars produced smelly fumes. The Duryea Motor Wagon Company, which <strong>launched</strong> the American auto industry in 1895, offered a fragrant <strong>additive</strong> designed to mask the smells of the naphtha that it burned. Many of the 1900 models were cumbersome - the Gas mobile, the Franklin, and the Orient, for example, steered with a tiller like a boat instead of with a steering wheel. None of them was equipped with an automatic starter.<br><br>These early model cars were practically handmade and were not very dependable. They were basically toys of the well-to-do. In fact, Woodrow Wilson, then a professor at Princeton University and later President of the United States, predicted that automobiles would cause conflict between the wealthy and the poor. However, among the exhibitors at the 1900 show was a young engineer named Henry Ford. But before the end of the decade, he would revolutionize the automobile industry with his Model T Ford. The Model T, first produced in 1909, featured a standardized design and a streamlined method of production—the assembly line. Its lower costs made it available to the mass market.<br><br>Cars at the 1900 show ranged in price from $1,000 to $1,500, or roughly $14,000 to $21,000 in today’s prices. By 1913, the Model T was selling for less than $300, and soon the price would drop even further. “I will build cars for the multitudes,” Ford said, and he kept his promise.",
         "questions": [
             {
                 "question": "The passage implies that the audience viewed the 1900 National Automobile Show primarily as a(n) ____________.",
@@ -7243,7 +7690,7 @@ const mockTestPassages = [
     },
     {
         "title": "PASSAGE 04: Carving Mount Rushmore Monument",
-        "passage": "Every year about two million people visit Mount Rushmore, where the faces of four U.S. presidents were carved in granite by sculptor Gutzon Borglum and his son, the late Lincoln Borglum. The creation of Mount Rushmore monument took 14 years – from 1927 to 1941 – and nearly a million dollars. These were times when money was difficult to come by and many people were jobless. To move the more than 400,000 tons of rock, Borglum hired laid-off workers from the closed down mines in the Black Hills area. He taught these men to dynamite, drill, carve, and finish the granite as they were hanging in midair in his specially devised chairs, which had many safety features. Borglum was proud of the fact that no workers were killed or severely injured during the years of blasting and carving.<br><br>During the carving, many changes in the original design had to be made to keep the carved heads free of large fissures that were uncovered. However, not all the cracks could be avoided, so Borglum concocted a mixture of granite dust, white lead, and linseed oil to fill them.<br><br>Every winter, water from melting snows gets into the fissures and expands as it freezes, making the fissures bigger. Consequently, every autumn maintenance work is done to refill the cracks. The repairers swing out in space over a 500-foot drop and fix the monument with the same mixture that Borglum used to preserve this national monument for future generations.",
+        "passage": "Every year about two million people visit Mount Rushmore, where the faces of four U.S. presidents were carved in granite by sculptor Gutzon Borglum and his son, the late Lincoln Borglum. The creation of Mount Rushmore monument took 14 years – from 1927 to 1941 – and nearly a million dollars. <strong>These</strong> were times when money was difficult to come by and many people were jobless. To move the more than 400,000 tons of rock, Borglum hired laid-off workers from the closed down mines in the Black Hills area. He taught these men to dynamite, drill, carve, and finish the granite as they were hanging in midair in his specially <strong>devised</strong> chairs, which had many safety features. Borglum was proud of the fact that no workers were killed or severely injured during the years of blasting and carving.<br><br>During the carving, many changes in the original design had to be made to keep the carved heads free of large <strong>fissures</strong> that were uncovered. However, not all the cracks could be <strong>avoided</strong>, so Borglum concocted a mixture of granite dust, white lead, and linseed oil to fill them.<br><br>Every winter, water from melting snows gets into the fissures and expands as it freezes, making the fissures bigger. Consequently, every autumn maintenance work is done to refill the cracks. The repairers swing out in space over a 500-foot drop and fix the monument with the same mixture that Borglum used to preserve this national monument for future generations.",
         "questions": [
             {
                 "question": "This passage is mainly about _________.",
@@ -8164,79 +8611,172 @@ const mockTestPassages = [
 </div>
 <!-- SECTION: Mock Test -->
 <div class="content-section hidden" id="sec-mock-test">
-<section class="lesson-section glass-panel">
-<h2 class="section-title"><i class="fa-solid fa-laptop-code section-icon"></i> PHÒNG THI MÔ PHỎNG VSTEP CBT <span class="en-title">(VSTEP Computer-Based Simulator)</span></h2>
-<div id="mock-landing-page">
-<div class="vstep-callout warning">
-<div class="vstep-callout-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
-<div class="vstep-callout-content">
-<h4>Chọn Bài Đọc Để Bắt Đầu Thi Thử:</h4>
-<p>Các bài thi thử được thiết kế giao diện chia đôi màn hình giống hệt hệ thống thi VSTEP trên máy tính. Bạn có tối đa <strong>15 phút</strong> cho mỗi bài đọc.</p>
+    <div class="cbt-mock-container">
+        <!-- Landing Page -->
+        <div id="mock-landing-page">
+            <div class="cbt-landing-hero">
+                <h2><i class="fa-solid fa-laptop-code"></i> PHÒNG THI MÔ PHỎNG VSTEP CBT READING</h2>
+                <p>Hệ thống thi thử Đọc hiểu trực tuyến chuẩn format kỳ thi Đánh giá Năng lực Ngoại ngữ VSTEP (B1 - B2 - C1) của Bộ GD&ĐT. Giao diện chuẩn phòng thi máy tính với đồng hồ đếm ngược, chia đôi màn hình và bảng phân tích học thuật chi tiết.</p>
+                <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                    <div style="background: rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 20px; font-size: 0.95rem; font-weight: 700;"><i class="fa-solid fa-clock"></i> 60 Phút / Toàn bài</div>
+                    <div style="background: rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 20px; font-size: 0.95rem; font-weight: 700;"><i class="fa-solid fa-file-lines"></i> 4 Bài đọc (Passages)</div>
+                    <div style="background: rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 20px; font-size: 0.95rem; font-weight: 700;"><i class="fa-solid fa-list-check"></i> 40 Câu hỏi trắc nghiệm</div>
+                </div>
+            </div>
+
+            <!-- Full Mock Test Card -->
+            <div class="cbt-full-test-card">
+                <div>
+                    <h3 style="color: #166534; font-weight: 800; font-size: 1.3rem; margin-bottom: 6px; display: flex; align-items: center; gap: 10px;">
+                        <i class="fa-solid fa-trophy" style="color: #22c55e;"></i> THI THỬ TOÀN BÀI 40 CÂU (FULL MOCK TEST)
+                    </h3>
+                    <p style="color: #475569; margin-bottom: 0; font-size: 1rem;">
+                        Làm liền mạch cả 4 bài đọc trong thời gian <strong>60 phút</strong> như kỳ thi thật. Tự do chuyển đổi giữa các Passage và câu hỏi.
+                    </p>
+                </div>
+                <button class="primary-btn" onclick="startFullMockExam()" style="background: #16a34a; color: white; padding: 14px 28px; font-size: 1.05rem; font-weight: 800; border: none; border-radius: 12px; cursor: pointer; flex-shrink: 0; box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3);">
+                    <i class="fa-solid fa-play"></i> BẮT ĐẦU THI 60 PHÚT
+                </button>
+            </div>
+
+            <!-- Single Passage Practice Selection -->
+            <div style="margin-top: 24px;">
+                <h3 style="font-weight: 800; color: #1e293b; font-size: 1.2rem; margin-bottom: 14px; display: flex; align-items: center; gap: 8px;">
+                    <i class="fa-solid fa-layer-group" style="color: #3b82f6;"></i> Hoặc Luyện Tập Từng Bài Đọc Độc Lập (15 Phút / 10 Câu):
+                </h3>
+                <div class="cbt-passages-grid">
+                    <div class="cbt-passage-card" onclick="startSelectedMockPassage(0)">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                                <span style="background: #eff6ff; color: #2563eb; font-weight: 800; font-size: 0.85rem; padding: 4px 10px; border-radius: 12px;">PASSAGE 01</span>
+                                <span style="color: #64748b; font-size: 0.85rem; font-weight: 600;"><i class="fa-solid fa-clock"></i> 15 phút</span>
+                            </div>
+                            <h4 style="color: #1e293b; font-weight: 800; font-size: 1.1rem; margin-bottom: 8px;">Ethology & Child Attachment</h4>
+                            <p style="color: #64748b; font-size: 0.95rem; line-height: 1.6; margin-bottom: 16px;">Tập tính học, hiện tượng in vết (imprinting) và sự gắn kết tâm lý trẻ sơ sinh.</p>
+                        </div>
+                        <button class="wiz-btn" style="width: 100%; justify-content: center; font-weight: 700; background: #f8fafc; border: 1.5px solid #cbd5e1;"><i class="fa-solid fa-play"></i> Làm bài (Câu 1 - 10)</button>
+                    </div>
+
+                    <div class="cbt-passage-card" onclick="startSelectedMockPassage(1)">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                                <span style="background: #f0fdfa; color: #0d9488; font-weight: 800; font-size: 0.85rem; padding: 4px 10px; border-radius: 12px;">PASSAGE 02</span>
+                                <span style="color: #64748b; font-size: 0.85rem; font-weight: 600;"><i class="fa-solid fa-clock"></i> 15 phút</span>
+                            </div>
+                            <h4 style="color: #1e293b; font-weight: 800; font-size: 1.1rem; margin-bottom: 8px;">Origin and Environment of the Moon</h4>
+                            <p style="color: #64748b; font-size: 0.95rem; line-height: 1.6; margin-bottom: 16px;">Nguồn gốc hình thành, lực hút thủy triều và môi trường địa chất Mặt Trăng.</p>
+                        </div>
+                        <button class="wiz-btn" style="width: 100%; justify-content: center; font-weight: 700; background: #f8fafc; border: 1.5px solid #cbd5e1;"><i class="fa-solid fa-play"></i> Làm bài (Câu 11 - 20)</button>
+                    </div>
+
+                    <div class="cbt-passage-card" onclick="startSelectedMockPassage(2)">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                                <span style="background: #fefce8; color: #b45309; font-weight: 800; font-size: 0.85rem; padding: 4px 10px; border-radius: 12px;">PASSAGE 03</span>
+                                <span style="color: #64748b; font-size: 0.85rem; font-weight: 600;"><i class="fa-solid fa-clock"></i> 15 phút</span>
+                            </div>
+                            <h4 style="color: #1e293b; font-weight: 800; font-size: 1.1rem; margin-bottom: 8px;">New York National Automobile Show</h4>
+                            <p style="color: #64748b; font-size: 0.95rem; line-height: 1.6; margin-bottom: 16px;">Lịch sử Triển lãm Ô tô Quốc gia New York năm 1900 và cuộc cách mạng Model T.</p>
+                        </div>
+                        <button class="wiz-btn" style="width: 100%; justify-content: center; font-weight: 700; background: #f8fafc; border: 1.5px solid #cbd5e1;"><i class="fa-solid fa-play"></i> Làm bài (Câu 21 - 30)</button>
+                    </div>
+
+                    <div class="cbt-passage-card" onclick="startSelectedMockPassage(3)">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                                <span style="background: #fef2f2; color: #b91c1c; font-weight: 800; font-size: 0.85rem; padding: 4px 10px; border-radius: 12px;">PASSAGE 04</span>
+                                <span style="color: #64748b; font-size: 0.85rem; font-weight: 600;"><i class="fa-solid fa-clock"></i> 15 phút</span>
+                            </div>
+                            <h4 style="color: #1e293b; font-weight: 800; font-size: 1.1rem; margin-bottom: 8px;">Carving Mount Rushmore Monument</h4>
+                            <p style="color: #64748b; font-size: 0.95rem; line-height: 1.6; margin-bottom: 16px;">Quá trình điêu khắc gian nan và công tác bảo dưỡng tượng đài Mount Rushmore.</p>
+                        </div>
+                        <button class="wiz-btn" style="width: 100%; justify-content: center; font-weight: 700; background: #f8fafc; border: 1.5px solid #cbd5e1;"><i class="fa-solid fa-play"></i> Làm bài (Câu 31 - 40)</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CBT Active Exam Workspace -->
+        <div class="hidden" id="mock-exam-active-area">
+            <!-- Top CBT Bar -->
+            <div class="cbt-top-bar">
+                <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+                    <div style="font-weight: 800; font-size: 1.1rem; letter-spacing: 0.5px; display: flex; align-items: center; gap: 8px;">
+                        <i class="fa-solid fa-laptop-code" style="color: #60a5fa;"></i> VSTEP CBT SIMULATOR
+                    </div>
+                    <div class="cbt-part-tabs" id="cbt-passage-tabs-container">
+                        <!-- Dynamic Passage Tabs -->
+                    </div>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 14px;">
+                    <div class="cbt-timer-badge" id="exam-timer-badge">
+                        <i class="fa-regular fa-clock"></i> <span id="exam-timer">15:00</span>
+                    </div>
+                    <button class="primary-btn btn-sm" id="btn-submit-exam" onclick="confirmSubmitMockExam()" style="background: #ef4444; border: none; padding: 9px 20px; font-weight: 800; border-radius: 20px; box-shadow: 0 2px 8px rgba(239, 68, 68, 0.4); cursor: pointer;">
+                        <i class="fa-solid fa-paper-plane"></i> NỘP BÀI (SUBMIT)
+                    </button>
+                    <button class="wiz-btn btn-sm" onclick="exitMockExamToLanding()" style="background: #334155; color: white; border: none; padding: 9px 16px; border-radius: 20px; font-weight: 700; cursor: pointer;">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i> Thoát
+                    </button>
+                </div>
+            </div>
+
+            <!-- Split Screen Container -->
+            <div class="cbt-split-workspace">
+                <!-- Left: Passage Column -->
+                <div class="cbt-passage-column" id="cbt-passage-column">
+                    <div class="cbt-passage-header">
+                        <h3 class="cbt-passage-title" id="active-mock-title">Passage Title</h3>
+                        <div class="cbt-font-controls">
+                            <span style="font-size: 0.82rem; font-weight: 700; color: #64748b; margin-right: 4px;">Cỡ chữ:</span>
+                            <button class="cbt-font-btn" onclick="zoomMockText(-1)" title="Giảm cỡ chữ">A-</button>
+                            <button class="cbt-font-btn" onclick="zoomMockText(1)" title="Tăng cỡ chữ">A+</button>
+                            <button class="cbt-font-btn" onclick="resetMockZoom()" title="Mặc định">100%</button>
+                        </div>
+                    </div>
+                    <div class="cbt-passage-body" id="active-mock-text">
+                        <!-- Dynamic Passage Text -->
+                    </div>
+                </div>
+
+                <!-- Right: Question & Answer Column -->
+                <div class="cbt-question-column">
+                    <div id="cbt-question-active-card">
+                        <!-- Dynamic Active Question -->
+                    </div>
+
+                    <!-- Bottom Toolbar -->
+                    <div class="cbt-bottom-toolbar">
+                        <div class="cbt-nav-actions">
+                            <button class="wiz-btn btn-sm" id="cbt-btn-prev" onclick="navMockQuestion(-1)" style="border: 1.5px solid #cbd5e1; font-weight: 700; padding: 8px 18px; border-radius: 10px; cursor: pointer;">
+                                <i class="fa-solid fa-chevron-left"></i> Câu trước
+                            </button>
+                            <span id="cbt-q-counter" style="font-size: 0.95rem; font-weight: 700; color: #64748b;">Câu 1 / 10</span>
+                            <button class="primary-btn btn-sm" id="cbt-btn-next" onclick="navMockQuestion(1)" style="font-weight: 700; padding: 8px 18px; border-radius: 10px; cursor: pointer;">
+                                Câu tiếp theo <i class="fa-solid fa-chevron-right"></i>
+                            </button>
+                        </div>
+
+                        <!-- Question Palette -->
+                        <div style="margin-top: 12px;">
+                            <div style="font-size: 0.82rem; font-weight: 700; color: #64748b; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;">Bảng câu hỏi (Question Palette):</div>
+                            <div class="cbt-palette-grid" id="cbt-palette-grid">
+                                <!-- Dynamic Question Palette Buttons -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Post-Submission Academic Explanation & Scorecard -->
+            <div class="cbt-explanation-card hidden" id="exam-explanation-box">
+                <!-- Populated dynamically upon submit -->
+            </div>
+        </div>
+    </div>
 </div>
-</div>
-<div style="display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 20px;">
-<div class="overview-card" onclick="startSelectedMockPassage(0)" style="cursor: pointer; border: 1.5px solid var(--border-color); padding: 20px; transition: all 0.2s;">
-<h3 style="color: var(--primary-color); margin-bottom: 8px;"><i class="fa-solid fa-dna"></i> Passage 01: Ethology &amp; Child Attachment</h3>
-<p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0;">Lý thuyết tập tính học và ứng dụng trong sự gắn kết tâm lý trẻ nhỏ. (10 câu hỏi)</p>
-</div>
-<div class="overview-card" onclick="startSelectedMockPassage(1)" style="cursor: pointer; border: 1.5px solid var(--border-color); padding: 20px; transition: all 0.2s;">
-<h3 style="color: var(--accent-teal); margin-bottom: 8px;"><i class="fa-solid fa-moon"></i> Passage 02: Origin and Environment of the Moon</h3>
-<p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0;">Nguồn gốc hình thành, lực hút thủy triều và đặc điểm địa hình Mặt trăng. (10 câu hỏi)</p>
-</div>
-<div class="overview-card" onclick="startSelectedMockPassage(2)" style="cursor: pointer; border: 1.5px solid var(--border-color); padding: 20px; transition: all 0.2s;">
-<h3 style="color: var(--accent-amber); margin-bottom: 8px;"><i class="fa-solid fa-car"></i> Passage 03: New York National Automobile Show</h3>
-<p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0;">Lịch sử Triển lãm Ô tô Quốc gia tại New York năm 1900 và sự phát triển xe hơi. (10 câu hỏi)</p>
-</div>
-<div class="overview-card" onclick="startSelectedMockPassage(3)" style="cursor: pointer; border: 1.5px solid var(--border-color); padding: 20px; transition: all 0.2s;">
-<h3 style="color: var(--error-color); margin-bottom: 8px;"><i class="fa-solid fa-mountain"></i> Passage 04: Carving Mount Rushmore Monument</h3>
-<p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0;">Quá trình điêu khắc và bảo dưỡng định kỳ hàng năm cho tượng đài Mount Rushmore. (10 câu hỏi)</p>
-</div>
-</div>
-</div>
-<div class="hidden" id="mock-exam-active-area">
-<div class="exam-navbar">
-<div class="exam-timer-box" id="exam-timer-box">
-<i class="fa-solid fa-clock"></i> Thời gian còn lại: <span id="exam-timer">15:00</span>
-</div>
-<div class="exam-review-nav" id="exam-review-nav">
-<!-- Generated Dynamically -->
-</div>
-<button class="primary-btn btn-sm" id="btn-submit-exam"><i class="fa-solid fa-paper-plane"></i> Nộp bài (Submit)</button>
-</div>
-<div class="exam-split-container">
-<!-- Left: Scrollable Reading Passage Panel -->
-<div class="exam-passage-panel" id="exam-passage-panel">
-<div class="passage-content-wrapper">
-<h3 class="passage-title" id="active-mock-title">Passage Title</h3>
-<div class="passage-body" id="active-mock-text">
-<!-- Populate dynamically -->
-</div>
-</div>
-</div>
-<!-- Right: MCQ Panels -->
-<div class="exam-questions-panel" id="active-mock-questions-container">
-<!-- Populate dynamically -->
-</div>
-</div>
-<!-- Tutor Academic Explanations (Hidden until Submitted) -->
-<div class="exam-explanation-box hidden" id="exam-explanation-box">
-<h3 class="explanation-title"><i class="fa-solid fa-user-tie"></i> BẢNG PHÂN TÍCH HỌC THUẬT (TUTOR EXPLANATION MODE)</h3>
-<p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 15px;">
-                                Chọn số câu hỏi bên dưới để xem phân tích chi tiết đáp án:
-                            </p>
-<div class="explanation-tabs" id="active-mock-explanation-tabs">
-<!-- Generated dynamically -->
-</div>
-<div class="explanation-cards-container" id="active-mock-explanation-cards">
-<!-- Generated dynamically -->
-</div>
-<div style="margin-top: 20px; text-align: center;">
-<button class="wiz-btn" onclick="exitMockExamToLanding()"><i class="fa-solid fa-arrow-left"></i> Quay lại danh sách bài đọc</button>
-</div>
-</div>
-</div>
-</section>
-</div>
+
 <!-- GLOBAL SECTION: VOCABULARY BOX -->
 <section class="lesson-section glass-panel" id="vocabulary-box-section">
 <h2 class="section-title"><i class="fa-solid fa-cubes section-icon"></i> HỘP TỪ VỰNG CỦA TÔI <span class="en-title">(My Word Bank)</span></h2>
@@ -9124,7 +9664,7 @@ function initSidebarNav() {
                 const heroHeader = document.querySelector('.main-content > header.hero');
                 const cockpit = document.querySelector('.dashboard-cockpit');
 
-                if (targetId === '#sec-reading-practice') {
+                if (targetId === '#sec-reading-practice' || targetId === '#sec-mock-test') {
                     if (mainEl) mainEl.classList.add('rp-mode');
                     if (vocabBox) vocabBox.style.display = 'none';
                     if (vocabQuiz) vocabQuiz.style.display = 'none';
@@ -10247,251 +10787,486 @@ function initSynonymMatchingGame() {
     });
 }
 
-// 12. CBT Mock Exam Simulator (Chapter 3)
-function startSelectedMockPassage(idx) {
+// ==========================================================================
+// 12. AUTHENTIC VSTEP CBT MOCK EXAM SIMULATOR
+// ==========================================================================
+
+let currentMockZoom = 18.5;
+
+function zoomMockText(delta) {
     playSound('click');
-    const passage = mockTestPassages[idx];
-    if (!passage) return;
-    
-    state.mockExam.active = true;
-    state.mockExam.currentPassageIdx = idx;
+    currentMockZoom = Math.min(26, Math.max(14, currentMockZoom + delta * 1.5));
+    const passageEl = document.getElementById('active-mock-text');
+    if (passageEl) {
+        passageEl.style.fontSize = `${currentMockZoom}px`;
+        passageEl.style.lineHeight = `${currentMockZoom * 0.115 + 0.1}`;
+    }
+}
+
+function resetMockZoom() {
+    playSound('click');
+    currentMockZoom = 18.5;
+    const passageEl = document.getElementById('active-mock-text');
+    if (passageEl) {
+        passageEl.style.fontSize = '18.5px';
+        passageEl.style.lineHeight = '2.15';
+    }
+}
+
+function startSelectedMockPassage(pIdx) {
+    playSound('click');
+    state.mockExam.isFullExam = false;
+    state.mockExam.currentPassageIdx = pIdx;
     state.mockExam.currentQuestionIndex = 0;
     state.mockExam.answers = {};
     state.mockExam.submitted = false;
     state.mockExam.score = 0;
-    state.mockExam.timeLeft = 900; // 15 mins
-    
-    // Hide Landing Page, Show Simulator Area
+    state.mockExam.timeLeft = 900; // 15 mins for single passage
+
+    initCBTExamWorkspace();
+}
+
+function startFullMockExam() {
+    playSound('click');
+    state.mockExam.isFullExam = true;
+    state.mockExam.currentPassageIdx = 0;
+    state.mockExam.currentQuestionIndex = 0;
+    state.mockExam.answers = {};
+    state.mockExam.submitted = false;
+    state.mockExam.score = 0;
+    state.mockExam.timeLeft = 3600; // 60 mins for full exam
+
+    initCBTExamWorkspace();
+}
+
+function initCBTExamWorkspace() {
+    state.mockExam.active = true;
+
+    // Toggle Landing Page and Active Workspace
     document.getElementById('mock-landing-page').classList.add('hidden');
     document.getElementById('mock-exam-active-area').classList.remove('hidden');
     document.getElementById('exam-explanation-box').classList.add('hidden');
-    
-    // Load Title & Text
-    document.getElementById('active-mock-title').textContent = passage.title;
-    
-    // Add wrap words with .vocab-term tags in active text dynamically
-    let parsedText = passage.passage;
-    state.savedWords.forEach(item => {
-        const word = item.word;
-        const regex = new RegExp(`\\b${word}\\b`, 'gi');
-        // Pre-parse highlight references
-    });
-    
-    document.getElementById('active-mock-text').innerHTML = parsedText;
-    
-    // Generate MCQ cards
-    const qContainer = document.getElementById('active-mock-questions-container');
-    qContainer.innerHTML = '';
-    
-    passage.questions.forEach((q, qIdx) => {
-        const qCard = document.createElement('div');
-        qCard.className = `mock-question-card ${qIdx === 0 ? 'active' : ''}`;
-        qCard.dataset.q = qIdx;
-        qCard.innerHTML = `
-            <div class="question-header">
-                <span class="q-badge">CÂU HỎI ${qIdx + 1}</span>
-            </div>
-            <p class="question-text">${q.question}</p>
-            <div class="options-list"></div>
+    document.getElementById('exam-explanation-box').innerHTML = '';
+
+    // Render Top Passage Tabs
+    renderCBTPassageTabs();
+
+    // Render Current Passage Content
+    renderCBTPassageContent();
+
+    // Render Question Palette
+    renderCBTQuestionPalette();
+
+    // Render Active Question
+    renderCBTActiveQuestion();
+
+    // Start Timer
+    startCBTTimer();
+}
+
+function renderCBTPassageTabs() {
+    const tabsContainer = document.getElementById('cbt-passage-tabs-container');
+    if (!tabsContainer) return;
+    tabsContainer.innerHTML = '';
+
+    mockTestPassages.forEach((p, idx) => {
+        // Count answered questions in this passage
+        let answeredInP = 0;
+        p.questions.forEach((_, qIdx) => {
+            const qKey = state.mockExam.isFullExam ? `${idx}_${qIdx}` : `${state.mockExam.currentPassageIdx}_${qIdx}`;
+            if (state.mockExam.answers[qKey]) answeredInP++;
+        });
+
+        const tabBtn = document.createElement('button');
+        tabBtn.className = `cbt-part-tab-btn ${idx === state.mockExam.currentPassageIdx ? 'active' : ''}`;
+        tabBtn.innerHTML = `
+            <span>Bài ${idx + 1}</span>
+            <span class="tab-count">${answeredInP}/10</span>
         `;
-        
-        const listDiv = qCard.querySelector('.options-list');
-        q.options.forEach((opt, oIdx) => {
-            const optLetter = String.fromCharCode(65 + oIdx);
-            const btn = document.createElement('button');
-            btn.className = 'option-btn';
-            btn.dataset.option = optLetter;
-            btn.dataset.correct = oIdx === q.correctIdx ? 'true' : 'false';
-            
-            const cleanText = opt.replace(/^[A-D]\.\s*/, '');
-            btn.innerHTML = `<span class="option-letter">${optLetter}</span> <span class="option-val">${cleanText}</span>`;
-            btn.addEventListener('click', () => {
-                if (state.mockExam.submitted) return;
-                
-                playSound('click');
-                // Set selected answer
-                state.mockExam.answers[qIdx] = optLetter;
-                
-                // Highlight option selected
-                listDiv.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
-                btn.classList.add('selected');
-                
-                // Highlight corresponding navigation button
-                const navBtn = document.querySelector(`.review-btn[data-q="${qIdx}"]`);
-                if (navBtn) navBtn.classList.add('answered');
-            });
-            listDiv.appendChild(btn);
+
+        tabBtn.addEventListener('click', () => {
+            if (idx === state.mockExam.currentPassageIdx) return;
+            playSound('click');
+            state.mockExam.currentPassageIdx = idx;
+            state.mockExam.currentQuestionIndex = 0;
+            renderCBTPassageTabs();
+            renderCBTPassageContent();
+            renderCBTQuestionPalette();
+            renderCBTActiveQuestion();
         });
+
+        tabsContainer.appendChild(tabBtn);
+    });
+}
+
+function renderCBTPassageContent() {
+    const passage = mockTestPassages[state.mockExam.currentPassageIdx];
+    if (!passage) return;
+
+    const titleEl = document.getElementById('active-mock-title');
+    const bodyEl = document.getElementById('active-mock-text');
+
+    if (titleEl) {
+        titleEl.innerHTML = `<i class="fa-solid fa-book-open" style="color: #2563eb; margin-right: 8px;"></i> ${passage.title}`;
+    }
+
+    if (bodyEl) {
+        bodyEl.innerHTML = passage.passage;
+        bodyEl.style.fontSize = `${currentMockZoom}px`;
+        bodyEl.style.lineHeight = '2.15';
+    }
+
+    const colEl = document.getElementById('cbt-passage-column');
+    if (colEl) colEl.scrollTop = 0;
+}
+
+function renderCBTQuestionPalette() {
+    const palContainer = document.getElementById('cbt-palette-grid');
+    if (!palContainer) return;
+    palContainer.innerHTML = '';
+
+    const passage = mockTestPassages[state.mockExam.currentPassageIdx];
+    if (!passage) return;
+
+    const startNum = state.mockExam.isFullExam ? (state.mockExam.currentPassageIdx * 10 + 1) : 1;
+
+    passage.questions.forEach((q, qIdx) => {
+        const qNum = startNum + qIdx;
+        const qKey = state.mockExam.isFullExam ? `${state.mockExam.currentPassageIdx}_${qIdx}` : `${state.mockExam.currentPassageIdx}_${qIdx}`;
+        const isAnswered = !!state.mockExam.answers[qKey];
+        const isActive = qIdx === state.mockExam.currentQuestionIndex;
+
+        const btn = document.createElement('button');
+        btn.className = `cbt-pal-btn ${isActive ? 'active' : ''} ${isAnswered ? 'answered' : ''}`;
         
-        qContainer.appendChild(qCard);
-    });
-    
-    // Generate Review navigation buttons
-    const reviewNav = document.getElementById('exam-review-nav');
-    reviewNav.innerHTML = '';
-    passage.questions.forEach((_, qIdx) => {
-        const btn = document.createElement('button');
-        btn.className = `review-btn ${qIdx === 0 ? 'active' : ''}`;
-        btn.dataset.q = qIdx;
-        btn.textContent = qIdx + 1;
-        btn.addEventListener('click', () => {
-            changeQuestion(qIdx);
-        });
-        reviewNav.appendChild(btn);
-    });
-    
-    // Setup explanation tabs
-    const expTabs = document.getElementById('active-mock-explanation-tabs');
-    expTabs.innerHTML = '';
-    passage.questions.forEach((_, qIdx) => {
-        const btn = document.createElement('button');
-        btn.className = `tab-btn ${qIdx === 0 ? 'active' : ''}`;
-        btn.dataset.exp = qIdx;
-        btn.textContent = `Câu ${qIdx + 1}`;
+        // Review mode states
+        if (state.mockExam.submitted) {
+            const chosen = state.mockExam.answers[qKey];
+            const correct = String.fromCharCode(65 + q.correctIdx);
+            if (chosen === correct) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('incorrect');
+            }
+        }
+
+        btn.textContent = qNum;
+        btn.title = `Câu hỏi ${qNum}`;
+
         btn.addEventListener('click', () => {
             playSound('click');
-            showExplanationDetailCard(qIdx);
+            state.mockExam.currentQuestionIndex = qIdx;
+            renderCBTQuestionPalette();
+            renderCBTActiveQuestion();
         });
-        expTabs.appendChild(btn);
+
+        palContainer.appendChild(btn);
     });
-    
-    const expCards = document.getElementById('active-mock-explanation-cards');
-    expCards.innerHTML = '';
-    passage.questions.forEach((q, qIdx) => {
-        const card = document.createElement('div');
-        card.className = `explanation-detail-card ${qIdx === 0 ? '' : 'hidden'}`;
-        card.id = `exp-detail-${qIdx}`;
-        card.innerHTML = `
-            <div class="explanation-grid">
-                <div class="explanation-col">
-                    <div class="explanation-col-title"><i class="fa-solid fa-bullseye"></i> Giải thích đáp án</div>
-                    <div class="explanation-col-content">${q.explanation}</div>
+}
+
+function renderCBTActiveQuestion() {
+    const passage = mockTestPassages[state.mockExam.currentPassageIdx];
+    if (!passage) return;
+
+    const qIdx = state.mockExam.currentQuestionIndex;
+    const q = passage.questions[qIdx];
+    if (!q) return;
+
+    const qNum = state.mockExam.isFullExam ? (state.mockExam.currentPassageIdx * 10 + qIdx + 1) : (qIdx + 1);
+    const totalQInExam = state.mockExam.isFullExam ? 40 : 10;
+    const qKey = `${state.mockExam.currentPassageIdx}_${qIdx}`;
+
+    // Update Counter & Navigation Buttons
+    const counterEl = document.getElementById('cbt-q-counter');
+    if (counterEl) counterEl.textContent = `Câu ${qNum} / ${totalQInExam}`;
+
+    const prevBtn = document.getElementById('cbt-btn-prev');
+    const nextBtn = document.getElementById('cbt-btn-next');
+    if (prevBtn) prevBtn.disabled = qIdx === 0 && (!state.mockExam.isFullExam || state.mockExam.currentPassageIdx === 0);
+    if (nextBtn) nextBtn.disabled = qIdx === 9 && (!state.mockExam.isFullExam || state.mockExam.currentPassageIdx === 3);
+
+    // Format Question Text
+    let qPrompt = q.question;
+    qPrompt = qPrompt.replace(/\*\*([^\*]+)\*\*/g, '<strong>$1</strong>');
+
+    // Build Question HTML
+    const cardEl = document.getElementById('cbt-question-active-card');
+    if (!cardEl) return;
+
+    const chosenOpt = state.mockExam.answers[qKey];
+    const correctOpt = String.fromCharCode(65 + q.correctIdx);
+
+    let optionsHtml = '';
+    q.options.forEach((opt, oIdx) => {
+        const letter = String.fromCharCode(65 + oIdx);
+        const cleanText = opt.replace(/^[A-D]\.\s*/, '');
+        const isSelected = chosenOpt === letter;
+
+        let extraClass = '';
+        if (isSelected) extraClass += ' selected';
+
+        if (state.mockExam.submitted) {
+            if (letter === correctOpt) extraClass += ' correct-answer';
+            if (isSelected && isSelected !== (letter === correctOpt)) extraClass += ' wrong-answer';
+        }
+
+        optionsHtml += `
+            <div class="cbt-option-item ${extraClass}" onclick="selectCBTOption('${qKey}', '${letter}')">
+                <div class="cbt-option-radio">${letter}</div>
+                <div style="flex-grow: 1;">${cleanText}</div>
+            </div>
+        `;
+    });
+
+    let explanationHtml = '';
+    if (state.mockExam.submitted) {
+        const isCorrect = chosenOpt === correctOpt;
+        explanationHtml = `
+            <div style="margin-top: 20px; background: ${isCorrect ? '#f0fdf4' : '#fef2f2'}; border: 1.5px solid ${isCorrect ? '#86efac' : '#fca5a5'}; border-radius: 12px; padding: 16px 18px;">
+                <div style="font-weight: 800; font-size: 1rem; color: ${isCorrect ? '#166534' : '#991b1b'}; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
+                    <i class="fa-solid ${isCorrect ? 'fa-circle-check' : 'fa-circle-xmark'}"></i>
+                    ${isCorrect ? 'ĐÁP ÁN CHÍNH XÁC: ' + correctOpt : 'BẠN ĐÃ CHỌN: ' + (chosenOpt || 'Chưa chọn') + ' | ĐÁP ÁN ĐÚNG: ' + correctOpt}
+                </div>
+                <div style="color: #1e293b; font-size: 0.95rem; line-height: 1.6;">
+                    <strong><i class="fa-solid fa-wand-magic-sparkles" style="color: #6366f1;"></i> Giải thích:</strong> ${q.explanation}
                 </div>
             </div>
         `;
-        expCards.appendChild(card);
-    });
-    
-    // Start countdown timer
+    }
+
+    cardEl.innerHTML = `
+        <div class="cbt-q-header">
+            <span class="cbt-q-badge">CÂU HỎI ${qNum}</span>
+            ${state.mockExam.submitted ? (chosenOpt === correctOpt ? '<span style="color:#16a34a; font-weight:800;"><i class="fa-solid fa-circle-check"></i> ĐÚNG</span>' : '<span style="color:#dc2626; font-weight:800;"><i class="fa-solid fa-circle-xmark"></i> SAI</span>') : ''}
+        </div>
+        <div class="cbt-q-prompt">${qPrompt}</div>
+        <div class="cbt-options-group">
+            ${optionsHtml}
+        </div>
+        ${explanationHtml}
+    `;
+}
+
+function selectCBTOption(qKey, letter) {
+    if (state.mockExam.submitted) return;
+    playSound('click');
+
+    state.mockExam.answers[qKey] = letter;
+
+    renderCBTPassageTabs();
+    renderCBTQuestionPalette();
+    renderCBTActiveQuestion();
+}
+
+function navMockQuestion(delta) {
+    const nextIdx = state.mockExam.currentQuestionIndex + delta;
+
+    if (nextIdx >= 0 && nextIdx <= 9) {
+        playSound('click');
+        state.mockExam.currentQuestionIndex = nextIdx;
+        renderCBTQuestionPalette();
+        renderCBTActiveQuestion();
+    } else if (state.mockExam.isFullExam) {
+        if (delta > 0 && state.mockExam.currentPassageIdx < 3) {
+            playSound('click');
+            state.mockExam.currentPassageIdx++;
+            state.mockExam.currentQuestionIndex = 0;
+            renderCBTPassageTabs();
+            renderCBTPassageContent();
+            renderCBTQuestionPalette();
+            renderCBTActiveQuestion();
+        } else if (delta < 0 && state.mockExam.currentPassageIdx > 0) {
+            playSound('click');
+            state.mockExam.currentPassageIdx--;
+            state.mockExam.currentQuestionIndex = 9;
+            renderCBTPassageTabs();
+            renderCBTPassageContent();
+            renderCBTQuestionPalette();
+            renderCBTActiveQuestion();
+        }
+    }
+}
+
+function startCBTTimer() {
     if (state.mockExam.timerInterval) clearInterval(state.mockExam.timerInterval);
+
+    updateCBTTimerDisplay();
+
     state.mockExam.timerInterval = setInterval(() => {
         state.mockExam.timeLeft--;
-        updateMockTimerDisplay();
-        
+        updateCBTTimerDisplay();
+
         if (state.mockExam.timeLeft <= 0) {
             clearInterval(state.mockExam.timerInterval);
+            alert("⏰ Đã hết thời gian làm bài! Hệ thống sẽ tự động chấm điểm bài thi của bạn.");
             submitMockExam();
         }
     }, 1000);
-    
-    updateMockTimerDisplay();
-    bindVocabularyClickTooltips();
 }
 
-function updateMockTimerDisplay() {
+function updateCBTTimerDisplay() {
     const mins = Math.floor(state.mockExam.timeLeft / 60);
     const secs = state.mockExam.timeLeft % 60;
-    document.getElementById('exam-timer').textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    const timerEl = document.getElementById('exam-timer');
+    const badgeEl = document.getElementById('exam-timer-badge');
+
+    if (timerEl) {
+        timerEl.textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    }
+
+    if (badgeEl) {
+        if (state.mockExam.timeLeft <= 300) { // < 5 mins
+            badgeEl.classList.add('warning');
+        } else {
+            badgeEl.classList.remove('warning');
+        }
+    }
 }
 
-function changeQuestion(qIdx) {
-    if (qIdx < 0 || qIdx > 9) return;
-    playSound('click');
-    
-    state.mockExam.currentQuestionIndex = qIdx;
-    
-    // Toggle active questions
-    const questionCards = document.querySelectorAll('.mock-question-card');
-    questionCards.forEach((card, i) => {
-        if (i === qIdx) card.classList.add('active');
-        else card.classList.remove('active');
-    });
-    
-    // Toggle review indicators
-    const reviewBtns = document.querySelectorAll('.review-btn');
-    reviewBtns.forEach((btn, i) => {
-        if (i === qIdx) btn.classList.add('active');
-        else btn.classList.remove('active');
-    });
-    
-    // Toggle prev/next disability
-    document.getElementById('btn-prev-question').disabled = qIdx === 0;
-    document.getElementById('btn-next-question').disabled = qIdx === 9;
-}
+function confirmSubmitMockExam() {
+    if (state.mockExam.submitted) return;
 
-function setupMockControls() {
-    const prev = document.getElementById('btn-prev-question');
-    const next = document.getElementById('btn-next-question');
-    const submit = document.getElementById('btn-submit-exam');
-    
-    if (prev) {
-        prev.addEventListener('click', () => {
-            changeQuestion(state.mockExam.currentQuestionIndex - 1);
-        });
+    // Count unanswered questions
+    let totalQuestions = state.mockExam.isFullExam ? 40 : 10;
+    let answeredCount = 0;
+
+    if (state.mockExam.isFullExam) {
+        for (let p = 0; p < 4; p++) {
+            for (let q = 0; q < 10; q++) {
+                if (state.mockExam.answers[`${p}_${q}`]) answeredCount++;
+            }
+        }
+    } else {
+        const p = state.mockExam.currentPassageIdx;
+        for (let q = 0; q < 10; q++) {
+            if (state.mockExam.answers[`${p}_${q}`]) answeredCount++;
+        }
     }
-    if (next) {
-        next.addEventListener('click', () => {
-            changeQuestion(state.mockExam.currentQuestionIndex + 1);
-        });
+
+    const unans = totalQuestions - answeredCount;
+    let msg = `Bạn đã hoàn thành ${answeredCount}/${totalQuestions} câu hỏi.`;
+    if (unans > 0) {
+        msg += ` Còn ${unans} câu CHƯA TRẢ LỜI.`;
     }
-    if (submit) {
-        submit.addEventListener('click', submitMockExam);
+    msg += ` Bạn có chắc chắn muốn nộp bài không?`;
+
+    if (confirm(msg)) {
+        submitMockExam();
     }
 }
 
 function submitMockExam() {
     if (state.mockExam.submitted) return;
-    
-    // Confirm confirmation
-    if (state.mockExam.timeLeft > 0 && !confirm("Bạn có chắc chắn muốn nộp bài thi thử?")) {
-        return;
-    }
-    
     playSound('complete');
+
     state.mockExam.submitted = true;
-    clearInterval(state.mockExam.timerInterval);
-    
+    if (state.mockExam.timerInterval) clearInterval(state.mockExam.timerInterval);
+
+    // Calculate score
     let correctCount = 0;
-    const passage = mockTestPassages[state.mockExam.currentPassageIdx];
-    
-    // Grade MCQ cards
-    const questionCards = document.querySelectorAll('.mock-question-card');
-    questionCards.forEach((card, qIdx) => {
-        const chosenLetter = state.mockExam.answers[qIdx];
-        const correctLetter = String.fromCharCode(65 + passage.questions[qIdx].correctIdx);
-        
-        card.querySelectorAll('.option-btn').forEach(btn => {
-            btn.setAttribute('disabled', 'true');
-            const btnLetter = btn.dataset.option;
-            
-            if (btnLetter === correctLetter) {
-                btn.classList.add('correct');
-            }
-            if (btnLetter === chosenLetter && chosenLetter !== correctLetter) {
-                btn.classList.add('incorrect');
-            }
+    let totalCount = state.mockExam.isFullExam ? 40 : 10;
+
+    if (state.mockExam.isFullExam) {
+        mockTestPassages.forEach((p, pIdx) => {
+            p.questions.forEach((q, qIdx) => {
+                const chosen = state.mockExam.answers[`${pIdx}_${qIdx}`];
+                const correct = String.fromCharCode(65 + q.correctIdx);
+                if (chosen === correct) correctCount++;
+            });
         });
-        
-        if (chosenLetter === correctLetter) {
-            correctCount++;
-        }
-    });
-    
+    } else {
+        const pIdx = state.mockExam.currentPassageIdx;
+        const p = mockTestPassages[pIdx];
+        p.questions.forEach((q, qIdx) => {
+            const chosen = state.mockExam.answers[`${pIdx}_${qIdx}`];
+            const correct = String.fromCharCode(65 + q.correctIdx);
+            if (chosen === correct) correctCount++;
+        });
+    }
+
     state.mockExam.score = correctCount;
     state.progress.mockExam = true;
     updateProgress();
-    
-    // Show tutor explanations slides
-    document.getElementById('exam-explanation-box').classList.remove('hidden');
-    document.getElementById('exam-explanation-box').scrollIntoView({ behavior: 'smooth' });
-    
-    // Trigger certificate if 100% correct score achieved
-    if (correctCount === 10) {
-        setTimeout(() => {
-            showCertificateModal(10, 10);
-        }, 1500);
+
+    // Re-render UI in Review mode
+    renderCBTPassageTabs();
+    renderCBTQuestionPalette();
+    renderCBTActiveQuestion();
+
+    // Render Academic Scorecard & Tutor Report Box
+    renderCBTScorecardReport(correctCount, totalCount);
+}
+
+function renderCBTScorecardReport(correct, total) {
+    const reportBox = document.getElementById('exam-explanation-box');
+    if (!reportBox) return;
+
+    const scaledScore = ((correct / total) * 10).toFixed(1);
+    let levelBadge = '';
+    let levelText = '';
+
+    if (scaledScore >= 8.5) {
+        levelBadge = '<span style="background:#dcfce7; color:#15803d; padding:4px 14px; border-radius:20px; font-weight:800; font-size:1rem;">BẬC 5 (C1 - Xuất sắc)</span>';
+        levelText = 'Khả năng đọc hiểu chuyên sâu tuyệt vời, xử lý từ vựng học thuật và chi tiết phức tạp cực kỳ chuẩn xác!';
+    } else if (scaledScore >= 6.0) {
+        levelBadge = '<span style="background:#eff6ff; color:#1d4ed8; padding:4px 14px; border-radius:20px; font-weight:800; font-size:1rem;">BẬC 4 (B2 - Đạt chuẩn)</span>';
+        levelText = 'Nắm bắt tốt ý chính, thông tin ngụ ý và từ vựng ngữ cảnh. Bạn hoàn toàn tự tin đạt B2 VSTEP!';
+    } else if (scaledScore >= 4.0) {
+        levelBadge = '<span style="background:#fefce8; color:#a16207; padding:4px 14px; border-radius:20px; font-weight:800; font-size:1rem;">BẬC 3 (B1 - Đạt chuẩn)</span>';
+        levelText = 'Đạt yêu cầu chuẩn B1 VSTEP. Hãy xem kỹ các câu sai bên dưới để tiếp tục nâng band điểm lên B2 nhé!';
     } else {
-        alert(`Bạn đã trả lời đúng ${correctCount}/10 câu hỏi! Xem phần giải thích chi tiết ở bên dưới để khắc phục lỗi sai nhé.`);
+        levelBadge = '<span style="background:#fef2f2; color:#b91c1c; padding:4px 14px; border-radius:20px; font-weight:800; font-size:1rem;">DƯỚI B1</span>';
+        levelText = 'Cần rèn luyện thêm kỹ năng đọc quét thông tin (Scanning) và trau dồi từ đồng nghĩa để cải thiện điểm số.';
+    }
+
+    reportBox.innerHTML = `
+        <div style="background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); color: white; border-radius: 14px; padding: 24px 28px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+            <div>
+                <h3 style="margin: 0 0 6px 0; font-size: 1.4rem; font-weight: 800; display: flex; align-items: center; gap: 10px;">
+                    <i class="fa-solid fa-award" style="color: #fbbf24;"></i> KẾT QUẢ THI THỬ VSTEP CBT
+                </h3>
+                <p style="margin: 0; opacity: 0.9; font-size: 0.95rem;">${levelText}</p>
+            </div>
+            <div style="text-align: right; display: flex; align-items: center; gap: 18px;">
+                <div style="background: rgba(255,255,255,0.15); padding: 10px 20px; border-radius: 12px; text-align: center;">
+                    <div style="font-size: 0.82rem; font-weight: 600; text-transform: uppercase;">Số câu đúng</div>
+                    <div style="font-size: 1.7rem; font-weight: 800;">${correct} / ${total}</div>
+                </div>
+                <div style="background: rgba(255,255,255,0.15); padding: 10px 20px; border-radius: 12px; text-align: center;">
+                    <div style="font-size: 0.82rem; font-weight: 600; text-transform: uppercase;">Thang điểm 10</div>
+                    <div style="font-size: 1.7rem; font-weight: 800; color: #fbbf24;">${scaledScore}</div>
+                </div>
+            </div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
+            <div style="font-size: 1.05rem; font-weight: 800; color: #1e293b; display: flex; align-items: center; gap: 8px;">
+                <i class="fa-solid fa-graduation-cap" style="color: #2563eb;"></i> Đánh giá năng lực: ${levelBadge}
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <button class="primary-btn btn-sm" onclick="retakeCurrentMockExam()" style="font-weight: 700; border-radius: 10px;">
+                    <i class="fa-solid fa-rotate-right"></i> Làm lại bài này
+                </button>
+                <button class="wiz-btn btn-sm" onclick="exitMockExamToLanding()" style="font-weight: 700; border-radius: 10px; background: #f1f5f9; border: 1.5px solid #cbd5e1;">
+                    <i class="fa-solid fa-list"></i> Về danh sách bài thi
+                </button>
+            </div>
+        </div>
+        <p style="font-size: 0.95rem; color: #64748b; margin: 0;">
+            👉 <em>Hãy nhấp vào các số câu hỏi trên <strong>Bảng câu hỏi (Question Palette)</strong> bên trên để xem lại từng câu và đối chiếu đáp án chi tiết.</em>
+        </p>
+    `;
+
+    reportBox.classList.remove('hidden');
+    reportBox.scrollIntoView({ behavior: 'smooth' });
+}
+
+function retakeCurrentMockExam() {
+    playSound('click');
+    if (state.mockExam.isFullExam) {
+        startFullMockExam();
+    } else {
+        startSelectedMockPassage(state.mockExam.currentPassageIdx);
     }
 }
 
@@ -10499,25 +11274,11 @@ function exitMockExamToLanding() {
     playSound('click');
     state.mockExam.active = false;
     if (state.mockExam.timerInterval) clearInterval(state.mockExam.timerInterval);
-    
+
     document.getElementById('mock-landing-page').classList.remove('hidden');
     document.getElementById('mock-exam-active-area').classList.add('hidden');
 }
 
-function showExplanationDetailCard(qIdx) {
-    const tabs = document.querySelectorAll('#active-mock-explanation-tabs .tab-btn');
-    const cards = document.querySelectorAll('#active-mock-explanation-cards .explanation-detail-card');
-    
-    tabs.forEach((tab, i) => {
-        if (i === qIdx) tab.classList.add('active');
-        else tab.classList.remove('active');
-    });
-    
-    cards.forEach((card, i) => {
-        if (i === qIdx) card.classList.remove('hidden');
-        else card.classList.add('hidden');
-    });
-}
 
 // 13. Unified Global Selection Highlighter Tool
 function applyGlobalHighlighterColor(color) {
