@@ -11626,20 +11626,20 @@ function renderSynonymDictionary(query = "", category = "all") {
 
 
 // ==========================================================================
-// MOCK TEST USEFUL VOCABULARY PREVIEW DATA & ENGINE
+// MOCK TEST USEFUL VOCABULARY PREVIEW DATA & ENGINE (84+ WORDS)
 // ==========================================================================
 
 const mockTestUsefulVocabData = [
-    // --- PASSAGE 01 ---
+    // ==================== PASSAGE 01 (ETHOLOGY & CHILD ATTACHMENT) ====================
     {
         p: 0,
         pName: "Passage 1",
         word: "ethology",
         ipa: "/iːˈθɒl.ə.dʒi/",
         type: "n",
-        vi: "tập tính học (ngành nghiên cứu hành vi động vật trong tự nhiên)",
-        ex: "Ethology is concerned with the adaptive, or survival, value of behavior.",
-        syns: ["behavioral biology", "study of animal behavior"]
+        vi: "tập tính học (ngành khoa học nghiên cứu hành vi động vật trong tự nhiên)",
+        ex: "Ethology is concerned with the study of adaptive, or survival, value of behavior.",
+        syns: ["behavioral biology", "animal behavior study"]
     },
     {
         p: 0,
@@ -11647,9 +11647,39 @@ const mockTestUsefulVocabData = [
         word: "adaptive",
         ipa: "/əˈdæp.tɪv/",
         type: "adj",
-        vi: "có tính thích nghi, giúp sinh tồn",
-        ex: "Ethology focuses on the adaptive value of behavior and its evolutionary history.",
+        vi: "có tính thích nghi, giúp sinh tồn trong môi trường sống",
+        ex: "Ethology focuses on the adaptive, or survival, value of behavior and its evolutionary history.",
         syns: ["survival-oriented", "flexible", "evolutionary"]
+    },
+    {
+        p: 0,
+        pName: "Passage 1",
+        word: "evolutionary history",
+        ipa: "/ˌiː.vəˈluː.ʃən.ər.i ˈhɪs.tər.i/",
+        type: "phrase",
+        vi: "lịch sử tiến hóa qua nhiều thế hệ",
+        ex: "Ethologists examine both adaptive value and evolutionary history of behaviors.",
+        syns: ["phylogenetic history", "developmental descent"]
+    },
+    {
+        p: 0,
+        pName: "Passage 1",
+        word: "influential",
+        ipa: "/ˌɪn.fluˈen.ʃəl/",
+        type: "adj",
+        vi: "có tầm ảnh hưởng sâu rộng, quan trọng",
+        ex: "Ethological theory began in the 1960s but has become even more influential today.",
+        syns: ["authoritative", "significant", "impactful"]
+    },
+    {
+        p: 0,
+        pName: "Passage 1",
+        word: "zoologist",
+        ipa: "/zuːˈɒl.ə.dʒɪst/",
+        type: "n",
+        vi: "nhà động vật học",
+        ex: "Modern foundations were laid by two European zoologists, Konrad Lorenz and Niko Tinbergen.",
+        syns: ["animal scientist", "fauna expert"]
     },
     {
         p: 0,
@@ -11658,8 +11688,28 @@ const mockTestUsefulVocabData = [
         ipa: "/daɪˈvɜːs/",
         type: "adj",
         vi: "đa dạng, nhiều chủng loại khác nhau",
-        ex: "Ethologists have observed diverse animal species in their natural habitats.",
-        syns: ["varied", "different", "assorted", "multiple"]
+        ex: "Ethologists observed diverse animal species in their natural habitats.",
+        syns: ["varied", "assorted", "heterogeneous", "multiple"]
+    },
+    {
+        p: 0,
+        pName: "Passage 1",
+        word: "natural habitat",
+        ipa: "/ˌnætʃ.ər.əl ˈhæb.ɪ.tæt/",
+        type: "phrase",
+        vi: "môi trường sinh sống tự nhiên của động thực vật",
+        ex: "Observing animals in their natural habitats reveals true survival behavior.",
+        syns: ["wild environment", "native surroundings"]
+    },
+    {
+        p: 0,
+        pName: "Passage 1",
+        word: "promote survival",
+        ipa: "/prəˈməʊt səˈvaɪ.vəl/",
+        type: "collocation",
+        vi: "thúc đẩy, gia tăng cơ hội sống sót",
+        ex: "Lorenz and Tinbergen observed behavior patterns that promote survival.",
+        syns: ["enhance survival chances", "foster endurance"]
     },
     {
         p: 0,
@@ -11667,9 +11717,9 @@ const mockTestUsefulVocabData = [
         word: "imprinting",
         ipa: "/ɪmˈprɪn.tɪŋ/",
         type: "n",
-        vi: "hiện tượng in vết (gắn bó với mẹ ngay sau khi sinh ở động vật)",
-        ex: "Best known is imprinting, the early-following behavior of geese.",
-        syns: ["early behavioral attachment", "instinctive bonding"]
+        vi: "hiện tượng in vết (hành vi gắn kết bẩm sinh tức thì ngay sau khi sinh)",
+        ex: "The most well-known of these is imprinting, the early-following behavior of geese.",
+        syns: ["instinctive bonding", "innate attachment"]
     },
     {
         p: 0,
@@ -11677,9 +11727,29 @@ const mockTestUsefulVocabData = [
         word: "ensure",
         ipa: "/ɪnˈʃɔːr/",
         type: "v",
-        vi: "đảm bảo, chắc chắn bảo vệ",
+        vi: "đảm bảo, bảo đảm chắc chắn",
         ex: "Imprinting ensures that the young will stay close to the mother and be protected.",
         syns: ["guarantee", "make certain", "secure"]
+    },
+    {
+        p: 0,
+        pName: "Passage 1",
+        word: "restricted period",
+        ipa: "/rɪˈstrɪk.tɪd ˈpɪə.ri.əd/",
+        type: "phrase",
+        vi: "khoảng thời gian giới hạn nghiêm ngặt",
+        ex: "Imprinting takes place during an early, restricted time period of development.",
+        syns: ["limited time span", "bounded timeframe"]
+    },
+    {
+        p: 0,
+        pName: "Passage 1",
+        word: "gosling",
+        ipa: "/ˈɡɒz.lɪŋ/",
+        type: "n",
+        vi: "ngỗng con",
+        ex: "Young goslings may imprint on an artificial moving object if mother goose is absent.",
+        syns: ["young goose", "baby goose"]
     },
     {
         p: 0,
@@ -11687,9 +11757,19 @@ const mockTestUsefulVocabData = [
         word: "critical period",
         ipa: "/ˈkrɪt.ɪ.kəl ˈpɪə.ri.əd/",
         type: "phrase",
-        vi: "giai đoạn phát triển then chốt / nhạy cảm",
-        ex: "Imprinting takes place during an early, restricted critical period.",
-        syns: ["sensitive phase", "crucial development stage"]
+        vi: "giai đoạn phát triển then chốt / nhạy cảm nhất",
+        ex: "Observations of imprinting led to the major concept of the critical period.",
+        syns: ["sensitive phase", "crucial developmental window"]
+    },
+    {
+        p: 0,
+        pName: "Passage 1",
+        word: "biologically prepared",
+        ipa: "/ˌbaɪ.əˈlɒdʒ.ɪ.kli prɪˈpeəd/",
+        type: "phrase",
+        vi: "được lập trình sẵn về mặt sinh học",
+        ex: "The child is biologically prepared to acquire certain adaptive behaviors.",
+        syns: ["genetically pre-programmed", "innately ready"]
     },
     {
         p: 0,
@@ -11698,18 +11778,28 @@ const mockTestUsefulVocabData = [
         ipa: "/ˈsuː.tə.bli/",
         type: "adv",
         vi: "một cách phù hợp, thích đáng",
-        ex: "If mother geese are not present, but an object resembling them is suitably stimulating, they will imprint.",
+        ex: "The child needs the support of a suitably stimulating environment.",
         syns: ["appropriately", "adequately", "fittingly"]
     },
     {
         p: 0,
         pName: "Passage 1",
-        word: "affectional tie",
-        ipa: "/əˈfek.ʃən.əl taɪ/",
+        word: "stimulating environment",
+        ipa: "/ˈstɪm.jə.leɪ.tɪŋ ɪnˈvaɪ.rən.mənt/",
         type: "phrase",
-        vi: "mối liên kết / gắn kết tình cảm sâu sắc",
-        ex: "The human infant's relationship to the mother is a built-in affectional tie.",
-        syns: ["emotional bond", "deep attachment", "loving connection"]
+        vi: "môi trường giàu kích thích phát triển giác quan và nhận thức",
+        ex: "Children thrive emotionally in a suitably stimulating environment.",
+        syns: ["enriching surroundings", "encouraging atmosphere"]
+    },
+    {
+        p: 0,
+        pName: "Passage 1",
+        word: "deprived of",
+        ipa: "/dɪˈpraɪvd əv/",
+        type: "phrase",
+        vi: "bị tước đoạt, thiếu thốn điều kiện cơ bản",
+        ex: "If children are deprived of adequate food or social stimulation, growth suffers.",
+        syns: ["lacking", "stripped of", "disadvantaged of"]
     },
     {
         p: 0,
@@ -11718,20 +11808,80 @@ const mockTestUsefulVocabData = [
         ipa: "/ˈpɜː.mə.nənt.li ɪmˈpeəd/",
         type: "phrase",
         vi: "bị tổn hại vĩnh viễn, không thể phục hồi",
-        ex: "The capacity for social and emotional development may be permanently impaired.",
+        ex: "Without stimulation, will intelligence be permanently impaired?",
         syns: ["irreversibly damaged", "chronically harmed"]
     },
+    {
+        p: 0,
+        pName: "Passage 1",
+        word: "psychoanalyst",
+        ipa: "/ˌsaɪ.kəʊˈæn.ə.lɪst/",
+        type: "n",
+        vi: "nhà phân tâm học",
+        ex: "British psychoanalyst John Bowlby applied ethology to parent-infant bonding.",
+        syns: ["psychotherapist", "mental health theorist"]
+    },
+    {
+        p: 0,
+        pName: "Passage 1",
+        word: "built-in social signals",
+        ipa: "/ˌbɪlt ˈɪn ˈsəʊ.ʃəl ˈsɪɡ.nəlz/",
+        type: "phrase",
+        vi: "các tín hiệu giao tiếp xã hội bẩm sinh (cười, khóc, bập bẹ)",
+        ex: "Babies' smiles and cries are built-in social signals to summon parental care.",
+        syns: ["innate communicative cues", "instinctual gestures"]
+    },
+    {
+        p: 0,
+        pName: "Passage 1",
+        word: "affectional tie",
+        ipa: "/əˈfek.ʃən.əl taɪ/",
+        type: "phrase",
+        vi: "mối dây liên kết tình cảm gắn bó sâu sắc",
+        ex: "The process leads to a deep affectional tie between parent and baby.",
+        syns: ["emotional bond", "enduring attachment", "loving connection"]
+    },
 
-    // --- PASSAGE 02 ---
+    // ==================== PASSAGE 02 (THE MOON & ENVIRONMENT) ====================
     {
         p: 1,
         pName: "Passage 2",
-        word: "massive",
-        ipa: "/ˈmæs.ɪv/",
-        type: "adj",
-        vi: "khổng lồ, to lớn, dữ dội",
-        ex: "The Moon formed following a massive collision between Earth and a Mars-sized body.",
-        syns: ["huge", "enormous", "immense", "gigantic"]
+        word: "worship",
+        ipa: "/ˈwɜː.ʃɪp/",
+        type: "v",
+        vi: "tôn thờ, sùng bái, thờ phụng",
+        ex: "The Moon has been worshipped by primitive peoples throughout history.",
+        syns: ["revere", "venerate", "idolize", "deify"]
+    },
+    {
+        p: 1,
+        pName: "Passage 2",
+        word: "primitive peoples",
+        ipa: "/ˈprɪm.ɪ.tɪv ˈpiː.pəl/",
+        type: "phrase",
+        vi: "các tộc người nguyên thủy, thuở sơ khai",
+        ex: "Primitive peoples created lunar calendars by tracking the phases of the Moon.",
+        syns: ["ancient tribes", "early civilizations", "prehistoric humans"]
+    },
+    {
+        p: 1,
+        pName: "Passage 2",
+        word: "lunar calendar",
+        ipa: "/ˈluː.nər ˈkæl.ən.dər/",
+        type: "phrase",
+        vi: "âm lịch (lịch tính theo chu kỳ Mặt Trăng)",
+        ex: "Ancient farmers relied on the lunar calendar to determine planting seasons.",
+        syns: ["moon-based reckoning", "synodic calendar"]
+    },
+    {
+        p: 1,
+        pName: "Passage 2",
+        word: "massive collision",
+        ipa: "/ˈmæs.ɪv kəˈlɪʒ.ən/",
+        type: "phrase",
+        vi: "vụ va chạm khổng lồ có sức tàn phá dữ dội",
+        ex: "The Moon formed from the debris of a massive collision between Earth and a protoplanet.",
+        syns: ["enormous impact", "cataclysmic crash", "gigantic clash"]
     },
     {
         p: 1,
@@ -11739,9 +11889,9 @@ const mockTestUsefulVocabData = [
         word: "debris",
         ipa: "/ˈdeb.riː/",
         type: "n",
-        vi: "mảnh vụn, mảnh vỡ sau vụ va chạm",
-        ex: "The debris from the impact coalesced in orbit to create the Moon.",
-        syns: ["fragments", "rubble", "remnants", "wreckage"]
+        vi: "mảnh vụn, đất đá tàn dư sau vụ nổ/va chạm",
+        ex: "An immense amount of debris was thrown into orbit around the Earth.",
+        syns: ["fragments", "rubble", "detritus", "scattered remnants"]
     },
     {
         p: 1,
@@ -11749,9 +11899,19 @@ const mockTestUsefulVocabData = [
         word: "coalesce",
         ipa: "/ˌkəʊ.əˈles/",
         type: "v",
-        vi: "hợp nhất, kết tụ lại thành một khối",
-        ex: "The scattered rocky debris began to coalesce over millions of years.",
-        syns: ["merge", "unite", "fuse together", "combine"]
+        vi: "kết tụ lại, hợp nhất thành một khối cầu",
+        ex: "The orbiting debris coalesced and cooled to form the lunar body.",
+        syns: ["merge", "fuse", "congeal", "integrate"]
+    },
+    {
+        p: 1,
+        pName: "Passage 2",
+        word: "inextricably linked",
+        ipa: "/ˌɪn.ɪkˈstrɪk.ə.bli lɪŋkt/",
+        type: "phrase",
+        vi: "gắn kết khăng khít, không thể tách rời",
+        ex: "The development of the Earth is inextricably linked to the Moon.",
+        syns: ["inseparably connected", "deeply intertwined"]
     },
     {
         p: 1,
@@ -11760,18 +11920,48 @@ const mockTestUsefulVocabData = [
         ipa: "/ˌɡræv.ɪˈteɪ.ʃən.əl ˈɪn.flu.əns/",
         type: "phrase",
         vi: "ảnh hưởng của lực hấp dẫn",
-        ex: "The gravitational influence of the Moon is the primary cause of ocean tides.",
-        syns: ["gravitational pull", "tidal attraction"]
+        ex: "The Moon's gravitational influence upon the Earth is the primary cause of ocean tides.",
+        syns: ["gravitational attraction", "tidal pull"]
     },
     {
         p: 1,
         pName: "Passage 2",
-        word: "uneven",
-        ipa: "/ʌnˈiː.vən/",
-        type: "adj",
-        vi: "không đồng đều, gồ ghề, bất thường",
-        ex: "The Moon has an uneven distribution of impact craters across its hemispheres.",
-        syns: ["irregular", "asymmetrical", "non-uniform", "rough"]
+        word: "ocean tides",
+        ipa: "/ˈəʊ.ʃən taɪdz/",
+        type: "phrase",
+        vi: "thủy triều đại dương (hiện tượng nước dâng và rút)",
+        ex: "The Moon exerts twice the effect on tides compared to the Sun.",
+        syns: ["sea ebb and flow", "tidal fluctuations"]
+    },
+    {
+        p: 1,
+        pName: "Passage 2",
+        word: "synchronous rotation",
+        ipa: "/ˈsɪŋ.krə.nəs rəʊˈteɪ.ʃən/",
+        type: "phrase",
+        vi: "sự tự quay đồng bộ (chu kỳ tự quay bằng chu kỳ quay quanh Trái Đất)",
+        ex: "This synchronous rotation allows only one side of the Moon to face Earth permanently.",
+        syns: ["tidally locked rotation", "matched orbital period"]
+    },
+    {
+        p: 1,
+        pName: "Passage 2",
+        word: "uneven distribution",
+        ipa: "/ʌnˈiː.vən ˌdɪs.trɪˈbjuː.ʃən/",
+        type: "phrase",
+        vi: "sự phân bố khối lượng không đồng đều (lệch tâm)",
+        ex: "An uneven distribution of mass in the Moon causes its tidal lock.",
+        syns: ["asymmetrical allocation", "irregular mass balance"]
+    },
+    {
+        p: 1,
+        pName: "Passage 2",
+        word: "meteorite impact",
+        ipa: "/ˈmiː.ti.ər.aɪt ˈɪm.pækt/",
+        type: "phrase",
+        vi: "vụ va chạm của thiên thạch ngoài không gian",
+        ex: "Without an atmosphere, nothing protects the Moon from meteorite impacts.",
+        syns: ["space rock strike", "bolide collision"]
     },
     {
         p: 1,
@@ -11779,9 +11969,39 @@ const mockTestUsefulVocabData = [
         word: "impact craters",
         ipa: "/ˈɪm.pækt ˈkreɪ.tərz/",
         type: "phrase",
-        vi: "các hố va chạm thiên thạch",
-        ex: "The lunar surface is covered with ancient impact craters.",
-        syns: ["meteorite depressions", "collision hollows"]
+        vi: "miệng hố va chạm thiên thạch trên bề mặt",
+        ex: "The lunar surface is covered with large impact craters.",
+        syns: ["meteorite hollows", "blast depressions"]
+    },
+    {
+        p: 1,
+        pName: "Passage 2",
+        word: "atmospheric weathering",
+        ipa: "/ˌæt.məsˈfer.ɪk ˈweð.ər.ɪŋ/",
+        type: "phrase",
+        vi: "sự phong hóa, bào mòn do tác động khí quyển (gió, mưa)",
+        ex: "The Moon lacks atmospheric weathering to smooth out its rugged landscape.",
+        syns: ["climate erosion", "wind-and-rain decay"]
+    },
+    {
+        p: 1,
+        pName: "Passage 2",
+        word: "tectonic shifts",
+        ipa: "/tekˈtɒn.ɪk ʃɪfts/",
+        type: "phrase",
+        vi: "các chuyển động dịch mảng kiến tạo vỏ địa cầu",
+        ex: "Earth's surface features are continuously reformed by tectonic shifts.",
+        syns: ["crustal movements", "plate tectonic changes"]
+    },
+    {
+        p: 1,
+        pName: "Passage 2",
+        word: "volcanic upheavals",
+        ipa: "/vɒlˈkæn.ɪk ʌpˈhiː.vəlz/",
+        type: "phrase",
+        vi: "các đợt biến động phun trào dữ dội của núi lửa",
+        ex: "Volcanic upheavals on Earth regularly obliterate older rocks.",
+        syns: ["magmatic eruptions", "geological convulsions"]
     },
     {
         p: 1,
@@ -11789,21 +12009,91 @@ const mockTestUsefulVocabData = [
         word: "erase",
         ipa: "/ɪˈreɪz/",
         type: "v",
-        vi: "xóa sạch, làm biến mất hoàn toàn",
-        ex: "There is no atmosphere to create wind or rain that could erase these craters.",
-        syns: ["obliterate", "wipe out", "remove completely", "destroy"]
+        vi: "xóa sạch, làm mất hoàn toàn dấu tích",
+        ex: "Earthly erosive effects tend to erase and reform surface landmarks.",
+        syns: ["obliterate", "wipe out", "efface", "eliminate"]
+    },
+    {
+        p: 1,
+        pName: "Passage 2",
+        word: "obliterated",
+        ipa: "/əˈblɪt.ər.eɪ.tɪd/",
+        type: "adj",
+        vi: "bị xóa sạch dấu vết không còn tàn tích",
+        ex: "Astronaut footprints will last for millions of years unless obliterated by a meteorite.",
+        syns: ["wiped out completely", "destroyed utterly"]
+    },
+    {
+        p: 1,
+        pName: "Passage 2",
+        word: "surface gravity",
+        ipa: "/ˈsɜː.fɪs ˈɡræv.ə.ti/",
+        type: "phrase",
+        vi: "trọng lực bề mặt thiên thể",
+        ex: "The surface gravity of the Moon is about one-sixth of that of the Earth.",
+        syns: ["gravitational acceleration", "lunar attraction force"]
     },
 
-    // --- PASSAGE 03 ---
+    // ==================== PASSAGE 03 (NEW YORK AUTO SHOW & MODEL T) ====================
     {
         p: 2,
         pName: "Passage 3",
         word: "horseless carriage",
         ipa: "/ˈhɔːs.ləs ˈkær.ɪdʒ/",
         type: "phrase",
-        vi: "xe không ngựa kéo (thuật ngữ sơ khai của xe ô tô)",
-        ex: "The 1900 exhibition introduced the horseless carriage to mainstream America.",
-        syns: ["early automobile", "motorized vehicle"]
+        vi: "xe không ngựa kéo (tên gọi thuở ban đầu của ô tô)",
+        ex: "About 8,000 visitors gathered to inspect the novel horseless carriages.",
+        syns: ["early motorcar", "self-propelled vehicle"]
+    },
+    {
+        p: 2,
+        pName: "Passage 3",
+        word: "show off its wares",
+        ipa: "/ʃəʊ ɒf ɪts weərz/",
+        type: "idiom",
+        vi: "phô diễn, trưng bày các sản phẩm hàng hóa",
+        ex: "The 1900 show was the first big chance for the industry to show off its wares.",
+        syns: ["display products", "showcase merchandise"]
+    },
+    {
+        p: 2,
+        pName: "Passage 3",
+        word: "black-tie audience",
+        ipa: "/ˌblæk ˈtaɪ ˈɔː.di.əns/",
+        type: "phrase",
+        vi: "khán giả thuộc tầng lớp quý tộc ăn mặc âu phục trang trọng",
+        ex: "The black-tie audience treated the auto exhibition as an elite gala.",
+        syns: ["formal society crowd", "high-class attendees"]
+    },
+    {
+        p: 2,
+        pName: "Passage 3",
+        word: "sales extravaganza",
+        ipa: "/seɪlz ɪkˌstræv.əˈɡæn.zə/",
+        type: "phrase",
+        vi: "sự kiện bán hàng hoành tráng, rầm rộ",
+        ex: "Visitors viewed the event more as a social affair than a commercial sales extravaganza.",
+        syns: ["grand shopping expo", "massive marketing spectacle"]
+    },
+    {
+        p: 2,
+        pName: "Passage 3",
+        word: "internal-combustion engine",
+        ipa: "/ɪnˈtɜː.nəl kəmˈbʌs.tʃən ˈen.dʒɪn/",
+        type: "phrase",
+        vi: "động cơ đốt trong (dùng xăng hoặc dầu)",
+        ex: "Nikolaus Otto built the first practical internal-combustion engine in Germany.",
+        syns: ["piston engine", "gas-powered motor"]
+    },
+    {
+        p: 2,
+        pName: "Passage 3",
+        word: "merchandising",
+        ipa: "/ˈmɜː.tʃən.daɪ.zɪŋ/",
+        type: "n",
+        vi: "hoạt động xúc tiến thương mại, tiếp thị bán hàng",
+        ex: "The United States pioneered the modern merchandising of consumer automobiles.",
+        syns: ["commercial marketing", "retail promotion", "product selling"]
     },
     {
         p: 2,
@@ -11811,9 +12101,49 @@ const mockTestUsefulVocabData = [
         word: "by happenstance",
         ipa: "/baɪ ˈhæp.ən.stæns/",
         type: "phrase",
-        vi: "một cách tình cờ, ngẫu nhiên",
-        ex: "By happenstance, gasoline-powered cars gained the upper hand over steam vehicles.",
-        syns: ["coincidentally", "by chance", "accidentally", "fortuitously"]
+        vi: "một cách hoàn toàn tình cờ, ngẫu nhiên",
+        ex: "By happenstance, gasoline-powered vehicles eclipsed electric and steam cars.",
+        syns: ["coincidentally", "by sheer accident", "fortuitously"]
+    },
+    {
+        p: 2,
+        pName: "Passage 3",
+        word: "horse-drawn carriage",
+        ipa: "/ˌhɔːs.drɔːn ˈkær.ɪdʒ/",
+        type: "phrase",
+        vi: "xe do ngựa kéo truyền thống",
+        ex: "In 1900, bicycles and horse-drawn carriages were still the primary transport.",
+        syns: ["equestrian coach", "horse cart"]
+    },
+    {
+        p: 2,
+        pName: "Passage 3",
+        word: "assemble",
+        ipa: "/əˈsem.bəl/",
+        type: "v",
+        vi: "lắp ráp, gia công hoàn thiện xe từ các linh kiện",
+        ex: "Only about 4,000 cars were assembled across the nation in 1900.",
+        syns: ["put together", "fabricate", "construct"]
+    },
+    {
+        p: 2,
+        pName: "Passage 3",
+        word: "boiler explosion",
+        ipa: "/ˈbɔɪ.lər ɪkˈspləʊ.ʒən/",
+        type: "phrase",
+        vi: "vụ nổ nồi hơi (nỗi sợ của người dùng xe hơi nước)",
+        ex: "The danger of a sudden boiler explosion turned many customers away from steam cars.",
+        syns: ["steam tank blast", "pressure vessel burst"]
+    },
+    {
+        p: 2,
+        pName: "Passage 3",
+        word: "smelly fumes",
+        ipa: "/ˈsmel.i fjuːmz/",
+        type: "phrase",
+        vi: "khói khí thải nồng nặc mùi xăng dầu khó chịu",
+        ex: "Gasoline motors produced smelly fumes that choked city streets.",
+        syns: ["noxious exhaust", "pungent emissions"]
     },
     {
         p: 2,
@@ -11821,9 +12151,9 @@ const mockTestUsefulVocabData = [
         word: "launched",
         ipa: "/lɔːntʃt/",
         type: "v",
-        vi: "khởi xướng, bắt đầu, mở đường cho ngành",
-        ex: "The dramatic sales launched a new commercial transportation era.",
-        syns: ["initiated", "kick-started", "commenced", "established"]
+        vi: "khởi xướng, bắt đầu, mở đường cho ngành sản xuất",
+        ex: "Duryea Motor Wagon Company launched the American commercial auto industry.",
+        syns: ["initiated", "inaugurated", "kick-started", "established"]
     },
     {
         p: 2,
@@ -11831,19 +12161,39 @@ const mockTestUsefulVocabData = [
         word: "fragrant additive",
         ipa: "/ˈfreɪ.ɡrənt ˈæd.ɪ.tɪv/",
         type: "phrase",
-        vi: "chất phụ gia có mùi thơm để khử mùi",
-        ex: "Inventors used a fragrant additive to mask the unpleasant exhaust fumes.",
-        syns: ["aromatic supplement", "scented substance"]
+        vi: "chất phụ gia có hương thơm để khử mùi hôi",
+        ex: "Makers added a fragrant additive into the fuel to mask unpleasant odors.",
+        syns: ["scented compound", "aromatic masking agent"]
     },
     {
         p: 2,
         pName: "Passage 3",
-        word: "cumbersome",
-        ipa: "/ˈkʌm.bə.səm/",
-        type: "adj",
-        vi: "cồng kềnh, bất tiện, khó điều khiển",
-        ex: "Early cars used cumbersome tillers instead of modern steering wheels.",
-        syns: ["awkward", "unwieldy", "clunky", "hard to handle"]
+        word: "cumbersome tiller",
+        ipa: "/ˈkʌm.bə.səm ˈtɪl.ər/",
+        type: "phrase",
+        vi: "cần lái cồng kềnh, vụng về giống bánh lái thuyền",
+        ex: "Early automobiles steered with a cumbersome tiller rather than a steering wheel.",
+        syns: ["awkward steering lever", "clunky helm"]
+    },
+    {
+        p: 2,
+        pName: "Passage 3",
+        word: "the well-to-do",
+        ipa: "/ˌwel.təˈduː/",
+        type: "noun phrase",
+        vi: "tầng lớp người giàu có, giới thượng lưu",
+        ex: "Early motor vehicles were expensive toys exclusively for the well-to-do.",
+        syns: ["the wealthy", "the affluent elite", "high-income earners"]
+    },
+    {
+        p: 2,
+        pName: "Passage 3",
+        word: "revolutionize",
+        ipa: "/ˌrev.əˈluː.ʃən.aɪz/",
+        type: "v",
+        vi: "cách mạng hóa, làm thay đổi toàn diện ngành nghề",
+        ex: "Henry Ford revolutionized manufacturing with standardized production methods.",
+        syns: ["transform dramatically", "radically reshape", "modernize"]
     },
     {
         p: 2,
@@ -11851,31 +12201,131 @@ const mockTestUsefulVocabData = [
         word: "standardized design",
         ipa: "/ˈstæn.də.daɪzd dɪˈzaɪn/",
         type: "phrase",
-        vi: "thiết kế tiêu chuẩn hóa đồng bộ",
-        ex: "Henry Ford adopted a standardized design to manufacture the Model T rapidly.",
-        syns: ["uniform specification", "mass-production standard"]
+        vi: "thiết kế quy chuẩn đồng nhất",
+        ex: "The Model T featured a standardized design for all mechanical parts.",
+        syns: ["uniform specification", "interchangeable parts design"]
+    },
+    {
+        p: 2,
+        pName: "Passage 3",
+        word: "assembly line",
+        ipa: "/əˈsem.bli laɪn/",
+        type: "phrase",
+        vi: "dây chuyền sản xuất lắp ráp hàng loạt",
+        ex: "The moving assembly line reduced car production time from hours to minutes.",
+        syns: ["conveyor production system", "continuous manufacturing line"]
+    },
+    {
+        p: 2,
+        pName: "Passage 3",
+        word: "the multitudes",
+        ipa: "/ˈmʌl.tɪ.tjuːdz/",
+        type: "noun phrase",
+        vi: "đông đảo quần chúng nhân dân, người tiêu dùng đại trà",
+        ex: "Henry Ford fulfilled his promise to build affordable cars for the multitudes.",
+        syns: ["the general public", "the mass market", "ordinary citizens"]
     },
 
-    // --- PASSAGE 04 ---
+    // ==================== PASSAGE 04 (MOUNT RUSHMORE MONUMENT) ====================
+    {
+        p: 3,
+        pName: "Passage 4",
+        word: "granite",
+        ipa: "/ˈɡræn.ɪt/",
+        type: "n",
+        vi: "đá hoa cương (loại đá macma siêu cứng cáp)",
+        ex: "The presidential likenesses were sculpted directly into sheer granite.",
+        syns: ["hard igneous rock", "plutonic stone"]
+    },
+    {
+        p: 3,
+        pName: "Passage 4",
+        word: "sculptor",
+        ipa: "/ˈskʌlp.tər/",
+        type: "n",
+        vi: "nhà điêu khắc nghệ thuật",
+        ex: "Gutzon Borglum was the master sculptor behind the Mount Rushmore project.",
+        syns: ["statue artist", "stone carver"]
+    },
     {
         p: 3,
         pName: "Passage 4",
         word: "monument",
         ipa: "/ˈmɒn.jə.mənt/",
         type: "n",
-        vi: "đài tưởng niệm, tượng đài lịch sử",
-        ex: "Mount Rushmore is a national monument carved into granite rock.",
-        syns: ["memorial", "historic tribute", "landmark sculpture"]
+        vi: "đài tưởng niệm, tượng đài lịch sử quốc gia",
+        ex: "The creation of Mount Rushmore monument required 14 years of arduous labor.",
+        syns: ["national memorial", "historic landmark"]
     },
     {
         p: 3,
         pName: "Passage 4",
-        word: "devised",
-        ipa: "/dɪˈvaɪzd/",
-        type: "v",
-        vi: "phát minh, sáng chế, thiết kế ra",
-        ex: "Sculptor Borglum devised specialized harness chairs for the miners.",
-        syns: ["invented", "designed", "engineered", "created"]
+        word: "hard to come by",
+        ipa: "/hɑːd tuː kʌm baɪ/",
+        type: "idiom",
+        vi: "rất khó kiếm được, khan hiếm (tiền bạc, công việc)",
+        ex: "During the Great Depression, funding and jobs were hard to come by.",
+        syns: ["scarce", "difficult to obtain", "in short supply"]
+    },
+    {
+        p: 3,
+        pName: "Passage 4",
+        word: "laid-off workers",
+        ipa: "/leɪd ɒf ˈwɜː.kərz/",
+        type: "phrase",
+        vi: "công nhân bị sa thải, mất việc làm do mỏ đóng cửa",
+        ex: "Borglum hired laid-off workers from local closed-down mines.",
+        syns: ["redundant laborers", "unemployed miners"]
+    },
+    {
+        p: 3,
+        pName: "Passage 4",
+        word: "dynamite & drill",
+        ipa: "/ˈdaɪ.nə.maɪt ænd drɪl/",
+        type: "collocation",
+        vi: "nổ mìn phá đá và khoan đục tạo hình",
+        ex: "Miners used dynamite and drill techniques to blast 90% of the excess rock.",
+        syns: ["blast and bore", "explosive excavation"]
+    },
+    {
+        p: 3,
+        pName: "Passage 4",
+        word: "hanging in midair",
+        ipa: "/ˈhæŋ.ɪŋ ɪn mɪdˈeər/",
+        type: "phrase",
+        vi: "treo lơ lửng giữa không trung trên vách núi",
+        ex: "Workers spent entire shifts hanging in midair over dizzying drops.",
+        syns: ["suspended aloft", "dangling from cliffs"]
+    },
+    {
+        p: 3,
+        pName: "Passage 4",
+        word: "devised chairs",
+        ipa: "/dɪˈvaɪzd tʃeərz/",
+        type: "phrase",
+        vi: "các bộ ghế chuyên dụng do chính tác giả sáng chế",
+        ex: "Men operated from specially devised harness chairs with steel cables.",
+        syns: ["custom-engineered seats", "invented safety bosun's chairs"]
+    },
+    {
+        p: 3,
+        pName: "Passage 4",
+        word: "safety features",
+        ipa: "/ˈseɪf.ti ˈfiː.tʃərz/",
+        type: "phrase",
+        vi: "các trang thiết bị và tính năng đảm bảo an toàn lao động",
+        ex: "Thanks to clever safety features, zero fatalities occurred during carving.",
+        syns: ["protective mechanisms", "precautionary measures"]
+    },
+    {
+        p: 3,
+        pName: "Passage 4",
+        word: "blasting and carving",
+        ipa: "/ˈblɑː.stɪŋ ænd ˈkɑː.vɪŋ/",
+        type: "phrase",
+        vi: "quá trình nổ mìn đục đá và điêu khắc chi tiết",
+        ex: "Years of rigorous blasting and carving transformed the rugged peak.",
+        syns: ["explosive shaping", "stone sculpting work"]
     },
     {
         p: 3,
@@ -11883,9 +12333,9 @@ const mockTestUsefulVocabData = [
         word: "fissures",
         ipa: "/ˈfɪʃ.ərz/",
         type: "n",
-        vi: "các vết nứt địa chất lớn trong khối đá",
-        ex: "Workers discovered deep geological fissures in the granite surface.",
-        syns: ["cracks", "clefts", "crevices", "fractures"]
+        vi: "các vết nứt địa chất lớn, khe nứt trong khối đá",
+        ex: "Sculptors constantly adapted their cuts to bypass deep geological fissures.",
+        syns: ["deep cracks", "rock fractures", "crevices", "clefts"]
     },
     {
         p: 3,
@@ -11893,9 +12343,39 @@ const mockTestUsefulVocabData = [
         word: "avoided",
         ipa: "/əˈvɔɪdɪd/",
         type: "v",
-        vi: "phòng tránh, ngăn ngừa rủi ro",
-        ex: "Water seepage was avoided by applying a special waterproof mixture.",
-        syns: ["prevented", "escaped", "circumvented", "warded off"]
+        vi: "tránh né, ngăn chặn rủi ro xảy ra",
+        ex: "Not all stone fractures could be avoided during excavation.",
+        syns: ["prevented", "circumvented", "bypassed", "shunned"]
+    },
+    {
+        p: 3,
+        pName: "Passage 4",
+        word: "concoct a mixture",
+        ipa: "/kənˈkɒkt ə ˈmɪks.tʃər/",
+        type: "phrase",
+        vi: "pha chế, tạo ra một hỗn hợp đặc biệt",
+        ex: "Borglum concoct a mixture of granite dust, lead, and oil to seal cracks.",
+        syns: ["compound a blend", "formulate a sealant"]
+    },
+    {
+        p: 3,
+        pName: "Passage 4",
+        word: "linseed oil",
+        ipa: "/ˈlɪn.siːd ɔɪl/",
+        type: "n",
+        vi: "dầu hạt lanh (chất kết dính chống thấm nước)",
+        ex: "Linseed oil gave the sealing paste its waterproofing elasticity.",
+        syns: ["flaxseed oil", "drying oil binder"]
+    },
+    {
+        p: 3,
+        pName: "Passage 4",
+        word: "freezing expansion",
+        ipa: "/ˈfriː.zɪŋ ɪkˈspæn.ʃən/",
+        type: "phrase",
+        vi: "sự giãn nở thể tích của nước khi đóng băng thành đá",
+        ex: "Freezing expansion of trapped snowmelt widens granite fissures.",
+        syns: ["frost wedging", "ice expansion pressure"]
     },
     {
         p: 3,
@@ -11903,11 +12383,22 @@ const mockTestUsefulVocabData = [
         word: "autumn maintenance",
         ipa: "/ˈɔː.təm ˈmeɪn.tə.nəns/",
         type: "phrase",
-        vi: "công tác bảo trì hàng năm vào mùa thu",
-        ex: "Autumn maintenance ensures that freezing water will not fracture the stone faces.",
-        syns: ["yearly servicing", "seasonal preservation work"]
+        vi: "công tác kiểm tra và bảo trì hàng năm vào mùa thu",
+        ex: "Autumn maintenance fills all fissures before winter snow arrives.",
+        syns: ["fall seasonal servicing", "preventative preservation"]
+    },
+    {
+        p: 3,
+        pName: "Passage 4",
+        word: "preserve for future generations",
+        ipa: "/prɪˈzɜːv fɔː ˈfjuː.tʃər ˌdʒen.əˈreɪ.ʃənz/",
+        type: "phrase",
+        vi: "bảo tồn nguyên vẹn cho các thế hệ tương lai",
+        ex: "Careful maintenance preserves the national monument for future generations.",
+        syns: ["safeguard for posterity", "maintain for descendants"]
     }
 ];
+
 
 let activeMockVocabTab = "all";
 
