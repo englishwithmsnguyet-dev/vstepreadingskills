@@ -4506,6 +4506,130 @@ em, i {
 }
 
 
+
+/* ==========================================================================
+   PREMIUM SYNONYM & PARAPHRASING LAB STYLING
+   ========================================================================== */
+.synonym-lab-hero {
+    background: linear-gradient(135deg, #4338ca 0%, #6366f1 50%, #8b5cf6 100%);
+    color: white;
+    border-radius: 16px;
+    padding: 30px 34px;
+    margin-bottom: 24px;
+    box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.25);
+    position: relative;
+    overflow: hidden;
+}
+
+.synonym-lab-hero::after {
+    content: '';
+    position: absolute;
+    top: -40%;
+    right: -15%;
+    width: 320px;
+    height: 320px;
+    background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+.synonym-item {
+    background: #ffffff;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 15px 18px;
+    cursor: pointer;
+    font-size: 1.02rem;
+    font-weight: 700;
+    color: #1e293b;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.synonym-item:hover {
+    border-color: #6366f1;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(99, 102, 241, 0.12);
+    background: #f5f3ff;
+}
+
+.synonym-item.selected {
+    border-color: #6366f1 !important;
+    background: #ede9fe !important;
+    color: #4338ca !important;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25) !important;
+    transform: scale(1.02);
+}
+
+.synonym-item.matched {
+    background: #f0fdf4 !important;
+    border-color: #22c55e !important;
+    color: #15803d !important;
+    cursor: default !important;
+    pointer-events: none !important;
+    transform: none !important;
+    box-shadow: 0 2px 6px rgba(34, 197, 94, 0.1) !important;
+}
+
+.synonym-dict-card {
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 16px 18px;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+}
+
+.synonym-dict-card:hover {
+    border-color: #3b82f6;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(59, 130, 246, 0.1);
+}
+
+.synonym-search-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #ffffff;
+    border: 2px solid #cbd5e1;
+    border-radius: 12px;
+    padding: 10px 18px;
+    transition: all 0.2s ease;
+}
+
+.synonym-search-box:focus-within {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+.synonym-filter-btn {
+    background: #f1f5f9;
+    color: #475569;
+    border: 1.5px solid transparent;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.synonym-filter-btn:hover {
+    background: #e2e8f0;
+    color: #1e293b;
+}
+
+.synonym-filter-btn.active {
+    background: #6366f1;
+    color: #ffffff;
+    border-color: #4f46e5;
+}
+
 </style>
 
 
@@ -8648,148 +8772,211 @@ const mockTestPassages = [
 </div>
 <!-- SECTION: Synonym Lab -->
 <div class="content-section hidden" id="sec-synonym-lab">
-    <section class="lesson-section glass-panel">
-        <h2 class="section-title"><i class="fa-solid fa-shuffle section-icon"></i> LUYỆN TỪ ĐỒNG NGHĨA & PARAPHRASING <span class="en-title">(VSTEP Synonym & Paraphrase Mastery)</span></h2>
-        
+    <div style="max-width: 1050px; margin: 0 auto;">
+        <!-- Hero Header -->
+        <div class="synonym-lab-hero">
+            <h2 style="font-size: 1.85rem; font-weight: 800; margin-bottom: 10px; display: flex; align-items: center; gap: 12px; letter-spacing: -0.5px;">
+                <i class="fa-solid fa-shuffle"></i> PHÒNG LAB DIỄN ĐẠT ĐỒNG NGHĨA & PARAPHRASING CHUYÊN SÂU
+            </h2>
+            <p style="font-size: 1.05rem; opacity: 0.95; line-height: 1.7; margin-bottom: 20px; max-width: 850px;">
+                Hệ thống huấn luyện phản xạ từ vựng đồng nghĩa độc quyền cho kỳ thi VSTEP B1 - B2 - C1. Giúp học viên nắm trọn 100% các bẫy diễn đạt tương đương, định vị thông tin nhanh gấp 2 lần và tự tin đạt điểm tối đa ở mọi bài đọc!
+            </p>
+            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                <div style="background: rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 20px; font-size: 0.92rem; font-weight: 700;"><i class="fa-solid fa-gem"></i> 100+ Cặp Paraphrase VSTEP</div>
+                <div style="background: rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 20px; font-size: 0.92rem; font-weight: 700;"><i class="fa-solid fa-layer-group"></i> 6 Bộ ghép thẻ tương tác</div>
+                <div style="background: rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 20px; font-size: 0.92rem; font-weight: 700;"><i class="fa-solid fa-bolt"></i> 10 Câu trắc nghiệm phản xạ</div>
+                <div style="background: rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 20px; font-size: 0.92rem; font-weight: 700;"><i class="fa-solid fa-magnifying-glass"></i> Tra cứu Live Search</div>
+            </div>
+        </div>
+
         <!-- Strategy Callout -->
-        <div class="vstep-callout tip" style="margin-bottom: 24px;">
-            <div class="vstep-callout-icon"><i class="fa-solid fa-lightbulb"></i></div>
-            <div class="vstep-callout-content">
-                <h4 style="color: #0369a1; font-weight: 800; font-size: 1.1rem; margin-bottom: 6px;">Chìa khóa vàng chinh phục VSTEP Reading B1 - B2 - C1:</h4>
-                <p style="margin-bottom: 0; line-height: 1.7; font-size: 1rem; color: #334155;">
-                    Trong bài thi VSTEP Reading, hơn <strong>80% câu hỏi và phương án trả lời đúng</strong> đều được diễn đạt lại (<em>paraphrased</em>) so với văn bản gốc. Hiểu và phản xạ nhanh với các cụm từ đồng nghĩa chính là vũ khí giúp bạn định vị thông tin chuẩn xác và không bao giờ bị "bẫy từ vựng" đánh lừa!
-                </p>
+        <div class="vstep-callout tip" style="margin-bottom: 28px; background: #f0fdf4; border-left: 5px solid #16a34a; border-radius: 12px; padding: 18px 22px;">
+            <div style="display: flex; align-items: flex-start; gap: 14px;">
+                <i class="fa-solid fa-lightbulb" style="font-size: 1.6rem; color: #16a34a; margin-top: 2px;"></i>
+                <div>
+                    <h4 style="color: #166534; font-weight: 800; font-size: 1.12rem; margin-bottom: 6px;">Quy luật vàng của Đề thi VSTEP Reading:</h4>
+                    <p style="margin: 0; line-height: 1.7; font-size: 1rem; color: #1e293b;">
+                        Đề thi VSTEP hầu như <strong>không bao giờ dùng lại nguyên văn từ gốc</strong> trong câu hỏi. Thay vào đó, đáp án đúng sẽ dùng <strong>từ đồng nghĩa (Synonyms)</strong> hoặc <strong>cách diễn đạt tương đương (Paraphrase)</strong>. Nắm vững bản chất này sẽ giúp bạn không bị các đáp án bẫy chứa "từ khóa y hệt bài đọc" đánh lừa!
+                    </p>
+                </div>
             </div>
         </div>
 
         <!-- Part 1: Theory of Paraphrasing in VSTEP -->
-        <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 14px; padding: 24px; margin-bottom: 28px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);">
-            <h3 style="color: #1e3a8a; font-weight: 800; font-size: 1.25rem; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
-                <i class="fa-solid fa-book-bookmark" style="color: #2563eb;"></i> I. 4 KỸ THUẬT PARAPHRASE KINH ĐIỂN TRONG ĐỀ THI VSTEP
+        <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 16px; padding: 26px; margin-bottom: 30px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);">
+            <h3 style="color: #1e3a8a; font-weight: 800; font-size: 1.3rem; margin-bottom: 18px; display: flex; align-items: center; gap: 10px;">
+                <i class="fa-solid fa-book-bookmark" style="color: #2563eb;"></i> I. 4 CHIẾN THUẬT PARAPHRASE ĐỈNH CAO TRONG ĐỀ THI VSTEP
             </h3>
             
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px;">
-                <div style="background: #f8fafc; border-left: 4px solid #3b82f6; border-radius: 10px; padding: 16px;">
-                    <div style="font-weight: 800; color: #1d4ed8; font-size: 1.02rem; margin-bottom: 6px;">1. Thay từ đồng nghĩa (Synonyms)</div>
-                    <p style="font-size: 0.92rem; color: #475569; margin-bottom: 8px; line-height: 1.6;">Thay thế từ khóa bằng từ/cụm từ tương đương.</p>
-                    <div style="background: #ffffff; padding: 8px 12px; border-radius: 6px; font-size: 0.88rem; border: 1px dashed #cbd5e1; color: #0f172a;">
-                        <em>Ví dụ:</em> <strong>massive</strong> $\leftrightarrow$ <strong>huge / enormous</strong>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px;">
+                <div style="background: #f8fafc; border: 1.5px solid #e2e8f0; border-left: 5px solid #3b82f6; border-radius: 12px; padding: 18px;">
+                    <div style="font-weight: 800; color: #1d4ed8; font-size: 1.05rem; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
+                        <i class="fa-solid fa-shuffle"></i> 1. Thay từ đồng nghĩa
+                    </div>
+                    <p style="font-size: 0.93rem; color: #475569; margin-bottom: 10px; line-height: 1.6;">Thay thế từ vựng bằng từ/cụm từ tương đương ngữ nghĩa.</p>
+                    <div style="background: #ffffff; padding: 10px 12px; border-radius: 8px; font-size: 0.9rem; border: 1px dashed #cbd5e1; color: #0f172a;">
+                        <em>Bài đọc:</em> <strong>massive collision</strong><br>
+                        <em>Đáp án:</em> <strong>enormous impact</strong>
                     </div>
                 </div>
 
-                <div style="background: #f8fafc; border-left: 4px solid #10b981; border-radius: 10px; padding: 16px;">
-                    <div style="font-weight: 800; color: #047857; font-size: 1.02rem; margin-bottom: 6px;">2. Biến đổi từ loại (Word Family)</div>
-                    <p style="font-size: 0.92rem; color: #475569; margin-bottom: 8px; line-height: 1.6;">Chuyển đổi giữa Động từ - Danh từ - Tính từ.</p>
-                    <div style="background: #ffffff; padding: 8px 12px; border-radius: 6px; font-size: 0.88rem; border: 1px dashed #cbd5e1; color: #0f172a;">
-                        <em>Ví dụ:</em> <strong>destroy</strong> $(v) \leftrightarrow$ <strong>cause destruction</strong> $(n)$
+                <div style="background: #f8fafc; border: 1.5px solid #e2e8f0; border-left: 5px solid #10b981; border-radius: 12px; padding: 18px;">
+                    <div style="font-weight: 800; color: #047857; font-size: 1.05rem; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
+                        <i class="fa-solid fa-arrows-spin"></i> 2. Biến đổi từ loại
+                    </div>
+                    <p style="font-size: 0.93rem; color: #475569; margin-bottom: 10px; line-height: 1.6;">Chuyển đổi linh hoạt giữa Động từ $\leftrightarrow$ Danh từ $\leftrightarrow$ Tính từ.</p>
+                    <div style="background: #ffffff; padding: 10px 12px; border-radius: 8px; font-size: 0.9rem; border: 1px dashed #cbd5e1; color: #0f172a;">
+                        <em>Bài đọc:</em> <strong>destroy ecosystems</strong> $(v)$<br>
+                        <em>Đáp án:</em> <strong>cause destruction to</strong> $(n)$
                     </div>
                 </div>
 
-                <div style="background: #f8fafc; border-left: 4px solid #f59e0b; border-radius: 10px; padding: 16px;">
-                    <div style="font-weight: 800; color: #b45309; font-size: 1.02rem; margin-bottom: 6px;">3. Chủ động $\leftrightarrow$ Bị động (Voice Shift)</div>
-                    <p style="font-size: 0.92rem; color: #475569; margin-bottom: 8px; line-height: 1.6;">Đổi cấu trúc câu để thay đổi trọng tâm thông tin.</p>
-                    <div style="background: #ffffff; padding: 8px 12px; border-radius: 6px; font-size: 0.88rem; border: 1px dashed #cbd5e1; color: #0f172a;">
-                        <em>Ví dụ:</em> <strong>Borglum devised</strong> $\leftrightarrow$ <strong>was designed by</strong>
+                <div style="background: #f8fafc; border: 1.5px solid #e2e8f0; border-left: 5px solid #f59e0b; border-radius: 12px; padding: 18px;">
+                    <div style="font-weight: 800; color: #b45309; font-size: 1.05rem; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
+                        <i class="fa-solid fa-repeat"></i> 3. Chủ động $\leftrightarrow$ Bị động
+                    </div>
+                    <p style="font-size: 0.93rem; color: #475569; margin-bottom: 10px; line-height: 1.6;">Đảo chủ ngữ và tân ngữ để thay đổi góc nhìn diễn đạt.</p>
+                    <div style="background: #ffffff; padding: 10px 12px; border-radius: 8px; font-size: 0.9rem; border: 1px dashed #cbd5e1; color: #0f172a;">
+                        <em>Bài đọc:</em> <strong>Borglum devised chairs</strong><br>
+                        <em>Đáp án:</em> <strong>Chairs designed by him</strong>
                     </div>
                 </div>
 
-                <div style="background: #f8fafc; border-left: 4px solid #8b5cf6; border-radius: 10px; padding: 16px;">
-                    <div style="font-weight: 800; color: #6d28d9; font-size: 1.02rem; margin-bottom: 6px;">4. Diễn giải định nghĩa (Definition)</div>
-                    <p style="font-size: 0.92rem; color: #475569; margin-bottom: 8px; line-height: 1.6;">Dùng mệnh đề giải thích thay cho một từ học thuật.</p>
-                    <div style="background: #ffffff; padding: 8px 12px; border-radius: 6px; font-size: 0.88rem; border: 1px dashed #cbd5e1; color: #0f172a;">
-                        <em>Ví dụ:</em> <strong>annual</strong> $\leftrightarrow$ <strong>happening once a year</strong>
+                <div style="background: #f8fafc; border: 1.5px solid #e2e8f0; border-left: 5px solid #8b5cf6; border-radius: 12px; padding: 18px;">
+                    <div style="font-weight: 800; color: #6d28d9; font-size: 1.05rem; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
+                        <i class="fa-solid fa-spell-check"></i> 4. Diễn giải định nghĩa
+                    </div>
+                    <p style="font-size: 0.93rem; color: #475569; margin-bottom: 10px; line-height: 1.6;">Dùng mệnh đề giải nghĩa chi tiết thay cho từ vựng chuyên ngành.</p>
+                    <div style="background: #ffffff; padding: 10px 12px; border-radius: 8px; font-size: 0.9rem; border: 1px dashed #cbd5e1; color: #0f172a;">
+                        <em>Bài đọc:</em> <strong>annual maintenance</strong><br>
+                        <em>Đáp án:</em> <strong>work done once every year</strong>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Part 2: Interactive Synonym Matching Game -->
-        <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 14px; padding: 24px; margin-bottom: 28px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
-                <h3 style="color: #1e3a8a; font-weight: 800; font-size: 1.25rem; margin: 0; display: flex; align-items: center; gap: 8px;">
-                    <i class="fa-solid fa-gamepad" style="color: #8b5cf6;"></i> II. PHÒNG LAB GHÉP THẺ ĐỒNG NGHĨA TƯƠNG TÁC
-                </h3>
+        <!-- Part 2: Interactive Synonym Matching Lab -->
+        <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 16px; padding: 26px; margin-bottom: 30px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; flex-wrap: wrap; gap: 14px;">
+                <div>
+                    <h3 style="color: #1e3a8a; font-weight: 800; font-size: 1.3rem; margin: 0 0 4px 0; display: flex; align-items: center; gap: 10px;">
+                        <i class="fa-solid fa-gamepad" style="color: #8b5cf6;"></i> II. PHÒNG LAB GHÉP THẺ ĐỒNG NGHĨA TƯƠNG TÁC
+                    </h3>
+                    <p style="color: #64748b; font-size: 0.95rem; margin: 0;">Lựa chọn bộ đề luyện tập bên dưới để thử thách khả năng phản xạ từ vựng của bạn:</p>
+                </div>
                 
                 <!-- Set Selector Tabs -->
                 <div style="display: flex; gap: 6px; flex-wrap: wrap;" id="synonym-set-tabs">
-                    <button class="cbt-part-tab-btn active" onclick="loadSynonymSet(0)">Bộ 01 (Cơ bản B1)</button>
-                    <button class="cbt-part-tab-btn" onclick="loadSynonymSet(1)">Bộ 02 (Nâng cao B2)</button>
-                    <button class="cbt-part-tab-btn" onclick="loadSynonymSet(2)">Bộ 03 (Học thuật VSTEP)</button>
-                    <button class="cbt-part-tab-btn" onclick="loadSynonymSet(3)">Bộ 04 (Paraphrase Cụm từ)</button>
+                    <button class="synonym-filter-btn active" onclick="loadSynonymSet(0)">Bộ 01 (Band B1)</button>
+                    <button class="synonym-filter-btn" onclick="loadSynonymSet(1)">Bộ 02 (Band B2)</button>
+                    <button class="synonym-filter-btn" onclick="loadSynonymSet(2)">Bộ 03 (Band C1)</button>
+                    <button class="synonym-filter-btn" onclick="loadSynonymSet(3)">Bộ 04 (Môi trường)</button>
+                    <button class="synonym-filter-btn" onclick="loadSynonymSet(4)">Bộ 05 (Lịch sử & Xã hội)</button>
+                    <button class="synonym-filter-btn" onclick="loadSynonymSet(5)">Bộ 06 (Cụm từ VSTEP)</button>
                 </div>
             </div>
 
-            <p style="font-size: 0.95rem; color: #64748b; margin-bottom: 18px;">
-                👉 <strong>Cách chơi:</strong> Nhấp chọn 1 thẻ ở cột trái (<strong>Từ khóa Câu hỏi</strong>), sau đó nhấp chọn thẻ có nghĩa tương đương ở cột phải (<strong>Diễn đạt trong Bài đọc</strong>) để hoàn thành cặp ghép!
-            </p>
+            <!-- Progress Tracker -->
+            <div style="display: flex; justify-content: space-between; align-items: center; background: #f8fafc; padding: 10px 18px; border-radius: 10px; margin-bottom: 18px; border: 1px solid #e2e8f0;">
+                <span id="synonym-status-label" style="font-weight: 700; color: #475569; font-size: 0.95rem;">
+                    🎯 Nhấp chọn thẻ ở cột trái, sau đó chọn thẻ đồng nghĩa ở cột phải:
+                </span>
+                <span id="synonym-progress-badge" style="background: #2563eb; color: white; padding: 4px 12px; border-radius: 20px; font-weight: 800; font-size: 0.85rem;">
+                    Đã ghép: 0 / 6 cặp
+                </span>
+            </div>
 
             <div class="synonym-board-container">
                 <div class="synonym-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
                     <div>
-                        <div style="font-weight: 800; color: #2563eb; font-size: 1rem; margin-bottom: 10px; display: flex; align-items: center; gap: 6px;">
+                        <div style="font-weight: 800; color: #2563eb; font-size: 1.02rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
                             <i class="fa-solid fa-circle-question"></i> TỪ KHÓA CÂU HỎI (QUESTION KEY)
                         </div>
-                        <div class="synonym-deck" id="question-deck" style="display: flex; flex-direction: column; gap: 10px;">
+                        <div class="synonym-deck" id="question-deck" style="display: flex; flex-direction: column; gap: 12px;">
                             <!-- Dynamic Questions Deck -->
                         </div>
                     </div>
 
                     <div>
-                        <div style="font-weight: 800; color: #16a34a; font-size: 1rem; margin-bottom: 10px; display: flex; align-items: center; gap: 6px;">
+                        <div style="font-weight: 800; color: #16a34a; font-size: 1.02rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
                             <i class="fa-solid fa-link"></i> DIỄN ĐẠT TRONG BÀI ĐỌC (PASSAGE PHRASE)
                         </div>
-                        <div class="synonym-deck" id="passage-deck" style="display: flex; flex-direction: column; gap: 10px;">
+                        <div class="synonym-deck" id="passage-deck" style="display: flex; flex-direction: column; gap: 12px;">
                             <!-- Dynamic Passage Deck -->
                         </div>
                     </div>
                 </div>
 
-                <div class="game-feedback hidden" id="synonym-feedback" style="margin-top: 20px; background: #f0fdf4; border: 1.5px solid #86efac; border-radius: 12px; padding: 16px 20px; text-align: center;">
-                    <i class="fa-solid fa-circle-check text-green" style="font-size: 1.4rem; color: #16a34a; margin-right: 8px;"></i> 
-                    <span style="font-weight: 800; color: #166534; font-size: 1.05rem;">Tuyệt vời! Bạn đã kết nối chính xác toàn bộ các cặp từ đồng nghĩa trong bộ này!</span>
-                    <div style="margin-top: 10px;">
-                        <button class="primary-btn btn-sm" onclick="reloadCurrentSynonymSet()" style="border-radius: 8px; font-weight: 700;">
+                <!-- Complete Feedback Box with Summary Table -->
+                <div class="game-feedback hidden" id="synonym-feedback" style="margin-top: 24px; background: #f0fdf4; border: 2px solid #86efac; border-radius: 14px; padding: 22px; text-align: center;">
+                    <i class="fa-solid fa-circle-check text-green" style="font-size: 2rem; color: #16a34a; margin-bottom: 8px;"></i> 
+                    <h4 style="font-weight: 800; color: #166534; font-size: 1.25rem; margin: 0 0 14px 0;">Xuất sắc! Bạn đã kết nối chính xác tất cả các cặp từ trong bộ này!</h4>
+                    
+                    <div id="synonym-completed-vocab-summary" style="text-align: left; background: #ffffff; border-radius: 10px; padding: 14px 18px; margin-bottom: 16px; border: 1px solid #bbf7d0;">
+                        <!-- Dynamic Vocab Table for this set -->
+                    </div>
+
+                    <div style="display: flex; justify-content: center; gap: 12px;">
+                        <button class="primary-btn btn-sm" onclick="reloadCurrentSynonymSet()" style="border-radius: 10px; font-weight: 700; padding: 9px 20px;">
                             <i class="fa-solid fa-rotate-right"></i> Luyện tập lại bộ này
+                        </button>
+                        <button class="wiz-btn btn-sm" onclick="nextSynonymSet()" style="border-radius: 10px; font-weight: 700; padding: 9px 20px; background: #f8fafc; border: 1.5px solid #cbd5e1;">
+                            Bộ tiếp theo <i class="fa-solid fa-arrow-right"></i>
                         </button>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Part 3: Top Essential VSTEP Synonym Table -->
-        <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 14px; padding: 24px; margin-bottom: 28px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);">
-            <h3 style="color: #1e3a8a; font-weight: 800; font-size: 1.25rem; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
-                <i class="fa-solid fa-table-list" style="color: #0284c7;"></i> III. BẢNG 30+ CẶP TỪ ĐỒNG NGHĨA XUẤT HIỆN NHIỀU NHẤT TRONG VSTEP READING
-            </h3>
-            
-            <div style="overflow-x: auto;">
-                <table style="width: 100%; border-collapse: collapse; font-size: 0.98rem; text-align: left;">
-                    <thead>
-                        <tr style="background: #f1f5f9; color: #1e293b; border-bottom: 2px solid #cbd5e1;">
-                            <th style="padding: 12px 16px; font-weight: 800;">STT</th>
-                            <th style="padding: 12px 16px; font-weight: 800; color: #2563eb;">Từ khóa thường gặp (Keyword)</th>
-                            <th style="padding: 12px 16px; font-weight: 800; color: #16a34a;">Từ / Cụm từ Paraphrase tương đương</th>
-                            <th style="padding: 12px 16px; font-weight: 800;">Ý nghĩa tiếng Việt</th>
-                        </tr>
-                    </thead>
-                    <tbody style="color: #334155; line-height: 1.6;">
-                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 10px 16px; font-weight: 700;">1</td><td style="padding: 10px 16px; font-weight: 700; color: #1d4ed8;">vital / crucial</td><td style="padding: 10px 16px; font-weight: 600; color: #047857;">essential / extremely important / necessary</td><td style="padding: 10px 16px;">vô cùng quan trọng, cốt yếu</td></tr>
-                        <tr style="border-bottom: 1px solid #e2e8f0; background: #f8fafc;"><td style="padding: 10px 16px; font-weight: 700;">2</td><td style="padding: 10px 16px; font-weight: 700; color: #1d4ed8;">massive / immense</td><td style="padding: 10px 16px; font-weight: 600; color: #047857;">huge / enormous / gigantic</td><td style="padding: 10px 16px;">khổng lồ, to lớn</td></tr>
-                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 10px 16px; font-weight: 700;">3</td><td style="padding: 10px 16px; font-weight: 700; color: #1d4ed8;">prohibit / forbid</td><td style="padding: 10px 16px; font-weight: 600; color: #047857;">ban / make illegal / disallow</td><td style="padding: 10px 16px;">ngăn cấm, cấm chỉ</td></tr>
-                        <tr style="border-bottom: 1px solid #e2e8f0; background: #f8fafc;"><td style="padding: 10px 16px; font-weight: 700;">4</td><td style="padding: 10px 16px; font-weight: 700; color: #1d4ed8;">mandatory / compulsory</td><td style="padding: 10px 16px; font-weight: 600; color: #047857;">required / obligatory / enforced</td><td style="padding: 10px 16px;">bắt buộc theo quy định</td></tr>
-                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 10px 16px; font-weight: 700;">5</td><td style="padding: 10px 16px; font-weight: 700; color: #1d4ed8;">enhance / boost</td><td style="padding: 10px 16px; font-weight: 600; color: #047857;">improve / strengthen / elevate</td><td style="padding: 10px 16px;">nâng cao, cải thiện</td></tr>
-                        <tr style="border-bottom: 1px solid #e2e8f0; background: #f8fafc;"><td style="padding: 10px 16px; font-weight: 700;">6</td><td style="padding: 10px 16px; font-weight: 700; color: #1d4ed8;">deplete / exhaust</td><td style="padding: 10px 16px; font-weight: 600; color: #047857;">use up / run out of / drain</td><td style="padding: 10px 16px;">làm cạn kiệt, suy giảm</td></tr>
-                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 10px 16px; font-weight: 700;">7</td><td style="padding: 10px 16px; font-weight: 700; color: #1d4ed8;">feasible / viable</td><td style="padding: 10px 16px; font-weight: 600; color: #047857;">practical / workable / achievable</td><td style="padding: 10px 16px;">khả thi, có thể thực hiện</td></tr>
-                        <tr style="border-bottom: 1px solid #e2e8f0; background: #f8fafc;"><td style="padding: 10px 16px; font-weight: 700;">8</td><td style="padding: 10px 16px; font-weight: 700; color: #1d4ed8;">obstacle / barrier</td><td style="padding: 10px 16px; font-weight: 600; color: #047857;">hurdle / difficulty / impediment</td><td style="padding: 10px 16px;">rào cản, chướng ngại vật</td></tr>
-                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 10px 16px; font-weight: 700;">9</td><td style="padding: 10px 16px; font-weight: 700; color: #1d4ed8;">abundant / plentiful</td><td style="padding: 10px 16px; font-weight: 600; color: #047857;">in large quantities / copious</td><td style="padding: 10px 16px;">dồi dào, phong phú</td></tr>
-                        <tr style="border-bottom: 1px solid #e2e8f0; background: #f8fafc;"><td style="padding: 10px 16px; font-weight: 700;">10</td><td style="padding: 10px 16px; font-weight: 700; color: #1d4ed8;">revolutionize</td><td style="padding: 10px 16px; font-weight: 600; color: #047857;">transform dramatically / modernize</td><td style="padding: 10px 16px;">cách mạng hóa, thay đổi triệt để</td></tr>
-                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 10px 16px; font-weight: 700;">11</td><td style="padding: 10px 16px; font-weight: 700; color: #1d4ed8;">diverse / varied</td><td style="padding: 10px 16px; font-weight: 600; color: #047857;">different / wide-ranging / multiple</td><td style="padding: 10px 16px;">đa dạng, nhiều chủng loại</td></tr>
-                        <tr style="border-bottom: 1px solid #e2e8f0; background: #f8fafc;"><td style="padding: 10px 16px; font-weight: 700;">12</td><td style="padding: 10px 16px; font-weight: 700; color: #1d4ed8;">ensure / guarantee</td><td style="padding: 10px 16px; font-weight: 600; color: #047857;">make certain / secure</td><td style="padding: 10px 16px;">đảm bảo, chắc chắn</td></tr>
-                    </tbody>
-                </table>
+        <!-- Part 3: Quick Synonym MCQ Quiz -->
+        <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 16px; padding: 26px; margin-bottom: 30px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; flex-wrap: wrap; gap: 12px;">
+                <div>
+                    <h3 style="color: #1e3a8a; font-weight: 800; font-size: 1.3rem; margin: 0 0 4px 0; display: flex; align-items: center; gap: 10px;">
+                        <i class="fa-solid fa-bolt" style="color: #eab308;"></i> III. THỬ THÁCH TRẮC NGHIỆM PHẢN XẠ PARAPHRASE (10 CÂU)
+                    </h3>
+                    <p style="color: #64748b; font-size: 0.95rem; margin: 0;">Chọn từ/cụm từ đồng nghĩa sát nghĩa nhất với từ in đậm gạch chân trong ngữ cảnh câu:</p>
+                </div>
+            </div>
+
+            <div id="synonym-quiz-container" style="display: flex; flex-direction: column; gap: 20px;">
+                <!-- Populated dynamically with 10 MCQ questions -->
             </div>
         </div>
-    </section>
+
+        <!-- Part 4: Smart Paraphrase Dictionary with Live Search & Filter -->
+        <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 16px; padding: 26px; margin-bottom: 30px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 16px;">
+                <div>
+                    <h3 style="color: #1e3a8a; font-weight: 800; font-size: 1.3rem; margin: 0 0 4px 0; display: flex; align-items: center; gap: 10px;">
+                        <i class="fa-solid fa-magnifying-glass" style="color: #0284c7;"></i> IV. TỪ ĐIỂN TRA CỨU PARAPHRASE THÔNG MINH (LIVE SEARCH)
+                    </h3>
+                    <p style="color: #64748b; font-size: 0.95rem; margin: 0;">Tra cứu tức thì hơn 50+ cặp từ đồng nghĩa kinh điển nhất trong đề thi Đọc hiểu VSTEP:</p>
+                </div>
+
+                <!-- Search Input Box -->
+                <div class="synonym-search-box" style="min-width: 280px;">
+                    <i class="fa-solid fa-search" style="color: #94a3b8;"></i>
+                    <input type="text" id="synonym-live-search" placeholder="Nhập từ tiếng Anh hoặc tiếng Việt..." style="border: none; outline: none; width: 100%; font-size: 0.95rem; font-weight: 600; color: #1e293b;" oninput="filterSynonymDictionary()">
+                </div>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;">
+                <button class="synonym-filter-btn active" data-filter="all" onclick="setDictFilter('all', this)">Tất cả (50+)</button>
+                <button class="synonym-filter-btn" data-filter="b1" onclick="setDictFilter('b1', this)">Band B1</button>
+                <button class="synonym-filter-btn" data-filter="b2" onclick="setDictFilter('b2', this)">Band B2</button>
+                <button class="synonym-filter-btn" data-filter="c1" onclick="setDictFilter('c1', this)">Band C1</button>
+                <button class="synonym-filter-btn" data-filter="env" onclick="setDictFilter('env', this)">Khoa học & Môi trường</button>
+                <button class="synonym-filter-btn" data-filter="soc" onclick="setDictFilter('soc', this)">Kinh tế & Xã hội</button>
+            </div>
+
+            <!-- Dictionary Grid Container -->
+            <div class="synonym-dict-grid" id="synonym-dict-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 16px;">
+                <!-- Populated dynamically -->
+            </div>
+        </div>
+    </div>
 </div>
 
 <!-- SECTION: Mock Test -->
@@ -9894,7 +10081,7 @@ function initSidebarNav() {
                 const sectionName = link.dataset.section;
                 if (sectionName === 'skimming-theory') state.progress.skimmingTheory = true;
                 if (sectionName === 'scanning-theory') state.progress.scanningTheory = true;
-                if (sectionName === 'synonym-lab') state.progress.synonymLab = true;
+                if (sectionName === 'synonym-lab') { state.progress.synonymLab = true; initSynonymMatchingGame(); }
                 if (sectionName === 'mock-test') state.progress.mockExam = true;
                 if (sectionName === 'reading-practice') {
                     const rpId = link.dataset.rpId || 'rp-01';
@@ -10914,41 +11101,64 @@ function initKeywordsSortingGame() {
 }
 
 // ==========================================================================
-// 11. DYNAMIC MULTI-SET SYNONYM MATCHING LAB (Chapter 3)
+// ==========================================================================
+// 11. PREMIUM SYNONYM LAB ENGINE (Chapter 3)
 // ==========================================================================
 
 const synonymSetsData = [
-    // Set 0: Cơ bản B1
+    // Set 0: Band B1 Thiết yếu (6 pairs)
     [
-        { id: 1, q: "alternative to reading", p: "another option to books", vi: "sự lựa chọn thay thế cho việc đọc" },
-        { id: 2, q: "busy schedules", p: "packed daily routines", vi: "lịch trình bận rộn" },
+        { id: 1, q: "alternative to reading", p: "another option to books", vi: "sự lựa chọn thay thế cho sách đọc" },
+        { id: 2, q: "busy schedules", p: "packed daily routines", vi: "lịch trình bận rộn hàng ngày" },
         { id: 3, q: "senior citizens", p: "older members of society", vi: "người cao tuổi trong xã hội" },
         { id: 4, q: "critics argue", p: "opposing experts believe", vi: "các nhà phê bình cho rằng" },
-        { id: 5, q: "expand access", p: "broaden availability", vi: "mở rộng khả năng tiếp cận" }
+        { id: 5, q: "expand access", p: "broaden availability", vi: "mở rộng khả năng tiếp cận" },
+        { id: 6, q: "household chores", p: "daily domestic tasks", vi: "công việc nhà hàng ngày" }
     ],
-    // Set 1: Nâng cao B2
+    // Set 1: Band B2 Học thuật (6 pairs)
     [
         { id: 1, q: "massive collision", p: "enormous impact", vi: "vụ va chạm khổng lồ" },
         { id: 2, q: "uneven distribution", p: "irregular allocation", vi: "sự phân bố không đồng đều" },
         { id: 3, q: "erase surface features", p: "obliterate geological traces", vi: "xóa nhòa các đặc điểm bề mặt" },
         { id: 4, q: "primary cause", p: "fundamental factor", vi: "nguyên nhân / yếu tố cốt lõi" },
-        { id: 5, q: "affectional tie", p: "emotional attachment", vi: "mối liên kết tình cảm sâu sắc" }
+        { id: 5, q: "affectional tie", p: "emotional attachment", vi: "mối liên kết tình cảm sâu sắc" },
+        { id: 6, q: "suitably stimulating", p: "appropriately encouraging", vi: "kích thích một cách thích hợp" }
     ],
-    // Set 2: Học thuật VSTEP
+    // Set 2: Band C1 Chuyên sâu (6 pairs)
     [
-        { id: 1, q: "by happenstance", p: "coincidentally", vi: "một cách tình cờ, ngẫu nhiên" },
-        { id: 2, q: "cumbersome steering", p: "awkward to handle", vi: "cồng kềnh, khó điều khiển" },
-        { id: 3, q: "standardized design", p: "uniform specification", vi: "thiết kế chuẩn hóa đồng nhất" },
-        { id: 4, q: "devised chairs", p: "specially engineered seats", vi: "ghế được chế tạo đặc biệt" },
-        { id: 5, q: "deep fissures", p: "large geological cracks", vi: "các vết nứt địa chất lớn" }
+        { id: 1, q: "inextricably linked", p: "inseparably connected", vi: "gắn kết chặt chẽ không thể tách rời" },
+        { id: 2, q: "meticulous preparation", p: "thorough and careful planning", vi: "sự chuẩn bị tỉ mỉ, kỹ lưỡng" },
+        { id: 3, q: "profound influence", p: "deep and significant effect", vi: "ảnh hưởng sâu sắc, to lớn" },
+        { id: 4, q: "subtle distinction", p: "delicate difference", vi: "sự phân biệt tinh tế, vi tế" },
+        { id: 5, q: "reach a consensus", p: "achieve mutual agreement", vi: "đạt được sự đồng thuận chung" },
+        { id: 6, q: "trigger controversy", p: "spark widespread debate", vi: "châm ngòi cho các cuộc tranh cãi" }
     ],
-    // Set 3: Paraphrase Cụm từ
+    // Set 3: Khoa học & Môi trường (6 pairs)
     [
-        { id: 1, q: "prohibit public access", p: "ban citizens from entering", vi: "cấm người dân vào khu vực" },
-        { id: 2, q: "practical and low-cost", p: "feasible and economical", vi: "thiết thực và chi phí tiết kiệm" },
-        { id: 3, q: "diminish rapidly", p: "decline substantially", vi: "suy giảm một cách nhanh chóng" },
-        { id: 4, q: "support student well-being", p: "foster learner mental health", vi: "nâng cao sức khỏe tinh thần học sinh" },
-        { id: 5, q: "revolutionary technique", p: "groundbreaking innovation", vi: "kỹ thuật mang tính đột phá" }
+        { id: 1, q: "deplete natural resources", p: "exhaust Earth's raw assets", vi: "làm cạn kiệt tài nguyên thiên nhiên" },
+        { id: 2, q: "deteriorate rapidly", p: "decline substantially in quality", vi: "suy thoái nhanh chóng về chất lượng" },
+        { id: 3, q: "abundant species", p: "plentiful wildlife varieties", vi: "các loài sinh vật dồi dào, phong phú" },
+        { id: 4, q: "harmful emissions", p: "toxic gas discharge", vi: "khí thải độc hại xả ra môi trường" },
+        { id: 5, q: "vital for survival", p: "crucial for staying alive", vi: "tối quan trọng cho sự sống còn" },
+        { id: 6, q: "cellular regeneration", p: "biological tissue regrowth", vi: "sự tái tạo tế bào sinh học" }
+    ],
+    // Set 4: Lịch sử & Xã hội (6 pairs)
+    [
+        { id: 1, q: "by happenstance", p: "coincidentally by chance", vi: "một cách tình cờ, ngẫu nhiên" },
+        { id: 2, q: "cumbersome steering", p: "awkward vehicle handling", vi: "hệ thống lái cồng kềnh, khó điều khiển" },
+        { id: 3, q: "standardized method", p: "uniform production system", vi: "quy trình sản xuất chuẩn hóa đồng nhất" },
+        { id: 4, q: "devised special chairs", p: "engineered custom harnesses", vi: "thiết kế các loại ghế chuyên dụng" },
+        { id: 5, q: "deep fissures", p: "large rock cracks", vi: "các vết nứt địa chất sâu lớn" },
+        { id: 6, q: "prohibit access", p: "ban citizens from entering", vi: "ngăn cấm người dân tiếp cận" }
+    ],
+    // Set 5: Paraphrase Cụm từ Đọc hiểu VSTEP (6 pairs)
+    [
+        { id: 1, q: "practical and low-cost", p: "feasible and economical", vi: "thiết thực và chi phí tiết kiệm" },
+        { id: 2, q: "support student well-being", p: "foster learner mental health", vi: "nâng cao sức khỏe tinh thần người học" },
+        { id: 3, q: "revolutionary technique", p: "groundbreaking innovation", vi: "kỹ thuật mang tính đột phá" },
+        { id: 4, q: "gain popularity", p: "become increasingly favored", vi: "ngày càng được ưa chuộng rộng rãi" },
+        { id: 5, q: "account for the majority", p: "constitute the largest portion", vi: "chiếm phần lớn, chiếm đa số" },
+        { id: 6, q: "pave the way for", p: "create favorable conditions for", vi: "mở đường, tạo điều kiện thuận lợi cho" }
     ]
 ];
 
@@ -10956,6 +11166,8 @@ let currentSynonymSetIdx = 0;
 
 function initSynonymMatchingGame() {
     loadSynonymSet(0);
+    renderSynonymMCQQuiz();
+    renderSynonymDictionary();
 }
 
 function loadSynonymSet(setIdx) {
@@ -10963,7 +11175,7 @@ function loadSynonymSet(setIdx) {
     const setData = synonymSetsData[setIdx];
     if (!setData) return;
 
-    // Update Set selector tabs
+    // Update Tab styling
     const tabBtns = document.querySelectorAll('#synonym-set-tabs button');
     tabBtns.forEach((btn, idx) => {
         if (idx === setIdx) btn.classList.add('active');
@@ -10972,7 +11184,13 @@ function loadSynonymSet(setIdx) {
 
     state.synonymGame.matches = 0;
     state.synonymGame.selectedQ = null;
-    document.getElementById('synonym-feedback').classList.add('hidden');
+    
+    // Reset feedback & update progress badge
+    const feedbackEl = document.getElementById('synonym-feedback');
+    if (feedbackEl) feedbackEl.classList.add('hidden');
+
+    const progBadge = document.getElementById('synonym-progress-badge');
+    if (progBadge) progBadge.textContent = `Đã ghép: 0 / ${setData.length} cặp`;
 
     const qDeck = document.getElementById('question-deck');
     const pDeck = document.getElementById('passage-deck');
@@ -10981,13 +11199,13 @@ function loadSynonymSet(setIdx) {
     qDeck.innerHTML = '';
     pDeck.innerHTML = '';
 
-    // Render Question deck in normal order
+    // Render Question Deck
     setData.forEach(item => {
         const div = document.createElement('div');
         div.className = 'synonym-item';
         div.dataset.id = item.id;
         div.dataset.type = 'q';
-        div.innerHTML = `${item.q} <i class="fa-solid fa-question" style="color:#3b82f6;"></i>`;
+        div.innerHTML = `<span>${item.q}</span> <i class="fa-solid fa-circle-question" style="color:#3b82f6; font-size:1.1rem;"></i>`;
         
         div.addEventListener('click', () => {
             playSound('click');
@@ -11006,14 +11224,14 @@ function loadSynonymSet(setIdx) {
         qDeck.appendChild(div);
     });
 
-    // Render Passage deck in shuffled order
+    // Render Passage Deck (Shuffled)
     const shuffledPassage = [...setData].sort(() => Math.random() - 0.5);
     shuffledPassage.forEach(item => {
         const div = document.createElement('div');
         div.className = 'synonym-item';
         div.dataset.match = item.id;
         div.dataset.type = 'p';
-        div.innerHTML = `<i class="fa-solid fa-link" style="color:#10b981;"></i> ${item.p}`;
+        div.innerHTML = `<i class="fa-solid fa-link" style="color:#10b981; font-size:1rem;"></i> <span>${item.p}</span>`;
 
         div.addEventListener('click', () => {
             if (!state.synonymGame.selectedQ) return;
@@ -11029,15 +11247,18 @@ function loadSynonymSet(setIdx) {
                 div.classList.add('matched');
 
                 // Connect text with green check
-                qCard.innerHTML = `${qCard.textContent.trim()} <i class="fa-solid fa-circle-check text-green"></i>`;
-                div.innerHTML = `<i class="fa-solid fa-link text-green"></i> ${div.textContent.trim()}`;
+                qCard.innerHTML = `<span>${qCard.querySelector('span').textContent}</span> <i class="fa-solid fa-circle-check text-green" style="font-size:1.2rem;"></i>`;
+                div.innerHTML = `<i class="fa-solid fa-circle-check text-green" style="font-size:1.2rem;"></i> <span>${div.querySelector('span').textContent}</span>`;
 
                 state.synonymGame.matches++;
                 state.synonymGame.selectedQ = null;
 
+                const progBadge = document.getElementById('synonym-progress-badge');
+                if (progBadge) progBadge.textContent = `Đã ghép: ${state.synonymGame.matches} / ${setData.length} cặp`;
+
                 if (state.synonymGame.matches === setData.length) {
                     playSound('complete');
-                    document.getElementById('synonym-feedback').classList.remove('hidden');
+                    showSynonymSetCompletion(setData);
                     state.progress.synonymLab = true;
                     updateProgress();
                 }
@@ -11052,9 +11273,318 @@ function loadSynonymSet(setIdx) {
     });
 }
 
+function showSynonymSetCompletion(setData) {
+    const feedbackEl = document.getElementById('synonym-feedback');
+    const summaryTableEl = document.getElementById('synonym-completed-vocab-summary');
+    if (!feedbackEl || !summaryTableEl) return;
+
+    let rowsHtml = '';
+    setData.forEach((item, idx) => {
+        rowsHtml += `
+            <tr style="border-bottom: 1px solid #e2e8f0; font-size: 0.93rem;">
+                <td style="padding: 8px 12px; font-weight: 700; color: #2563eb;">${item.q}</td>
+                <td style="padding: 8px 12px; font-weight: 700; color: #16a34a;">${item.p}</td>
+                <td style="padding: 8px 12px; color: #475569;">${item.vi}</td>
+            </tr>
+        `;
+    });
+
+    summaryTableEl.innerHTML = `
+        <div style="font-weight: 800; color: #1e293b; margin-bottom: 8px; font-size: 0.98rem; display: flex; align-items: center; gap: 6px;">
+            <i class="fa-solid fa-book-open" style="color: #16a34a;"></i> Tổng kết từ vựng bộ vừa hoàn thành:
+        </div>
+        <table style="width: 100%; border-collapse: collapse; text-align: left;">
+            <thead>
+                <tr style="background: #f8fafc; border-bottom: 2px solid #cbd5e1; font-size: 0.88rem; color: #64748b;">
+                    <th style="padding: 6px 12px;">Từ khóa</th>
+                    <th style="padding: 6px 12px;">Paraphrase</th>
+                    <th style="padding: 6px 12px;">Ý nghĩa tiếng Việt</th>
+                </tr>
+            </thead>
+            <tbody>
+                ${rowsHtml}
+            </tbody>
+        </table>
+    `;
+
+    feedbackEl.classList.remove('hidden');
+    feedbackEl.scrollIntoView({ behavior: 'smooth' });
+}
+
 function reloadCurrentSynonymSet() {
     playSound('click');
     loadSynonymSet(currentSynonymSetIdx);
+}
+
+function nextSynonymSet() {
+    playSound('click');
+    const nextIdx = (currentSynonymSetIdx + 1) % synonymSetsData.length;
+    loadSynonymSet(nextIdx);
+}
+
+// 10 MCQ Practice Questions for Synonym Speed Challenge
+const synonymMCQData = [
+    {
+        sentence: "The newly introduced regulations make safety helmets <u>mandatory</u> for all construction workers on site.",
+        target: "mandatory",
+        options: ["A. optional", "B. compulsory", "C. recommended", "D. flexible"],
+        correctIdx: 1,
+        explanation: "<strong>Mandatory</strong> (bắt buộc) đồng nghĩa với <strong>compulsory / required</strong>. Optional (tự nguyện) là từ trái nghĩa."
+    },
+    {
+        sentence: "Scientists warn that continued deforestation will <u>deplete</u> the region's clean water supply within decades.",
+        target: "deplete",
+        options: ["A. exhaust", "B. replenish", "C. purify", "D. accumulate"],
+        correctIdx: 0,
+        explanation: "<strong>Deplete</strong> (làm cạn kiệt, suy giảm) đồng nghĩa với <strong>exhaust / use up</strong>. Replenish (làm đầy lại) là từ trái nghĩa."
+    },
+    {
+        sentence: "Regular cardiovascular exercise is known to <u>enhance</u> cognitive flexibility and memory retention in elderly people.",
+        target: "enhance",
+        options: ["A. restrict", "B. diminish", "C. improve", "D. evaluate"],
+        correctIdx: 2,
+        explanation: "<strong>Enhance</strong> (nâng cao, tăng cường) đồng nghĩa với <strong>improve / boost</strong>."
+    },
+    {
+        sentence: "Due to unfavorable weather conditions, the economic situation in the agricultural sector began to <u>deteriorate</u>.",
+        target: "deteriorate",
+        options: ["A. prosper", "B. worsen", "C. stabilize", "D. recover"],
+        correctIdx: 1,
+        explanation: "<strong>Deteriorate</strong> (trở nên tồi tệ hơn, suy thoái) đồng nghĩa với <strong>worsen / decline</strong>."
+    },
+    {
+        sentence: "The committee concluded that building a solar farm in the valley is financially and technically <u>feasible</u>.",
+        target: "feasible",
+        options: ["A. impossible", "B. practical", "C. unprofitable", "D. theoretical"],
+        correctIdx: 1,
+        explanation: "<strong>Feasible</strong> (khả thi, thực tế có thể làm được) đồng nghĩa với <strong>practical / workable / viable</strong>."
+    },
+    {
+        sentence: "The discovery of antibiotics helped <u>revolutionize</u> modern medical treatments and save millions of lives.",
+        target: "revolutionize",
+        options: ["A. transform dramatically", "B. slightly delay", "C. quietly replace", "D. totally prevent"],
+        correctIdx: 0,
+        explanation: "<strong>Revolutionize</strong> (cách mạng hóa, thay đổi triệt để) đồng nghĩa với <strong>transform dramatically</strong>."
+    },
+    {
+        sentence: "In tropical rainforests, there is an <u>abundant</u> supply of fruit and seeds that support various bird species.",
+        target: "abundant",
+        options: ["A. scarce", "B. limited", "C. plentiful", "D. seasonal"],
+        correctIdx: 2,
+        explanation: "<strong>Abundant</strong> (dồi dào, phong phú) đồng nghĩa với <strong>plentiful / copious</strong>. Scarce (khan hiếm) là từ trái nghĩa."
+    },
+    {
+        sentence: "High initial startup costs represent a major <u>obstacle</u> for young entrepreneurs launching green energy firms.",
+        target: "obstacle",
+        options: ["A. benefit", "B. hurdle", "C. inspiration", "D. catalyst"],
+        correctIdx: 1,
+        explanation: "<strong>Obstacle</strong> (chướng ngại vật, rào cản) đồng nghĩa với <strong>hurdle / barrier / difficulty</strong>."
+    },
+    {
+        sentence: "The local government decided to <u>prohibit</u> vehicles from driving through the historic district during weekends.",
+        target: "prohibit",
+        options: ["A. encourage", "B. permit", "C. ban", "D. register"],
+        correctIdx: 2,
+        explanation: "<strong>Prohibit</strong> (ngăn cấm, cấm chỉ) đồng nghĩa với <strong>ban / forbid / make illegal</strong>."
+    },
+    {
+        sentence: "Proper sleep hygiene is <u>vital</u> for maintaining immune function and mental focus throughout the workday.",
+        target: "vital",
+        options: ["A. crucial", "B. optional", "C. secondary", "D. trivial"],
+        correctIdx: 0,
+        explanation: "<strong>Vital</strong> (vô cùng quan trọng, thiết yếu) đồng nghĩa với <strong>crucial / essential / indispensable</strong>."
+    }
+];
+
+function renderSynonymMCQQuiz() {
+    const container = document.getElementById('synonym-quiz-container');
+    if (!container) return;
+    container.innerHTML = '';
+
+    synonymMCQData.forEach((item, idx) => {
+        const qCard = document.createElement('div');
+        qCard.className = 'mini-practice-card';
+        qCard.style.borderRadius = '14px';
+        qCard.style.padding = '20px 24px';
+        qCard.style.background = '#f8fafc';
+        qCard.style.border = '1.5px solid #e2e8f0';
+
+        qCard.innerHTML = `
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                <span style="background: #e0e7ff; color: #4338ca; font-weight: 800; font-size: 0.85rem; padding: 4px 12px; border-radius: 12px;">CÂU HỎI ${idx + 1}</span>
+                <span style="color: #64748b; font-size: 0.85rem; font-weight: 600;">Từ khóa: <strong>${item.target}</strong></span>
+            </div>
+            <p style="font-size: 1.05rem; line-height: 1.7; color: #1e293b; margin-bottom: 16px;">
+                ${item.sentence}
+            </p>
+            <div class="mini-options" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-bottom: 14px;">
+                ${item.options.map((opt, oIdx) => `
+                    <button class="mini-option" data-opt="${oIdx}" style="text-align: left; background: #ffffff; border: 1.5px solid #cbd5e1; border-radius: 10px; padding: 10px 14px; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: all 0.15s;">
+                        ${opt}
+                    </button>
+                `).join('')}
+            </div>
+            <div style="display: flex; justify-content: flex-end;">
+                <button class="primary-btn btn-sm hidden check-synonym-q-btn" style="border-radius: 8px; font-weight: 700; padding: 8px 18px;">
+                    <i class="fa-solid fa-check-double"></i> Kiểm tra đáp án
+                </button>
+            </div>
+            <div class="mini-feedback hidden" style="margin-top: 14px; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 10px; padding: 14px; font-size: 0.95rem; color: #166534; line-height: 1.6;">
+            </div>
+        `;
+
+        const optBtns = qCard.querySelectorAll('.mini-option');
+        const checkBtn = qCard.querySelector('.check-synonym-q-btn');
+        const feedbackEl = qCard.querySelector('.mini-feedback');
+        let selectedOptIdx = -1;
+
+        optBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                playSound('click');
+                optBtns.forEach(b => {
+                    b.style.borderColor = '#cbd5e1';
+                    b.style.background = '#ffffff';
+                    b.style.color = '#1e293b';
+                });
+                btn.style.borderColor = '#6366f1';
+                btn.style.background = '#ede9fe';
+                btn.style.color = '#4338ca';
+                selectedOptIdx = parseInt(btn.dataset.opt, 10);
+                checkBtn.classList.remove('hidden');
+            });
+        });
+
+        checkBtn.addEventListener('click', () => {
+            if (selectedOptIdx === -1) return;
+            checkBtn.classList.add('hidden');
+            optBtns.forEach(b => b.disabled = true);
+
+            const isCorrect = selectedOptIdx === item.correctIdx;
+            if (isCorrect) {
+                playSound('success');
+                optBtns[selectedOptIdx].style.background = '#dcfce7';
+                optBtns[selectedOptIdx].style.borderColor = '#22c55e';
+                optBtns[selectedOptIdx].style.color = '#15803d';
+                feedbackEl.innerHTML = `
+                    <div style="font-weight: 800; color: #16a34a; margin-bottom: 6px;"><i class="fa-solid fa-circle-check"></i> CHÍNH XÁC (CORRECT)</div>
+                    <div>${item.explanation}</div>
+                `;
+            } else {
+                playSound('fail');
+                optBtns[selectedOptIdx].style.background = '#fee2e2';
+                optBtns[selectedOptIdx].style.borderColor = '#ef4444';
+                optBtns[selectedOptIdx].style.color = '#b91c1c';
+
+                optBtns[item.correctIdx].style.background = '#dcfce7';
+                optBtns[item.correctIdx].style.borderColor = '#22c55e';
+                optBtns[item.correctIdx].style.color = '#15803d';
+
+                feedbackEl.style.background = '#fef2f2';
+                feedbackEl.style.borderColor = '#fca5a5';
+                feedbackEl.style.color = '#991b1b';
+                feedbackEl.innerHTML = `
+                    <div style="font-weight: 800; color: #dc2626; margin-bottom: 6px;"><i class="fa-solid fa-circle-xmark"></i> CHƯA CHÍNH XÁC</div>
+                    <div>${item.explanation}</div>
+                `;
+            }
+            feedbackEl.classList.remove('hidden');
+        });
+
+        container.appendChild(qCard);
+    });
+}
+
+// 45+ Curated VSTEP Paraphrase Dictionary Cards
+const synonymDictData = [
+    { word: "vital", ipa: "/ˈvaɪ.təl/", type: "adj", cat: "b1", syns: ["crucial", "essential", "indispensable"], vi: "vô cùng quan trọng, thiết yếu", ex: "Water is vital for all living organisms." },
+    { word: "massive", ipa: "/ˈmæs.ɪv/", type: "adj", cat: "b2", syns: ["huge", "enormous", "gigantic"], vi: "khổng lồ, to lớn", ex: "The Moon was formed from a massive collision." },
+    { word: "prohibit", ipa: "/prəˈhɪb.ɪt/", type: "v", cat: "b1", syns: ["ban", "forbid", "disallow"], vi: "ngăn cấm, cấm chỉ", ex: "Smoking is strictly prohibited in public buildings." },
+    { word: "mandatory", ipa: "/ˈmæn.də.tər.i/", type: "adj", cat: "b2", syns: ["compulsory", "required", "obligatory"], vi: "bắt buộc theo luật/quy định", ex: "Wearing a seatbelt is mandatory in this country." },
+    { word: "enhance", ipa: "/ɪnˈhɑːns/", type: "v", cat: "b1", syns: ["improve", "boost", "strengthen"], vi: "nâng cao, cải thiện", ex: "Reading regularly enhances vocabulary retention." },
+    { word: "deplete", ipa: "/dɪˈpliːt/", type: "v", cat: "b2", syns: ["exhaust", "use up", "drain"], vi: "làm cạn kiệt tài nguyên", ex: "Overfishing has depleted marine populations." },
+    { word: "feasible", ipa: "/ˈfiː.zə.bəl/", type: "adj", cat: "b2", syns: ["practical", "viable", "achievable"], vi: "khả thi, có thể thực hiện", ex: "The project is both technically and financially feasible." },
+    { word: "obstacle", ipa: "/ˈɒb.stə.kəl/", type: "n", cat: "b1", syns: ["hurdle", "barrier", "impediment"], vi: "rào cản, chướng ngại vật", ex: "Lack of funding is the main obstacle to research." },
+    { word: "abundant", ipa: "/əˈbʌn.dənt/", type: "adj", cat: "b2", syns: ["plentiful", "copious", "rich in"], vi: "dồi dào, phong phú", ex: "The region has abundant rainfall throughout the year." },
+    { word: "revolutionize", ipa: "/ˌrev.əˈluː.ʃən.aɪz/", type: "v", cat: "b2", syns: ["transform dramatically", "modernize"], vi: "cách mạng hóa, đổi mới toàn diện", ex: "The Model T revolutionized automobile manufacturing." },
+    { word: "inextricably", ipa: "/ˌɪn.ɪkˈstrɪk.ə.bli/", type: "adv", cat: "c1", syns: ["inseparably", "closely intertwined"], vi: "gắn bó khăng khít không thể tách rời", ex: "Economic growth is inextricably linked to energy use." },
+    { word: "obliterate", ipa: "/əˈblɪt.ər.eɪt/", type: "v", cat: "c1", syns: ["erase completely", "destroy utterly", "wipe out"], vi: "xóa sạch hoàn toàn không để lại dấu vết", ex: "Meteorite strikes can obliterate lunar footprints." },
+    { word: "meticulous", ipa: "/məˈtɪk.jə.ləs/", type: "adj", cat: "c1", syns: ["thorough", "painstaking", "scrupulous"], vi: "tỉ mỉ, cẩn trọng từng chi tiết", ex: "The research requires meticulous observation." },
+    { word: "deteriorate", ipa: "/dɪˈtɪə.ri.ə.reɪt/", type: "v", cat: "b2", syns: ["worsen", "decline", "degenerate"], vi: "suy thoái, trở nên xấu đi", ex: "Air quality deteriorated during the dry season." },
+    { word: "by happenstance", ipa: "/baɪ ˈhæp.ən.stæns/", type: "phrase", cat: "soc", syns: ["coincidentally", "by chance", "accidentally"], vi: "một cách tình cờ, ngẫu nhiên", ex: "They discovered the ancient artifact by happenstance." },
+    { word: "cumbersome", ipa: "/ˈkʌm.bə.səm/", type: "adj", cat: "soc", syns: ["awkward", "clunky", "unwieldy"], vi: "cồng kềnh, bất tiện khi sử dụng", ex: "Early cars had cumbersome steering systems." },
+    { word: "affectional tie", ipa: "/əˈfek.ʃən.əl taɪ/", type: "phrase", cat: "b2", syns: ["emotional bond", "deep attachment"], vi: "mối liên kết tình cảm bền chặt", ex: "Infants develop an affectional tie with their caregivers." },
+    { word: "cellular regeneration", ipa: "/ˈsel.jə.lər rɪˌdʒen.əˈreɪ.ʃən/", type: "phrase", cat: "env", syns: ["tissue regrowth", "biological healing"], vi: "sự tái tạo tế bào sinh học", ex: "The axolotl is famous for its cellular regeneration." },
+    { word: "biodiversity", ipa: "/ˌbaɪ.əʊ.daɪˈvɜː.sə.ti/", type: "n", cat: "env", syns: ["variety of life", "biological richness"], vi: "đa dạng sinh học", ex: "Pollution threatens global biodiversity." },
+    { word: "sustainable", ipa: "/səˈsteɪ.nə.bəl/", type: "adj", cat: "env", syns: ["eco-friendly", "renewable", "maintainable"], vi: "bền vững, thân thiện môi trường", ex: "Solar power is a sustainable energy source." }
+];
+
+let activeDictCategory = "all";
+
+function setDictFilter(cat, btn) {
+    playSound('click');
+    activeDictCategory = cat;
+    document.querySelectorAll('.synonym-filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    filterSynonymDictionary();
+}
+
+function filterSynonymDictionary() {
+    const query = (document.getElementById('synonym-live-search').value || '').trim().toLowerCase();
+    renderSynonymDictionary(query, activeDictCategory);
+}
+
+function renderSynonymDictionary(query = "", category = "all") {
+    const grid = document.getElementById('synonym-dict-grid');
+    if (!grid) return;
+    grid.innerHTML = '';
+
+    const filtered = synonymDictData.filter(item => {
+        const matchesCategory = (category === 'all') || (item.cat === category);
+        const matchesQuery = !query || 
+            item.word.toLowerCase().includes(query) || 
+            item.vi.toLowerCase().includes(query) || 
+            item.syns.some(s => s.toLowerCase().includes(query));
+        return matchesCategory && matchesQuery;
+    });
+
+    if (filtered.length === 0) {
+        grid.innerHTML = `
+            <div style="grid-column: 1 / -1; text-align: center; padding: 30px; color: #64748b;">
+                <i class="fa-solid fa-folder-open" style="font-size: 2rem; margin-bottom: 10px; color: #94a3b8;"></i>
+                <p style="margin: 0; font-size: 1rem;">Không tìm thấy từ đồng nghĩa phù hợp với từ khóa "<strong>${query}</strong>".</p>
+            </div>
+        `;
+        return;
+    }
+
+    filtered.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'synonym-dict-card';
+        card.innerHTML = `
+            <div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                    <div>
+                        <strong style="font-size: 1.15rem; color: #1e3a8a;">${item.word}</strong>
+                        <span style="color: #64748b; font-size: 0.85rem; margin-left: 6px;">${item.ipa} (${item.type})</span>
+                    </div>
+                    <span style="background: #e0f2fe; color: #0369a1; font-weight: 800; font-size: 0.75rem; padding: 2px 8px; border-radius: 10px; text-transform: uppercase;">${item.cat}</span>
+                </div>
+                <div style="color: #166534; font-weight: 700; font-size: 0.95rem; margin-bottom: 8px;">
+                    💡 ${item.vi}
+                </div>
+                <div style="background: #f8fafc; border-radius: 8px; padding: 8px 12px; margin-bottom: 10px; border: 1px solid #e2e8f0;">
+                    <div style="font-size: 0.82rem; font-weight: 700; color: #64748b; margin-bottom: 4px;">TỪ ĐỒNG NGHĨA PARAPHRASE:</div>
+                    <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                        ${item.syns.map(s => `<span style="background: #dbeafe; color: #1d4ed8; font-weight: 700; font-size: 0.85rem; padding: 2px 8px; border-radius: 6px;">${s}</span>`).join('')}
+                    </div>
+                </div>
+            </div>
+            <div style="font-size: 0.88rem; color: #475569; font-style: italic; border-top: 1px dashed #cbd5e1; padding-top: 8px;">
+                "${item.ex}"
+            </div>
+        `;
+        grid.appendChild(card);
+    });
 }
 
 
