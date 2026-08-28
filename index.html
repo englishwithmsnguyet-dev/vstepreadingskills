@@ -4420,19 +4420,91 @@ em, i {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
 }
 
+
 @media (max-width: 992px) {
     .cbt-split-workspace {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
+        border-radius: 0 0 14px 14px;
     }
     .cbt-passage-column {
-        border-right: none;
-        border-bottom: 2px solid #e2e8f0;
-        max-height: 450px;
+        border-right: none !important;
+        border-bottom: 2px solid #e2e8f0 !important;
+        max-height: 380px !important;
+        padding: 18px 20px !important;
+    }
+    .cbt-question-column {
+        padding: 20px !important;
+        max-height: none !important;
     }
     .cbt-palette-grid {
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(5, 1fr) !important;
+    }
+    .cbt-full-test-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .cbt-full-test-card button {
+        width: 100%;
+        margin-top: 10px;
     }
 }
+
+@media (max-width: 640px) {
+    .cbt-landing-hero {
+        padding: 20px 16px !important;
+        border-radius: 12px !important;
+    }
+    .cbt-landing-hero h2 {
+        font-size: 1.35rem !important;
+    }
+    .cbt-landing-hero p {
+        font-size: 0.95rem !important;
+    }
+    .cbt-top-bar {
+        padding: 12px 14px !important;
+        flex-direction: column;
+        align-items: stretch !important;
+        gap: 12px !important;
+    }
+    .cbt-top-bar > div {
+        justify-content: space-between;
+        width: 100%;
+    }
+    .cbt-part-tabs {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 4px;
+    }
+    .cbt-part-tab-btn {
+        padding: 6px 12px !important;
+        font-size: 0.85rem !important;
+        white-space: nowrap;
+    }
+    .cbt-passage-body {
+        font-size: 16.5px !important;
+        line-height: 1.85 !important;
+    }
+    .cbt-option-item {
+        padding: 12px 14px !important;
+        font-size: 0.98rem !important;
+    }
+    .cbt-palette-grid {
+        grid-template-columns: repeat(5, 1fr) !important;
+        gap: 5px !important;
+    }
+    .cbt-pal-btn {
+        font-size: 0.85rem !important;
+        height: 38px !important;
+    }
+    .cbt-passage-column {
+        max-height: 320px !important;
+        padding: 14px 16px !important;
+    }
+    .cbt-question-column {
+        padding: 16px 14px !important;
+    }
+}
+
 
 </style>
 
