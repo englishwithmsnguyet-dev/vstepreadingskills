@@ -9451,23 +9451,23 @@ const mockTestPassages = [
             </span>
 </div>
 </div>
-<!-- Global Quick Selection Actions Toolbar (Save Vocab & Highlighter) -->
-<div class="vocab-saver-toolbar hidden" id="vocab-saver-toolbar" style="position: fixed; z-index: 99999999; background: var(--primary-color, #4f46e5); color: white; padding: 7px 14px; border-radius: 28px; font-size: 0.85rem; font-weight: bold; cursor: default; display: flex; align-items: center; gap: 8px; box-shadow: 0 8px 24px rgba(0,0,0,0.3); border: 1.5px solid rgba(255,255,255,0.3); user-select: none; transition: opacity 0.15s ease;">
-<!-- Save Vocab Button -->
-<div id="btn-global-save-vocab" onmousedown="event.preventDefault();" style="display: flex; align-items: center; gap: 6px; cursor: pointer; padding: 3px 8px; border-radius: 8px; transition: background 0.2s; background: rgba(255,255,255,0.15);">
-<i class="fa-solid fa-plus-circle"></i>
-<span id="global-save-vocab-text">Lưu từ vựng này</span>
-</div>
-<!-- Vertical Separator Divider -->
-<div style="width: 1px; height: 16px; background: rgba(255,255,255,0.35);"></div>
-<!-- Highlighter Dots & Underline -->
-<div style="display: flex; align-items: center; gap: 6px;">
-<button class="color-dot underline" data-color="underline" onmousedown="event.preventDefault(); applyGlobalHighlighterColor('underline');" style="width: 22px; height: 20px; border-radius: 4px; border: 1.5px solid white; background: rgba(255,255,255,0.25); color: white; display: flex; align-items: center; justify-content: center; font-size: 0.72rem; font-weight: 800; cursor: pointer; padding: 0; transition: transform 0.1s;" title="Gạch chân (Underline)"><u>U</u></button>
-<button class="color-dot yellow" data-color="yellow" onmousedown="event.preventDefault(); applyGlobalHighlighterColor('yellow');" style="width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid white; background: #fde047; cursor: pointer; padding: 0; transition: transform 0.1s;" title="Tô vàng"></button>
-<button class="color-dot green" data-color="green" onmousedown="event.preventDefault(); applyGlobalHighlighterColor('green');" style="width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid white; background: #86efac; cursor: pointer; padding: 0; transition: transform 0.1s;" title="Tô xanh lá"></button>
-<button class="color-dot blue" data-color="blue" onmousedown="event.preventDefault(); applyGlobalHighlighterColor('blue');" style="width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid white; background: #93c5fd; cursor: pointer; padding: 0; transition: transform 0.1s;" title="Tô xanh dương"></button>
-<button class="color-dot clear" data-color="clear" onmousedown="event.preventDefault(); applyGlobalHighlighterColor('clear');" style="width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid white; background: transparent; color: white; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; cursor: pointer; padding: 0; transition: transform 0.1s;" title="Xóa tô sáng / gạch chân"><i class="fa-solid fa-eraser"></i></button>
-</div>
+<!-- Global Quick Selection Actions Toolbar (Positioned right next to the selected word) -->
+<div class="vocab-saver-toolbar hidden" id="vocab-saver-toolbar" style="position: fixed; z-index: 99999999; background: #1e1b4b; color: white; padding: 4px 10px; border-radius: 20px; font-size: 0.82rem; font-weight: bold; cursor: default; display: flex; align-items: center; gap: 7px; box-shadow: 0 4px 20px rgba(0,0,0,0.35); border: 1.5px solid rgba(255,255,255,0.25); user-select: none; transition: opacity 0.15s ease;">
+    <!-- Highlighter Dots & Underline Tools First -->
+    <div style="display: flex; align-items: center; gap: 5px;">
+        <button class="color-dot yellow" data-color="yellow" onmousedown="event.preventDefault(); applyGlobalHighlighterColor('yellow');" style="width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid #ca8a04; background: #fde047; cursor: pointer; padding: 0; transition: transform 0.1s;" title="Tô vàng"></button>
+        <button class="color-dot green" data-color="green" onmousedown="event.preventDefault(); applyGlobalHighlighterColor('green');" style="width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid #16a34a; background: #86efac; cursor: pointer; padding: 0; transition: transform 0.1s;" title="Tô xanh lá"></button>
+        <button class="color-dot blue" data-color="blue" onmousedown="event.preventDefault(); applyGlobalHighlighterColor('blue');" style="width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid #2563eb; background: #93c5fd; cursor: pointer; padding: 0; transition: transform 0.1s;" title="Tô xanh dương"></button>
+        <button class="color-dot underline" data-color="underline" onmousedown="event.preventDefault(); applyGlobalHighlighterColor('underline');" style="width: 22px; height: 20px; border-radius: 4px; border: 1.5px solid #60a5fa; background: rgba(96, 165, 250, 0.25); color: white; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 800; cursor: pointer; padding: 0; transition: transform 0.1s;" title="Gạch chân (Underline)"><u>U</u></button>
+        <button class="color-dot clear" data-color="clear" onmousedown="event.preventDefault(); applyGlobalHighlighterColor('clear');" style="width: 18px; height: 18px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.4); background: transparent; color: #cbd5e1; display: flex; align-items: center; justify-content: center; font-size: 0.72rem; cursor: pointer; padding: 0; transition: transform 0.1s;" title="Xóa tô sáng / gạch chân"><i class="fa-solid fa-eraser"></i></button>
+    </div>
+    <!-- Vertical Separator Divider -->
+    <div style="width: 1px; height: 16px; background: rgba(255,255,255,0.25);"></div>
+    <!-- Save Vocab Button -->
+    <div id="btn-global-save-vocab" onmousedown="event.preventDefault();" style="display: flex; align-items: center; gap: 5px; cursor: pointer; padding: 2px 6px; border-radius: 6px; transition: background 0.2s; background: rgba(255,255,255,0.12); font-size: 0.78rem;">
+        <i class="fa-solid fa-plus-circle" style="color: #38bdf8;"></i>
+        <span id="global-save-vocab-text">Lưu từ</span>
+    </div>
 </div>
 <!-- Confetti Canvas -->
 <canvas id="confetti-canvas"></canvas>
@@ -13667,7 +13667,7 @@ function initGlobalVocabSaver() {
         }
     });
 
-    function showToolbarForSelection(e) {
+        function showToolbarForSelection(e) {
         setTimeout(() => {
             const sel = window.getSelection();
             if (!sel || sel.isCollapsed || sel.rangeCount === 0) {
@@ -13687,21 +13687,18 @@ function initGlobalVocabSaver() {
             currentTextSelectionRange = range.cloneRange();
             
             const clientRects = range.getClientRects();
-            let rect = (clientRects.length > 0) ? clientRects[0] : range.getBoundingClientRect();
+            // Get the last bounding rect of selection (where word ends)
+            let rect = (clientRects.length > 0) ? clientRects[clientRects.length - 1] : range.getBoundingClientRect();
             
-            let clientX = rect.left + rect.width / 2;
-            let clientY = rect.top;
-            
-            if ((rect.width === 0 && rect.height === 0) || isNaN(clientX) || clientX === 0) {
+            if (rect.width === 0 && rect.height === 0) {
                 if (e && typeof e.clientX === 'number' && e.clientX > 0) {
-                    clientX = e.clientX;
-                    clientY = e.clientY;
+                    rect = { left: e.clientX, right: e.clientX + 10, top: e.clientY - 10, bottom: e.clientY + 10, height: 20, width: 20 };
                 } else {
                     return;
                 }
             }
             
-            // Show toolbar right next to the selected text
+            // Show toolbar immediately next to the selected word
             toolbar.classList.remove('hidden');
             toolbar.style.display = 'flex';
             toolbar.style.visibility = 'visible';
@@ -13710,18 +13707,30 @@ function initGlobalVocabSaver() {
             toolbar.style.zIndex = '99999999';
             toolbar.dataset.text = selectedText;
             
-            const tbWidth = toolbar.offsetWidth || 290;
-            const tbHeight = toolbar.offsetHeight || 42;
+            const tbWidth = toolbar.offsetWidth || 230;
+            const tbHeight = toolbar.offsetHeight || 36;
             
-            let left = clientX - (tbWidth / 2);
-            if (left < 10) left = 10;
-            if (left + tbWidth > window.innerWidth - 10) {
-                left = window.innerWidth - tbWidth - 10;
+            // Position kế bên từ ấy: immediately to the right of the selected word
+            let left = rect.right + 8;
+            let top = rect.top + (rect.height / 2) - (tbHeight / 2);
+            
+            // If overflowing the right screen edge, place directly to the left of the word or above
+            if (left + tbWidth > window.innerWidth - 12) {
+                if (rect.left - tbWidth - 8 > 10) {
+                    left = rect.left - tbWidth - 8;
+                } else {
+                    left = Math.max(10, Math.min(window.innerWidth - tbWidth - 10, rect.left));
+                    top = rect.top - tbHeight - 6;
+                    if (top < 10) {
+                        top = rect.bottom + 6;
+                    }
+                }
             }
             
-            let top = clientY - tbHeight - 10;
-            if (top < 10) {
-                top = (rect.bottom || clientY) + 10; // place below if near top
+            // Boundary constraints for top
+            if (top < 8) top = 8;
+            if (top + tbHeight > window.innerHeight - 8) {
+                top = window.innerHeight - tbHeight - 8;
             }
             
             toolbar.style.left = `${Math.round(left)}px`;
@@ -13729,12 +13738,12 @@ function initGlobalVocabSaver() {
             
             const spanText = document.getElementById('global-save-vocab-text');
             if (spanText) {
-                spanText.textContent = selectedText.includes(' ') ? "Lưu cụm từ này" : "Lưu từ vựng này";
+                spanText.textContent = selectedText.includes(' ') ? "Lưu cụm" : "Lưu từ";
             }
         }, 15);
     }
     
-    document.addEventListener('mouseup', (e) => {
+document.addEventListener('mouseup', (e) => {
         isMouseDown = false;
         if (e && e.target && toolbar.contains(e.target)) return;
         showToolbarForSelection(e);
