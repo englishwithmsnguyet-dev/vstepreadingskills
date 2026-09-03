@@ -9452,21 +9452,21 @@ const mockTestPassages = [
 </div>
 </div>
 <!-- Global Quick Selection Actions Toolbar (Save Vocab & Highlighter) -->
-<div class="vocab-saver-toolbar hidden" id="vocab-saver-toolbar" style="position: fixed; z-index: 9999999; background: #0f172a; color: white; padding: 7px 15px; border-radius: 30px; font-size: 0.85rem; font-weight: bold; cursor: default; display: flex; align-items: center; gap: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.4); border: 1.5px solid rgba(255,255,255,0.25); user-select: none;">
+<div class="vocab-saver-toolbar hidden" id="vocab-saver-toolbar" style="position: fixed; z-index: 99999999; background: var(--primary-color, #4f46e5); color: white; padding: 7px 14px; border-radius: 28px; font-size: 0.85rem; font-weight: bold; cursor: default; display: flex; align-items: center; gap: 8px; box-shadow: 0 8px 24px rgba(0,0,0,0.3); border: 1.5px solid rgba(255,255,255,0.3); user-select: none; transition: opacity 0.15s ease;">
 <!-- Save Vocab Button -->
-<div id="btn-global-save-vocab" onmousedown="event.preventDefault();" style="display: flex; align-items: center; gap: 6px; cursor: pointer; padding: 4px 8px; border-radius: 8px; transition: background 0.2s; background: rgba(255,255,255,0.1);">
-<i class="fa-solid fa-plus-circle" style="color: #38bdf8;"></i>
+<div id="btn-global-save-vocab" onmousedown="event.preventDefault();" style="display: flex; align-items: center; gap: 6px; cursor: pointer; padding: 3px 8px; border-radius: 8px; transition: background 0.2s; background: rgba(255,255,255,0.15);">
+<i class="fa-solid fa-plus-circle"></i>
 <span id="global-save-vocab-text">Lưu từ vựng này</span>
 </div>
 <!-- Vertical Separator Divider -->
-<div style="width: 1.5px; height: 18px; background: rgba(255,255,255,0.25);"></div>
-<!-- Highlighter & Underline Tools -->
-<div style="display: flex; align-items: center; gap: 7px;">
-<button class="color-dot yellow" data-color="yellow" onmousedown="event.preventDefault(); applyGlobalHighlighterColor('yellow');" style="width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid #ca8a04; background: #fde047; cursor: pointer; padding: 0; transition: transform 0.1s;" title="Tô vàng"></button>
-<button class="color-dot green" data-color="green" onmousedown="event.preventDefault(); applyGlobalHighlighterColor('green');" style="width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid #16a34a; background: #86efac; cursor: pointer; padding: 0; transition: transform 0.1s;" title="Tô xanh lá"></button>
-<button class="color-dot blue" data-color="blue" onmousedown="event.preventDefault(); applyGlobalHighlighterColor('blue');" style="width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid #2563eb; background: #93c5fd; cursor: pointer; padding: 0; transition: transform 0.1s;" title="Tô xanh dương"></button>
-<button class="color-dot underline" data-color="underline" onmousedown="event.preventDefault(); applyGlobalHighlighterColor('underline');" style="width: 22px; height: 20px; border-radius: 4px; border: 1.5px solid #60a5fa; background: rgba(96, 165, 250, 0.2); color: white; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 800; cursor: pointer; padding: 0; transition: transform 0.1s;" title="Gạch chân (Underline)"><u>U</u></button>
-<button class="color-dot clear" data-color="clear" onmousedown="event.preventDefault(); applyGlobalHighlighterColor('clear');" style="width: 20px; height: 20px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.4); background: transparent; color: #cbd5e1; display: flex; align-items: center; justify-content: center; font-size: 0.72rem; cursor: pointer; padding: 0; transition: transform 0.1s;" title="Xóa tô sáng / gạch chân"><i class="fa-solid fa-eraser"></i></button>
+<div style="width: 1px; height: 16px; background: rgba(255,255,255,0.35);"></div>
+<!-- Highlighter Dots & Underline -->
+<div style="display: flex; align-items: center; gap: 6px;">
+<button class="color-dot underline" data-color="underline" onmousedown="event.preventDefault(); applyGlobalHighlighterColor('underline');" style="width: 22px; height: 20px; border-radius: 4px; border: 1.5px solid white; background: rgba(255,255,255,0.25); color: white; display: flex; align-items: center; justify-content: center; font-size: 0.72rem; font-weight: 800; cursor: pointer; padding: 0; transition: transform 0.1s;" title="Gạch chân (Underline)"><u>U</u></button>
+<button class="color-dot yellow" data-color="yellow" onmousedown="event.preventDefault(); applyGlobalHighlighterColor('yellow');" style="width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid white; background: #fde047; cursor: pointer; padding: 0; transition: transform 0.1s;" title="Tô vàng"></button>
+<button class="color-dot green" data-color="green" onmousedown="event.preventDefault(); applyGlobalHighlighterColor('green');" style="width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid white; background: #86efac; cursor: pointer; padding: 0; transition: transform 0.1s;" title="Tô xanh lá"></button>
+<button class="color-dot blue" data-color="blue" onmousedown="event.preventDefault(); applyGlobalHighlighterColor('blue');" style="width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid white; background: #93c5fd; cursor: pointer; padding: 0; transition: transform 0.1s;" title="Tô xanh dương"></button>
+<button class="color-dot clear" data-color="clear" onmousedown="event.preventDefault(); applyGlobalHighlighterColor('clear');" style="width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid white; background: transparent; color: white; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; cursor: pointer; padding: 0; transition: transform 0.1s;" title="Xóa tô sáng / gạch chân"><i class="fa-solid fa-eraser"></i></button>
 </div>
 </div>
 <!-- Confetti Canvas -->
@@ -13370,7 +13370,7 @@ function exitMockExamToLanding() {
 }
 
 
-// 13. Unified Global Selection Highlighter & Underline Engine (Rock-Solid DOM Tree Walker)
+// 13. Unified Global Selection Highlighter & Underline Engine (Rock-Solid Multi-Browser)
 let currentTextSelectionRange = null;
 
 function saveActiveSelection() {
@@ -13383,8 +13383,6 @@ function saveActiveSelection() {
     }
 }
 document.addEventListener('selectionchange', saveActiveSelection);
-document.addEventListener('mouseup', saveActiveSelection);
-document.addEventListener('keyup', saveActiveSelection);
 
 function unwrapHighlightNode(node) {
     const parent = node.parentNode;
@@ -13417,7 +13415,7 @@ function createHighlightElement(type, text) {
         span.title = 'Nhấp đúp để xóa tô màu';
     }
     
-    // Allow double clicking on the highlight to remove it instantly
+    // Double click to remove highlight instantly
     span.addEventListener('dblclick', function(e) {
         e.stopPropagation();
         unwrapHighlightNode(span);
@@ -13427,24 +13425,89 @@ function createHighlightElement(type, text) {
     return span;
 }
 
+function wrapRangeWithHighlight(range, color) {
+    if (!range) return;
+    
+    // Check if range is inside single text node
+    if (range.startContainer === range.endContainer && range.startContainer.nodeType === Node.TEXT_NODE) {
+        const textNode = range.startContainer;
+        const text = textNode.textContent;
+        const start = range.startOffset;
+        const end = range.endOffset;
+        
+        if (start < end) {
+            const before = text.substring(0, start);
+            const selected = text.substring(start, end);
+            const after = text.substring(end);
+            
+            const span = createHighlightElement(color, selected);
+            const parent = textNode.parentNode;
+            
+            if (after) parent.insertBefore(document.createTextNode(after), textNode.nextSibling);
+            parent.insertBefore(span, textNode.nextSibling);
+            if (before) parent.insertBefore(document.createTextNode(before), span);
+            parent.removeChild(textNode);
+            return;
+        }
+    }
+    
+    // Multi-node selection:
+    try {
+        const span = createHighlightElement(color, '');
+        const fragment = range.extractContents();
+        span.appendChild(fragment);
+        range.insertNode(span);
+    } catch(e) {
+        console.warn("TreeWalker fallback for highlight:", e);
+        const common = range.commonAncestorContainer;
+        const root = (common.nodeType === 1) ? common : common.parentElement;
+        
+        const treeWalker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+            acceptNode: function(node) {
+                if (!node.textContent.trim()) return NodeFilter.FILTER_REJECT;
+                return range.intersectsNode(node) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+            }
+        });
+        
+        const textNodes = [];
+        while (treeWalker.nextNode()) {
+            textNodes.push(treeWalker.currentNode);
+        }
+        
+        textNodes.forEach(node => {
+            let start = (node === range.startContainer) ? range.startOffset : 0;
+            let end = (node === range.endContainer) ? range.endOffset : node.textContent.length;
+            if (start < end) {
+                const text = node.textContent;
+                const before = text.substring(0, start);
+                const selected = text.substring(start, end);
+                const after = text.substring(end);
+                
+                const s = createHighlightElement(color, selected);
+                const p = node.parentNode;
+                if (after) p.insertBefore(document.createTextNode(after), node.nextSibling);
+                p.insertBefore(s, node.nextSibling);
+                if (before) p.insertBefore(document.createTextNode(before), s);
+                p.removeChild(node);
+            }
+        });
+    }
+}
+
 function applyGlobalHighlighterColor(color) {
+    let sel = window.getSelection();
     let range = null;
-    const sel = window.getSelection();
     if (sel && !sel.isCollapsed && sel.rangeCount > 0) {
         range = sel.getRangeAt(0);
     } else if (currentTextSelectionRange) {
         range = currentTextSelectionRange;
     }
     
-    if (!range) {
-        alert("💡 Bạn hãy dùng chuột quét chọn (bôi đen) đoạn văn bản cần tô màu hoặc gạch chân trước nhé!");
-        return;
-    }
+    if (!range) return;
     
     playSound('click');
 
     if (color === 'clear') {
-        // Clear highlights in selection or ancestor
         const common = range.commonAncestorContainer;
         const root = (common.nodeType === 1) ? common : common.parentElement;
         
@@ -13460,63 +13523,7 @@ function applyGlobalHighlighterColor(color) {
             });
         }
     } else {
-        // Wrap text nodes inside range
-        if (range.startContainer === range.endContainer && range.startContainer.nodeType === Node.TEXT_NODE) {
-            const textNode = range.startContainer;
-            const text = textNode.textContent;
-            const start = range.startOffset;
-            const end = range.endOffset;
-            
-            if (start < end) {
-                const before = text.substring(0, start);
-                const selected = text.substring(start, end);
-                const after = text.substring(end);
-                
-                const span = createHighlightElement(color, selected);
-                const parent = textNode.parentNode;
-                
-                if (after) parent.insertBefore(document.createTextNode(after), textNode.nextSibling);
-                parent.insertBefore(span, textNode.nextSibling);
-                if (before) parent.insertBefore(document.createTextNode(before), span);
-                parent.removeChild(textNode);
-            }
-        } else {
-            // Multi-node selection across paragraphs or inline elements
-            const common = range.commonAncestorContainer;
-            const root = (common.nodeType === 1) ? common : common.parentElement;
-            
-            const treeWalker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
-                acceptNode: function(node) {
-                    if (!node.textContent.trim()) return NodeFilter.FILTER_REJECT;
-                    return range.intersectsNode(node) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
-                }
-            });
-            
-            const textNodes = [];
-            while (treeWalker.nextNode()) {
-                textNodes.push(treeWalker.currentNode);
-            }
-            
-            textNodes.forEach(node => {
-                let start = (node === range.startContainer) ? range.startOffset : 0;
-                let end = (node === range.endContainer) ? range.endOffset : node.textContent.length;
-                
-                if (start < end) {
-                    const text = node.textContent;
-                    const before = text.substring(0, start);
-                    const selected = text.substring(start, end);
-                    const after = text.substring(end);
-                    
-                    const span = createHighlightElement(color, selected);
-                    const parent = node.parentNode;
-                    
-                    if (after) parent.insertBefore(document.createTextNode(after), node.nextSibling);
-                    parent.insertBefore(span, node.nextSibling);
-                    if (before) parent.insertBefore(document.createTextNode(before), span);
-                    parent.removeChild(node);
-                }
-            });
-        }
+        wrapRangeWithHighlight(range, color);
     }
     
     if (sel) {
@@ -13525,7 +13532,10 @@ function applyGlobalHighlighterColor(color) {
     currentTextSelectionRange = null;
     
     const toolbar = document.getElementById('vocab-saver-toolbar');
-    if (toolbar) toolbar.classList.add('hidden');
+    if (toolbar) {
+        toolbar.classList.add('hidden');
+        toolbar.style.display = 'none';
+    }
 }
 window.applyGlobalHighlighterColor = applyGlobalHighlighterColor;
 
@@ -13558,12 +13568,12 @@ function speakWord(text) {
         
         if (guyVoice) {
             utterance.voice = guyVoice;
-            utterance.rate = 1.0; // Guy Neural sounds perfect at 1.0 speed
+            utterance.rate = 1.0;
             utterance.pitch = 1.0;
         } else if (fallbackVoice) {
             utterance.voice = fallbackVoice;
             utterance.rate = 1.0; 
-            utterance.pitch = 1.05; // Slightly higher pitch makes the male voice sound younger and fresher
+            utterance.pitch = 1.05;
         } else {
             utterance.lang = 'en-US';
         }
@@ -13572,27 +13582,6 @@ function speakWord(text) {
     } else {
         console.warn("Speech Synthesis not supported.");
     }
-}
-
-// Fetch phonetics dynamically from free Dictionary API for lookup words
-async function fetchPhoneticForWord(word) {
-    try {
-        const res = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(word)}`);
-        if (res.ok) {
-            const data = await res.json();
-            if (data && data[0]) {
-                if (data[0].phonetic) return data[0].phonetic;
-                if (data[0].phonetics) {
-                    for (let p of data[0].phonetics) {
-                        if (p.text) return p.text;
-                    }
-                }
-            }
-        }
-    } catch (e) {
-        console.warn("Phonetic lookup failed:", e);
-    }
-    return null;
 }
 
 // 14. Vocabulary Clicks Tooltips Database Sync
@@ -13611,28 +13600,21 @@ function bindVocabularyClickTooltips() {
             if (data) {
                 state.tooltipJustShown = true;
                 
-                // Populate tooltip contents
                 elements.tooltipWord.textContent = word;
                 elements.tooltipPos.textContent = `(${data.pos})`;
                 elements.tooltipPhonetic.textContent = data.phonetic;
                 elements.tooltipMean.textContent = data.mean;
                 
-                // Position Tooltip element
                 const rect = term.getBoundingClientRect();
-                const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
-                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                
-                elements.vocabTooltip.style.left = `${rect.left + scrollLeft}px`;
-                elements.vocabTooltip.style.top = `${rect.bottom + scrollTop + 8}px`;
+                elements.vocabTooltip.style.left = `${rect.left}px`;
+                elements.vocabTooltip.style.top = `${rect.bottom + 8}px`;
                 elements.vocabTooltip.classList.remove('hidden');
                 
-                // Set data properties on save button
                 elements.tooltipSaveBtn.dataset.word = word;
                 elements.tooltipSaveBtn.dataset.pos = data.pos;
                 elements.tooltipSaveBtn.dataset.phonetic = data.phonetic;
                 elements.tooltipSaveBtn.dataset.mean = data.mean;
                 
-                // Toggle Save button visibility based on existing saves
                 const isAlreadySaved = state.savedWords.some(w => w.word.toLowerCase() === word.toLowerCase());
                 if (isAlreadySaved) {
                     elements.tooltipSaveBtn.classList.add('hidden');
@@ -13644,183 +13626,6 @@ function bindVocabularyClickTooltips() {
             }
         });
     });
-    
-    // Global single click on ANY word inside reading passages to auto-translate and show definition card!
-    document.addEventListener('click', async (e) => {
-        // Prevent trigger if clicking on menus, buttons, modals, input elements, or active tooltips
-        if (e.target.closest('#vocab-saver-toolbar') || 
-            e.target.closest('#vocab-tooltip') || 
-            e.target.closest('button') || 
-            e.target.closest('input') || 
-            e.target.closest('a') || 
-            e.target.closest('.color-dot') || 
-            e.target.closest('.vocab-term') || 
-            e.target.closest('.scan-clickable') || 
-            e.target.closest('.sidebar-menu') || 
-            e.target.closest('.sidebar-header') ||
-            e.target.closest('.lesson-group-header') ||
-            e.target.closest('#name-modal')) {
-            return;
-        }
-        
-        // Only trigger inside primary curriculum views and stats cockpit
-        if (!e.target.closest('.content-section') && !e.target.closest('.dashboard-cockpit')) {
-            return;
-        }
-        
-        // Prevent single-word translation popups if there is an active text selection drag
-        const selObj = window.getSelection();
-        if (selObj && !selObj.isCollapsed && selObj.toString().trim().length > 0) {
-            return;
-        }
-        
-        // Extract caret coordinates
-        let range;
-        if (document.caretRangeFromPoint) {
-            range = document.caretRangeFromPoint(e.clientX, e.clientY);
-        } else if (e.rangeParent) {
-            range = document.createRange();
-            range.setStart(e.rangeParent, e.rangeOffset);
-        }
-        
-        if (range && range.startContainer.nodeType === Node.TEXT_NODE) {
-            const textNode = range.startContainer;
-            const offset = range.startOffset;
-            const text = textNode.textContent;
-            
-            // Detect word borders
-            let start = offset;
-            while (start > 0 && /\w/.test(text[start - 1])) {
-                start--;
-            }
-            let end = offset;
-            while (end < text.length && /\w/.test(text[end])) {
-                end++;
-            }
-            
-            const rawWord = text.substring(start, end).trim();
-            const cleanWord = rawWord.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?"']/g, "").trim();
-            
-            // Ensure clicked word is a valid English word string (between 2 and 25 letters)
-            if (cleanWord.length >= 2 && cleanWord.length <= 25 && /^[A-Za-z'-]+$/.test(cleanWord)) {
-                showFloatingWordDefinition(cleanWord, e.clientX, e.clientY);
-            }
-        }
-    });
-    
-    // Bind click handler to the tooltip manual save button
-    if (elements.tooltipSaveBtn) {
-        elements.tooltipSaveBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            playSound('success');
-            
-            const w = elements.tooltipSaveBtn.dataset.word;
-            const p = elements.tooltipSaveBtn.dataset.pos;
-            const ph = elements.tooltipSaveBtn.dataset.phonetic;
-            const m = elements.tooltipSaveBtn.dataset.mean;
-            
-            if (w) {
-                addWordToSavedList(w, { pos: p, phonetic: ph, mean: m });
-                elements.tooltipSaveBtn.classList.add('hidden');
-                elements.tooltipSavedBadge.classList.remove('hidden');
-            }
-        });
-    }
-    
-    // Bind click handler to the tooltip speak button
-    if (elements.tooltipSpeakBtn) {
-        elements.tooltipSpeakBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const w = elements.tooltipWord.textContent;
-            if (w) {
-                speakWord(w);
-            }
-        });
-    }
-    
-    // Close tooltips click elsewhere
-    document.addEventListener('click', (e) => {
-        // Prevent closing instantly when clicking to open or inside tooltip
-        if (state.tooltipJustShown) {
-            state.tooltipJustShown = false;
-            return;
-        }
-        if (!e.target.closest('#vocab-tooltip')) {
-            elements.vocabTooltip.classList.add('hidden');
-        }
-    });
-}
-
-// Helper: Show floating definition card for any clicked/selected word
-async function showFloatingWordDefinition(word, clientX, clientY) {
-    const lowerWord = word.toLowerCase();
-    const data = vocabData[lowerWord];
-    
-    state.tooltipJustShown = true;
-    
-    // Position floating card near caret coordinates
-    const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    
-    elements.vocabTooltip.style.left = `${clientX + scrollLeft - 50}px`;
-    elements.vocabTooltip.style.top = `${clientY + scrollTop + 12}px`;
-    
-    // Show loading skeleton
-    elements.tooltipWord.textContent = word;
-    elements.tooltipPos.textContent = "";
-    elements.tooltipPhonetic.textContent = "";
-    elements.tooltipMean.textContent = "Đang tra cứu nghĩa...";
-    
-    // Default show save button, hide badge
-    elements.tooltipSaveBtn.classList.remove('hidden');
-    elements.tooltipSavedBadge.classList.add('hidden');
-    elements.vocabTooltip.classList.remove('hidden');
-    
-    // Populate dataset properties
-    elements.tooltipSaveBtn.dataset.word = word;
-    elements.tooltipSaveBtn.dataset.pos = "tự động dịch";
-    elements.tooltipSaveBtn.dataset.phonetic = "/lookup/";
-    elements.tooltipSaveBtn.dataset.mean = "";
-    
-    // Check if word is already saved in user's list
-    const isAlreadySaved = state.savedWords.some(w => w.word.toLowerCase() === lowerWord);
-    if (isAlreadySaved) {
-        elements.tooltipSaveBtn.classList.add('hidden');
-        elements.tooltipSavedBadge.classList.remove('hidden');
-    }
-    
-    if (data) {
-        playSound('chime');
-        elements.tooltipPos.textContent = `(${data.pos})`;
-        elements.tooltipPhonetic.textContent = data.phonetic;
-        elements.tooltipMean.textContent = data.mean;
-        
-        elements.tooltipSaveBtn.dataset.pos = data.pos;
-        elements.tooltipSaveBtn.dataset.phonetic = data.phonetic;
-        elements.tooltipSaveBtn.dataset.mean = data.mean;
-    } else {
-        // Fetch phonetics dynamically from free DictionaryAPI first
-        const phonetic = await fetchPhoneticForWord(word);
-        const displayPhonetic = phonetic ? phonetic : "";
-        elements.tooltipPhonetic.textContent = displayPhonetic;
-        elements.tooltipSaveBtn.dataset.phonetic = displayPhonetic ? displayPhonetic : "/lookup/";
-        
-        // Dynamic fetch translation from MyMemory API
-        const translation = await translateWordENtoVI(word);
-        if (translation) {
-            playSound('chime');
-            elements.tooltipPos.textContent = "(tự động dịch)";
-            elements.tooltipPhonetic.textContent = "";
-            elements.tooltipMean.textContent = translation;
-            
-            elements.tooltipSaveBtn.dataset.pos = "tự động dịch";
-            elements.tooltipSaveBtn.dataset.phonetic = "/translated/";
-            elements.tooltipSaveBtn.dataset.mean = translation;
-        } else {
-            elements.tooltipMean.textContent = "Không tìm thấy bản dịch tự động.";
-            elements.tooltipSaveBtn.classList.add('hidden'); // Hide save button since no translation was found
-        }
-    }
 }
 
 // Helper: Asynchronous translation from English to Vietnamese
@@ -13830,7 +13635,6 @@ async function translateWordENtoVI(word) {
         const data = await res.json();
         if (data && data.responseData && data.responseData.translatedText) {
             let translated = data.responseData.translatedText.trim();
-            // Clean up same-word responses
             if (translated.toLowerCase() === word.toLowerCase() && data.matches) {
                 for (let m of data.matches) {
                     if (m.translation && m.translation.trim().toLowerCase() !== word.toLowerCase()) {
@@ -13847,77 +13651,115 @@ async function translateWordENtoVI(word) {
     return null;
 }
 
-// 14.5 Global Text Selection Word Saver & Floating Highlighter
+// 14.5 Global Text Selection Word Saver & Instant Floating Highlighter
 function initGlobalVocabSaver() {
     const toolbar = document.getElementById('vocab-saver-toolbar');
     if (!toolbar) return;
     
-    // Listen for text selection releases on document
-    document.addEventListener('mouseup', (e) => {
-        // Prevent trigger if clicking inside the toolbar itself
-        if (toolbar.contains(e.target)) return;
-        
-        setTimeout(() => {
-            const selection = window.getSelection();
-            if (!selection || selection.isCollapsed || selection.rangeCount === 0) {
+    let isMouseDown = false;
+    document.addEventListener('mousedown', (e) => {
+        isMouseDown = true;
+        if (!toolbar.contains(e.target)) {
+            if (!e.target.closest('[onmousedown*="applyGlobalHighlighterColor"]')) {
                 toolbar.classList.add('hidden');
+                toolbar.style.display = 'none';
+            }
+        }
+    });
+
+    function showToolbarForSelection(e) {
+        setTimeout(() => {
+            const sel = window.getSelection();
+            if (!sel || sel.isCollapsed || sel.rangeCount === 0) {
+                toolbar.classList.add('hidden');
+                toolbar.style.display = 'none';
                 return;
             }
             
-            const selectedText = selection.toString().trim();
+            const selectedText = sel.toString().trim();
             if (selectedText.length < 1 || selectedText.length > 5000) {
                 toolbar.classList.add('hidden');
+                toolbar.style.display = 'none';
                 return;
             }
             
-            const range = selection.getRangeAt(0);
+            const range = sel.getRangeAt(0);
             currentTextSelectionRange = range.cloneRange();
-            const rect = range.getBoundingClientRect();
             
-            if (rect.width === 0 && rect.height === 0) {
-                toolbar.classList.add('hidden');
-                return;
+            const clientRects = range.getClientRects();
+            let rect = (clientRects.length > 0) ? clientRects[0] : range.getBoundingClientRect();
+            
+            let clientX = rect.left + rect.width / 2;
+            let clientY = rect.top;
+            
+            if ((rect.width === 0 && rect.height === 0) || isNaN(clientX) || clientX === 0) {
+                if (e && typeof e.clientX === 'number' && e.clientX > 0) {
+                    clientX = e.clientX;
+                    clientY = e.clientY;
+                } else {
+                    return;
+                }
             }
             
-            // Calculate fixed position right above selection in viewport
-            toolbar.style.position = 'fixed';
-            toolbar.style.zIndex = '9999999';
+            // Show toolbar right next to the selected text
             toolbar.classList.remove('hidden');
+            toolbar.style.display = 'flex';
+            toolbar.style.visibility = 'visible';
+            toolbar.style.opacity = '1';
+            toolbar.style.position = 'fixed';
+            toolbar.style.zIndex = '99999999';
             toolbar.dataset.text = selectedText;
             
-            const tbWidth = toolbar.offsetWidth || 280;
-            const tbHeight = toolbar.offsetHeight || 44;
+            const tbWidth = toolbar.offsetWidth || 290;
+            const tbHeight = toolbar.offsetHeight || 42;
             
-            let left = rect.left + (rect.width / 2) - (tbWidth / 2);
+            let left = clientX - (tbWidth / 2);
             if (left < 10) left = 10;
             if (left + tbWidth > window.innerWidth - 10) {
                 left = window.innerWidth - tbWidth - 10;
             }
             
-            let top = rect.top - tbHeight - 10;
+            let top = clientY - tbHeight - 10;
             if (top < 10) {
-                top = rect.bottom + 10; // place below if selection is near top
+                top = (rect.bottom || clientY) + 10; // place below if near top
             }
             
-            toolbar.style.left = `${left}px`;
-            toolbar.style.top = `${top}px`;
+            toolbar.style.left = `${Math.round(left)}px`;
+            toolbar.style.top = `${Math.round(top)}px`;
             
-            // Update button label
             const spanText = document.getElementById('global-save-vocab-text');
             if (spanText) {
                 spanText.textContent = selectedText.includes(' ') ? "Lưu cụm từ này" : "Lưu từ vựng này";
             }
         }, 15);
+    }
+    
+    document.addEventListener('mouseup', (e) => {
+        isMouseDown = false;
+        if (e && e.target && toolbar.contains(e.target)) return;
+        showToolbarForSelection(e);
     });
     
-    // Hide toolbar when clicking elsewhere
-    document.addEventListener('mousedown', (e) => {
-        if (e.target !== toolbar && !toolbar.contains(e.target)) {
-            // Also don't hide if clicking on top-bar highlight buttons
-            if (!e.target.closest('[onmousedown*="applyGlobalHighlighterColor"]')) {
-                toolbar.classList.add('hidden');
+    document.addEventListener('touchend', (e) => {
+        isMouseDown = false;
+        if (e && e.target && toolbar.contains(e.target)) return;
+        showToolbarForSelection(e);
+    });
+
+    // Auto-detect double-clicks and drag selections on all platforms
+    let selChangeTimer = null;
+    document.addEventListener('selectionchange', () => {
+        if (isMouseDown) return; // Wait until mouse release
+        clearTimeout(selChangeTimer);
+        selChangeTimer = setTimeout(() => {
+            const sel = window.getSelection();
+            if (sel && !sel.isCollapsed && sel.rangeCount > 0) {
+                const txt = sel.toString().trim();
+                if (txt.length >= 1 && txt.length <= 5000) {
+                    showToolbarForSelection();
+                }
             }
-        }
+        }, 120);
     });
     
     // Bind global save vocab button click
@@ -13930,17 +13772,17 @@ function initGlobalVocabSaver() {
             const rawWord = toolbar.dataset.text;
             if (!rawWord) {
                 toolbar.classList.add('hidden');
+                toolbar.style.display = 'none';
                 return;
             }
             const cleanWord = rawWord.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?"']/g, "").trim();
             if (cleanWord.length < 2) {
                 toolbar.classList.add('hidden');
+                toolbar.style.display = 'none';
                 return;
             }
             
             const isPhrase = cleanWord.includes(' ');
-            
-            // Show loading state
             const spanText = document.getElementById('global-save-vocab-text');
             if (spanText) {
                 spanText.textContent = isPhrase ? "Đang dịch & lưu cụm..." : "Đang dịch & lưu từ...";
@@ -13952,10 +13794,10 @@ function initGlobalVocabSaver() {
                 addWordToSavedList(cleanWord, preDefinedData);
                 playSound('success');
                 toolbar.classList.add('hidden');
+                toolbar.style.display = 'none';
                 return;
             }
             
-            // Translate using MyMemory API
             const translation = await translateWordENtoVI(cleanWord);
             if (translation) {
                 let displayPhonetic = "/phrase/";
@@ -13972,8 +13814,10 @@ function initGlobalVocabSaver() {
                 addWordToSavedList(cleanWord, customData);
                 playSound('success');
                 toolbar.classList.add('hidden');
+                toolbar.style.display = 'none';
             } else {
                 toolbar.classList.add('hidden');
+                toolbar.style.display = 'none';
                 setTimeout(() => {
                     const userMean = prompt(`Không thể dịch tự động từ '${cleanWord}'. Hãy nhập nghĩa tiếng Việt hoặc ghi chú của từ này:`);
                     if (userMean && userMean.trim().length > 0) {
@@ -14956,7 +14800,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initSafely('EyeTracker', initEyeTracker);
     initSafely('KeywordsSortingGame', initKeywordsSortingGame);
     initSafely('SynonymMatchingGame', initSynonymMatchingGame);
-    renderMockVocabCards();
+    initSafely('MockVocabCards', renderMockVocabCards);
     initSafely('MockControls', setupMockControls);
     initSafely('VocabControls', initVocabControls);
     initSafely('CertificateClose', initCertificateClose);
