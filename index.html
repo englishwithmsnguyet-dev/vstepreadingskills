@@ -8737,14 +8737,24 @@ const mockTestPassages = [
 <p class="lead-text" id="dang-desc">Mô tả dạng câu hỏi...</p>
 </div>
 <div class="tabs-container">
-<div class="tabs-nav">
-<button class="tab-btn active" data-dang-tab="tab-dang-theory" onclick="switchDangTab('tab-dang-theory')">
-<i class="fa-solid fa-book"></i> Lý Thuyết &amp; Mẹo Làm Bài
-                            </button>
-
-<button class="tab-btn" data-dang-tab="tab-dang-practice" onclick="switchDangTab('tab-dang-practice')">
-<i class="fa-solid fa-pen-to-square"></i> Luyện Tập Phản Xạ
-                            </button>
+<div class="tabs-nav" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+        <button class="tab-btn active" data-dang-tab="tab-dang-theory" onclick="switchDangTab('tab-dang-theory')">
+            <i class="fa-solid fa-book"></i> Lý Thuyết &amp; Mẹo Làm Bài
+        </button>
+        <button class="tab-btn" data-dang-tab="tab-dang-practice" onclick="switchDangTab('tab-dang-practice')">
+            <i class="fa-solid fa-pen-to-square"></i> Luyện Tập Phản Xạ
+        </button>
+    </div>
+    <!-- Quick Highlighter Suite in Chapter 2 -->
+    <div style="display: flex; align-items: center; gap: 5px; background: #ffffff; border: 1.5px solid #cbd5e1; padding: 4px 10px; border-radius: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+        <span style="font-size: 0.8rem; font-weight: 800; color: #64748b; margin-right: 2px;"><i class="fa-solid fa-highlighter" style="color: #6366f1;"></i> Tô &amp; Gạch:</span>
+        <button onmousedown="event.preventDefault(); applyGlobalHighlighterColor('yellow');" style="width: 20px; height: 20px; border-radius: 50%; background: #fde047; border: 1.5px solid #ca8a04; cursor: pointer; padding: 0;" title="Tô vàng"></button>
+        <button onmousedown="event.preventDefault(); applyGlobalHighlighterColor('green')" onmousedown="event.preventDefault(); applyGlobalHighlighterColor('green');" style="width: 20px; height: 20px; border-radius: 50%; background: #86efac; border: 1.5px solid #16a34a; cursor: pointer; padding: 0;" title="Tô xanh lá"></button>
+        <button onmousedown="event.preventDefault(); applyGlobalHighlighterColor('blue')" onmousedown="event.preventDefault(); applyGlobalHighlighterColor('blue');" style="width: 20px; height: 20px; border-radius: 50%; background: #93c5fd; border: 1.5px solid #2563eb; cursor: pointer; padding: 0;" title="Tô xanh dương"></button>
+        <button onmousedown="event.preventDefault(); applyGlobalHighlighterColor('underline')" onmousedown="event.preventDefault(); applyGlobalHighlighterColor('underline');" style="width: 24px; height: 22px; border-radius: 5px; background: #eff6ff; border: 1.5px solid #3b82f6; color: #1d4ed8; font-weight: 800; font-size: 0.82rem; cursor: pointer; padding: 0; display: flex; align-items: center; justify-content: center;" title="Gạch chân (Underline)"><u>U</u></button>
+        <button onmousedown="event.preventDefault(); applyGlobalHighlighterColor('clear')" onmousedown="event.preventDefault(); applyGlobalHighlighterColor('clear');" style="width: 22px; height: 22px; border-radius: 5px; background: transparent; border: 1px solid #cbd5e1; color: #64748b; cursor: pointer; padding: 0; font-size: 0.75rem;" title="Xóa tô sáng / gạch chân"><i class="fa-solid fa-eraser"></i></button>
+    </div>
 </div>
 <!-- Panel 1: Theory -->
 <div class="tab-panel active" id="tab-dang-theory">
@@ -9190,11 +9200,11 @@ const mockTestPassages = [
                             <!-- Dedicated Quick Highlighter & Underline Suite -->
                             <div style="display: flex; align-items: center; gap: 5px; background: #ffffff; border: 1.5px solid #cbd5e1; padding: 3px 8px; border-radius: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
                                 <span style="font-size: 0.78rem; font-weight: 800; color: #64748b; margin-right: 2px;"><i class="fa-solid fa-highlighter" style="color: #6366f1;"></i></span>
-                                <button onclick="applyGlobalHighlighterColor('yellow')" style="width: 18px; height: 18px; border-radius: 50%; background: #fde047; border: 1.5px solid #ca8a04; cursor: pointer; padding: 0;" title="Tô vàng"></button>
-                                <button onclick="applyGlobalHighlighterColor('green')" style="width: 18px; height: 18px; border-radius: 50%; background: #86efac; border: 1.5px solid #16a34a; cursor: pointer; padding: 0;" title="Tô xanh lá"></button>
-                                <button onclick="applyGlobalHighlighterColor('blue')" style="width: 18px; height: 18px; border-radius: 50%; background: #93c5fd; border: 1.5px solid #2563eb; cursor: pointer; padding: 0;" title="Tô xanh dương"></button>
-                                <button onclick="applyGlobalHighlighterColor('underline')" style="width: 22px; height: 20px; border-radius: 4px; background: #eff6ff; border: 1.5px solid #3b82f6; color: #1d4ed8; font-weight: 800; font-size: 0.75rem; cursor: pointer; padding: 0; display: flex; align-items: center; justify-content: center;" title="Gạch chân (Underline)"><u>U</u></button>
-                                <button onclick="applyGlobalHighlighterColor('clear')" style="width: 20px; height: 20px; border-radius: 4px; background: transparent; border: 1px solid #cbd5e1; color: #64748b; cursor: pointer; padding: 0; font-size: 0.7rem;" title="Xóa tô sáng / gạch chân"><i class="fa-solid fa-eraser"></i></button>
+                                <button onmousedown="event.preventDefault(); applyGlobalHighlighterColor('yellow');" style="width: 18px; height: 18px; border-radius: 50%; background: #fde047; border: 1.5px solid #ca8a04; cursor: pointer; padding: 0;" title="Tô vàng"></button>
+                                <button onmousedown="event.preventDefault(); applyGlobalHighlighterColor('green');" style="width: 18px; height: 18px; border-radius: 50%; background: #86efac; border: 1.5px solid #16a34a; cursor: pointer; padding: 0;" title="Tô xanh lá"></button>
+                                <button onmousedown="event.preventDefault(); applyGlobalHighlighterColor('blue');" style="width: 18px; height: 18px; border-radius: 50%; background: #93c5fd; border: 1.5px solid #2563eb; cursor: pointer; padding: 0;" title="Tô xanh dương"></button>
+                                <button onmousedown="event.preventDefault(); applyGlobalHighlighterColor('underline');" style="width: 22px; height: 20px; border-radius: 4px; background: #eff6ff; border: 1.5px solid #3b82f6; color: #1d4ed8; font-weight: 800; font-size: 0.75rem; cursor: pointer; padding: 0; display: flex; align-items: center; justify-content: center;" title="Gạch chân (Underline)"><u>U</u></button>
+                                <button onmousedown="event.preventDefault(); applyGlobalHighlighterColor('clear');" style="width: 20px; height: 20px; border-radius: 4px; background: transparent; border: 1px solid #cbd5e1; color: #64748b; cursor: pointer; padding: 0; font-size: 0.7rem;" title="Xóa tô sáng / gạch chân"><i class="fa-solid fa-eraser"></i></button>
                             </div>
                             <div class="cbt-font-controls">
                                 <span style="font-size: 0.82rem; font-weight: 700; color: #64748b; margin-right: 4px;">Cỡ chữ:</span>
@@ -9366,11 +9376,11 @@ const mockTestPassages = [
                 <!-- Dedicated Quick Highlighter & Underline Suite -->
                 <div style="display: flex; align-items: center; gap: 5px; background: #ffffff; border: 1.5px solid #cbd5e1; padding: 4px 10px; border-radius: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
                     <span style="font-size: 0.82rem; font-weight: 800; color: #64748b; margin-right: 2px;"><i class="fa-solid fa-highlighter" style="color: #6366f1;"></i> Tô &amp; Gạch:</span>
-                    <button onclick="applyGlobalHighlighterColor('yellow')" style="width: 20px; height: 20px; border-radius: 50%; background: #fde047; border: 1.5px solid #ca8a04; cursor: pointer; padding: 0;" title="Tô vàng"></button>
-                    <button onclick="applyGlobalHighlighterColor('green')" style="width: 20px; height: 20px; border-radius: 50%; background: #86efac; border: 1.5px solid #16a34a; cursor: pointer; padding: 0;" title="Tô xanh lá"></button>
-                    <button onclick="applyGlobalHighlighterColor('blue')" style="width: 20px; height: 20px; border-radius: 50%; background: #93c5fd; border: 1.5px solid #2563eb; cursor: pointer; padding: 0;" title="Tô xanh dương"></button>
-                    <button onclick="applyGlobalHighlighterColor('underline')" style="width: 24px; height: 22px; border-radius: 5px; background: #eff6ff; border: 1.5px solid #3b82f6; color: #1d4ed8; font-weight: 800; font-size: 0.82rem; cursor: pointer; padding: 0; display: flex; align-items: center; justify-content: center;" title="Gạch chân (Underline)"><u>U</u></button>
-                    <button onclick="applyGlobalHighlighterColor('clear')" style="width: 22px; height: 22px; border-radius: 5px; background: transparent; border: 1px solid #cbd5e1; color: #64748b; cursor: pointer; padding: 0; font-size: 0.75rem;" title="Xóa tô sáng / gạch chân"><i class="fa-solid fa-eraser"></i></button>
+                    <button onmousedown="event.preventDefault(); applyGlobalHighlighterColor('yellow');" style="width: 20px; height: 20px; border-radius: 50%; background: #fde047; border: 1.5px solid #ca8a04; cursor: pointer; padding: 0;" title="Tô vàng"></button>
+                    <button onmousedown="event.preventDefault(); applyGlobalHighlighterColor('green');" style="width: 20px; height: 20px; border-radius: 50%; background: #86efac; border: 1.5px solid #16a34a; cursor: pointer; padding: 0;" title="Tô xanh lá"></button>
+                    <button onmousedown="event.preventDefault(); applyGlobalHighlighterColor('blue');" style="width: 20px; height: 20px; border-radius: 50%; background: #93c5fd; border: 1.5px solid #2563eb; cursor: pointer; padding: 0;" title="Tô xanh dương"></button>
+                    <button onmousedown="event.preventDefault(); applyGlobalHighlighterColor('underline');" style="width: 24px; height: 22px; border-radius: 5px; background: #eff6ff; border: 1.5px solid #3b82f6; color: #1d4ed8; font-weight: 800; font-size: 0.82rem; cursor: pointer; padding: 0; display: flex; align-items: center; justify-content: center;" title="Gạch chân (Underline)"><u>U</u></button>
+                    <button onmousedown="event.preventDefault(); applyGlobalHighlighterColor('clear');" style="width: 22px; height: 22px; border-radius: 5px; background: transparent; border: 1px solid #cbd5e1; color: #64748b; cursor: pointer; padding: 0; font-size: 0.75rem;" title="Xóa tô sáng / gạch chân"><i class="fa-solid fa-eraser"></i></button>
                 </div>
                 <div style="display: flex; align-items: center; gap: 4px; background: #f8fafc; border: 1.5px solid #cbd5e1; padding: 4px 8px; border-radius: 8px;">
                     <span style="font-size: 0.82rem; font-weight: 800; color: #64748b;"><i class="fa-solid fa-text-height" style="color: #3b82f6;"></i> Cỡ chữ:</span>
@@ -9442,21 +9452,21 @@ const mockTestPassages = [
 </div>
 </div>
 <!-- Global Quick Selection Actions Toolbar (Save Vocab & Highlighter) -->
-<div class="vocab-saver-toolbar hidden" id="vocab-saver-toolbar" style="position: absolute; z-index: 10000; background: var(--primary-color); color: white; padding: 8px 14px; border-radius: 24px; font-size: 0.85rem; font-weight: bold; cursor: default; display: flex; align-items: center; gap: 10px; box-shadow: 0 6px 20px rgba(0,0,0,0.25); transition: opacity 0.2s ease; border: 1.5px solid rgba(255,255,255,0.2); user-select: none;">
+<div class="vocab-saver-toolbar hidden" id="vocab-saver-toolbar" style="position: fixed; z-index: 9999999; background: #0f172a; color: white; padding: 7px 15px; border-radius: 30px; font-size: 0.85rem; font-weight: bold; cursor: default; display: flex; align-items: center; gap: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.4); border: 1.5px solid rgba(255,255,255,0.25); user-select: none;">
 <!-- Save Vocab Button -->
-<div id="btn-global-save-vocab" style="display: flex; align-items: center; gap: 6px; cursor: pointer; padding: 2px 6px; border-radius: 6px; transition: background 0.2s;">
-<i class="fa-solid fa-plus-circle"></i>
+<div id="btn-global-save-vocab" onmousedown="event.preventDefault();" style="display: flex; align-items: center; gap: 6px; cursor: pointer; padding: 4px 8px; border-radius: 8px; transition: background 0.2s; background: rgba(255,255,255,0.1);">
+<i class="fa-solid fa-plus-circle" style="color: #38bdf8;"></i>
 <span id="global-save-vocab-text">Lưu từ vựng này</span>
 </div>
 <!-- Vertical Separator Divider -->
-<div style="width: 1px; height: 16px; background: rgba(255,255,255,0.35);"></div>
+<div style="width: 1.5px; height: 18px; background: rgba(255,255,255,0.25);"></div>
 <!-- Highlighter & Underline Tools -->
-<div style="display: flex; align-items: center; gap: 8px;">
-<button class="color-dot underline" data-color="underline" onmouseout="this.style.transform='scale(1)'" onmouseover="this.style.transform='scale(1.15)'" style="width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid white; background: rgba(255,255,255,0.25); color: white; display: flex; align-items: center; justify-content: center; font-size: 0.72rem; cursor: pointer; padding: 0; transition: transform 0.1s;" title="Gạch chân (Underline)"><i class="fa-solid fa-underline"></i></button>
-<button class="color-dot yellow" data-color="yellow" onmouseout="this.style.transform='scale(1)'" onmouseover="this.style.transform='scale(1.15)'" style="width: 16px; height: 16px; border-radius: 50%; border: 1.5px solid white; background: #fde047; cursor: pointer; padding: 0; transition: transform 0.1s;" title="Tô vàng"></button>
-<button class="color-dot green" data-color="green" onmouseout="this.style.transform='scale(1)'" onmouseover="this.style.transform='scale(1.15)'" style="width: 16px; height: 16px; border-radius: 50%; border: 1.5px solid white; background: #86efac; cursor: pointer; padding: 0; transition: transform 0.1s;" title="Tô xanh lá"></button>
-<button class="color-dot blue" data-color="blue" onmouseout="this.style.transform='scale(1)'" onmouseover="this.style.transform='scale(1.15)'" style="width: 16px; height: 16px; border-radius: 50%; border: 1.5px solid white; background: #93c5fd; cursor: pointer; padding: 0; transition: transform 0.1s;" title="Tô xanh dương"></button>
-<button class="color-dot clear" data-color="clear" onmouseout="this.style.transform='scale(1)'" onmouseover="this.style.transform='scale(1.15)'" style="width: 16px; height: 16px; border-radius: 50%; border: 1.5px solid white; background: transparent; color: white; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; cursor: pointer; padding: 0; transition: transform 0.1s;" title="Xóa tô sáng / gạch chân"><i class="fa-solid fa-eraser"></i></button>
+<div style="display: flex; align-items: center; gap: 7px;">
+<button class="color-dot yellow" data-color="yellow" onmousedown="event.preventDefault(); applyGlobalHighlighterColor('yellow');" style="width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid #ca8a04; background: #fde047; cursor: pointer; padding: 0; transition: transform 0.1s;" title="Tô vàng"></button>
+<button class="color-dot green" data-color="green" onmousedown="event.preventDefault(); applyGlobalHighlighterColor('green');" style="width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid #16a34a; background: #86efac; cursor: pointer; padding: 0; transition: transform 0.1s;" title="Tô xanh lá"></button>
+<button class="color-dot blue" data-color="blue" onmousedown="event.preventDefault(); applyGlobalHighlighterColor('blue');" style="width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid #2563eb; background: #93c5fd; cursor: pointer; padding: 0; transition: transform 0.1s;" title="Tô xanh dương"></button>
+<button class="color-dot underline" data-color="underline" onmousedown="event.preventDefault(); applyGlobalHighlighterColor('underline');" style="width: 22px; height: 20px; border-radius: 4px; border: 1.5px solid #60a5fa; background: rgba(96, 165, 250, 0.2); color: white; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 800; cursor: pointer; padding: 0; transition: transform 0.1s;" title="Gạch chân (Underline)"><u>U</u></button>
+<button class="color-dot clear" data-color="clear" onmousedown="event.preventDefault(); applyGlobalHighlighterColor('clear');" style="width: 20px; height: 20px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.4); background: transparent; color: #cbd5e1; display: flex; align-items: center; justify-content: center; font-size: 0.72rem; cursor: pointer; padding: 0; transition: transform 0.1s;" title="Xóa tô sáng / gạch chân"><i class="fa-solid fa-eraser"></i></button>
 </div>
 </div>
 <!-- Confetti Canvas -->
@@ -13360,66 +13370,160 @@ function exitMockExamToLanding() {
 }
 
 
-// 13. Unified Global Selection Highlighter & Underline Engine
-function applyGlobalHighlighterColor(color) {
-    const selection = window.getSelection();
-    if (!selection || selection.isCollapsed || selection.rangeCount === 0) return;
-    
-    playSound('click');
-    const range = selection.getRangeAt(0);
-    
-    if (color === 'clear') {
-        // Clear all highlights within or surrounding the selection
-        const container = range.commonAncestorContainer;
-        const parentElem = container.nodeType === 1 ? container : container.parentElement;
-        
-        const directHl = parentElem ? parentElem.closest('.custom-highlight, mark') : null;
-        if (directHl) {
-            const text = document.createTextNode(directHl.textContent);
-            directHl.parentNode.replaceChild(text, directHl);
-        } else if (parentElem) {
-            const childHls = parentElem.querySelectorAll('.custom-highlight, mark');
-            childHls.forEach(hl => {
-                if (selection.containsNode(hl, true)) {
-                    const text = document.createTextNode(hl.textContent);
-                    hl.parentNode.replaceChild(text, hl);
-                }
-            });
+// 13. Unified Global Selection Highlighter & Underline Engine (Rock-Solid DOM Tree Walker)
+let currentTextSelectionRange = null;
+
+function saveActiveSelection() {
+    const sel = window.getSelection();
+    if (sel && !sel.isCollapsed && sel.rangeCount > 0) {
+        const text = sel.toString().trim();
+        if (text.length > 0) {
+            currentTextSelectionRange = sel.getRangeAt(0).cloneRange();
         }
-    } else if (color === 'underline') {
-        try {
-            const span = document.createElement('span');
-            span.className = 'custom-highlight highlight-underline';
-            span.style.cssText = 'text-decoration: underline 2.5px #2563eb !important; text-underline-offset: 4px !important; font-weight: 600;';
-            const contents = range.extractContents();
-            span.appendChild(contents);
-            range.insertNode(span);
-        } catch(e) {
-            console.warn("Underline DOM wrap fallback to execCommand:", e);
-            document.execCommand('underline', false, null);
-        }
+    }
+}
+document.addEventListener('selectionchange', saveActiveSelection);
+document.addEventListener('mouseup', saveActiveSelection);
+document.addEventListener('keyup', saveActiveSelection);
+
+function unwrapHighlightNode(node) {
+    const parent = node.parentNode;
+    if (!parent) return;
+    while (node.firstChild) {
+        parent.insertBefore(node.firstChild, node);
+    }
+    parent.removeChild(node);
+    parent.normalize();
+}
+
+function createHighlightElement(type, text) {
+    const span = document.createElement('span');
+    span.className = 'custom-highlight';
+    span.textContent = text;
+    
+    if (type === 'underline') {
+        span.classList.add('highlight-underline');
+        span.style.cssText = 'text-decoration: underline 2.5px #2563eb !important; text-underline-offset: 4px !important; font-weight: 600; cursor: pointer;';
+        span.title = 'Nhấp đúp để xóa gạch chân';
     } else {
         const bgMap = {
             'yellow': '#fef08a',
             'green': '#bbf7d0',
             'blue': '#bfdbfe'
         };
-        const chosenBg = bgMap[color] || '#fef08a';
+        const bg = bgMap[type] || '#fef08a';
+        span.classList.add(`highlight-${type}`);
+        span.style.cssText = `background-color: ${bg} !important; color: #0f172a !important; padding: 1px 2px; border-radius: 3px; font-weight: 500; cursor: pointer;`;
+        span.title = 'Nhấp đúp để xóa tô màu';
+    }
+    
+    // Allow double clicking on the highlight to remove it instantly
+    span.addEventListener('dblclick', function(e) {
+        e.stopPropagation();
+        unwrapHighlightNode(span);
+        playSound('click');
+    });
+    
+    return span;
+}
+
+function applyGlobalHighlighterColor(color) {
+    let range = null;
+    const sel = window.getSelection();
+    if (sel && !sel.isCollapsed && sel.rangeCount > 0) {
+        range = sel.getRangeAt(0);
+    } else if (currentTextSelectionRange) {
+        range = currentTextSelectionRange;
+    }
+    
+    if (!range) {
+        alert("💡 Bạn hãy dùng chuột quét chọn (bôi đen) đoạn văn bản cần tô màu hoặc gạch chân trước nhé!");
+        return;
+    }
+    
+    playSound('click');
+
+    if (color === 'clear') {
+        // Clear highlights in selection or ancestor
+        const common = range.commonAncestorContainer;
+        const root = (common.nodeType === 1) ? common : common.parentElement;
         
-        try {
-            const span = document.createElement('span');
-            span.className = `custom-highlight highlight-${color}`;
-            span.style.cssText = `background-color: ${chosenBg} !important; color: #0f172a !important; padding: 1px 2px; border-radius: 3px; font-weight: 500;`;
-            const contents = range.extractContents();
-            span.appendChild(contents);
-            range.insertNode(span);
-        } catch(e) {
-            console.warn("Highlight DOM wrap fallback to execCommand:", e);
-            document.execCommand('hiliteColor', false, chosenBg);
+        const directHl = root ? root.closest('.custom-highlight') : null;
+        if (directHl) {
+            unwrapHighlightNode(directHl);
+        } else if (root) {
+            const hls = root.querySelectorAll('.custom-highlight');
+            hls.forEach(hl => {
+                if (range.intersectsNode(hl)) {
+                    unwrapHighlightNode(hl);
+                }
+            });
+        }
+    } else {
+        // Wrap text nodes inside range
+        if (range.startContainer === range.endContainer && range.startContainer.nodeType === Node.TEXT_NODE) {
+            const textNode = range.startContainer;
+            const text = textNode.textContent;
+            const start = range.startOffset;
+            const end = range.endOffset;
+            
+            if (start < end) {
+                const before = text.substring(0, start);
+                const selected = text.substring(start, end);
+                const after = text.substring(end);
+                
+                const span = createHighlightElement(color, selected);
+                const parent = textNode.parentNode;
+                
+                if (after) parent.insertBefore(document.createTextNode(after), textNode.nextSibling);
+                parent.insertBefore(span, textNode.nextSibling);
+                if (before) parent.insertBefore(document.createTextNode(before), span);
+                parent.removeChild(textNode);
+            }
+        } else {
+            // Multi-node selection across paragraphs or inline elements
+            const common = range.commonAncestorContainer;
+            const root = (common.nodeType === 1) ? common : common.parentElement;
+            
+            const treeWalker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+                acceptNode: function(node) {
+                    if (!node.textContent.trim()) return NodeFilter.FILTER_REJECT;
+                    return range.intersectsNode(node) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+                }
+            });
+            
+            const textNodes = [];
+            while (treeWalker.nextNode()) {
+                textNodes.push(treeWalker.currentNode);
+            }
+            
+            textNodes.forEach(node => {
+                let start = (node === range.startContainer) ? range.startOffset : 0;
+                let end = (node === range.endContainer) ? range.endOffset : node.textContent.length;
+                
+                if (start < end) {
+                    const text = node.textContent;
+                    const before = text.substring(0, start);
+                    const selected = text.substring(start, end);
+                    const after = text.substring(end);
+                    
+                    const span = createHighlightElement(color, selected);
+                    const parent = node.parentNode;
+                    
+                    if (after) parent.insertBefore(document.createTextNode(after), node.nextSibling);
+                    parent.insertBefore(span, node.nextSibling);
+                    if (before) parent.insertBefore(document.createTextNode(before), span);
+                    parent.removeChild(node);
+                }
+            });
         }
     }
     
-    selection.removeAllRanges();
+    if (sel) {
+        try { sel.removeAllRanges(); } catch(e){}
+    }
+    currentTextSelectionRange = null;
+    
     const toolbar = document.getElementById('vocab-saver-toolbar');
     if (toolbar) toolbar.classList.add('hidden');
 }
@@ -13743,53 +13847,76 @@ async function translateWordENtoVI(word) {
     return null;
 }
 
-// 14.5 Global Text Selection Word Saver
+// 14.5 Global Text Selection Word Saver & Floating Highlighter
 function initGlobalVocabSaver() {
     const toolbar = document.getElementById('vocab-saver-toolbar');
     if (!toolbar) return;
     
     // Listen for text selection releases on document
     document.addEventListener('mouseup', (e) => {
-        // Delay slightly to prevent immediate closing/overwriting when clicking toolbar itself
+        // Prevent trigger if clicking inside the toolbar itself
+        if (toolbar.contains(e.target)) return;
+        
         setTimeout(() => {
             const selection = window.getSelection();
-            if (!selection || selection.isCollapsed) {
+            if (!selection || selection.isCollapsed || selection.rangeCount === 0) {
                 toolbar.classList.add('hidden');
                 return;
             }
             
             const selectedText = selection.toString().trim();
-            // Allow selection of any length from 1 up to 5000 characters (including multi-lines)
             if (selectedText.length < 1 || selectedText.length > 5000) {
                 toolbar.classList.add('hidden');
                 return;
             }
             
-            // Show floating bubble toolbar
             const range = selection.getRangeAt(0);
+            currentTextSelectionRange = range.cloneRange();
             const rect = range.getBoundingClientRect();
-            const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
             
-            // Center the wider toolbar properly
-            toolbar.style.left = `${rect.left + scrollLeft + (rect.width / 2) - 120}px`;
-            toolbar.style.top = `${rect.top + scrollTop - 42}px`;
+            if (rect.width === 0 && rect.height === 0) {
+                toolbar.classList.add('hidden');
+                return;
+            }
             
-            // Reset text contextually based on word/phrase
+            // Calculate fixed position right above selection in viewport
+            toolbar.style.position = 'fixed';
+            toolbar.style.zIndex = '9999999';
+            toolbar.classList.remove('hidden');
+            toolbar.dataset.text = selectedText;
+            
+            const tbWidth = toolbar.offsetWidth || 280;
+            const tbHeight = toolbar.offsetHeight || 44;
+            
+            let left = rect.left + (rect.width / 2) - (tbWidth / 2);
+            if (left < 10) left = 10;
+            if (left + tbWidth > window.innerWidth - 10) {
+                left = window.innerWidth - tbWidth - 10;
+            }
+            
+            let top = rect.top - tbHeight - 10;
+            if (top < 10) {
+                top = rect.bottom + 10; // place below if selection is near top
+            }
+            
+            toolbar.style.left = `${left}px`;
+            toolbar.style.top = `${top}px`;
+            
+            // Update button label
             const spanText = document.getElementById('global-save-vocab-text');
             if (spanText) {
                 spanText.textContent = selectedText.includes(' ') ? "Lưu cụm từ này" : "Lưu từ vựng này";
             }
-            
-            toolbar.classList.remove('hidden');
-            toolbar.dataset.text = selectedText;
-        }, 10);
+        }, 15);
     });
     
-    // Hide toolbar when clicking outside
+    // Hide toolbar when clicking elsewhere
     document.addEventListener('mousedown', (e) => {
         if (e.target !== toolbar && !toolbar.contains(e.target)) {
-            toolbar.classList.add('hidden');
+            // Also don't hide if clicking on top-bar highlight buttons
+            if (!e.target.closest('[onmousedown*="applyGlobalHighlighterColor"]')) {
+                toolbar.classList.add('hidden');
+            }
         }
     });
     
@@ -13820,8 +13947,6 @@ function initGlobalVocabSaver() {
             }
             
             const lowerWord = cleanWord.toLowerCase();
-            
-            // Check if word exists in our pre-defined database
             const preDefinedData = vocabData[lowerWord];
             if (preDefinedData) {
                 addWordToSavedList(cleanWord, preDefinedData);
@@ -13833,7 +13958,6 @@ function initGlobalVocabSaver() {
             // Translate using MyMemory API
             const translation = await translateWordENtoVI(cleanWord);
             if (translation) {
-                // Fetch actual phonetics dynamically for single words
                 let displayPhonetic = "/phrase/";
                 if (!isPhrase) {
                     const phonetic = await fetchPhoneticForWord(cleanWord);
@@ -13849,7 +13973,6 @@ function initGlobalVocabSaver() {
                 playSound('success');
                 toolbar.classList.add('hidden');
             } else {
-                // Fallback to manual prompt
                 toolbar.classList.add('hidden');
                 setTimeout(() => {
                     const userMean = prompt(`Không thể dịch tự động từ '${cleanWord}'. Hãy nhập nghĩa tiếng Việt hoặc ghi chú của từ này:`);
@@ -13866,17 +13989,6 @@ function initGlobalVocabSaver() {
             }
         });
     }
-    
-    // Bind highlighter dots inside this global toolbar
-    const dots = toolbar.querySelectorAll('.color-dot');
-    dots.forEach(dot => {
-        dot.addEventListener('mousedown', (e) => {
-            e.preventDefault(); // Stop selection loss
-            e.stopPropagation();
-            const color = dot.dataset.color;
-            applyGlobalHighlighterColor(color);
-        });
-    });
 }
 
 function addWordToSavedList(word, data) {
