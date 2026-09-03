@@ -9184,13 +9184,24 @@ const mockTestPassages = [
             <div class="cbt-split-workspace">
                 <!-- Left: Passage Column -->
                 <div class="cbt-passage-column" id="cbt-passage-column">
-                    <div class="cbt-passage-header">
-                        <h3 class="cbt-passage-title" id="active-mock-title">Passage Title</h3>
-                        <div class="cbt-font-controls">
-                            <span style="font-size: 0.82rem; font-weight: 700; color: #64748b; margin-right: 4px;">Cỡ chữ:</span>
-                            <button class="cbt-font-btn" onclick="zoomMockText(-1)" title="Giảm cỡ chữ">A-</button>
-                            <button class="cbt-font-btn" onclick="zoomMockText(1)" title="Tăng cỡ chữ">A+</button>
-                            <button class="cbt-font-btn" onclick="resetMockZoom()" title="Mặc định">100%</button>
+                    <div class="cbt-passage-header" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+                        <h3 class="cbt-passage-title" id="active-mock-title" style="margin: 0;">Passage Title</h3>
+                        <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                            <!-- Dedicated Quick Highlighter & Underline Suite -->
+                            <div style="display: flex; align-items: center; gap: 5px; background: #ffffff; border: 1.5px solid #cbd5e1; padding: 3px 8px; border-radius: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+                                <span style="font-size: 0.78rem; font-weight: 800; color: #64748b; margin-right: 2px;"><i class="fa-solid fa-highlighter" style="color: #6366f1;"></i></span>
+                                <button onclick="applyGlobalHighlighterColor('yellow')" style="width: 18px; height: 18px; border-radius: 50%; background: #fde047; border: 1.5px solid #ca8a04; cursor: pointer; padding: 0;" title="Tô vàng"></button>
+                                <button onclick="applyGlobalHighlighterColor('green')" style="width: 18px; height: 18px; border-radius: 50%; background: #86efac; border: 1.5px solid #16a34a; cursor: pointer; padding: 0;" title="Tô xanh lá"></button>
+                                <button onclick="applyGlobalHighlighterColor('blue')" style="width: 18px; height: 18px; border-radius: 50%; background: #93c5fd; border: 1.5px solid #2563eb; cursor: pointer; padding: 0;" title="Tô xanh dương"></button>
+                                <button onclick="applyGlobalHighlighterColor('underline')" style="width: 22px; height: 20px; border-radius: 4px; background: #eff6ff; border: 1.5px solid #3b82f6; color: #1d4ed8; font-weight: 800; font-size: 0.75rem; cursor: pointer; padding: 0; display: flex; align-items: center; justify-content: center;" title="Gạch chân (Underline)"><u>U</u></button>
+                                <button onclick="applyGlobalHighlighterColor('clear')" style="width: 20px; height: 20px; border-radius: 4px; background: transparent; border: 1px solid #cbd5e1; color: #64748b; cursor: pointer; padding: 0; font-size: 0.7rem;" title="Xóa tô sáng / gạch chân"><i class="fa-solid fa-eraser"></i></button>
+                            </div>
+                            <div class="cbt-font-controls">
+                                <span style="font-size: 0.82rem; font-weight: 700; color: #64748b; margin-right: 4px;">Cỡ chữ:</span>
+                                <button class="cbt-font-btn" onclick="zoomMockText(-1)" title="Giảm cỡ chữ">A-</button>
+                                <button class="cbt-font-btn" onclick="zoomMockText(1)" title="Tăng cỡ chữ">A+</button>
+                                <button class="cbt-font-btn" onclick="resetMockZoom()" title="Mặc định">100%</button>
+                            </div>
                         </div>
                     </div>
                     <div class="cbt-passage-body" id="active-mock-text">
@@ -9350,8 +9361,17 @@ const mockTestPassages = [
                 </button>
             </div>
 
-            <!-- Right Controls: Font size, Translation, Reset -->
+            <!-- Right Controls: Highlighter, Font size, Translation, Reset -->
             <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                <!-- Dedicated Quick Highlighter & Underline Suite -->
+                <div style="display: flex; align-items: center; gap: 5px; background: #ffffff; border: 1.5px solid #cbd5e1; padding: 4px 10px; border-radius: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+                    <span style="font-size: 0.82rem; font-weight: 800; color: #64748b; margin-right: 2px;"><i class="fa-solid fa-highlighter" style="color: #6366f1;"></i> Tô &amp; Gạch:</span>
+                    <button onclick="applyGlobalHighlighterColor('yellow')" style="width: 20px; height: 20px; border-radius: 50%; background: #fde047; border: 1.5px solid #ca8a04; cursor: pointer; padding: 0;" title="Tô vàng"></button>
+                    <button onclick="applyGlobalHighlighterColor('green')" style="width: 20px; height: 20px; border-radius: 50%; background: #86efac; border: 1.5px solid #16a34a; cursor: pointer; padding: 0;" title="Tô xanh lá"></button>
+                    <button onclick="applyGlobalHighlighterColor('blue')" style="width: 20px; height: 20px; border-radius: 50%; background: #93c5fd; border: 1.5px solid #2563eb; cursor: pointer; padding: 0;" title="Tô xanh dương"></button>
+                    <button onclick="applyGlobalHighlighterColor('underline')" style="width: 24px; height: 22px; border-radius: 5px; background: #eff6ff; border: 1.5px solid #3b82f6; color: #1d4ed8; font-weight: 800; font-size: 0.82rem; cursor: pointer; padding: 0; display: flex; align-items: center; justify-content: center;" title="Gạch chân (Underline)"><u>U</u></button>
+                    <button onclick="applyGlobalHighlighterColor('clear')" style="width: 22px; height: 22px; border-radius: 5px; background: transparent; border: 1px solid #cbd5e1; color: #64748b; cursor: pointer; padding: 0; font-size: 0.75rem;" title="Xóa tô sáng / gạch chân"><i class="fa-solid fa-eraser"></i></button>
+                </div>
                 <div style="display: flex; align-items: center; gap: 4px; background: #f8fafc; border: 1.5px solid #cbd5e1; padding: 4px 8px; border-radius: 8px;">
                     <span style="font-size: 0.82rem; font-weight: 800; color: #64748b;"><i class="fa-solid fa-text-height" style="color: #3b82f6;"></i> Cỡ chữ:</span>
                     <button class="rp-font-control-btn" id="rp-btn-font-dec" title="Thu nhỏ chữ" style="padding: 4px 10px; font-weight: 800; cursor: pointer; border: 1px solid #cbd5e1; border-radius: 6px; background: #fff;">A-</button>
@@ -13340,41 +13360,70 @@ function exitMockExamToLanding() {
 }
 
 
-// 13. Unified Global Selection Highlighter Tool
+// 13. Unified Global Selection Highlighter & Underline Engine
 function applyGlobalHighlighterColor(color) {
     const selection = window.getSelection();
-    if (!selection || selection.isCollapsed) return;
+    if (!selection || selection.isCollapsed || selection.rangeCount === 0) return;
     
     playSound('click');
     const range = selection.getRangeAt(0);
     
     if (color === 'clear') {
-        // Strip custom highlights / underline classes
-        const span = range.commonAncestorContainer.parentElement;
-        if (span && span.classList.contains('custom-highlight')) {
-            const textNode = document.createTextNode(span.textContent);
-            span.parentNode.replaceChild(textNode, span);
+        // Clear all highlights within or surrounding the selection
+        const container = range.commonAncestorContainer;
+        const parentElem = container.nodeType === 1 ? container : container.parentElement;
+        
+        const directHl = parentElem ? parentElem.closest('.custom-highlight, mark') : null;
+        if (directHl) {
+            const text = document.createTextNode(directHl.textContent);
+            directHl.parentNode.replaceChild(text, directHl);
+        } else if (parentElem) {
+            const childHls = parentElem.querySelectorAll('.custom-highlight, mark');
+            childHls.forEach(hl => {
+                if (selection.containsNode(hl, true)) {
+                    const text = document.createTextNode(hl.textContent);
+                    hl.parentNode.replaceChild(text, hl);
+                }
+            });
         }
     } else if (color === 'underline') {
-        const span = document.createElement('span');
-        span.className = 'custom-highlight highlight-underline';
-        span.style.textDecoration = 'underline 2.5px #2563eb';
-        span.style.textUnderlineOffset = '4px';
-        span.style.fontWeight = '600';
-        span.appendChild(range.extractContents());
-        range.insertNode(span);
+        try {
+            const span = document.createElement('span');
+            span.className = 'custom-highlight highlight-underline';
+            span.style.cssText = 'text-decoration: underline 2.5px #2563eb !important; text-underline-offset: 4px !important; font-weight: 600;';
+            const contents = range.extractContents();
+            span.appendChild(contents);
+            range.insertNode(span);
+        } catch(e) {
+            console.warn("Underline DOM wrap fallback to execCommand:", e);
+            document.execCommand('underline', false, null);
+        }
     } else {
-        const span = document.createElement('span');
-        span.className = `custom-highlight highlight-${color}`;
-        span.style.background = color === 'yellow' ? 'rgba(253, 224, 71, 0.4)' : (color === 'green' ? 'rgba(134, 239, 172, 0.4)' : 'rgba(147, 197, 253, 0.4)');
-        span.appendChild(range.extractContents());
-        range.insertNode(span);
+        const bgMap = {
+            'yellow': '#fef08a',
+            'green': '#bbf7d0',
+            'blue': '#bfdbfe'
+        };
+        const chosenBg = bgMap[color] || '#fef08a';
+        
+        try {
+            const span = document.createElement('span');
+            span.className = `custom-highlight highlight-${color}`;
+            span.style.cssText = `background-color: ${chosenBg} !important; color: #0f172a !important; padding: 1px 2px; border-radius: 3px; font-weight: 500;`;
+            const contents = range.extractContents();
+            span.appendChild(contents);
+            range.insertNode(span);
+        } catch(e) {
+            console.warn("Highlight DOM wrap fallback to execCommand:", e);
+            document.execCommand('hiliteColor', false, chosenBg);
+        }
     }
     
     selection.removeAllRanges();
     const toolbar = document.getElementById('vocab-saver-toolbar');
     if (toolbar) toolbar.classList.add('hidden');
 }
+window.applyGlobalHighlighterColor = applyGlobalHighlighterColor;
 
 // Warm up the speechSynthesis voices list on page load
 if ('speechSynthesis' in window) {
@@ -13710,8 +13759,8 @@ function initGlobalVocabSaver() {
             }
             
             const selectedText = selection.toString().trim();
-            // Validate selection range (between 2 and 100 chars, no carriage returns)
-            if (selectedText.length < 2 || selectedText.length > 100 || selectedText.includes('\\n')) {
+            // Allow selection of any length from 1 up to 5000 characters (including multi-lines)
+            if (selectedText.length < 1 || selectedText.length > 5000) {
                 toolbar.classList.add('hidden');
                 return;
             }
