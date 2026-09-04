@@ -13463,6 +13463,254 @@ function speakWord(text) {
     }
 }
 
+// Fetch phonetics dynamically from free Dictionary API for lookup words
+async function fetchPhoneticForWord(word) {
+    try {
+        const res = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(word)}`);
+        if (res.ok) {
+            const data = await res.json();
+            if (data && data[0]) {
+                if (data[0].phonetic) return data[0].phonetic;
+                if (data[0].phonetics) {
+                    for (let p of data[0].phonetics) {
+                        if (p.text) return p.text;
+                    }
+                }
+            }
+        }
+    } catch (e) {
+        console.warn("Phonetic lookup failed:", e);
+    }
+    return null;
+}
+
+// 14. Vocabulary Clicks Tooltips Database Sync
+function bindVocabularyClickTooltips() {
+    const vocabTerms = document.querySelectorAll('.vocab-term');
+    vocabTerms.forEach(term => {
+        term.addEventListener('click', (e) => {
+            if (!term.classList.contains('active')) return;
+            
+            e.stopPropagation();
+            playSound('chime');
+            
+            const word = term.dataset.word;
+            const data = vocabData[word.toLowerCase()];
+            
+            if (data) {
+                state.tooltipJustShown = true;
+                
+                // Populate tooltip contents
+                elements.tooltipWord.textContent = word;
+                elements.tooltipPos.textContent = `(${data.pos})`;
+                elements.tooltipPhonetic.textContent = data.phonetic;
+                elements.tooltipMean.textContent = data.mean;
+                
+                // Position Tooltip element
+                const rect = term.getBoundingClientRect();
+                const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                elements.vocabTooltip.style.left = `${rect.left + scrollLeft}px`;
+                elements.vocabTooltip.style.top = `${rect.bottom + scrollTop + 8}px`;
+                elements.vocabTooltip.classList.remove('hidden');
+                
+                // Set data properties on save button
+                elements.tooltipSaveBtn.dataset.word = word;
+                elements.tooltipSaveBtn.dataset.pos = data.pos;
+                elements.tooltipSaveBtn.dataset.phonetic = data.phonetic;
+                elements.tooltipSaveBtn.dataset.mean = data.mean;
+                
+                // Toggle Save button visibility based on existing saves
+                const isAlreadySaved = state.savedWords.some(w => w.word.toLowerCase() === word.toLowerCase());
+                if (isAlreadySaved) {
+                    elements.tooltipSaveBtn.classList.add('hidden');
+                    elements.tooltipSavedBadge.classList.remove('hidden');
+                } else {
+                    elements.tooltipSaveBtn.classList.remove('hidden');
+                    elements.tooltipSavedBadge.classList.add('hidden');
+                }
+            }
+        });
+    });
+    
+    // Global single click on ANY word inside reading passages to auto-translate and show definition card!
+    document.addEventListener('click', async (e) => {
+        // Prevent trigger if clicking on menus, buttons, modals, input elements, or active tooltips
+        if (e.target.closest('#vocab-saver-toolbar') || 
+            e.target.closest('#vocab-tooltip') || 
+            e.target.closest('button') || 
+            e.target.closest('input') || 
+            e.target.closest('a') || 
+            e.target.closest('.color-dot') || 
+            e.target.closest('.vocab-term') || 
+            e.target.closest('.scan-clickable') || 
+            e.target.closest('.sidebar-menu') || 
+            e.target.closest('.sidebar-header') ||
+            e.target.closest('.lesson-group-header') ||
+            e.target.closest('#name-modal')) {
+            return;
+        }
+        
+        // Only trigger inside primary curriculum views and stats cockpit
+        if (!e.target.closest('.content-section') && !e.target.closest('.dashboard-cockpit')) {
+            return;
+        }
+        
+        // Prevent single-word translation popups if there is an active text selection drag
+        const selObj = window.getSelection();
+        if (selObj && !selObj.isCollapsed && selObj.toString().trim().length > 0) {
+            return;
+        }
+        
+        // Extract caret coordinates
+        let range;
+        if (document.caretRangeFromPoint) {
+            range = document.caretRangeFromPoint(e.clientX, e.clientY);
+        } else if (e.rangeParent) {
+            range = document.createRange();
+            range.setStart(e.rangeParent, e.rangeOffset);
+        }
+        
+        if (range && range.startContainer.nodeType === Node.TEXT_NODE) {
+            const textNode = range.startContainer;
+            const offset = range.startOffset;
+            const text = textNode.textContent;
+            
+            // Detect word borders
+            let start = offset;
+            while (start > 0 && /\w/.test(text[start - 1])) {
+                start--;
+            }
+            let end = offset;
+            while (end < text.length && /\w/.test(text[end])) {
+                end++;
+            }
+            
+            const rawWord = text.substring(start, end).trim();
+            const cleanWord = rawWord.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?"']/g, "").trim();
+            
+            // Ensure clicked word is a valid English word string (between 2 and 25 letters)
+            if (cleanWord.length >= 2 && cleanWord.length <= 25 && /^[A-Za-z'-]+$/.test(cleanWord)) {
+                showFloatingWordDefinition(cleanWord, e.clientX, e.clientY);
+            }
+        }
+    });
+    
+    // Bind click handler to the tooltip manual save button
+    if (elements.tooltipSaveBtn) {
+        elements.tooltipSaveBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            playSound('success');
+            
+            const w = elements.tooltipSaveBtn.dataset.word;
+            const p = elements.tooltipSaveBtn.dataset.pos;
+            const ph = elements.tooltipSaveBtn.dataset.phonetic;
+            const m = elements.tooltipSaveBtn.dataset.mean;
+            
+            if (w) {
+                addWordToSavedList(w, { pos: p, phonetic: ph, mean: m });
+                elements.tooltipSaveBtn.classList.add('hidden');
+                elements.tooltipSavedBadge.classList.remove('hidden');
+            }
+        });
+    }
+    
+    // Bind click handler to the tooltip speak button
+    if (elements.tooltipSpeakBtn) {
+        elements.tooltipSpeakBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const w = elements.tooltipWord.textContent;
+            if (w) {
+                speakWord(w);
+            }
+        });
+    }
+    
+    // Close tooltips click elsewhere
+    document.addEventListener('click', (e) => {
+        if (state.tooltipJustShown) {
+            state.tooltipJustShown = false;
+            return;
+        }
+        if (!e.target.closest('#vocab-tooltip')) {
+            elements.vocabTooltip.classList.add('hidden');
+        }
+    });
+}
+
+// Helper: Show floating definition card for any clicked/selected word
+async function showFloatingWordDefinition(word, clientX, clientY) {
+    const lowerWord = word.toLowerCase();
+    const data = vocabData[lowerWord];
+    
+    state.tooltipJustShown = true;
+    
+    // Position floating card near caret coordinates
+    const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    elements.vocabTooltip.style.left = `${clientX + scrollLeft - 50}px`;
+    elements.vocabTooltip.style.top = `${clientY + scrollTop + 12}px`;
+    
+    // Show loading skeleton
+    elements.tooltipWord.textContent = word;
+    elements.tooltipPos.textContent = "";
+    elements.tooltipPhonetic.textContent = "";
+    elements.tooltipMean.textContent = "Đang tra cứu nghĩa...";
+    
+    // Default show save button, hide badge
+    elements.tooltipSaveBtn.classList.remove('hidden');
+    elements.tooltipSavedBadge.classList.add('hidden');
+    elements.vocabTooltip.classList.remove('hidden');
+    
+    // Populate dataset properties
+    elements.tooltipSaveBtn.dataset.word = word;
+    elements.tooltipSaveBtn.dataset.pos = "tự động dịch";
+    elements.tooltipSaveBtn.dataset.phonetic = "/lookup/";
+    elements.tooltipSaveBtn.dataset.mean = "";
+    
+    // Check if word is already saved in user's list
+    const isAlreadySaved = state.savedWords.some(w => w.word.toLowerCase() === lowerWord);
+    if (isAlreadySaved) {
+        elements.tooltipSaveBtn.classList.add('hidden');
+        elements.tooltipSavedBadge.classList.remove('hidden');
+    }
+    
+    if (data) {
+        playSound('chime');
+        elements.tooltipPos.textContent = `(${data.pos})`;
+        elements.tooltipPhonetic.textContent = data.phonetic;
+        elements.tooltipMean.textContent = data.mean;
+        
+        elements.tooltipSaveBtn.dataset.pos = data.pos;
+        elements.tooltipSaveBtn.dataset.phonetic = data.phonetic;
+        elements.tooltipSaveBtn.dataset.mean = data.mean;
+    } else {
+        // Fetch phonetics dynamically from free DictionaryAPI first
+        const phonetic = await fetchPhoneticForWord(word);
+        const displayPhonetic = phonetic ? phonetic : "";
+        elements.tooltipPhonetic.textContent = displayPhonetic;
+        elements.tooltipSaveBtn.dataset.phonetic = displayPhonetic ? displayPhonetic : "/lookup/";
+        
+        // Dynamic fetch translation from MyMemory API
+        const translation = await translateWordENtoVI(word);
+        if (translation) {
+            playSound('chime');
+            elements.tooltipPos.textContent = "(tự động dịch)";
+            elements.tooltipPhonetic.textContent = "";
+            elements.tooltipMean.textContent = translation;
+            
+            elements.tooltipSaveBtn.dataset.pos = "tự động dịch";
+            elements.tooltipSaveBtn.dataset.phonetic = "/translated/";
+            elements.tooltipSaveBtn.dataset.mean = translation;
+        } else {
+            elements.tooltipMean.textContent = "Không tìm thấy bản dịch tự động.";
+            elements.tooltipSaveBtn.classList.add('hidden');
+        }
+    }
+}
+
 // Helper: Asynchronous translation from English to Vietnamese
 async function translateWordENtoVI(word) {
     try {
@@ -13470,6 +13718,7 @@ async function translateWordENtoVI(word) {
         const data = await res.json();
         if (data && data.responseData && data.responseData.translatedText) {
             let translated = data.responseData.translatedText.trim();
+            // Clean up same-word responses
             if (translated.toLowerCase() === word.toLowerCase() && data.matches) {
                 for (let m of data.matches) {
                     if (m.translation && m.translation.trim().toLowerCase() !== word.toLowerCase()) {
