@@ -2825,6 +2825,30 @@ em, i {
     color: #ffffff;
 }
 
+
+/* Restored Original Floating Highlighter & Vocab Saver Toolbar */
+.vocab-saver-toolbar {
+    position: fixed !important;
+    z-index: 99999999 !important;
+    background: var(--primary-color, #4f46e5) !important;
+    color: white !important;
+    padding: 8px 14px !important;
+    border-radius: 24px !important;
+    font-size: 0.85rem !important;
+    font-weight: bold !important;
+    cursor: default !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25) !important;
+    transition: opacity 0.2s ease !important;
+    border: 1.5px solid rgba(255,255,255,0.2) !important;
+    user-select: none !important;
+}
+.vocab-saver-toolbar.hidden {
+    display: none !important;
+}
+
 /* Floating Highlighter Toolbar */
 .highlighter-toolbar {
     position: absolute;
@@ -9423,23 +9447,23 @@ const mockTestPassages = [
             </span>
 </div>
 </div>
-<!-- Global Quick Selection Actions Toolbar (Positioned right next to the selected word) -->
-<div class="vocab-saver-toolbar hidden" id="vocab-saver-toolbar" style="position: fixed; z-index: 99999999; background: #1e1b4b; color: white; padding: 4px 10px; border-radius: 20px; font-size: 0.82rem; font-weight: bold; cursor: default; display: flex; align-items: center; gap: 7px; box-shadow: 0 4px 20px rgba(0,0,0,0.35); border: 1.5px solid rgba(255,255,255,0.25); user-select: none; transition: opacity 0.15s ease;">
-    <!-- Highlighter Dots & Underline Tools First -->
-    <div style="display: flex; align-items: center; gap: 5px;">
-        <button class="color-dot yellow" data-color="yellow" onmousedown="event.preventDefault(); applyGlobalHighlighterColor('yellow');" style="width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid #ca8a04; background: #fde047; cursor: pointer; padding: 0; transition: transform 0.1s;" title="Tô vàng"></button>
-        <button class="color-dot green" data-color="green" onmousedown="event.preventDefault(); applyGlobalHighlighterColor('green');" style="width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid #16a34a; background: #86efac; cursor: pointer; padding: 0; transition: transform 0.1s;" title="Tô xanh lá"></button>
-        <button class="color-dot blue" data-color="blue" onmousedown="event.preventDefault(); applyGlobalHighlighterColor('blue');" style="width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid #2563eb; background: #93c5fd; cursor: pointer; padding: 0; transition: transform 0.1s;" title="Tô xanh dương"></button>
-        <button class="color-dot underline" data-color="underline" onmousedown="event.preventDefault(); applyGlobalHighlighterColor('underline');" style="width: 22px; height: 20px; border-radius: 4px; border: 1.5px solid #60a5fa; background: rgba(96, 165, 250, 0.25); color: white; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 800; cursor: pointer; padding: 0; transition: transform 0.1s;" title="Gạch chân (Underline)"><u>U</u></button>
-        <button class="color-dot clear" data-color="clear" onmousedown="event.preventDefault(); applyGlobalHighlighterColor('clear');" style="width: 18px; height: 18px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.4); background: transparent; color: #cbd5e1; display: flex; align-items: center; justify-content: center; font-size: 0.72rem; cursor: pointer; padding: 0; transition: transform 0.1s;" title="Xóa tô sáng / gạch chân"><i class="fa-solid fa-eraser"></i></button>
-    </div>
-    <!-- Vertical Separator Divider -->
-    <div style="width: 1px; height: 16px; background: rgba(255,255,255,0.25);"></div>
-    <!-- Save Vocab Button -->
-    <div id="btn-global-save-vocab" onmousedown="event.preventDefault();" style="display: flex; align-items: center; gap: 5px; cursor: pointer; padding: 2px 6px; border-radius: 6px; transition: background 0.2s; background: rgba(255,255,255,0.12); font-size: 0.78rem;">
-        <i class="fa-solid fa-plus-circle" style="color: #38bdf8;"></i>
-        <span id="global-save-vocab-text">Lưu từ</span>
-    </div>
+<!-- Global Quick Selection Actions Toolbar (Save Vocab & Highlighter) -->
+<div class="vocab-saver-toolbar hidden" id="vocab-saver-toolbar">
+<!-- Save Vocab Button -->
+<div id="btn-global-save-vocab" style="display: flex; align-items: center; gap: 6px; cursor: pointer; padding: 2px 6px; border-radius: 6px; transition: background 0.2s;">
+<i class="fa-solid fa-plus-circle"></i>
+<span id="global-save-vocab-text">Lưu từ vựng này</span>
+</div>
+<!-- Vertical Separator Divider -->
+<div style="width: 1px; height: 16px; background: rgba(255,255,255,0.35);"></div>
+<!-- Highlighter & Underline Tools -->
+<div style="display: flex; align-items: center; gap: 8px;">
+<button class="color-dot underline" data-color="underline" onmouseout="this.style.transform='scale(1)'" onmouseover="this.style.transform='scale(1.15)'" style="width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid white; background: rgba(255,255,255,0.25); color: white; display: flex; align-items: center; justify-content: center; font-size: 0.72rem; cursor: pointer; padding: 0; transition: transform 0.1s;" title="Gạch chân (Underline)"><i class="fa-solid fa-underline"></i></button>
+<button class="color-dot yellow" data-color="yellow" onmouseout="this.style.transform='scale(1)'" onmouseover="this.style.transform='scale(1.15)'" style="width: 16px; height: 16px; border-radius: 50%; border: 1.5px solid white; background: #fde047; cursor: pointer; padding: 0; transition: transform 0.1s;" title="Tô vàng"></button>
+<button class="color-dot green" data-color="green" onmouseout="this.style.transform='scale(1)'" onmouseover="this.style.transform='scale(1.15)'" style="width: 16px; height: 16px; border-radius: 50%; border: 1.5px solid white; background: #86efac; cursor: pointer; padding: 0; transition: transform 0.1s;" title="Tô xanh lá"></button>
+<button class="color-dot blue" data-color="blue" onmouseout="this.style.transform='scale(1)'" onmouseover="this.style.transform='scale(1.15)'" style="width: 16px; height: 16px; border-radius: 50%; border: 1.5px solid white; background: #93c5fd; cursor: pointer; padding: 0; transition: transform 0.1s;" title="Tô xanh dương"></button>
+<button class="color-dot clear" data-color="clear" onmouseout="this.style.transform='scale(1)'" onmouseover="this.style.transform='scale(1.15)'" style="width: 16px; height: 16px; border-radius: 50%; border: 1.5px solid white; background: transparent; color: white; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; cursor: pointer; padding: 0; transition: transform 0.1s;" title="Xóa tô sáng / gạch chân"><i class="fa-solid fa-eraser"></i></button>
+</div>
 </div>
 <!-- Confetti Canvas -->
 <canvas id="confetti-canvas"></canvas>
@@ -13342,174 +13366,57 @@ function exitMockExamToLanding() {
 }
 
 
-// 13. Unified Global Selection Highlighter & Underline Engine (Rock-Solid Multi-Browser)
-let currentTextSelectionRange = null;
-
-function saveActiveSelection() {
-    const sel = window.getSelection();
-    if (sel && !sel.isCollapsed && sel.rangeCount > 0) {
-        const text = sel.toString().trim();
-        if (text.length > 0) {
-            currentTextSelectionRange = sel.getRangeAt(0).cloneRange();
-        }
-    }
-}
-document.addEventListener('selectionchange', saveActiveSelection);
-
-function unwrapHighlightNode(node) {
-    const parent = node.parentNode;
-    if (!parent) return;
-    while (node.firstChild) {
-        parent.insertBefore(node.firstChild, node);
-    }
-    parent.removeChild(node);
-    parent.normalize();
-}
-
-function createHighlightElement(type, text) {
-    const span = document.createElement('span');
-    span.className = 'custom-highlight';
-    span.textContent = text;
-    
-    if (type === 'underline') {
-        span.classList.add('highlight-underline');
-        span.style.cssText = 'text-decoration: underline 2.5px #2563eb !important; text-underline-offset: 4px !important; font-weight: 600; cursor: pointer;';
-        span.title = 'Nhấp đúp để xóa gạch chân';
-    } else {
-        const bgMap = {
-            'yellow': '#fef08a',
-            'green': '#bbf7d0',
-            'blue': '#bfdbfe'
-        };
-        const bg = bgMap[type] || '#fef08a';
-        span.classList.add(`highlight-${type}`);
-        span.style.cssText = `background-color: ${bg} !important; color: #0f172a !important; padding: 1px 2px; border-radius: 3px; font-weight: 500; cursor: pointer;`;
-        span.title = 'Nhấp đúp để xóa tô màu';
-    }
-    
-    // Double click to remove highlight instantly
-    span.addEventListener('dblclick', function(e) {
-        e.stopPropagation();
-        unwrapHighlightNode(span);
-        playSound('click');
-    });
-    
-    return span;
-}
-
-function wrapRangeWithHighlight(range, color) {
-    if (!range) return;
-    
-    // Check if range is inside single text node
-    if (range.startContainer === range.endContainer && range.startContainer.nodeType === Node.TEXT_NODE) {
-        const textNode = range.startContainer;
-        const text = textNode.textContent;
-        const start = range.startOffset;
-        const end = range.endOffset;
-        
-        if (start < end) {
-            const before = text.substring(0, start);
-            const selected = text.substring(start, end);
-            const after = text.substring(end);
-            
-            const span = createHighlightElement(color, selected);
-            const parent = textNode.parentNode;
-            
-            if (after) parent.insertBefore(document.createTextNode(after), textNode.nextSibling);
-            parent.insertBefore(span, textNode.nextSibling);
-            if (before) parent.insertBefore(document.createTextNode(before), span);
-            parent.removeChild(textNode);
-            return;
-        }
-    }
-    
-    // Multi-node selection:
-    try {
-        const span = createHighlightElement(color, '');
-        const fragment = range.extractContents();
-        span.appendChild(fragment);
-        range.insertNode(span);
-    } catch(e) {
-        console.warn("TreeWalker fallback for highlight:", e);
-        const common = range.commonAncestorContainer;
-        const root = (common.nodeType === 1) ? common : common.parentElement;
-        
-        const treeWalker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
-            acceptNode: function(node) {
-                if (!node.textContent.trim()) return NodeFilter.FILTER_REJECT;
-                return range.intersectsNode(node) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
-            }
-        });
-        
-        const textNodes = [];
-        while (treeWalker.nextNode()) {
-            textNodes.push(treeWalker.currentNode);
-        }
-        
-        textNodes.forEach(node => {
-            let start = (node === range.startContainer) ? range.startOffset : 0;
-            let end = (node === range.endContainer) ? range.endOffset : node.textContent.length;
-            if (start < end) {
-                const text = node.textContent;
-                const before = text.substring(0, start);
-                const selected = text.substring(start, end);
-                const after = text.substring(end);
-                
-                const s = createHighlightElement(color, selected);
-                const p = node.parentNode;
-                if (after) p.insertBefore(document.createTextNode(after), node.nextSibling);
-                p.insertBefore(s, node.nextSibling);
-                if (before) p.insertBefore(document.createTextNode(before), s);
-                p.removeChild(node);
-            }
-        });
-    }
-}
-
+// 13. Unified Global Selection Highlighter Tool (Original Exact Implementation)
 function applyGlobalHighlighterColor(color) {
-    let sel = window.getSelection();
-    let range = null;
-    if (sel && !sel.isCollapsed && sel.rangeCount > 0) {
-        range = sel.getRangeAt(0);
-    } else if (currentTextSelectionRange) {
-        range = currentTextSelectionRange;
-    }
-    
-    if (!range) return;
+    const selection = window.getSelection();
+    if (!selection || selection.isCollapsed) return;
     
     playSound('click');
-
+    const range = selection.getRangeAt(0);
+    
     if (color === 'clear') {
-        const common = range.commonAncestorContainer;
-        const root = (common.nodeType === 1) ? common : common.parentElement;
-        
-        const directHl = root ? root.closest('.custom-highlight') : null;
-        if (directHl) {
-            unwrapHighlightNode(directHl);
-        } else if (root) {
-            const hls = root.querySelectorAll('.custom-highlight');
+        // Strip custom highlights / underline classes
+        const span = range.commonAncestorContainer.parentElement;
+        if (span && span.classList.contains('custom-highlight')) {
+            const textNode = document.createTextNode(span.textContent);
+            span.parentNode.replaceChild(textNode, span);
+        } else {
+            const hls = document.querySelectorAll('.custom-highlight');
             hls.forEach(hl => {
                 if (range.intersectsNode(hl)) {
-                    unwrapHighlightNode(hl);
+                    const textNode = document.createTextNode(hl.textContent);
+                    hl.parentNode.replaceChild(textNode, hl);
                 }
             });
         }
+    } else if (color === 'underline') {
+        const span = document.createElement('span');
+        span.className = 'custom-highlight highlight-underline';
+        span.style.textDecoration = 'underline 2.5px #2563eb';
+        span.style.textUnderlineOffset = '4px';
+        span.style.fontWeight = '600';
+        try {
+            span.appendChild(range.extractContents());
+            range.insertNode(span);
+        } catch(e) {
+            console.warn("Underline wrap failed:", e);
+        }
     } else {
-        wrapRangeWithHighlight(range, color);
+        const span = document.createElement('span');
+        span.className = `custom-highlight highlight-${color}`;
+        span.style.background = color === 'yellow' ? 'rgba(253, 224, 71, 0.4)' : (color === 'green' ? 'rgba(134, 239, 172, 0.4)' : 'rgba(147, 197, 253, 0.4)');
+        try {
+            span.appendChild(range.extractContents());
+            range.insertNode(span);
+        } catch(e) {
+            console.warn("Highlight wrap failed:", e);
+        }
     }
     
-    if (sel) {
-        try { sel.removeAllRanges(); } catch(e){}
-    }
-    currentTextSelectionRange = null;
-    
+    selection.removeAllRanges();
     const toolbar = document.getElementById('vocab-saver-toolbar');
-    if (toolbar) {
-        toolbar.classList.add('hidden');
-        toolbar.style.display = 'none';
-    }
+    if (toolbar) toolbar.classList.add('hidden');
 }
-window.applyGlobalHighlighterColor = applyGlobalHighlighterColor;
 
 // Warm up the speechSynthesis voices list on page load
 if ('speechSynthesis' in window) {
@@ -13536,7 +13443,7 @@ function speakWord(text) {
                               voices.find(v => v.name === 'Alex') || 
                               voices.find(v => v.lang.startsWith('en') && v.name.toLowerCase().includes('male')) ||
                               voices.find(v => v.lang.startsWith('en') && (v.name.includes('David') || v.name.includes('Mark') || v.name.includes('Daniel'))) ||
-                              voices.find(v => v.lang === 'en-US'); // Fallback
+                              voices.find(v => v.lang === 'en-US');
         
         if (guyVoice) {
             utterance.voice = guyVoice;
@@ -13554,50 +13461,6 @@ function speakWord(text) {
     } else {
         console.warn("Speech Synthesis not supported.");
     }
-}
-
-// 14. Vocabulary Clicks Tooltips Database Sync
-function bindVocabularyClickTooltips() {
-    const vocabTerms = document.querySelectorAll('.vocab-term');
-    vocabTerms.forEach(term => {
-        term.addEventListener('click', (e) => {
-            if (!term.classList.contains('active')) return;
-            
-            e.stopPropagation();
-            playSound('chime');
-            
-            const word = term.dataset.word;
-            const data = vocabData[word.toLowerCase()];
-            
-            if (data) {
-                state.tooltipJustShown = true;
-                
-                elements.tooltipWord.textContent = word;
-                elements.tooltipPos.textContent = `(${data.pos})`;
-                elements.tooltipPhonetic.textContent = data.phonetic;
-                elements.tooltipMean.textContent = data.mean;
-                
-                const rect = term.getBoundingClientRect();
-                elements.vocabTooltip.style.left = `${rect.left}px`;
-                elements.vocabTooltip.style.top = `${rect.bottom + 8}px`;
-                elements.vocabTooltip.classList.remove('hidden');
-                
-                elements.tooltipSaveBtn.dataset.word = word;
-                elements.tooltipSaveBtn.dataset.pos = data.pos;
-                elements.tooltipSaveBtn.dataset.phonetic = data.phonetic;
-                elements.tooltipSaveBtn.dataset.mean = data.mean;
-                
-                const isAlreadySaved = state.savedWords.some(w => w.word.toLowerCase() === word.toLowerCase());
-                if (isAlreadySaved) {
-                    elements.tooltipSaveBtn.classList.add('hidden');
-                    elements.tooltipSavedBadge.classList.remove('hidden');
-                } else {
-                    elements.tooltipSaveBtn.classList.remove('hidden');
-                    elements.tooltipSavedBadge.classList.add('hidden');
-                }
-            }
-        });
-    });
 }
 
 // Helper: Asynchronous translation from English to Vietnamese
@@ -13623,119 +13486,84 @@ async function translateWordENtoVI(word) {
     return null;
 }
 
-// 14.5 Global Text Selection Word Saver & Instant Floating Highlighter
+// 14.5 Global Text Selection Word Saver (Original Exact Implementation)
 function initGlobalVocabSaver() {
     const toolbar = document.getElementById('vocab-saver-toolbar');
     if (!toolbar) return;
     
-    function showToolbarForSelection(e) {
-        const sel = window.getSelection();
-        if (!sel || sel.isCollapsed || sel.rangeCount === 0) {
+    function updateToolbarPosition() {
+        const selection = window.getSelection();
+        if (!selection || selection.isCollapsed) {
             toolbar.classList.add('hidden');
-            toolbar.style.display = 'none';
             return;
         }
         
-        const selectedText = sel.toString().trim();
-        if (selectedText.length < 1 || selectedText.length > 5000) {
+        const selectedText = selection.toString().trim();
+        // Validate selection range (between 1 and 500 chars, no carriage returns)
+        if (selectedText.length < 1 || selectedText.length > 500 || selectedText.includes('\n')) {
             toolbar.classList.add('hidden');
-            toolbar.style.display = 'none';
             return;
         }
         
-        const range = sel.getRangeAt(0);
-        currentTextSelectionRange = range.cloneRange();
-        
-        const clientRects = range.getClientRects();
-        let rect = (clientRects.length > 0) ? clientRects[clientRects.length - 1] : range.getBoundingClientRect();
-        
+        // Show floating bubble toolbar
+        const range = selection.getRangeAt(0);
+        const rect = range.getBoundingClientRect();
         if (rect.width === 0 && rect.height === 0) {
-            rect = range.getBoundingClientRect();
+            return;
         }
         
-        if (rect.width === 0 && rect.height === 0) {
-            if (e && typeof e.clientX === 'number' && e.clientX > 0) {
-                rect = { left: e.clientX, right: e.clientX + 10, top: e.clientY - 10, bottom: e.clientY + 10, height: 20, width: 20 };
-            } else {
-                return;
-            }
-        }
+        // Fixed positioning relative to viewport
+        let left = rect.left + (rect.width / 2) - 130;
+        let top = rect.top - 46;
         
-        // Make toolbar visible and measure
-        toolbar.classList.remove('hidden');
-        toolbar.style.display = 'flex';
-        toolbar.style.visibility = 'visible';
-        toolbar.style.opacity = '1';
-        toolbar.style.position = 'fixed';
-        toolbar.style.zIndex = '99999999';
-        toolbar.dataset.text = selectedText;
-        
-        const tbWidth = toolbar.offsetWidth || 230;
-        const tbHeight = toolbar.offsetHeight || 36;
-        
-        // Position KẾ BÊN TỪ ẤY: right next to the selected word on the right
-        let left = rect.right + 8;
-        let top = rect.top + (rect.height / 2) - (tbHeight / 2);
-        
-        // If overflowing right edge, place to the left or above the word
-        if (left + tbWidth > window.innerWidth - 12) {
-            if (rect.left - tbWidth - 8 > 10) {
-                left = rect.left - tbWidth - 8;
-            } else {
-                left = Math.max(10, Math.min(window.innerWidth - tbWidth - 10, rect.left));
-                top = rect.top - tbHeight - 6;
-                if (top < 8) {
-                    top = rect.bottom + 6;
-                }
-            }
-        }
-        
-        if (top < 8) top = 8;
-        if (top + tbHeight > window.innerHeight - 8) {
-            top = window.innerHeight - tbHeight - 8;
-        }
+        if (top < 10) top = rect.bottom + 10;
+        if (left < 10) left = 10;
+        if (left + 270 > window.innerWidth - 10) left = window.innerWidth - 280;
         
         toolbar.style.left = `${Math.round(left)}px`;
         toolbar.style.top = `${Math.round(top)}px`;
         
+        // Reset text contextually based on word/phrase
         const spanText = document.getElementById('global-save-vocab-text');
         if (spanText) {
-            spanText.textContent = selectedText.includes(' ') ? "Lưu cụm" : "Lưu từ";
+            spanText.textContent = selectedText.includes(' ') ? "Lưu cụm từ này" : "Lưu từ vựng này";
         }
+        
+        toolbar.classList.remove('hidden');
+        toolbar.dataset.text = selectedText;
     }
     
-    // Hide when clicking outside
-    document.addEventListener('mousedown', (e) => {
-        if (!toolbar.contains(e.target)) {
-            toolbar.classList.add('hidden');
-            toolbar.style.display = 'none';
-        }
-    });
-
+    // Listen for text selection releases on document
     document.addEventListener('mouseup', (e) => {
         if (toolbar.contains(e.target)) return;
-        setTimeout(() => showToolbarForSelection(e), 20);
-    });
-    
-    document.addEventListener('touchend', (e) => {
-        if (toolbar.contains(e.target)) return;
-        setTimeout(() => showToolbarForSelection(e), 30);
+        setTimeout(updateToolbarPosition, 15);
     });
 
-    // Auto-detect double-click, drag, or trackpad selection on any platform
-    let selTimer = null;
+    document.addEventListener('touchend', (e) => {
+        if (toolbar.contains(e.target)) return;
+        setTimeout(updateToolbarPosition, 25);
+    });
+
+    // Support keyboard selection and trackpad double-taps
+    let selChangeDebounce = null;
     document.addEventListener('selectionchange', () => {
-        clearTimeout(selTimer);
-        selTimer = setTimeout(() => {
+        clearTimeout(selChangeDebounce);
+        selChangeDebounce = setTimeout(() => {
             const sel = window.getSelection();
-            if (sel && !sel.isCollapsed && sel.rangeCount > 0) {
-                const txt = sel.toString().trim();
-                if (txt.length >= 1 && txt.length <= 5000) {
-                    showToolbarForSelection();
-                    return;
+            if (sel && !sel.isCollapsed) {
+                const text = sel.toString().trim();
+                if (text.length >= 1 && text.length <= 500 && !text.includes('\n')) {
+                    updateToolbarPosition();
                 }
             }
-        }, 80);
+        }, 100);
+    });
+    
+    // Hide toolbar when clicking outside
+    document.addEventListener('mousedown', (e) => {
+        if (e.target !== toolbar && !toolbar.contains(e.target)) {
+            toolbar.classList.add('hidden');
+        }
     });
     
     // Bind global save vocab button click
@@ -13748,17 +13576,17 @@ function initGlobalVocabSaver() {
             const rawWord = toolbar.dataset.text;
             if (!rawWord) {
                 toolbar.classList.add('hidden');
-                toolbar.style.display = 'none';
                 return;
             }
             const cleanWord = rawWord.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?"']/g, "").trim();
             if (cleanWord.length < 2) {
                 toolbar.classList.add('hidden');
-                toolbar.style.display = 'none';
                 return;
             }
             
             const isPhrase = cleanWord.includes(' ');
+            
+            // Show loading state
             const spanText = document.getElementById('global-save-vocab-text');
             if (spanText) {
                 spanText.textContent = isPhrase ? "Đang dịch & lưu cụm..." : "Đang dịch & lưu từ...";
@@ -13770,7 +13598,6 @@ function initGlobalVocabSaver() {
                 addWordToSavedList(cleanWord, preDefinedData);
                 playSound('success');
                 toolbar.classList.add('hidden');
-                toolbar.style.display = 'none';
                 return;
             }
             
@@ -13790,10 +13617,8 @@ function initGlobalVocabSaver() {
                 addWordToSavedList(cleanWord, customData);
                 playSound('success');
                 toolbar.classList.add('hidden');
-                toolbar.style.display = 'none';
             } else {
                 toolbar.classList.add('hidden');
-                toolbar.style.display = 'none';
                 setTimeout(() => {
                     const userMean = prompt(`Không thể dịch tự động từ '${cleanWord}'. Hãy nhập nghĩa tiếng Việt hoặc ghi chú của từ này:`);
                     if (userMean && userMean.trim().length > 0) {
@@ -13809,6 +13634,17 @@ function initGlobalVocabSaver() {
             }
         });
     }
+    
+    // Bind highlighter dots inside this global toolbar
+    const dots = toolbar.querySelectorAll('.color-dot');
+    dots.forEach(dot => {
+        dot.addEventListener('mousedown', (e) => {
+            e.preventDefault(); // Stop selection loss
+            e.stopPropagation();
+            const color = dot.dataset.color;
+            applyGlobalHighlighterColor(color);
+        });
+    });
 }
 
 function addWordToSavedList(word, data) {
