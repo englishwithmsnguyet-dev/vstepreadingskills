@@ -4493,6 +4493,192 @@ em, i {
     color: #b91c1c !important;
 }
 
+
+/* Enhanced CBT Mock Test Details & Highlights */
+.cbt-check-btn {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 22px;
+    font-size: 0.96rem;
+    font-weight: 800;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+    transition: all 0.2s ease;
+}
+.cbt-check-btn:hover {
+    background: linear-gradient(135deg, #1d4ed8, #1e40af);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.35);
+}
+
+.cbt-evidence-highlight {
+    background-color: #fef08a;
+    color: #0f172a;
+    padding: 2px 4px;
+    border-radius: 4px;
+    border-bottom: 2px solid #eab308;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: inline;
+}
+.cbt-evidence-highlight:hover {
+    background-color: #fde047;
+}
+.cbt-evidence-highlight.active-target {
+    background-color: #fde047 !important;
+    box-shadow: 0 0 0 3px #f59e0b, 0 4px 12px rgba(245, 158, 11, 0.35) !important;
+    font-weight: 700;
+    border-radius: 6px;
+    animation: cbtPulseGlow 1.8s infinite;
+}
+@keyframes cbtPulseGlow {
+    0%, 100% { box-shadow: 0 0 0 3px #f59e0b, 0 4px 12px rgba(245, 158, 11, 0.35); }
+    50% { box-shadow: 0 0 0 5px #d97706, 0 6px 16px rgba(217, 119, 6, 0.5); }
+}
+
+.evidence-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #ef4444;
+    color: #ffffff;
+    font-size: 0.8rem;
+    font-weight: 800;
+    padding: 1px 7px;
+    border-radius: 12px;
+    margin-right: 4px;
+    vertical-align: baseline;
+    box-shadow: 0 1px 3px rgba(239, 68, 68, 0.4);
+    user-select: none;
+    cursor: pointer;
+}
+.cbt-evidence-highlight.active-target .evidence-badge {
+    background: #b91c1c;
+    transform: scale(1.08);
+}
+
+.cbt-result-banner {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-size: 0.98rem;
+    font-weight: 800;
+    margin-top: 18px;
+    margin-bottom: 12px;
+}
+.cbt-result-banner.correct {
+    background: #f0fdf4;
+    border: 1.5px solid #86efac;
+    color: #166534;
+}
+.cbt-result-banner.incorrect {
+    background: #fef2f2;
+    border: 1.5px solid #fca5a5;
+    color: #991b1b;
+}
+
+.cbt-detail-box {
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin-top: 12px;
+    font-size: 0.95rem;
+    line-height: 1.65;
+}
+.cbt-detail-box .cbt-box-header {
+    font-weight: 800;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+.cbt-quote-box {
+    background: #f0f9ff;
+    border: 1.5px solid #bae6fd;
+    border-left: 5px solid #0284c7;
+}
+.cbt-quote-box .cbt-box-content {
+    color: #0369a1;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1.02rem;
+    font-style: italic;
+}
+.cbt-exp-box {
+    background: #faf5ff;
+    border: 1.5px solid #e9d5ff;
+    border-left: 5px solid #9333ea;
+}
+.cbt-exp-box .cbt-box-content {
+    color: #1e293b;
+}
+.cbt-trans-box {
+    background: #f0fdfa;
+    border: 1.5px solid #99f6e4;
+    border-left: 5px solid #0d9488;
+}
+.cbt-trans-box .cbt-box-content {
+    color: #1e293b;
+}
+.cbt-trans-q {
+    font-size: 0.96rem;
+    color: #0f172a;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px dashed #99f6e4;
+}
+.cbt-trans-options-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.cbt-trans-opt-row {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 0.92rem;
+    color: #334155;
+}
+.cbt-trans-opt-row.is-correct {
+    background: rgba(16, 185, 129, 0.12);
+    color: #065f46;
+    font-weight: 700;
+}
+.cbt-trans-opt-letter {
+    font-weight: 800;
+    min-width: 20px;
+}
+.cbt-correct-tag {
+    margin-left: auto;
+    background: #10b981;
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: 12px;
+    white-space: nowrap;
+}
+.cbt-option-item.correct-answer {
+    border-color: #22c55e !important;
+    background: #f0fdf4 !important;
+    color: #15803d !important;
+    font-weight: 700;
+}
+.cbt-option-item.wrong-answer {
+    border-color: #ef4444 !important;
+    background: #fef2f2 !important;
+    color: #b91c1c !important;
+    text-decoration: line-through;
+}
+
 /* Tutor Mode Box */
 .cbt-explanation-card {
     background: #ffffff;
@@ -7666,6 +7852,7 @@ const mockTestPassages = [
     {
         "title": "PASSAGE 01: Ethology & Child Development",
         "passage": "Ethology is concerned with the study of adaptive, or survival, value of behavior and its Evolutionary history. Ethological theory began to be applied to research on children in the 1960’s but has become even more influential today. The origins of ethology can be traced to the work of Darwin. Its modem foundations were laid by two European zoologists, Konrad Lorenz and Niko Tinbergen.<br><br>Watching the behaviors <strong>diverse</strong> animal species in their natural habitats, Lorenz, and Tinbergen observed behavior patterns that promote survival. The most well-known of these is imprinting, the early following behavior of certain baby birds that <strong>ensures</strong> that the young will stay close to their mother and be fed and protected from danger. Imprinting takes place during an early, restricted time period of development. If the mother goose is not present during this time, but an object resembling her in important features is, young goslings may imprint on <strong>it</strong> instead.<br><br>Observations of imprinting led to major concept that has been applied in child development – the critical period. It refers to a limited times span during which the child is biologically prepared to acquire certain adaptive behaviors but needs the support of <strong>suitably</strong> stimulating environment. Many researchers have conducted studies to find out whether complex cognitive and social behaviors must be learned during restricted time periods. For example, if children are deprived of adequate food or physical and social stimulation during the early years of life, will their intelligence be permanently impaired? If language is not mastered during the preschool years, is the child’s capacity to acquire it reduced?<br><br>Inspired by observations of imprinting, in 1969 the British psychoanalyst John Bowlby applied ethological theory to the understanding of the relationship between an infant and its parents. He argued that attachment behaviors of babies, such as smiling, babbling, grasping, and crying, are built- in social signals that encourage the parents to approach, care for, and interact with the baby. By keeping a parent near, these behaviors help ensure that the baby will be fed, protected from danger, and provided with the stimulation and affection necessary for healthy growth. The development of attachment in human infants is a lengthy process involving changes in psychological structures that lead to a deep <strong>affectional tie</strong> between parent and baby.",
+        "highlightedPassage": "Ethology is concerned with the study of adaptive, or survival, value of behavior and its Evolutionary history. Ethological theory began to be applied to research on children in the 1960’s but has become even more influential today. <span class=\"cbt-evidence-highlight\" data-q=\"1\"><span class=\"evidence-badge\">(1)</span>The origins of ethology can be traced to the work of Darwin.</span> Its modem foundations were laid by two European zoologists, Konrad Lorenz and Niko Tinbergen.<br><br>Watching the behaviors <span class=\"cbt-evidence-highlight\" data-q=\"2\"><span class=\"evidence-badge\">(2)</span><strong>diverse</strong></span> animal species in their natural habitats, Lorenz, and Tinbergen observed behavior patterns that promote survival. The most well-known of these is imprinting, the early following behavior of certain baby birds that <span class=\"cbt-evidence-highlight\" data-q=\"3\"><span class=\"evidence-badge\">(3)</span><strong>ensures</strong></span> that the young will stay close to their mother and be fed and protected from danger. Imprinting takes place during an early, restricted time period of development. If the mother goose is not present during this time, but an object resembling her in important features is, <span class=\"cbt-evidence-highlight\" data-q=\"4\"><span class=\"evidence-badge\">(4)</span>young goslings may imprint on <span class=\"cbt-evidence-highlight\" data-q=\"5\"><span class=\"evidence-badge\">(5)</span><strong>it</strong></span> instead</span>.<br><br>Observations of imprinting led to major concept that has been applied in child development – the critical period. It refers to a limited times span during which the child is biologically prepared to acquire certain adaptive behaviors but needs the support of <span class=\"cbt-evidence-highlight\" data-q=\"6\"><span class=\"evidence-badge\">(6)</span><strong>suitably</strong></span> stimulating environment. Many researchers have conducted studies to find out whether complex cognitive and social behaviors must be learned during restricted time periods. For example, if children are deprived of adequate food or physical and social stimulation during the early years of life, will their intelligence be permanently impaired? If language is not mastered during the preschool years, is the child’s capacity to acquire it reduced?<br><br>Inspired by observations of imprinting, in 1969 the British psychoanalyst John Bowlby <span class=\"cbt-evidence-highlight\" data-q=\"10\"><span class=\"evidence-badge\">(10)</span>applied ethological theory to the understanding of the relationship between an infant and its parents</span>. He argued that <span class=\"cbt-evidence-highlight\" data-q=\"7\"><span class=\"evidence-badge\">(7)</span>attachment behaviors of babies, such as smiling, babbling, grasping, and crying, are built- in social signals</span> that encourage the parents to approach, care for, and interact with the baby. <span class=\"cbt-evidence-highlight\" data-q=\"8\"><span class=\"evidence-badge\">(8)</span>By keeping a parent near, these behaviors help ensure that the baby will be fed, protected from danger, and provided with the stimulation and affection necessary for healthy growth.</span> The development of attachment in human infants is a lengthy process involving changes in psychological structures that lead to a deep <span class=\"cbt-evidence-highlight\" data-q=\"9\"><span class=\"evidence-badge\">(9)</span><strong>affectional tie</strong></span> between parent and baby.",
         "questions": [
             {
                 "question": "What was Darwin’s contribution to ethology?",
@@ -7676,7 +7863,15 @@ const mockTestPassages = [
                     "D. Darwin was the first person to apply ethological theory to children."
                 ],
                 "correctIdx": 2,
-                "explanation": "Đoạn 1 viết: 'The origins of ethology can be traced to the work of Darwin.' -> Cung cấp nền tảng."
+                "quote": "The origins of ethology can be traced to the work of Darwin.",
+                "explanation": "Đoạn 1 nêu rõ nguồn gốc của môn tập tính học bắt nguồn từ công trình của Darwin ('can be traced to the work of Darwin'). Điều này có nghĩa là công trình của Darwin đã đặt nền tảng (provided the basis) cho ngành khoa học này. Các phương án A, B, D sai vì không có trong bài hoặc sai sự thật.",
+                "translationQuestion": "Đóng góp của Darwin đối với môn tập tính học là gì?",
+                "translationOptions": [
+                    "Darwin đã cải tiến các nguyên lý ban đầu của tập tính học.",
+                    "Darwin là giáo sư đã giảng dạy cho Lorenz và Tinbergen.",
+                    "Công trình của Darwin đã cung cấp nền tảng cho môn tập tính học.",
+                    "Darwin là người đầu tiên áp dụng thuyết tập tính học vào trẻ em."
+                ]
             },
             {
                 "question": "The word “diverse” is closest in meaning to ___________.",
@@ -7687,7 +7882,15 @@ const mockTestPassages = [
                     "D. particular"
                 ],
                 "correctIdx": 1,
-                "explanation": "Diverse nghĩa là đa dạng, phong phú -> đồng nghĩa với varied."
+                "quote": "Watching the behaviors diverse animal species in their natural habitats...",
+                "explanation": "Từ 'diverse' có nghĩa là đa dạng, phong phú về chủng loại. Do đó 'varied' (đa dạng) là từ đồng nghĩa chuẩn xác nhất. Các từ 'small' (nhỏ), 'wild' (hoang dã), 'particular' (cụ thể) không phù hợp ngữ cảnh.",
+                "translationQuestion": "Từ “diverse” gần nghĩa nhất với từ nào sau đây?",
+                "translationOptions": [
+                    "nhỏ bé",
+                    "đa dạng, phong phú",
+                    "hoang dã",
+                    "cụ thể, riêng biệt"
+                ]
             },
             {
                 "question": "The word “ensures” is closest in meaning to __________.",
@@ -7698,7 +7901,15 @@ const mockTestPassages = [
                     "D. assumes"
                 ],
                 "correctIdx": 0,
-                "explanation": "Ensure nghĩa là bảo đảm, bảo toàn -> đồng nghĩa với guarantee."
+                "quote": "...the early following behavior of certain baby birds that ensures that the young will stay close to their mother and be fed and protected from danger.",
+                "explanation": "Từ 'ensures' có nghĩa là bảo đảm, chắc chắn đem lại kết quả. Từ đồng nghĩa là 'guarantees' (đảm bảo). Các từ 'proves' (chứng minh), 'teaches' (dạy), 'assumes' (cho rằng) mang nghĩa khác.",
+                "translationQuestion": "Từ “ensures” gần nghĩa nhất với từ nào sau đây?",
+                "translationOptions": [
+                    "bảo đảm, cam đoan",
+                    "chứng minh",
+                    "dạy dỗ",
+                    "cho rằng, giả định"
+                ]
             },
             {
                 "question": "According to the passage, if a mother goose is not present during the time period when imprinting takes place, which of the following will most likely occur?",
@@ -7709,7 +7920,15 @@ const mockTestPassages = [
                     "D. The gosling may imprint on another object."
                 ],
                 "correctIdx": 3,
-                "explanation": "Đoạn 2 viết: 'If the mother goose is not present... young goslings may imprint on it instead.'"
+                "quote": "If the mother goose is not present during this time, but an object resembling her in important features is, young goslings may imprint on it instead.",
+                "explanation": "Đoạn 2 nêu rõ: nếu ngỗng mẹ vắng mặt trong giai đoạn khắc vết, nhưng có một vật thể tương tự ngỗng mẹ, những con ngỗng con có thể khắc vết lên vật thể đó để thay thế ('young goslings may imprint on it instead'). Do đó đáp án D là chính xác.",
+                "translationQuestion": "Theo đoạn văn, nếu ngỗng mẹ không có mặt trong khoảng thời gian khắc vết diễn ra, điều nào sau đây nhiều khả năng xảy ra nhất?",
+                "translationOptions": [
+                    "Ngỗng con sẽ không khắc vết lên bất kỳ vật thể nào.",
+                    "Ngỗng con có thể không tìm được bạn tình khi trưởng thành.",
+                    "Ngỗng mẹ sau đó sẽ khắc vết lên ngỗng con.",
+                    "Ngỗng con có thể khắc vết lên một vật thể khác."
+                ]
             },
             {
                 "question": "The word “it” in paragraph 2 refers to ___________.",
@@ -7720,7 +7939,15 @@ const mockTestPassages = [
                     "D. object"
                 ],
                 "correctIdx": 3,
-                "explanation": "Câu viết: '...young goslings may imprint on it instead.' Chữ 'it' thay thế cho 'an object resembling her' ở câu trước."
+                "quote": "...but an object resembling her in important features is, young goslings may imprint on it instead.",
+                "explanation": "Trong mệnh đề 'young goslings may imprint on it instead', đại từ tân ngữ 'it' quy chiếu trực tiếp đến danh từ 'an object' (một vật thể) được nhắc ở ngay mệnh đề điều kiện trước đó.",
+                "translationQuestion": "Từ “it” trong đoạn 2 đề cập đến từ nào sau đây?",
+                "translationOptions": [
+                    "sự phát triển",
+                    "con ngỗng",
+                    "thời gian",
+                    "vật thể"
+                ]
             },
             {
                 "question": "The word “suitably” is closest in meaning to ____________.",
@@ -7731,7 +7958,15 @@ const mockTestPassages = [
                     "D. emotionally"
                 ],
                 "correctIdx": 2,
-                "explanation": "Suitably nghĩa là một cách phù hợp, thích hợp -> đồng nghĩa với appropriately."
+                "quote": "...needs the support of suitably stimulating environment.",
+                "explanation": "Trạng từ 'suitably' nghĩa là một cách thích hợp, phù hợp. Từ đồng nghĩa chuẩn xác nhất là 'appropriately'. Các từ 'willingly' (sẵn lòng), 'moderately' (vừa phải), 'emotionally' (về mặt cảm xúc) không sát nghĩa.",
+                "translationQuestion": "Từ “suitably” gần nghĩa nhất với từ nào sau đây?",
+                "translationOptions": [
+                    "một cách sẵn lòng",
+                    "một cách vừa phải",
+                    "một cách thích hợp, phù hợp",
+                    "về mặt cảm xúc"
+                ]
             },
             {
                 "question": "The author mentions all of the following as attachment behaviors of human infants EXCEPT ___________.",
@@ -7742,10 +7977,18 @@ const mockTestPassages = [
                     "D. smiling"
                 ],
                 "correctIdx": 2,
-                "explanation": "Đoạn 4 liệt kê: 'smiling, babbling, grasping, and crying'. Không đề cập đến 'eating'."
+                "quote": "He argued that attachment behaviors of babies, such as smiling, babbling, grasping, and crying, are built- in social signals...",
+                "explanation": "Đoạn 4 liệt kê rõ các hành vi gắn bó của trẻ: mỉm cười (smiling), bập bẹ (babbling), nắm chặt (grasping), khóc (crying). 'Eating' (ăn uống) là nhu cầu sinh học được cha mẹ đáp ứng chứ không phải là hành vi gắn bó phát tín hiệu của trẻ.",
+                "translationQuestion": "Tác giả đề cập đến tất cả những điều sau đây như những hành vi gắn bó của trẻ sơ sinh NGOẠI TRỪ ___________.",
+                "translationOptions": [
+                    "nắm chặt (grasping)",
+                    "khóc (crying)",
+                    "ăn uống (eating)",
+                    "mỉm cười (smiling)"
+                ]
             },
             {
-                "question": "According to the passage, attachment behaviors of infants are intended to _____________.",
+                "question": "According to the passage, attachment behaviors of infants are intended to __________.",
                 "options": [
                     "A. get the physical, emotional and social needs of the infant met",
                     "B. allow the infant to become imprinted on objects that resemble the parent",
@@ -7753,7 +7996,15 @@ const mockTestPassages = [
                     "D. prepare the infant to cope with separation"
                 ],
                 "correctIdx": 0,
-                "explanation": "Câu viết: 'By keeping a parent near, these behaviors help ensure that the baby will be fed, protected, and provided with stimulation/affection' (nhu cầu thể chất, an toàn và tình cảm được đáp ứng)."
+                "quote": "By keeping a parent near, these behaviors help ensure that the baby will be fed, protected from danger, and provided with the stimulation and affection necessary for healthy growth.",
+                "explanation": "Đoạn 4 chỉ ra rằng việc giữ cha mẹ ở gần giúp đảm bảo đứa trẻ được cho ăn, bảo vệ khỏi nguy hiểm (nhu cầu thể chất), và được cung cấp sự yêu thương, tương tác (nhu cầu cảm xúc và xã hội). Do đó A là đáp án chính xác.",
+                "translationQuestion": "Theo đoạn văn, các hành vi gắn bó của trẻ sơ sinh nhằm mục đích __________.",
+                "translationOptions": [
+                    "được đáp ứng các nhu cầu về thể chất, cảm xúc và xã hội của trẻ",
+                    "cho phép trẻ sơ sinh khắc vết lên các vật thể giống cha mẹ",
+                    "cung cấp cho trẻ một phương tiện tự kích thích",
+                    "chuẩn bị cho trẻ đối phó với sự chia cắt"
+                ]
             },
             {
                 "question": "The phrase “affectional tie” is closest in meaning to ______________.",
@@ -7764,7 +8015,15 @@ const mockTestPassages = [
                     "D. behavioral change"
                 ],
                 "correctIdx": 1,
-                "explanation": "Affectional tie là mối liên kết tình cảm -> đồng nghĩa với emotional attachment."
+                "quote": "...lead to a deep affectional tie between parent and baby.",
+                "explanation": "'Affectional tie' chỉ mối dây liên kết yêu thương, gắn bó tình cảm bền chặt giữa cha mẹ và con cái. Từ đồng nghĩa chính xác nhất là 'emotional attachment' (sự gắn kết tình cảm).",
+                "translationQuestion": "Cụm từ “affectional tie” gần nghĩa nhất với cụm từ nào sau đây?",
+                "translationOptions": [
+                    "sự phát triển nhận thức",
+                    "sự gắn kết/gắn bó về mặt tình cảm",
+                    "nhu cầu tâm lý",
+                    "sự thay đổi hành vi"
+                ]
             },
             {
                 "question": "It can be inferred from the passage that ethological theory assumes that ___________.",
@@ -7775,13 +8034,22 @@ const mockTestPassages = [
                     "D. there are similarities between animal and human behavior"
                 ],
                 "correctIdx": 3,
-                "explanation": "Tập tính học bắt nguồn từ quan sát động vật (birds, Lorenz...) rồi được John Bowlby áp dụng thành công để giải thích hành vi của trẻ nhỏ (humans) -> chứng tỏ có sự tương đồng trong hành vi của động vật và con người."
+                "quote": "Inspired by observations of imprinting, in 1969 the British psychoanalyst John Bowlby applied ethological theory to the understanding of the relationship between an infant and its parents.",
+                "explanation": "Lý thuyết tập tính học vốn bắt đầu từ việc nghiên cứu động vật trong tự nhiên (như hiện tượng khắc vết ở loài chim), sau đó các nhà khoa học đã áp dụng nguyên lý này sang nghiên cứu tâm lý và hành vi ở trẻ nhỏ. Điều này ngụ ý thuyết tập tính học giả định rằng có những điểm tương đồng quan trọng giữa hành vi động vật và hành vi con người (there are similarities between animal and human behavior).",
+                "translationQuestion": "Có thể suy ra từ đoạn văn rằng lý thuyết tập tính học giả định rằng ___________.",
+                "translationOptions": [
+                    "để tìm hiểu về hành vi con người thì chỉ nên nghiên cứu các đối tượng là con người",
+                    "việc không khắc vết không ảnh hưởng gì đến trí thông minh",
+                    "khái niệm về giai đoạn then chốt chỉ áp dụng cho động vật",
+                    "có những điểm tương đồng giữa hành vi của động vật và con người"
+                ]
             }
         ]
     },
     {
         "title": "PASSAGE 02: Origin and Environment of the Moon",
         "passage": "The Moon has been worshipped by primitive peoples and has inspired humans to create everything from lunar calendars to love sonnets, but what do we really know about it? The most accepted theory about the origin of the Moon is that it was formed of the debris from a <strong>massive</strong> collision with the young Earth about 4.6 billion years ago. A huge body, perhaps the size of Mars, struck the Earth, throwing out an immense amount of <strong>debris</strong> that coalesced and cooled; in orbit around the Earth.<br><br>The development of the Earth is inextricably linked to the Moon; the Moon’s gravitational influence upon the Earth is the primary cause of ocean tides. In fact, the Moon has more than twice the effect upon the tides than the Sun does. The Moon makes one rotation and completes a revolution around the Earth every 27 days 7 hours and 43 minutes. This synchronous rotation is caused by an <strong>uneven</strong> distribution of mass in the Moon (essentially, it is heavier on one side than the other) and has allowed the Earth’s gravity to keep one side of the Moon permanently facing the Earth. It is an average distance from the Earth of 384,403 km.<br><br>The Moon has no atmosphere; without an atmosphere, the Moon has nothing to protect it from meteorite impacts, and thus the surface of the Moon is covered with <strong>impact craters</strong>, both large and small. The Moon also has no active tectonic or volcanic activity, so the erosive effects of atmospheric weathering, tectonic shifts, and volcanic upheavals that tend to <strong>erase</strong> and reform the Earth’s surface features are not at work on the Moon. In fact, even tiny surface features such as the footprint left by an astronaut in the lunar soil are likely to last for millions of years, unless obliterated by a chance of meteorite' strike. The surface gravity of the Moon is about one-sixth of that of the Earth’s. Therefore, a man weighing 82 kilograms on Earth would only weigh 14 kilograms on the Moon.<br><br>The geographical features of the Earth most like those of the Moon are, in fact, places such as the Hawaiian volcanic craters and the huge meteor crater in Arizona. The climate of the Moon is very unlike either Hawaii or Arizona; however, in fact the temperature on the Moon ranges between 123 degrees centigrade to -233 degree centigrade.",
+        "highlightedPassage": "The Moon has been worshipped by primitive peoples and has inspired humans to create everything from lunar calendars to love sonnets, but what do we really know about it? <span class=\"cbt-evidence-highlight\" data-q=\"12\"><span class=\"evidence-badge\">(12)</span>The most accepted theory about the origin of the Moon is that it was formed of the debris from a <span class=\"cbt-evidence-highlight\" data-q=\"11\"><span class=\"evidence-badge\">(11)</span><strong>massive</strong></span> collision with the young Earth about 4.6 billion years ago.</span> A huge body, perhaps the size of Mars, struck the Earth, throwing out an immense amount of <span class=\"cbt-evidence-highlight\" data-q=\"13\"><span class=\"evidence-badge\">(13)</span><strong>debris</strong></span> that coalesced and cooled; in orbit around the Earth.<br><br>The development of the Earth is inextricably linked to the Moon; the Moon’s gravitational influence upon the Earth is the primary cause of ocean tides. In fact, the Moon has more than twice the effect upon the tides than the Sun does. <span class=\"cbt-evidence-highlight\" data-q=\"14\"><span class=\"evidence-badge\">(14)</span>The Moon makes one rotation and completes a revolution around the Earth every 27 days 7 hours and 43 minutes.</span> This synchronous rotation is caused by an <span class=\"cbt-evidence-highlight\" data-q=\"15\"><span class=\"evidence-badge\">(15)</span><strong>uneven</strong></span> distribution of mass in the Moon (essentially, it is heavier on one side than the other) and has allowed the Earth’s gravity to keep one side of the Moon permanently facing the Earth. It is an average distance from the Earth of 384,403 km.<br><br>The Moon has no atmosphere; <span class=\"cbt-evidence-highlight\" data-q=\"16\"><span class=\"evidence-badge\">(16)</span>without an atmosphere, the Moon has nothing to protect it from meteorite impacts, and thus the surface of the Moon is covered with <strong>impact craters</strong>, both large and small.</span> The Moon also has no active tectonic or volcanic activity, so the erosive effects of atmospheric weathering, tectonic shifts, and volcanic upheavals that tend to <span class=\"cbt-evidence-highlight\" data-q=\"17\"><span class=\"evidence-badge\">(17)</span><strong>erase</strong></span> and reform the Earth’s surface features are not at work on the Moon. In fact, <span class=\"cbt-evidence-highlight\" data-q=\"20\"><span class=\"evidence-badge\">(20)</span>even tiny surface features such as the footprint left by an astronaut in the lunar soil are likely to last for millions of years, unless obliterated by a chance of meteorite' strike.</span> <span class=\"cbt-evidence-highlight\" data-q=\"18\"><span class=\"evidence-badge\">(18)</span>The surface gravity of the Moon is about one-sixth of that of the Earth’s. Therefore, a man weighing 82 kilograms on Earth would only weigh 14 kilograms on the Moon.</span><br><br>The geographical features of the Earth most like those of the Moon are, in fact, places such as the Hawaiian volcanic craters and the huge meteor crater in Arizona. <span class=\"cbt-evidence-highlight\" data-q=\"19\"><span class=\"evidence-badge\">(19)</span>The climate of the Moon is very unlike either Hawaii or Arizona; however, in fact the temperature on the Moon ranges between 123 degrees centigrade to -233 degree centigrade.</span>",
         "questions": [
             {
                 "question": "Which of the following is the word “massive” closest in meaning to?",
@@ -7792,7 +8060,15 @@ const mockTestPassages = [
                     "D. Huge"
                 ],
                 "correctIdx": 3,
-                "explanation": "Massive nghĩa là khổng lồ, to lớn -> đồng nghĩa với Huge."
+                "quote": "a massive collision with the young Earth about 4.6 billion years ago.",
+                "explanation": "'Massive' có nghĩa là to lớn, khổng lồ. Từ đồng nghĩa chính xác nhất là 'Huge' (to lớn, đồ sộ). 'Dense' (dày đặc), 'Impressive' (ấn tượng), 'Unavoidable' (không thể tránh khỏi) không đồng nghĩa.",
+                "translationQuestion": "Từ “massive” gần nghĩa nhất với từ nào sau đây?",
+                "translationOptions": [
+                    "Dày đặc (Dense)",
+                    "Gây ấn tượng (Impressive)",
+                    "Không thể tránh khỏi (Unavoidable)",
+                    "Khổng lồ, to lớn (Huge)"
+                ]
             },
             {
                 "question": "What is the passage primarily about?",
@@ -7803,7 +8079,15 @@ const mockTestPassages = [
                     "D. The origin of the Moon"
                 ],
                 "correctIdx": 0,
-                "explanation": "Bài viết nói tổng quan về những sự thật khoa học ta biết về mặt trăng (nguồn gốc, tương tác thủy triều, địa chất không có khí quyển và khác biệt với Trái Đất)."
+                "quote": "The most accepted theory about the origin of the Moon is that it was formed of the debris from a massive collision with the young Earth... The development of the Earth is inextricably linked to the Moon... The surface gravity of the Moon is about one-sixth of that of the Earth’s.",
+                "explanation": "Đoạn văn mở đầu bằng câu hỏi: 'nhưng chúng ta thực sự biết gì về Mặt Trăng?' và lần lượt trình bày: nguồn gốc hình thành, lực hấp dẫn gây thủy triều trên Trái Đất, bề mặt chi chít hố thiên thạch do không có khí quyển, trọng lực bề mặt và nhiệt độ khắc nghiệt so với Trái Đất. Do đó, chủ đề bao quát nhất là 'Những điều chúng ta biết về Mặt Trăng và sự khác biệt của nó với Trái Đất'.",
+                "translationQuestion": "Đoạn văn chủ yếu nói về điều gì?",
+                "translationOptions": [
+                    "Những điều chúng ta biết về Mặt Trăng và sự khác biệt của nó so với Trái Đất",
+                    "Ảnh hưởng của Mặt Trăng lên Trái Đất",
+                    "So sánh tổng quan Mặt Trăng và Trái Đất",
+                    "Nguồn gốc hình thành của Mặt Trăng"
+                ]
             },
             {
                 "question": "Which of the following is the word “debris” closest in meaning to?",
@@ -7814,7 +8098,15 @@ const mockTestPassages = [
                     "D. Broken pieces"
                 ],
                 "correctIdx": 3,
-                "explanation": "Debris nghĩa là mảnh vụn, mảnh vỡ -> đồng nghĩa với Broken pieces."
+                "quote": "throwing out an immense amount of debris that coalesced and cooled; in orbit around the Earth.",
+                "explanation": "'Debris' có nghĩa là mảnh vỡ vụn, đất đá vụn sau vụ va chạm thiên thể. Từ đồng nghĩa chính xác là 'Broken pieces' (những mảnh vỡ).",
+                "translationQuestion": "Từ “debris” gần nghĩa nhất với từ nào sau đây?",
+                "translationOptions": [
+                    "Mặt trăng nhỏ",
+                    "Trái Đất",
+                    "Vệ tinh tự nhiên",
+                    "Các mảnh vụn, mảnh vỡ (Broken pieces)"
+                ]
             },
             {
                 "question": "According to the passage, which of the following is true about the Moon?",
@@ -7825,7 +8117,15 @@ const mockTestPassages = [
                     "D. It is protected by a dense atmosphere."
                 ],
                 "correctIdx": 2,
-                "explanation": "Đoạn 2 ghi rõ: 'the Moon’s gravitational influence upon the Earth is the primary cause of ocean tides.'"
+                "quote": "the Moon’s gravitational influence upon the Earth is the primary cause of ocean tides. In fact, the Moon has more than twice the effect upon the tides than the Sun does.",
+                "explanation": "Đoạn 2 khẳng định trực tiếp: 'the Moon’s gravitational influence upon the Earth is the primary cause of ocean tides' (ảnh hưởng trọng lực của Mặt Trăng là nguyên nhân chính gây ra thủy triều trên các đại dương của Trái Đất).",
+                "translationQuestion": "Theo đoạn văn, điều nào sau đây là ĐÚNG về Mặt Trăng?",
+                "translationOptions": [
+                    "Nó có tuổi thọ lớn hơn Trái Đất.",
+                    "Nó bao gồm một vài ngọn núi lửa đang hoạt động.",
+                    "Nó là nguyên nhân chính gây ra hiện tượng thủy triều trên Trái Đất.",
+                    "Nó được bao bọc và bảo vệ bởi một tầng khí quyển dày đặc."
+                ]
             },
             {
                 "question": "Which of the following is the word “uneven” closest in meaning to?",
@@ -7836,7 +8136,15 @@ const mockTestPassages = [
                     "D. Orderly"
                 ],
                 "correctIdx": 0,
-                "explanation": "Uneven là không đồng đều, không đều -> đồng nghĩa với Not uniform."
+                "quote": "This synchronous rotation is caused by an uneven distribution of mass in the Moon (essentially, it is heavier on one side than the other)...",
+                "explanation": "'Uneven' nghĩa là không đồng đều, cọc cạch. Bài giải thích ngay trong ngoặc: 'essentially, it is heavier on one side than the other'. Do đó, 'Not uniform' (không đồng nhất, không đều) là đáp án chính xác.",
+                "translationQuestion": "Từ “uneven” gần nghĩa nhất với từ nào sau đây?",
+                "translationOptions": [
+                    "Không đồng đều (Not uniform)",
+                    "Nặng hơn",
+                    "Phân bổ đều nhau",
+                    "Ngăn nắp, trật tự"
+                ]
             },
             {
                 "question": "Why does the author mention “impact craters” in paragraph 3?",
@@ -7847,7 +8155,15 @@ const mockTestPassages = [
                     "D. To explain why the Moon has no plant life because of meteorites"
                 ],
                 "correctIdx": 2,
-                "explanation": "Đoạn 3 viết: 'without an atmosphere, the Moon has nothing to protect it from meteorite impacts, and thus the surface of the Moon is covered with impact craters' -> Hố va chạm là kết quả của việc không có khí quyển."
+                "quote": "The Moon has no atmosphere; without an atmosphere, the Moon has nothing to protect it from meteorite impacts, and thus the surface of the Moon is covered with impact craters, both large and small.",
+                "explanation": "Tác giả giải thích: do không có bầu khí quyển ('without an atmosphere'), Mặt Trăng không có gì che chắn khỏi các vụ va chạm thiên thạch, và do đó ('and thus') bề mặt bị bao phủ bởi các hố va chạm. Việc nhắc đến hố va chạm là để minh chứng cho hệ quả của việc không có khí quyển.",
+                "translationQuestion": "Tại sao tác giả lại đề cập đến các “hố va chạm (impact craters)” trong đoạn 3?",
+                "translationOptions": [
+                    "Để giải thích tác động ăn mòn của hiện tượng phong hóa khí quyển",
+                    "Để cho thấy kết quả của việc Mặt Trăng không có hoạt động kiến tạo mảng hay núi lửa",
+                    "Để chỉ ra kết quả của việc Mặt Trăng không có bầu khí quyển",
+                    "Để giải thích tại sao Mặt Trăng không có sự sống thực vật do thiên thạch"
+                ]
             },
             {
                 "question": "Which of the following can best replace the word “erase” in paragraph 3?",
@@ -7858,7 +8174,15 @@ const mockTestPassages = [
                     "D. Impact"
                 ],
                 "correctIdx": 0,
-                "explanation": "Erase nghĩa là xóa nhòa, tẩy xóa -> đồng nghĩa với Obliterate (tàn phá, xóa sạch)."
+                "quote": "...so the erosive effects of atmospheric weathering, tectonic shifts, and volcanic upheavals that tend to erase and reform the Earth’s surface features are not at work on the Moon.",
+                "explanation": "Từ 'erase' có nghĩa là xóa sạch, làm biến mất. Từ 'obliterate' mang nghĩa phá hủy, xóa sạch dấu vết, là từ thay thế tương đương và chuẩn xác nhất.",
+                "translationQuestion": "Từ nào sau đây có thể thay thế tốt nhất cho từ “erase” trong đoạn 3?",
+                "translationOptions": [
+                    "Xóa sạch, phá hủy hoàn toàn (Obliterate)",
+                    "Phun trào (Erupt)",
+                    "Thay đổi (Change)",
+                    "Va chạm, tác động (Impact)"
+                ]
             },
             {
                 "question": "Why would a person on the Moon weigh less than on the Earth?",
@@ -7869,7 +8193,15 @@ const mockTestPassages = [
                     "D. Because of the composition of lunar soil"
                 ],
                 "correctIdx": 0,
-                "explanation": "Đoạn 3 viết: 'The surface gravity of the Moon is about one-sixth of that of the Earth’s. Therefore, a man...' -> Do trọng lực bề mặt nhỏ hơn."
+                "quote": "The surface gravity of the Moon is about one-sixth of that of the Earth’s. Therefore, a man weighing 82 kilograms on Earth would only weigh 14 kilograms on the Moon.",
+                "explanation": "Đoạn 3 chỉ rõ: Trọng lực bề mặt của Mặt Trăng chỉ bằng khoảng 1/6 của Trái Đất ('surface gravity of the Moon is about one-sixth...'). Do đó ('Therefore'), một người nặng 82 kg trên Trái Đất chỉ còn nặng 14 kg trên Mặt Trăng.",
+                "translationQuestion": "Tại sao một người khi ở trên Mặt Trăng lại có trọng lượng nhẹ hơn khi ở trên Trái Đất?",
+                "translationOptions": [
+                    "Bởi vì trọng lực bề mặt của Mặt Trăng nhỏ hơn.",
+                    "Bởi vì Mặt Trăng không có bầu khí quyển.",
+                    "Bởi vì Mặt Trăng không có hoạt động núi lửa hoặc kiến tạo mảng.",
+                    "Bởi vì thành phần của lớp đất trên mặt trăng"
+                ]
             },
             {
                 "question": "Which of the following is NOT true about the Moon?",
@@ -7880,7 +8212,15 @@ const mockTestPassages = [
                     "D. It is unable to protect itself from meteorite attacks."
                 ],
                 "correctIdx": 0,
-                "explanation": "Đoạn 2 ghi: 'the Moon has more than twice the effect upon the tides than the Sun does' -> Tác động gấp đôi mặt trời. Báo cáo A nói mặt trăng tác động ít hơn mặt trời là SAI."
+                "quote": "In fact, the Moon has more than twice the effect upon the tides than the Sun does.",
+                "explanation": "Đoạn 2 nêu rõ: trên thực tế, Mặt Trăng có tác động lên thủy triều lớn gấp đôi so với Mặt Trời ('more than twice the effect upon the tides than the Sun does'). Vì vậy phát biểu ở phương án A 'Mặt Trăng có ít ảnh hưởng lên thủy triều hơn Mặt Trời' là SAI sự thật trong bài đọc.",
+                "translationQuestion": "Điều nào sau đây là KHÔNG ĐÚNG về Mặt Trăng?",
+                "translationOptions": [
+                    "Nó có ít tác động lên thủy triều hơn Mặt Trời.",
+                    "Nó nặng hơn ở một bên so với bên kia.",
+                    "Nó có biên độ nhiệt độ rất lớn dao động từ ngày sang đêm.",
+                    "Nó không có khả năng tự bảo vệ mình trước các vụ va chạm thiên thạch."
+                ]
             },
             {
                 "question": "Which of the following can be inferred from the passage?",
@@ -7891,13 +8231,22 @@ const mockTestPassages = [
                     "D. If the Moon had no gravitational influence, the Earth would not have tides."
                 ],
                 "correctIdx": 2,
-                "explanation": "Mặt trăng không có khí quyển (no atmosphere), chênh lệch nhiệt độ cực độ (123 to -233 độ C), không nước -> suy ra không thể hỗ trợ sự sống của con người."
+                "quote": "The Moon has no atmosphere... the temperature on the Moon ranges between 123 degrees centigrade to -233 degree centigrade.",
+                "explanation": "Bài đọc chỉ ra Mặt Trăng hoàn toàn không có bầu khí quyển (no atmosphere), không có nước, nhiệt độ biến động khắc nghiệt từ 123°C xuống -233°C và thường xuyên chịu va chạm thiên thạch. Từ các điều kiện này, có thể suy ra Mặt Trăng không thể tự duy trì sự sống của con người trong điều kiện tự nhiên (The Moon is not able to support human life).",
+                "translationQuestion": "Điều nào sau đây có thể suy ra từ đoạn văn?",
+                "translationOptions": [
+                    "Người sống ở Hawaii và Arizona sẽ cảm thấy quen thuộc trên Mặt Trăng.",
+                    "Sao Hỏa có thể đã được hình thành theo cách tương tự như Mặt Trăng.",
+                    "Mặt Trăng không thể duy trì/hỗ trợ sự sống của con người.",
+                    "Nếu Mặt Trăng không có lực hấp dẫn, Trái Đất sẽ hoàn toàn không có thủy triều."
+                ]
             }
         ]
     },
     {
         "title": "PASSAGE 03: New York National Automobile Show",
         "passage": "The National Automobile Show in New York has been one of the top auto shows in the United States since 1900. On November 3 of that year, about 8,000 people looked over the “horseless carriages.” It was the opening day and the first opportunity for the automobile industry to show off its wares to a large crowd; however, the black-tie audience treated the occasion more as a social affair than as a sales extravaganza. It was also on the first day of this show that William McKinley became the first U.S. president to ride in a car.<br><br>The automobile was not invented in the United States. That distinction belongs to Germany. Nikolaus Otto built the first practical internal-combustion engine there in 1876. Then, German engineer Karl Benz built what are regarded as the first modern automobiles in the mid-1880s. But the United States pioneered the merchandising of the automobile. The auto show proved to be an effective means of getting the public excited about automotive products.<br><br><strong>By happenstance,</strong> the number of people at the first New York show equaled the entire car population of the United States at that time. In 1900, 10 million bicycles and an unknown number of horse- drawn carriages provided the prime means of personal transportation. Only about 4,000 cars were assembled in the United States in 1900, and only a quarter of those were gasoline powered. The rest ran on steam or electricity.<br><br>After viewing the cars made by forty car makers, the show’s audience favored electric cars because they were quiet. The risk of a boiler explosion turned people away from steamers, and the gasoline- powered cars produced smelly fumes. The Duryea Motor Wagon Company, which <strong>launched</strong> the American auto industry in 1895, offered a fragrant <strong>additive</strong> designed to mask the smells of the naphtha that it burned. Many of the 1900 models were cumbersome - the Gas mobile, the Franklin, and the Orient, for example, steered with a tiller like a boat instead of with a steering wheel. None of them was equipped with an automatic starter.<br><br>These early model cars were practically handmade and were not very dependable. They were basically toys of the well-to-do. In fact, Woodrow Wilson, then a professor at Princeton University and later President of the United States, predicted that automobiles would cause conflict between the wealthy and the poor. However, among the exhibitors at the 1900 show was a young engineer named Henry Ford. But before the end of the decade, he would revolutionize the automobile industry with his Model T Ford. The Model T, first produced in 1909, featured a standardized design and a streamlined method of production—the assembly line. Its lower costs made it available to the mass market.<br><br>Cars at the 1900 show ranged in price from $1,000 to $1,500, or roughly $14,000 to $21,000 in today’s prices. By 1913, the Model T was selling for less than $300, and soon the price would drop even further. “I will build cars for the multitudes,” Ford said, and he kept his promise.",
+        "highlightedPassage": "The National Automobile Show in New York has been one of the top auto shows in the United States since 1900. On November 3 of that year, about 8,000 people looked over the “horseless carriages.” It was the opening day and the first opportunity for the automobile industry to show off its wares to a large crowd; however, <span class=\"cbt-evidence-highlight\" data-q=\"21\"><span class=\"evidence-badge\">(21)</span>the black-tie audience treated the occasion more as a social affair than as a sales extravaganza.</span> It was also on the first day of this show that William McKinley became the first U.S. president to ride in a car.<br><br>The automobile was not invented in the United States. That distinction belongs to Germany. Nikolaus Otto built the first practical internal-combustion engine there in 1876. Then, <span class=\"cbt-evidence-highlight\" data-q=\"22\"><span class=\"evidence-badge\">(22)</span>German engineer Karl Benz built what are regarded as the first modern automobiles in the mid-1880s.</span> But the United States pioneered the merchandising of the automobile. The auto show proved to be an effective means of getting the public excited about automotive products.<br><br><span class=\"cbt-evidence-highlight\" data-q=\"24\"><span class=\"evidence-badge\">(24)</span><strong>By happenstance,</strong></span> <span class=\"cbt-evidence-highlight\" data-q=\"23\"><span class=\"evidence-badge\">(23)</span>the number of people at the first New York show equaled the entire car population of the United States at that time.</span> In 1900, 10 million bicycles and an unknown number of horse- drawn carriages provided the prime means of personal transportation. <span class=\"cbt-evidence-highlight\" data-q=\"25\"><span class=\"evidence-badge\">(25)</span>Only about 4,000 cars were assembled in the United States in 1900, and only a quarter of those were gasoline powered.</span> The rest ran on steam or electricity.<br><br>After viewing the cars made by forty car makers, the show’s audience favored electric cars because they were quiet. The risk of a boiler explosion turned people away from steamers, and the gasoline- powered cars produced smelly fumes. The Duryea Motor Wagon Company, which <span class=\"cbt-evidence-highlight\" data-q=\"26\"><span class=\"evidence-badge\">(26)</span><strong>launched</strong></span> the American auto industry in 1895, <span class=\"cbt-evidence-highlight\" data-q=\"27\"><span class=\"evidence-badge\">(27)</span>offered a fragrant <strong>additive</strong> designed to mask the smells of the naphtha that it burned.</span> Many of the 1900 models were cumbersome - <span class=\"cbt-evidence-highlight\" data-q=\"28\"><span class=\"evidence-badge\">(28)</span>the Gas mobile, the Franklin, and the Orient, for example, steered with a tiller like a boat instead of with a steering wheel.</span> None of them was equipped with an automatic starter.<br><br><span class=\"cbt-evidence-highlight\" data-q=\"29\"><span class=\"evidence-badge\">(29)</span>These early model cars were practically handmade and were not very dependable. They were basically toys of the well-to-do.</span> In fact, Woodrow Wilson, then a professor at Princeton University and later President of the United States, predicted that automobiles would cause conflict between the wealthy and the poor. However, among the exhibitors at the 1900 show was a young engineer named Henry Ford. But before the end of the decade, he would revolutionize the automobile industry with his Model T Ford. The Model T, first produced in 1909, featured a standardized design and a streamlined method of production—the assembly line. Its lower costs made it available to the mass market.<br><br><span class=\"cbt-evidence-highlight\" data-q=\"30\"><span class=\"evidence-badge\">(30)</span>Cars at the 1900 show ranged in price from $1,000 to $1,500</span>, or roughly $14,000 to $21,000 in today’s prices. By 1913, the Model T was selling for less than $300, and soon the price would drop even further. “I will build cars for the multitudes,” Ford said, and he kept his promise.",
         "questions": [
             {
                 "question": "The passage implies that the audience viewed the 1900 National Automobile Show primarily as a(n) ____________.",
@@ -7908,7 +8257,15 @@ const mockTestPassages = [
                     "D. opportunity to learn how to drive"
                 ],
                 "correctIdx": 1,
-                "explanation": "Đoạn 1 ghi rõ: 'the black-tie audience treated the occasion more as a social affair than as a sales extravaganza.'"
+                "quote": "the black-tie audience treated the occasion more as a social affair than as a sales extravaganza.",
+                "explanation": "Đoạn 1 nêu rõ khán giả mặc âu phục dạ hội trang trọng (black-tie audience) coi sự kiện này như một dịp giao lưu xã hội thượng lưu ('more as a social affair') hơn là một sự kiện bán hàng rầm rộ. Do đó, đáp án B (formal social occasion) là hoàn toàn chính xác.",
+                "translationQuestion": "Đoạn văn ngụ ý rằng khán giả đã xem Triển lãm Ô tô Quốc gia năm 1900 chủ yếu như là một ____________.",
+                "translationOptions": [
+                    "cơ hội mua ô tô với giá rẻ",
+                    "sự kiện/dịp giao lưu xã hội trang trọng",
+                    "cơ hội đầu tư vào một trong ba mươi hai nhà sản xuất ô tô",
+                    "cơ hội học cách lái xe ô tô"
+                ]
             },
             {
                 "question": "According to the passage, who developed the first modern car?",
@@ -7919,7 +8276,15 @@ const mockTestPassages = [
                     "D. Karl Benz"
                 ],
                 "correctIdx": 3,
-                "explanation": "Đoạn 2 viết: 'German engineer Karl Benz built what are regarded as the first modern automobiles in the mid-1880s.'"
+                "quote": "Then, German engineer Karl Benz built what are regarded as the first modern automobiles in the mid-1880s.",
+                "explanation": "Đoạn 2 nêu cụ thể: kỹ sư người Đức Karl Benz là người đã chế tạo ra những chiếc xe được coi là ô tô hiện đại đầu tiên ('first modern automobiles') vào giữa thập niên 1880.",
+                "translationQuestion": "Theo đoạn văn, ai là người đã phát triển chiếc ô tô hiện đại đầu tiên?",
+                "translationOptions": [
+                    "William McKinley",
+                    "Nikolaus Otto",
+                    "Henry Ford",
+                    "Karl Benz"
+                ]
             },
             {
                 "question": "Approximately how many cars were there in the United States in 1900?",
@@ -7930,7 +8295,15 @@ const mockTestPassages = [
                     "D. 10 million"
                 ],
                 "correctIdx": 1,
-                "explanation": "Đoạn 3 viết: 'the number of people at the first New York show [8,000 người] equaled the entire car population of the United States at that time.' -> Số lượng ô tô là 8,000 chiếc."
+                "quote": "On November 3 of that year, about 8,000 people looked over the “horseless carriages.”... By happenstance, the number of people at the first New York show equaled the entire car population of the United States at that time.",
+                "explanation": "Đoạn 1 cho biết có khoảng 8.000 người tham quan triển lãm. Đoạn 3 nói rằng thật tình cờ, lượng người xem triển lãm này đúng bằng tổng số lượng xe ô tô của toàn nước Mỹ lúc bấy giờ. Do đó, vào năm 1900 tại Mỹ có khoảng 8.000 chiếc xe.",
+                "translationQuestion": "Vào năm 1900, tại Hoa Kỳ có khoảng bao nhiêu chiếc xe ô tô?",
+                "translationOptions": [
+                    "4.000 chiếc",
+                    "8.000 chiếc",
+                    "Một con số chưa xác định",
+                    "10 triệu chiếc"
+                ]
             },
             {
                 "question": "The phrase “By happenstance,” in paragraph 3 is closest in meaning to _____________.",
@@ -7941,7 +8314,15 @@ const mockTestPassages = [
                     "D. Generally,"
                 ],
                 "correctIdx": 1,
-                "explanation": "Happenstance nghĩa là sự tình cờ, ngẫu nhiên -> đồng nghĩa với Coincidentally (Trùng hợp)."
+                "quote": "By happenstance, the number of people at the first New York show equaled the entire car population of the United States at that time.",
+                "explanation": "'By happenstance' có nghĩa là một cách tình cờ, ngẫu nhiên trùng hợp. Từ đồng nghĩa chính xác là 'Coincidentally' (thật trùng hợp). 'By design' (do sắp đặt), 'For example' (ví dụ), 'Generally' (nhìn chung) mang nghĩa khác.",
+                "translationQuestion": "Cụm từ “By happenstance,” trong đoạn 3 gần nghĩa nhất với từ nào sau đây?",
+                "translationOptions": [
+                    "Theo thiết kế, có chủ ý (By design)",
+                    "Thật trùng hợp, tình cờ (Coincidentally)",
+                    "Ví dụ như (For example)",
+                    "Nhìn chung (Generally)"
+                ]
             },
             {
                 "question": "Approximately how many of the cars assembled in the year 1900 were gasoline powered?",
@@ -7952,7 +8333,15 @@ const mockTestPassages = [
                     "D. 32"
                 ],
                 "correctIdx": 0,
-                "explanation": "Đoạn 3 ghi: 'Only about 4,000 cars were assembled... and only a quarter [1/4] of those were gasoline powered.' 1/4 của 4,000 là 1,000."
+                "quote": "Only about 4,000 cars were assembled in the United States in 1900, and only a quarter of those were gasoline powered.",
+                "explanation": "Đoạn 3 viết: chỉ có khoảng 4.000 chiếc xe được lắp ráp tại Mỹ vào năm 1900, và chỉ một phần tư trong số đó (a quarter = 1/4) chạy bằng xăng. 1/4 của 4.000 là 1.000 chiếc.",
+                "translationQuestion": "Khoảng bao nhiêu chiếc ô tô được lắp ráp vào năm 1900 chạy bằng động cơ xăng?",
+                "translationOptions": [
+                    "1.000 chiếc",
+                    "2.000 chiếc",
+                    "4.000 chiếc",
+                    "32 chiếc"
+                ]
             },
             {
                 "question": "The word “launched” in paragraph 4 is closest in meaning to _____________.",
@@ -7963,7 +8352,15 @@ const mockTestPassages = [
                     "D. anticipated"
                 ],
                 "correctIdx": 1,
-                "explanation": "Launch nghĩa là khởi xướng, bắt đầu -> đồng nghĩa với initiate."
+                "quote": "The Duryea Motor Wagon Company, which launched the American auto industry in 1895...",
+                "explanation": "'Launched' trong ngữ cảnh khởi xướng ngành công nghiệp ô tô có nghĩa là khai mở, bắt đầu. Từ đồng nghĩa chính xác là 'initiated' (khởi xướng, bắt đầu).",
+                "translationQuestion": "Từ “launched” trong đoạn 4 gần nghĩa nhất với từ nào sau đây?",
+                "translationOptions": [
+                    "thiết kế (designed)",
+                    "khởi xướng, bắt đầu (initiated)",
+                    "tham gia (joined)",
+                    "dự đoán (anticipated)"
+                ]
             },
             {
                 "question": "The purpose of the “additive” mentioned in paragraph 4 was to ___________.",
@@ -7974,7 +8371,15 @@ const mockTestPassages = [
                     "D. make cars look better"
                 ],
                 "correctIdx": 0,
-                "explanation": "Đoạn 4 viết: 'offered a fragrant additive designed to mask the smells of the naphtha' -> Che giấu mùi khó chịu."
+                "quote": "...offered a fragrant additive designed to mask the smells of the naphtha that it burned.",
+                "explanation": "Đoạn 4 nêu rõ: công ty đưa ra một chất phụ gia tạo mùi hương ('fragrant additive') nhằm mục đích che giấu đi mùi hôi ('mask the smells') của nhiên liệu naphtha khi bị đốt cháy.",
+                "translationQuestion": "Mục đích của “chất phụ gia (additive)” được đề cập trong đoạn 4 là để ___________.",
+                "translationOptions": [
+                    "che đi mùi hôi khó chịu",
+                    "làm cho động cơ hoạt động hiệu quả hơn",
+                    "tăng tốc độ chạy của xe",
+                    "làm cho ô tô trông đẹp mắt hơn"
+                ]
             },
             {
                 "question": "Which of the following is NOT mentioned in the passage as steering with a tiller rather than with a steering wheel?",
@@ -7985,7 +8390,15 @@ const mockTestPassages = [
                     "D. An Orient"
                 ],
                 "correctIdx": 1,
-                "explanation": "Đoạn 4 viết: 'the Gas mobile, the Franklin, and the Orient... steered with a tiller'. Duryea không được nhắc tới ở đây."
+                "quote": "Many of the 1900 models were cumbersome - the Gas mobile, the Franklin, and the Orient, for example, steered with a tiller like a boat instead of with a steering wheel.",
+                "explanation": "Bài đọc liệt kê ba mẫu xe lái bằng cần lái (tiller) thay vì vô lăng: the Gas mobile, the Franklin, and the Orient. Chiếc xe hãng Duryea không được nhắc đến với đặc điểm này.",
+                "translationQuestion": "Mẫu xe nào sau đây KHÔNG được đề cập trong bài là điều khiển bằng cần gạt thay vì vô lăng?",
+                "translationOptions": [
+                    "Gas mobile",
+                    "Duryea",
+                    "Franklin",
+                    "Orient"
+                ]
             },
             {
                 "question": "It is clear from the passage that the early cars ____________.",
@@ -7996,7 +8409,15 @@ const mockTestPassages = [
                     "D. were more spectacular"
                 ],
                 "correctIdx": 0,
-                "explanation": "Đoạn 5 viết: 'These early model cars were practically handmade... they were basically toys of the well-to-do.' Phù hợp với đáp án A."
+                "quote": "These early model cars were practically handmade and were not very dependable. They were basically toys of the well-to-do.",
+                "explanation": "Đoạn 5 viết rõ ràng: những chiếc ô tô đời đầu gần như được chế tạo thủ công hoàn toàn ('practically handmade') và về cơ bản là món đồ chơi xa xỉ của những người giàu có ('toys of the well-to-do'). Do đó đáp án A là chính xác tuyệt đối.",
+                "translationQuestion": "Từ đoạn văn, có thể thấy rõ ràng rằng những chiếc ô tô thời kỳ đầu ____________.",
+                "translationOptions": [
+                    "là món đồ chơi thủ công của giới nhà giàu",
+                    "bao gồm các dòng xe ít tốn kém",
+                    "có ít nhà sản xuất tham gia hơn",
+                    "hoành tráng và lộng lẫy hơn"
+                ]
             },
             {
                 "question": "What was the highest price asked for a car at the 1900 National Automobile Show in the dollars of that time?",
@@ -8007,13 +8428,22 @@ const mockTestPassages = [
                     "D. $1,500"
                 ],
                 "correctIdx": 3,
-                "explanation": "Đoạn 6 viết: 'Cars at the 1900 show ranged in price from $1,000 to $1,500...' Mức giá cao nhất tại thời điểm đó là $1,500."
+                "quote": "Cars at the 1900 show ranged in price from $1,000 to $1,500, or roughly $14,000 to $21,000 in today’s prices.",
+                "explanation": "Đoạn 6 nêu rõ: giá xe tại triển lãm năm 1900 dao động từ $1.000 đến $1.500 theo thời giá lúc bấy giờ. Mức giá cao nhất được hỏi mua tại thời điểm đó là $1.500.",
+                "translationQuestion": "Mức giá cao nhất được đưa ra cho một chiếc ô tô tại Triển lãm năm 1900 tính theo thời giá bấy giờ là bao nhiêu?",
+                "translationOptions": [
+                    "$300",
+                    "$21.000",
+                    "$14.000",
+                    "$1.500"
+                ]
             }
         ]
     },
     {
         "title": "PASSAGE 04: Carving Mount Rushmore Monument",
         "passage": "Every year about two million people visit Mount Rushmore, where the faces of four U.S. presidents were carved in granite by sculptor Gutzon Borglum and his son, the late Lincoln Borglum. The creation of Mount Rushmore monument took 14 years – from 1927 to 1941 – and nearly a million dollars. <strong>These</strong> were times when money was difficult to come by and many people were jobless. To move the more than 400,000 tons of rock, Borglum hired laid-off workers from the closed down mines in the Black Hills area. He taught these men to dynamite, drill, carve, and finish the granite as they were hanging in midair in his specially <strong>devised</strong> chairs, which had many safety features. Borglum was proud of the fact that no workers were killed or severely injured during the years of blasting and carving.<br><br>During the carving, many changes in the original design had to be made to keep the carved heads free of large <strong>fissures</strong> that were uncovered. However, not all the cracks could be <strong>avoided</strong>, so Borglum concocted a mixture of granite dust, white lead, and linseed oil to fill them.<br><br>Every winter, water from melting snows gets into the fissures and expands as it freezes, making the fissures bigger. Consequently, every autumn maintenance work is done to refill the cracks. The repairers swing out in space over a 500-foot drop and fix the monument with the same mixture that Borglum used to preserve this national monument for future generations.",
+        "highlightedPassage": "Every year about two million people visit Mount Rushmore, where <span class=\"cbt-evidence-highlight\" data-q=\"32\"><span class=\"evidence-badge\">(32)</span>the faces of four U.S. presidents were carved in granite by sculptor Gutzon Borglum and his son, the late Lincoln Borglum.</span> <span class=\"cbt-evidence-highlight\" data-q=\"31\"><span class=\"evidence-badge\">(31)</span>The creation of Mount Rushmore monument took 14 years – from 1927 to 1941</span> – and nearly a million dollars. <span class=\"cbt-evidence-highlight\" data-q=\"33\"><span class=\"evidence-badge\">(33)</span><strong>These</strong></span> were times when money was difficult to come by and many people were jobless. To move the more than 400,000 tons of rock, <span class=\"cbt-evidence-highlight\" data-q=\"34\"><span class=\"evidence-badge\">(34)</span>Borglum hired laid-off workers from the closed down mines in the Black Hills area.</span> <span class=\"cbt-evidence-highlight\" data-q=\"36\"><span class=\"evidence-badge\">(36)</span>He taught these men to dynamite, drill, carve, and finish the granite as they were hanging in midair in his specially <span class=\"cbt-evidence-highlight\" data-q=\"35\"><span class=\"evidence-badge\">(35)</span><strong>devised</strong></span> chairs, which had many safety features. Borglum was proud of the fact that no workers were killed or severely injured during the years of blasting and carving.</span><br><br>During the carving, many changes in the original design had to be made to keep the carved heads free of large <span class=\"cbt-evidence-highlight\" data-q=\"37\"><span class=\"evidence-badge\">(37)</span><strong>fissures</strong></span> that were uncovered. However, not all the cracks could be <span class=\"cbt-evidence-highlight\" data-q=\"38\"><span class=\"evidence-badge\">(38)</span><strong>avoided</strong></span>, so <span class=\"cbt-evidence-highlight\" data-q=\"39\"><span class=\"evidence-badge\">(39)</span>Borglum concocted a mixture of granite dust, white lead, and linseed oil to fill them.</span><br><br>Every winter, water from melting snows gets into the fissures and expands as it freezes, making the fissures bigger. <span class=\"cbt-evidence-highlight\" data-q=\"40\"><span class=\"evidence-badge\">(40)</span>Consequently, every autumn maintenance work is done to refill the cracks. The repairers swing out in space over a 500-foot drop and fix the monument with the same mixture that Borglum used to preserve this national monument for future generations.</span>",
         "questions": [
             {
                 "question": "This passage is mainly about _________.",
@@ -8024,7 +8454,15 @@ const mockTestPassages = [
                     "D. the presidents of the US"
                 ],
                 "correctIdx": 2,
-                "explanation": "Bài đọc mô tả quá trình xây dựng, khó khăn, thay đổi thiết kế và bảo dưỡng tượng đài Mount Rushmore -> Chủ đề là sự kiến tạo tượng đài."
+                "quote": "The creation of Mount Rushmore monument took 14 years – from 1927 to 1941... To move the more than 400,000 tons of rock... During the carving... Consequently, every autumn maintenance work is done...",
+                "explanation": "Toàn bộ bài đọc miêu tả chi tiết về lịch sử tạc tượng đài núi Rushmore: thời gian xây dựng, kinh phí, người lao động, các kỹ thuật thi công và công tác tu sửa bảo tồn. Do đó, chủ đề chính của bài là 'quá trình tạo tác tượng đài núi Rushmore' (the creation of the Mount Rushmore monument).",
+                "translationQuestion": "Đoạn văn này chủ yếu nói về _________.",
+                "translationOptions": [
+                    "những du khách đến thăm tượng đài núi Rushmore",
+                    "nhà điêu khắc của tượng đài núi Rushmore",
+                    "quá trình xây dựng/tạo tác tượng đài núi Rushmore",
+                    "các vị tổng thống của Hoa Kỳ"
+                ]
             },
             {
                 "question": "According to the passage, Borglum’s son _________.",
@@ -8035,7 +8473,15 @@ const mockTestPassages = [
                     "D. was an economist"
                 ],
                 "correctIdx": 0,
-                "explanation": "Đoạn 1 viết: ' sculptor Gutzon Borglum and his son, the late Lincoln Borglum.' Từ 'the late' chỉ người đã khuất -> Con trai ông đã mất."
+                "quote": "...by sculptor Gutzon Borglum and his son, the late Lincoln Borglum.",
+                "explanation": "Đoạn 1 sử dụng cụm từ 'the late Lincoln Borglum'. Trong tiếng Anh, tiền tố 'the late' đứng trước tên một người được dùng để chỉ người đó đã qua đời ('cố...'). Do đó 'is dead' là đáp án đúng.",
+                "translationQuestion": "Theo đoạn văn, con trai của Borglum _________.",
+                "translationOptions": [
+                    "đã qua đời",
+                    "từng là một tổng thống Hoa Kỳ",
+                    "đã tiêu tốn một triệu đô la",
+                    "từng là một nhà kinh tế học"
+                ]
             },
             {
                 "question": "The word “These” in paragraph 1 refers to _________.",
@@ -8046,7 +8492,15 @@ const mockTestPassages = [
                     "D. presidents"
                 ],
                 "correctIdx": 2,
-                "explanation": "Câu trước nhắc tới '14 years – from 1927 to 1941'. Câu tiếp theo viết: 'These were times...' -> Chỉ thời kỳ/thời gian đó."
+                "quote": "The creation of Mount Rushmore monument took 14 years – from 1927 to 1941 – and nearly a million dollars. These were times when money was difficult to come by and many people were jobless.",
+                "explanation": "Câu trước nhắc đến quãng thời gian 14 năm 'from 1927 to 1941'. Câu sau bắt đầu bằng 'These were times...' (Đó là những khoảng thời gian khó khăn...). 'These' quy chiếu đến 'times' (thời kỳ, giai đoạn năm tháng đó).",
+                "translationQuestion": "Từ “These” trong đoạn 1 đề cập đến _________.",
+                "translationOptions": [
+                    "những gương mặt",
+                    "những đồng đô la",
+                    "những thời kỳ / năm tháng (times)",
+                    "những vị tổng thống"
+                ]
             },
             {
                 "question": "The men who Borglum hired were _________.",
@@ -8057,7 +8511,15 @@ const mockTestPassages = [
                     "D. students"
                 ],
                 "correctIdx": 2,
-                "explanation": "Đoạn 1 ghi rõ: 'Borglum hired laid-off workers from the closed down mines' -> thợ mỏ bị sa thải, thất nghiệp."
+                "quote": "Borglum hired laid-off workers from the closed down mines in the Black Hills area.",
+                "explanation": "Đoạn 1 nêu rõ: Borglum đã thuê các công nhân bị sa thải từ các mỏ đóng cửa trong vùng Black Hills ('hired laid-off workers from the closed down mines'). 'Laid-off workers from closed mines' chính là các thợ mỏ bị thất nghiệp (unemployed miners).",
+                "translationQuestion": "Những người đàn ông mà Borglum thuê là _________.",
+                "translationOptions": [
+                    "những nhà điêu khắc được đào tạo bài bản",
+                    "các tình nguyện viên vùng Black Hills",
+                    "những người thợ mỏ đang bị thất nghiệp",
+                    "các sinh viên"
+                ]
             },
             {
                 "question": "The word “devised” in paragraph 1 is closest in meaning to _________.",
@@ -8068,7 +8530,15 @@ const mockTestPassages = [
                     "D. created"
                 ],
                 "correctIdx": 0,
-                "explanation": "Devised chairs là những chiếc ghế được phát minh/thiết kế riêng cho việc khắc đá -> đồng nghĩa với designed."
+                "quote": "...in his specially devised chairs, which had many safety features.",
+                "explanation": "'Devised' có nghĩa là thiết kế, sáng chế ra (một phương tiện, kế hoạch hoặc thiết bị phục vụ mục đích đặc thù). Từ đồng nghĩa chính xác nhất là 'designed' (được thiết kế).",
+                "translationQuestion": "Từ “devised” trong đoạn 1 gần nghĩa nhất với từ nào sau đây?",
+                "translationOptions": [
+                    "được thiết kế, sáng chế (designed)",
+                    "được miêu tả (described)",
+                    "được nâng cao (elevated)",
+                    "được tạo ra (created)"
+                ]
             },
             {
                 "question": "It can be inferred from the passage that _________.",
@@ -8079,7 +8549,15 @@ const mockTestPassages = [
                     "D. the workers have no danger in their jobs"
                 ],
                 "correctIdx": 0,
-                "explanation": "Đoạn 2 ghi: 'many changes in the original design had to be made' -> cấu trúc đầu tượng khác so với thiết kế ban đầu do các khe nứt."
+                "quote": "During the carving, many changes in the original design had to be made to keep the carved heads free of large fissures that were uncovered.",
+                "explanation": "Đoạn 2 nêu rõ: trong quá trình tạc tượng, đã phải thực hiện rất nhiều thay đổi so với thiết kế ban đầu ('many changes in the original design had to be made') để tránh các vết nứt lớn. Điều này chứng tỏ hình dạng các đầu tượng hoàn thành không hoàn toàn giống như dự kiến ban đầu (the heads are not as originally planned).",
+                "translationQuestion": "Có thể suy ra từ đoạn văn rằng _________.",
+                "translationOptions": [
+                    "các bức tượng đầu không giống hoàn toàn như dự định ban đầu",
+                    "các công nhân đã mắc sai lầm nghiêm trọng khi nổ mìn",
+                    "các vết nứt đã gây ra thương tích nghiêm trọng",
+                    "công nhân không gặp bất kỳ nguy hiểm nào trong công việc"
+                ]
             },
             {
                 "question": "In paragraph 2, the word “fissures” refers to __________.",
@@ -8090,7 +8568,15 @@ const mockTestPassages = [
                     "D. monuments"
                 ],
                 "correctIdx": 1,
-                "explanation": "Fissures nghĩa là vết nứt, khe hở -> đồng nghĩa với cracks."
+                "quote": "...to keep the carved heads free of large fissures that were uncovered. However, not all the cracks could be avoided...",
+                "explanation": "'Fissures' là danh từ chỉ những vết nứt, khe nứt sâu trên vách đá. Ngay câu sau tác giả dùng từ thay thế 'cracks' (vết nứt). Do đó B là đáp án chính xác.",
+                "translationQuestion": "Trong đoạn 2, từ “fissures” đề cập đến __________.",
+                "translationOptions": [
+                    "các bản thiết kế (designs)",
+                    "các vết nứt, kẽ nứt (cracks)",
+                    "các đầu tượng (heads)",
+                    "các tượng đài (monuments)"
+                ]
             },
             {
                 "question": "The word “avoided” in paragraph 2 is closest in meaning to __________.",
@@ -8101,7 +8587,15 @@ const mockTestPassages = [
                     "D. exaggerated"
                 ],
                 "correctIdx": 1,
-                "explanation": "Avoided cracks là tránh được các vết nứt (ngăn chặn chúng xảy ra) -> đồng nghĩa với prevented."
+                "quote": "However, not all the cracks could be avoided, so Borglum concocted a mixture...",
+                "explanation": "'Avoided' trong trường hợp này có nghĩa là ngăn ngừa, tránh không để vết nứt xảy ra hoặc ảnh hưởng đến tượng. Từ đồng nghĩa thích hợp nhất là 'prevented' (ngăn chặn).",
+                "translationQuestion": "Từ “avoided” trong đoạn 2 gần nghĩa nhất với từ nào sau đây?",
+                "translationOptions": [
+                    "vượt qua, lách luật (circumvented)",
+                    "ngăn chặn, phòng tránh (prevented)",
+                    "ứng biến (improvised)",
+                    "phóng đại (exaggerated)"
+                ]
             },
             {
                 "question": "Borglum’s mixture for filling cracks was _________.",
@@ -8112,7 +8606,15 @@ const mockTestPassages = [
                     "D. useless in winter"
                 ],
                 "correctIdx": 2,
-                "explanation": "Đoạn 2 viết: 'Borglum concocted a mixture...' Concocted nghĩa là tự chế tạo, phát minh ra hỗn hợp này."
+                "quote": "...so Borglum concocted a mixture of granite dust, white lead, and linseed oil to fill them.",
+                "explanation": "Đoạn 2 cho biết Borglum đã tự pha chế/sáng chế ra một hỗn hợp ('concocted a mixture') gồm bột đá hoa cương, chì trắng và dầu hạt lanh. 'Concocted' đồng nghĩa với việc tự tay nhà điêu khắc phát minh ra hỗn hợp này (invented by the sculptor himself).",
+                "translationQuestion": "Hỗn hợp dùng để trám các vết nứt của Borglum _________.",
+                "translationOptions": [
+                    "rất đắt tiền",
+                    "được mua từ các thợ mỏ vùng Black Hills",
+                    "được chính nhà điêu khắc sáng chế ra",
+                    "vô dụng vào mùa đông"
+                ]
             },
             {
                 "question": "Today, Mount Rushmore needs to be _________.",
@@ -8123,12 +8625,19 @@ const mockTestPassages = [
                     "D. reconstructed"
                 ],
                 "correctIdx": 2,
-                "explanation": "Đoạn 3 viết: 'Consequently, every autumn maintenance work is done to refill the cracks... fix the monument...' -> Phải bảo dưỡng/sửa chữa định kỳ hàng năm."
+                "quote": "Consequently, every autumn maintenance work is done to refill the cracks. The repairers swing out in space over a 500-foot drop and fix the monument with the same mixture...",
+                "explanation": "Đoạn 3 chỉ ra rằng cứ mỗi mùa thu, công việc bảo trì lại được thực hiện để trám lại các vết nứt ('every autumn maintenance work is done to refill the cracks'). Điều này có nghĩa tượng đài cần được sửa chữa định kỳ hàng năm (repaired periodically).",
+                "translationQuestion": "Ngày nay, tượng đài Mount Rushmore cần phải _________.",
+                "translationOptions": [
+                    "được đánh bóng cho khách du lịch chiêm ngưỡng",
+                    "được trùng tu phục hồi trong suốt mùa đông",
+                    "được sửa chữa, bảo trì một cách định kỳ",
+                    "được xây dựng lại hoàn toàn"
+                ]
             }
         ]
     }
-];
-</script>
+];</script>
 </head>
 
 <body>
@@ -12968,6 +13477,7 @@ function startSelectedMockPassage(pIdx) {
     state.mockExam.currentQuestionIndex = 0;
     state.mockExam.answers = {};
     state.mockExam.submitted = false;
+    state.mockExam.checkedQuestions = {};
     state.mockExam.score = 0;
     state.mockExam.timeLeft = 900; // 15 mins for single passage
 
@@ -12981,6 +13491,7 @@ function startFullMockExam() {
     state.mockExam.currentQuestionIndex = 0;
     state.mockExam.answers = {};
     state.mockExam.submitted = false;
+    state.mockExam.checkedQuestions = {};
     state.mockExam.score = 0;
     state.mockExam.timeLeft = 3600; // 60 mins for full exam
 
@@ -13058,14 +13569,44 @@ function renderCBTPassageContent() {
         titleEl.innerHTML = `<i class="fa-solid fa-book-open" style="color: #2563eb; margin-right: 8px;"></i> ${passage.title}`;
     }
 
+    const currentPIdx = state.mockExam.currentPassageIdx;
+    const isAnyCheckedInPassage = state.mockExam.submitted || 
+        Object.keys(state.mockExam.checkedQuestions || {}).some(k => k.startsWith(currentPIdx + '_'));
+
     if (bodyEl) {
-        bodyEl.innerHTML = passage.passage;
+        if (isAnyCheckedInPassage && passage.highlightedPassage) {
+            bodyEl.innerHTML = passage.highlightedPassage;
+        } else {
+            bodyEl.innerHTML = passage.passage;
+        }
         bodyEl.style.fontSize = `${currentMockZoom}px`;
         bodyEl.style.lineHeight = '2.15';
-    }
 
-    const colEl = document.getElementById('cbt-passage-column');
-    if (colEl) colEl.scrollTop = 0;
+        // Attach click jump to all evidence highlights and badges
+        const highlights = bodyEl.querySelectorAll('.cbt-evidence-highlight');
+        highlights.forEach(hl => {
+            const qNum = parseInt(hl.getAttribute('data-q'), 10);
+            if (qNum) {
+                hl.onclick = (e) => {
+                    e.stopPropagation();
+                    jumpToCBTQuestion(qNum);
+                };
+                hl.title = `Nhấp để xem câu hỏi ${qNum}`;
+            }
+        });
+
+        // Set active-target for current active question
+        const activeQNum = state.mockExam.isFullExam ? (currentPIdx * 10 + state.mockExam.currentQuestionIndex + 1) : (state.mockExam.currentQuestionIndex + 1);
+        highlights.forEach(hl => hl.classList.remove('active-target'));
+        const activeTargetEl = bodyEl.querySelector(`.cbt-evidence-highlight[data-q="${activeQNum}"]`);
+        if (activeTargetEl) {
+            activeTargetEl.classList.add('active-target');
+            const qKey = `${currentPIdx}_${state.mockExam.currentQuestionIndex}`;
+            if (state.mockExam.submitted || (state.mockExam.checkedQuestions && state.mockExam.checkedQuestions[qKey])) {
+                activeTargetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+    }
 }
 
 function renderCBTQuestionPalette() {
@@ -13080,15 +13621,16 @@ function renderCBTQuestionPalette() {
 
     passage.questions.forEach((q, qIdx) => {
         const qNum = startNum + qIdx;
-        const qKey = state.mockExam.isFullExam ? `${state.mockExam.currentPassageIdx}_${qIdx}` : `${state.mockExam.currentPassageIdx}_${qIdx}`;
+        const qKey = `${state.mockExam.currentPassageIdx}_${qIdx}`;
         const isAnswered = !!state.mockExam.answers[qKey];
         const isActive = qIdx === state.mockExam.currentQuestionIndex;
+        const isChecked = state.mockExam.submitted || (state.mockExam.checkedQuestions && state.mockExam.checkedQuestions[qKey]);
 
         const btn = document.createElement('button');
         btn.className = `cbt-pal-btn ${isActive ? 'active' : ''} ${isAnswered ? 'answered' : ''}`;
         
-        // Review mode states
-        if (state.mockExam.submitted) {
+        // Review & Checked mode states
+        if (isChecked) {
             const chosen = state.mockExam.answers[qKey];
             const correct = String.fromCharCode(65 + q.correctIdx);
             if (chosen === correct) {
@@ -13104,6 +13646,7 @@ function renderCBTQuestionPalette() {
         btn.addEventListener('click', () => {
             playSound('click');
             state.mockExam.currentQuestionIndex = qIdx;
+            renderCBTPassageContent();
             renderCBTQuestionPalette();
             renderCBTActiveQuestion();
         });
@@ -13143,6 +13686,7 @@ function renderCBTActiveQuestion() {
 
     const chosenOpt = state.mockExam.answers[qKey];
     const correctOpt = String.fromCharCode(65 + q.correctIdx);
+    const isChecked = state.mockExam.submitted || (state.mockExam.checkedQuestions && state.mockExam.checkedQuestions[qKey]);
 
     let optionsHtml = '';
     q.options.forEach((opt, oIdx) => {
@@ -13153,30 +13697,87 @@ function renderCBTActiveQuestion() {
         let extraClass = '';
         if (isSelected) extraClass += ' selected';
 
-        if (state.mockExam.submitted) {
+        if (isChecked) {
             if (letter === correctOpt) extraClass += ' correct-answer';
-            if (isSelected && isSelected !== (letter === correctOpt)) extraClass += ' wrong-answer';
+            if (isSelected && letter !== correctOpt) extraClass += ' wrong-answer';
         }
 
+        const clickHandler = isChecked ? '' : `onclick="selectCBTOption('${qKey}', '${letter}')"`;
         optionsHtml += `
-            <div class="cbt-option-item ${extraClass}" onclick="selectCBTOption('${qKey}', '${letter}')">
+            <div class="cbt-option-item ${extraClass}" ${clickHandler} style="${isChecked ? 'cursor: default;' : ''}">
                 <div class="cbt-option-radio">${letter}</div>
                 <div style="flex-grow: 1;">${cleanText}</div>
             </div>
         `;
     });
 
-    let explanationHtml = '';
-    if (state.mockExam.submitted) {
+    // Check Button when an option is selected but not yet checked
+    let checkBtnHtml = '';
+    if (!isChecked && chosenOpt) {
+        checkBtnHtml = `
+            <div style="margin-top: 16px; margin-bottom: 8px;">
+                <button class="cbt-check-btn" onclick="checkCurrentCBTQuestion('${qKey}')">
+                    <i class="fa-solid fa-circle-check"></i> KIỂM TRA ĐÁP ÁN
+                </button>
+            </div>
+        `;
+    }
+
+    // Detailed explanation & translation cards when checked or submitted
+    let detailsHtml = '';
+    if (isChecked) {
         const isCorrect = chosenOpt === correctOpt;
-        explanationHtml = `
-            <div style="margin-top: 20px; background: ${isCorrect ? '#f0fdf4' : '#fef2f2'}; border: 1.5px solid ${isCorrect ? '#86efac' : '#fca5a5'}; border-radius: 12px; padding: 16px 18px;">
-                <div style="font-weight: 800; font-size: 1rem; color: ${isCorrect ? '#166534' : '#991b1b'}; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
-                    <i class="fa-solid ${isCorrect ? 'fa-circle-check' : 'fa-circle-xmark'}"></i>
-                    ${isCorrect ? 'ĐÁP ÁN CHÍNH XÁC: ' + correctOpt : 'BẠN ĐÃ CHỌN: ' + (chosenOpt || 'Chưa chọn') + ' | ĐÁP ÁN ĐÚNG: ' + correctOpt}
+        detailsHtml = `
+            <div class="cbt-result-banner ${isCorrect ? 'correct' : 'incorrect'}">
+                <i class="fa-solid ${isCorrect ? 'fa-circle-check' : 'fa-circle-xmark'}" style="font-size: 1.25rem;"></i>
+                <div>
+                    ${isCorrect ? 'CHÍNH XÁC! Bạn đã chọn đáp án đúng: ' + correctOpt : 'CHƯA CHÍNH XÁC! Bạn đã chọn: ' + (chosenOpt || 'Chưa chọn') + ' | Đáp án đúng: ' + correctOpt}
                 </div>
-                <div style="color: #1e293b; font-size: 0.95rem; line-height: 1.6;">
-                    <strong><i class="fa-solid fa-wand-magic-sparkles" style="color: #6366f1;"></i> Giải thích:</strong> ${q.explanation}
+            </div>
+
+            <!-- Evidence Quote Box -->
+            <div class="cbt-detail-box cbt-quote-box">
+                <div class="cbt-box-header" style="color: #0284c7;">
+                    <i class="fa-solid fa-quote-left"></i>
+                    <span>TRÍCH DẪN ĐOẠN VĂN <span class="evidence-badge" style="cursor: pointer; margin-left: 6px;" onclick="scrollPassageToQuestion(${qNum})" title="Nhấp để cuộn đến vị trí trong bài đọc">Vị trí (${qNum})</span></span>
+                </div>
+                <div class="cbt-box-content">
+                    "${q.quote}"
+                </div>
+            </div>
+
+            <!-- Detailed Explanation Box -->
+            <div class="cbt-detail-box cbt-exp-box">
+                <div class="cbt-box-header" style="color: #7c3aed;">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    <span>GIẢI THÍCH LÝ DO CHỌN</span>
+                </div>
+                <div class="cbt-box-content">
+                    ${q.explanation}
+                </div>
+            </div>
+
+            <!-- Translation Box -->
+            <div class="cbt-detail-box cbt-trans-box">
+                <div class="cbt-box-header" style="color: #0d9488;">
+                    <i class="fa-solid fa-language"></i>
+                    <span>DỊCH CÂU HỎI & 4 PHƯƠNG ÁN</span>
+                </div>
+                <div class="cbt-box-content">
+                    <div class="cbt-trans-q"><strong>Câu hỏi:</strong> ${q.translationQuestion}</div>
+                    <div class="cbt-trans-options-list">
+                        ${q.translationOptions ? q.translationOptions.map((optTrans, oIdx) => {
+                            const letter = String.fromCharCode(65 + oIdx);
+                            const isRight = (oIdx === q.correctIdx);
+                            return `
+                                <div class="cbt-trans-opt-row ${isRight ? 'is-correct' : ''}">
+                                    <span class="cbt-trans-opt-letter">${letter}.</span>
+                                    <span class="cbt-trans-opt-text">${optTrans}</span>
+                                    ${isRight ? '<span class="cbt-correct-tag"><i class="fa-solid fa-check"></i> Đáp án đúng</span>' : ''}
+                                </div>
+                            `;
+                        }).join('') : ''}
+                    </div>
                 </div>
             </div>
         `;
@@ -13185,14 +13786,61 @@ function renderCBTActiveQuestion() {
     cardEl.innerHTML = `
         <div class="cbt-q-header">
             <span class="cbt-q-badge">CÂU HỎI ${qNum}</span>
-            ${state.mockExam.submitted ? (chosenOpt === correctOpt ? '<span style="color:#16a34a; font-weight:800;"><i class="fa-solid fa-circle-check"></i> ĐÚNG</span>' : '<span style="color:#dc2626; font-weight:800;"><i class="fa-solid fa-circle-xmark"></i> SAI</span>') : ''}
+            ${isChecked ? (chosenOpt === correctOpt ? '<span style="color:#16a34a; font-weight:800;"><i class="fa-solid fa-circle-check"></i> ĐÚNG</span>' : '<span style="color:#dc2626; font-weight:800;"><i class="fa-solid fa-circle-xmark"></i> SAI</span>') : ''}
         </div>
         <div class="cbt-q-prompt">${qPrompt}</div>
         <div class="cbt-options-group">
             ${optionsHtml}
         </div>
-        ${explanationHtml}
+        ${checkBtnHtml}
+        ${detailsHtml}
     `;
+}
+
+
+function checkCurrentCBTQuestion(qKey) {
+    if (!state.mockExam.checkedQuestions) state.mockExam.checkedQuestions = {};
+    state.mockExam.checkedQuestions[qKey] = true;
+
+    const passage = mockTestPassages[state.mockExam.currentPassageIdx];
+    const qIdx = state.mockExam.currentQuestionIndex;
+    const q = passage.questions[qIdx];
+    const chosen = state.mockExam.answers[qKey];
+    const correct = String.fromCharCode(65 + q.correctIdx);
+    const isCorrect = chosen === correct;
+
+    playSound(isCorrect ? 'success' : 'fail');
+
+    renderCBTPassageContent();
+    renderCBTQuestionPalette();
+    renderCBTActiveQuestion();
+}
+
+function jumpToCBTQuestion(qNum) {
+    playSound('click');
+    let targetPIdx, targetQIdx;
+    if (state.mockExam.isFullExam) {
+        targetPIdx = Math.floor((qNum - 1) / 10);
+        targetQIdx = (qNum - 1) % 10;
+    } else {
+        targetPIdx = state.mockExam.currentPassageIdx;
+        targetQIdx = (qNum - 1) % 10;
+    }
+    if (state.mockExam.currentPassageIdx !== targetPIdx) {
+        state.mockExam.currentPassageIdx = targetPIdx;
+        renderCBTPassageTabs();
+    }
+    state.mockExam.currentQuestionIndex = targetQIdx;
+    renderCBTPassageContent();
+    renderCBTQuestionPalette();
+    renderCBTActiveQuestion();
+}
+
+function scrollPassageToQuestion(qNum) {
+    const targetEl = document.querySelector(`.cbt-evidence-highlight[data-q="${qNum}"]`);
+    if (targetEl) {
+        targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
 }
 
 function selectCBTOption(qKey, letter) {
@@ -13212,6 +13860,7 @@ function navMockQuestion(delta) {
     if (nextIdx >= 0 && nextIdx <= 9) {
         playSound('click');
         state.mockExam.currentQuestionIndex = nextIdx;
+        renderCBTPassageContent();
         renderCBTQuestionPalette();
         renderCBTActiveQuestion();
     } else if (state.mockExam.isFullExam) {
@@ -13308,6 +13957,12 @@ function submitMockExam() {
     playSound('complete');
 
     state.mockExam.submitted = true;
+    if (!state.mockExam.checkedQuestions) state.mockExam.checkedQuestions = {};
+    mockTestPassages.forEach((p, pIdx) => {
+        p.questions.forEach((q, qIdx) => {
+            state.mockExam.checkedQuestions[`${pIdx}_${qIdx}`] = true;
+        });
+    });
     if (state.mockExam.timerInterval) clearInterval(state.mockExam.timerInterval);
 
     // Calculate score
