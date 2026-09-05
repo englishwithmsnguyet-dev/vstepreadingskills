@@ -4679,6 +4679,40 @@ em, i {
     text-decoration: line-through;
 }
 
+
+.cbt-bottom-submit-btn {
+    width: 100%;
+    padding: 12px 18px;
+    background: #f1f5f9;
+    color: #475569;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 800;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.25s ease;
+}
+.cbt-bottom-submit-btn:hover {
+    background: #e2e8f0;
+    border-color: #94a3b8;
+    color: #1e293b;
+}
+.cbt-bottom-submit-btn.ready {
+    background: linear-gradient(135deg, #16a34a, #15803d) !important;
+    border-color: #15803d !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 14px rgba(22, 163, 74, 0.35);
+    animation: cbtReadyPulse 2s infinite;
+}
+@keyframes cbtReadyPulse {
+    0%, 100% { box-shadow: 0 4px 14px rgba(22, 163, 74, 0.35); }
+    50% { box-shadow: 0 4px 20px rgba(22, 163, 74, 0.6); }
+}
+
 /* Tutor Mode Box */
 .cbt-explanation-card {
     background: #ffffff;
@@ -9764,7 +9798,7 @@ const mockTestPassages = [
                         <i class="fa-regular fa-clock"></i> <span id="exam-timer">15:00</span>
                     </div>
                     <button class="primary-btn btn-sm" id="btn-submit-exam" onclick="confirmSubmitMockExam()" style="background: #ef4444; border: none; padding: 9px 20px; font-weight: 800; border-radius: 20px; box-shadow: 0 2px 8px rgba(239, 68, 68, 0.4); cursor: pointer;">
-                        <i class="fa-solid fa-paper-plane"></i> NỘP BÀI (SUBMIT)
+                        <i class="fa-solid fa-paper-plane"></i> NỘP BÀI & KIỂM TRA ĐÁP ÁN
                     </button>
                     <button class="wiz-btn btn-sm" onclick="exitMockExamToLanding()" style="background: #334155; color: white; border: none; padding: 9px 16px; border-radius: 20px; font-weight: 700; cursor: pointer;">
                         <i class="fa-solid fa-arrow-right-from-bracket"></i> Thoát
@@ -13570,43 +13604,69 @@ function renderCBTPassageContent() {
     }
 
     const currentPIdx = state.mockExam.currentPassageIdx;
-    const isAnyCheckedInPassage = state.mockExam.submitted || 
-        Object.keys(state.mockExam.checkedQuestions || {}).some(k => k.startsWith(currentPIdx + '_'));
 
     if (bodyEl) {
-        if (isAnyCheckedInPassage && passage.highlightedPassage) {
+        // Only show highlighted passage after submit
+        if (state.mockExam.submitted && passage.highlightedPassage) {
             bodyEl.innerHTML = passage.highlightedPassage;
+
+            // Attach click jump to all evidence highlights and badges
+            const highlights = bodyEl.querySelectorAll('.cbt-evidence-highlight');
+            highlights.forEach(hl => {
+                const qNum = parseInt(hl.getAttribute('data-q'), 10);
+                if (qNum) {
+                    hl.onclick = (e) => {
+                        e.stopPropagation();
+                        jumpToCBTQuestion(qNum);
+                    };
+                    hl.title = `Nhấp để xem câu hỏi ${qNum}`;
+                }
+            });
+
+            // Set active-target for current active question
+            const activeQNum = state.mockExam.isFullExam ? (currentPIdx * 10 + state.mockExam.currentQuestionIndex + 1) : (state.mockExam.currentQuestionIndex + 1);
+            highlights.forEach(hl => hl.classList.remove('active-target'));
+            const activeTargetEl = bodyEl.querySelector(`.cbt-evidence-highlight[data-q="${activeQNum}"]`);
+            if (activeTargetEl) {
+                activeTargetEl.classList.add('active-target');
+                activeTargetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
         } else {
             bodyEl.innerHTML = passage.passage;
         }
+
         bodyEl.style.fontSize = `${currentMockZoom}px`;
         bodyEl.style.lineHeight = '2.15';
+    }
+}
 
-        // Attach click jump to all evidence highlights and badges
-        const highlights = bodyEl.querySelectorAll('.cbt-evidence-highlight');
-        highlights.forEach(hl => {
-            const qNum = parseInt(hl.getAttribute('data-q'), 10);
-            if (qNum) {
-                hl.onclick = (e) => {
-                    e.stopPropagation();
-                    jumpToCBTQuestion(qNum);
-                };
-                hl.title = `Nhấp để xem câu hỏi ${qNum}`;
+
+function countCBTAnswered() {
+    let totalQuestions = state.mockExam.isFullExam ? 40 : 10;
+    let answeredCount = 0;
+    let firstUnanswered = null;
+
+    if (state.mockExam.isFullExam) {
+        for (let p = 0; p < 4; p++) {
+            for (let q = 0; q < 10; q++) {
+                if (state.mockExam.answers[`${p}_${q}`]) {
+                    answeredCount++;
+                } else if (firstUnanswered === null) {
+                    firstUnanswered = { p, q, num: p * 10 + q + 1 };
+                }
             }
-        });
-
-        // Set active-target for current active question
-        const activeQNum = state.mockExam.isFullExam ? (currentPIdx * 10 + state.mockExam.currentQuestionIndex + 1) : (state.mockExam.currentQuestionIndex + 1);
-        highlights.forEach(hl => hl.classList.remove('active-target'));
-        const activeTargetEl = bodyEl.querySelector(`.cbt-evidence-highlight[data-q="${activeQNum}"]`);
-        if (activeTargetEl) {
-            activeTargetEl.classList.add('active-target');
-            const qKey = `${currentPIdx}_${state.mockExam.currentQuestionIndex}`;
-            if (state.mockExam.submitted || (state.mockExam.checkedQuestions && state.mockExam.checkedQuestions[qKey])) {
-                activeTargetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    } else {
+        const p = state.mockExam.currentPassageIdx;
+        for (let q = 0; q < 10; q++) {
+            if (state.mockExam.answers[`${p}_${q}`]) {
+                answeredCount++;
+            } else if (firstUnanswered === null) {
+                firstUnanswered = { p, q, num: q + 1 };
             }
         }
     }
+    return { answeredCount, totalQuestions, firstUnanswered };
 }
 
 function renderCBTQuestionPalette() {
@@ -13618,19 +13678,19 @@ function renderCBTQuestionPalette() {
     if (!passage) return;
 
     const startNum = state.mockExam.isFullExam ? (state.mockExam.currentPassageIdx * 10 + 1) : 1;
+    const { answeredCount, totalQuestions } = countCBTAnswered();
 
     passage.questions.forEach((q, qIdx) => {
         const qNum = startNum + qIdx;
         const qKey = `${state.mockExam.currentPassageIdx}_${qIdx}`;
         const isAnswered = !!state.mockExam.answers[qKey];
         const isActive = qIdx === state.mockExam.currentQuestionIndex;
-        const isChecked = state.mockExam.submitted || (state.mockExam.checkedQuestions && state.mockExam.checkedQuestions[qKey]);
 
         const btn = document.createElement('button');
         btn.className = `cbt-pal-btn ${isActive ? 'active' : ''} ${isAnswered ? 'answered' : ''}`;
         
-        // Review & Checked mode states
-        if (isChecked) {
+        // Review mode states ONLY after submission
+        if (state.mockExam.submitted) {
             const chosen = state.mockExam.answers[qKey];
             const correct = String.fromCharCode(65 + q.correctIdx);
             if (chosen === correct) {
@@ -13653,6 +13713,31 @@ function renderCBTQuestionPalette() {
 
         palContainer.appendChild(btn);
     });
+
+    // Update bottom submit button below palette
+    let bottomSubmitCont = document.getElementById('cbt-bottom-submit-container');
+    if (!bottomSubmitCont) {
+        const parent = palContainer.parentElement;
+        if (parent) {
+            bottomSubmitCont = document.createElement('div');
+            bottomSubmitCont.id = 'cbt-bottom-submit-container';
+            bottomSubmitCont.style.marginTop = '14px';
+            parent.appendChild(bottomSubmitCont);
+        }
+    }
+    if (bottomSubmitCont) {
+        if (!state.mockExam.submitted) {
+            const isReady = (answeredCount === totalQuestions);
+            bottomSubmitCont.innerHTML = `
+                <button class="cbt-bottom-submit-btn ${isReady ? 'ready' : ''}" onclick="confirmSubmitMockExam()">
+                    <i class="fa-solid ${isReady ? 'fa-circle-check' : 'fa-paper-plane'}"></i>
+                    ${isReady ? 'NỘP BÀI & KIỂM TRA ĐÁP ÁN (' + answeredCount + '/' + totalQuestions + ')' : 'NỘP BÀI & KIỂM TRA ĐÁP ÁN (' + answeredCount + '/' + totalQuestions + ')'}
+                </button>
+            `;
+        } else {
+            bottomSubmitCont.innerHTML = '';
+        }
+    }
 }
 
 function renderCBTActiveQuestion() {
@@ -13686,7 +13771,7 @@ function renderCBTActiveQuestion() {
 
     const chosenOpt = state.mockExam.answers[qKey];
     const correctOpt = String.fromCharCode(65 + q.correctIdx);
-    const isChecked = state.mockExam.submitted || (state.mockExam.checkedQuestions && state.mockExam.checkedQuestions[qKey]);
+    const isSubmitted = state.mockExam.submitted;
 
     let optionsHtml = '';
     q.options.forEach((opt, oIdx) => {
@@ -13697,35 +13782,23 @@ function renderCBTActiveQuestion() {
         let extraClass = '';
         if (isSelected) extraClass += ' selected';
 
-        if (isChecked) {
+        if (isSubmitted) {
             if (letter === correctOpt) extraClass += ' correct-answer';
             if (isSelected && letter !== correctOpt) extraClass += ' wrong-answer';
         }
 
-        const clickHandler = isChecked ? '' : `onclick="selectCBTOption('${qKey}', '${letter}')"`;
+        const clickHandler = isSubmitted ? '' : `onclick="selectCBTOption('${qKey}', '${letter}')"`;
         optionsHtml += `
-            <div class="cbt-option-item ${extraClass}" ${clickHandler} style="${isChecked ? 'cursor: default;' : ''}">
+            <div class="cbt-option-item ${extraClass}" ${clickHandler} style="${isSubmitted ? 'cursor: default;' : ''}">
                 <div class="cbt-option-radio">${letter}</div>
                 <div style="flex-grow: 1;">${cleanText}</div>
             </div>
         `;
     });
 
-    // Check Button when an option is selected but not yet checked
-    let checkBtnHtml = '';
-    if (!isChecked && chosenOpt) {
-        checkBtnHtml = `
-            <div style="margin-top: 16px; margin-bottom: 8px;">
-                <button class="cbt-check-btn" onclick="checkCurrentCBTQuestion('${qKey}')">
-                    <i class="fa-solid fa-circle-check"></i> KIỂM TRA ĐÁP ÁN
-                </button>
-            </div>
-        `;
-    }
-
-    // Detailed explanation & translation cards when checked or submitted
+    // Detailed explanation & translation cards ONLY when exam is submitted
     let detailsHtml = '';
-    if (isChecked) {
+    if (isSubmitted) {
         const isCorrect = chosenOpt === correctOpt;
         detailsHtml = `
             <div class="cbt-result-banner ${isCorrect ? 'correct' : 'incorrect'}">
@@ -13786,13 +13859,12 @@ function renderCBTActiveQuestion() {
     cardEl.innerHTML = `
         <div class="cbt-q-header">
             <span class="cbt-q-badge">CÂU HỎI ${qNum}</span>
-            ${isChecked ? (chosenOpt === correctOpt ? '<span style="color:#16a34a; font-weight:800;"><i class="fa-solid fa-circle-check"></i> ĐÚNG</span>' : '<span style="color:#dc2626; font-weight:800;"><i class="fa-solid fa-circle-xmark"></i> SAI</span>') : ''}
+            ${isSubmitted ? (chosenOpt === correctOpt ? '<span style="color:#16a34a; font-weight:800;"><i class="fa-solid fa-circle-check"></i> ĐÚNG</span>' : '<span style="color:#dc2626; font-weight:800;"><i class="fa-solid fa-circle-xmark"></i> SAI</span>') : ''}
         </div>
         <div class="cbt-q-prompt">${qPrompt}</div>
         <div class="cbt-options-group">
             ${optionsHtml}
         </div>
-        ${checkBtnHtml}
         ${detailsHtml}
     `;
 }
@@ -13923,31 +13995,28 @@ function updateCBTTimerDisplay() {
 function confirmSubmitMockExam() {
     if (state.mockExam.submitted) return;
 
-    // Count unanswered questions
-    let totalQuestions = state.mockExam.isFullExam ? 40 : 10;
-    let answeredCount = 0;
+    const { answeredCount, totalQuestions, firstUnanswered } = countCBTAnswered();
 
-    if (state.mockExam.isFullExam) {
-        for (let p = 0; p < 4; p++) {
-            for (let q = 0; q < 10; q++) {
-                if (state.mockExam.answers[`${p}_${q}`]) answeredCount++;
+    if (answeredCount < totalQuestions) {
+        const remaining = totalQuestions - answeredCount;
+        alert(`⚠️ Bạn cần chọn hết tất cả các câu (${answeredCount}/${totalQuestions}) mới có thể NỘP BÀI & KIỂM TRA ĐÁP ÁN!\n\nCòn ${remaining} câu chưa chọn phương án.${firstUnanswered ? ' Hệ thống sẽ chuyển đến Câu ' + firstUnanswered.num + ' để bạn tiếp tục hoàn thành.' : ''}`);
+        
+        // Auto-jump to the first unanswered question
+        if (firstUnanswered) {
+            if (state.mockExam.isFullExam && state.mockExam.currentPassageIdx !== firstUnanswered.p) {
+                state.mockExam.currentPassageIdx = firstUnanswered.p;
+                renderCBTPassageTabs();
             }
+            state.mockExam.currentQuestionIndex = firstUnanswered.q;
+            renderCBTPassageContent();
+            renderCBTQuestionPalette();
+            renderCBTActiveQuestion();
         }
-    } else {
-        const p = state.mockExam.currentPassageIdx;
-        for (let q = 0; q < 10; q++) {
-            if (state.mockExam.answers[`${p}_${q}`]) answeredCount++;
-        }
+        return;
     }
 
-    const unans = totalQuestions - answeredCount;
-    let msg = `Bạn đã hoàn thành ${answeredCount}/${totalQuestions} câu hỏi.`;
-    if (unans > 0) {
-        msg += ` Còn ${unans} câu CHƯA TRẢ LỜI.`;
-    }
-    msg += ` Bạn có chắc chắn muốn nộp bài không?`;
-
-    if (confirm(msg)) {
+    // All questions answered
+    if (confirm(`🎉 Bạn đã hoàn thành đầy đủ ${totalQuestions}/${totalQuestions} câu hỏi!\n\nBạn có chắc chắn muốn NỘP BÀI & KIỂM TRA ĐÁP ÁN ngay bây giờ?`)) {
         submitMockExam();
     }
 }
