@@ -10706,6 +10706,20 @@ function printReportSuccessBanner() {
     setTimeout(() => banner.remove(), 4000);
 }
 
+// Class password & unlock level configuration
+const passwordConfig = {
+    'HEMINGWAY': 1,
+    'B212': 6,
+    'CB213': 99,
+    'CB211': 99,
+    'ONB103': 6,
+    'CB210': 99,
+    'CB206': 99,
+    'GV': 99,
+    'PTMN': 99,
+    'MISSNGUYET2026': 99
+};
+
 // 4. Student Name Profile Modal Sequence
 function initStudentProfile() {
     elements.startBtn.addEventListener('click', () => {
@@ -10755,6 +10769,18 @@ function initStudentProfile() {
             elements.displayName.innerHTML = `${teacherBadge} <span style="font-weight: 800; margin-left: 6px;">${state.studentName} (${state.studentClass})</span>`;
             elements.cockpitStudentName.innerHTML = `${teacherBadge} <span style="font-weight: 800; margin-left: 6px;">Giáo viên: ${state.studentName} (${state.studentClass})</span>`;
         } else {
+            // Auto-unlock based on student class code
+            const cleanClass = classVal.trim().toUpperCase();
+            if (passwordConfig[cleanClass] && passwordConfig[cleanClass] > 0) {
+                const classGrantedLevel = passwordConfig[cleanClass];
+                if (classGrantedLevel > state.unlockedLevel) {
+                    state.unlockedLevel = classGrantedLevel;
+                    if (window.updateLockStatus) {
+                        window.updateLockStatus(classGrantedLevel);
+                    }
+                }
+            }
+            
             const fullNameWithClass = `${state.studentName} (${state.studentClass})`;
             elements.displayName.textContent = fullNameWithClass;
             elements.cockpitStudentName.textContent = `Học viên: ${fullNameWithClass}`;
@@ -10861,19 +10887,6 @@ function initSidebarNav() {
                 const enteredPass = prompt("🔐 Nội dung này tạm thời bị khóa. Vui lòng nhập Mã lớp để mở khóa (VD: CB210):");
                 if (enteredPass !== null) {
                     const cleanPass = enteredPass.trim().toUpperCase();
-                    const passwordConfig = {
-                        'HEMINGWAY': 1,
-                        'B212': 5,
-                        'CB213': 6,
-                        'CB211': 6,
-                        'ONB103': 6,
-                        'CB210': 99,
-                        'CB206': 99,
-                        'GV': 99,
-                        'PTMN': 99,
-                        'MISSNGUYET2026': 99
-                    };
-                    
                     const grantedLevel = passwordConfig[cleanPass] || -1;
                     
                     if (grantedLevel >= reqLevel) {
