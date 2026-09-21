@@ -4516,6 +4516,63 @@ em, i {
     box-shadow: 0 6px 16px rgba(37, 99, 235, 0.35);
 }
 
+/* Reading Practice Evidence Highlighting */
+.rp-evidence-highlight {
+    background-color: transparent;
+    border-radius: 4px;
+    transition: background-color 0.25s ease, box-shadow 0.25s ease;
+    display: inline;
+}
+.rp-evidence-highlight .evidence-badge {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: #ef4444;
+    color: #ffffff;
+    font-size: 0.78rem;
+    font-weight: 800;
+    padding: 1px 6px;
+    border-radius: 10px;
+    margin-right: 4px;
+    vertical-align: baseline;
+    box-shadow: 0 1px 3px rgba(239, 68, 68, 0.4);
+    user-select: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+.rp-evidence-highlight .evidence-badge:hover {
+    transform: scale(1.12);
+}
+.rp-evidence-highlight.revealed {
+    background-color: #fef08a;
+    color: #0f172a;
+    padding: 2px 4px;
+    border-bottom: 2px solid #eab308;
+    cursor: pointer;
+}
+.rp-evidence-highlight.revealed:hover {
+    background-color: #fde047;
+}
+.rp-evidence-highlight.revealed .evidence-badge {
+    display: inline-flex;
+}
+.rp-evidence-highlight.active-target {
+    background-color: #fde047 !important;
+    box-shadow: 0 0 0 3px #f59e0b, 0 4px 12px rgba(245, 158, 11, 0.35) !important;
+    font-weight: 700;
+    border-radius: 6px;
+    animation: cbtPulseGlow 1.8s infinite;
+}
+.rp-evidence-highlight.active-target .evidence-badge {
+    background: #b91c1c;
+    transform: scale(1.08);
+}
+.rp-qcard.highlight-target {
+    border-color: #f59e0b !important;
+    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.35), 0 6px 16px rgba(0, 0, 0, 0.08) !important;
+    transition: all 0.3s ease;
+}
+
 .cbt-evidence-highlight {
     background-color: #fef08a;
     color: #0f172a;
@@ -7460,7 +7517,8 @@ const readingPracticesData = {
           "D. Chính quyền / Chính trị"
         ]
       }
-    ]
+    ],
+    "highlightedPassage": "<p>Mount Rushmore is a well-known monument in the Black Hills of South Dakota that features the countenances of four United States presidents: Washington, Jefferson, Roosevelt, and Lincoln. <span class=\"rp-evidence-highlight\" data-q=\"1\"><span class=\"evidence-badge\">[1]</span>What is not so well known is that the process of creating this national treasure was not exactly an uneventful one.</span></p>\n\n<p><span class=\"rp-evidence-highlight\" data-q=\"10\"><span class=\"evidence-badge\">[10]</span>Mount Rushmore was the project of the visionary sculptor John Gutzen de la Mothe Borglum, who was born in Idaho but studied sculpture in Paris in his youth</span> and <span class=\"rp-evidence-highlight\" data-q=\"2\"><span class=\"evidence-badge\">[2]</span>befriended the famous French sculptor Auguste Rodin.</span> In 1927 Borglum was granted a commission by the federal government to create the sculpture on Mount Rushmore. <span class=\"rp-evidence-highlight\" data-q=\"3\"><span class=\"evidence-badge\">[3]</span>Though he was <strong>nearly</strong> sixty years old when he started</span>, he was undaunted by the enormity of the project and the obstacles that it engendered. <span class=\"rp-evidence-highlight\" data-q=\"5\"><span class=\"evidence-badge\">[5]</span>He optimistically asserted that the project would be completed within five years, not caring to recognize the potential problems that such a massive project would involve, the problems of dealing with financing, with government bureaucracy, and with Mother Nature herself.</span> An example of what Mother Nature had to throw at the project was <span class=\"rp-evidence-highlight\" data-q=\"6\"><span class=\"evidence-badge\">[6]</span>the <strong>fissure</strong> - or large crack - that developed in the granite where Jefferson was being carved.</span> <span class=\"rp-evidence-highlight\" data-q=\"7\"><span class=\"evidence-badge\">[7]</span>Jefferson had to be moved to the other side of Washington, next to Roosevelt because of the break in the stone.</span> The work that had been started on the first Jefferson had to be dynamited away.</p>\n\n<p><span class=\"rp-evidence-highlight\" data-q=\"4\"><span class=\"evidence-badge\">[4]</span>Mount Rushmore was not completed within the five years predicted by Borglum and was in fact not actually completed within Borglum's lifetime</span>, <span class=\"rp-evidence-highlight\" data-q=\"8\"><span class=\"evidence-badge\">[8]</span>although <strong>it</strong> was almost finished.</span> Borglum died on March 6. 1941, at the age of seventy' four, after fourteen years of work on the presidents. His son, Lincoln Borglum, who had worked with his father throughout the project, <span class=\"rp-evidence-highlight\" data-q=\"9\"><span class=\"evidence-badge\">[9]</span>completed the monument <strong><u>within eight months of his father's death</u></strong>.</span></p>"
   },
   "rp-02": {
     "id": "rp-02",
@@ -7659,13 +7717,14 @@ const readingPracticesData = {
           "D. Một chứng rối loạn giấc ngủ bất thường"
         ]
       }
-    ]
+    ],
+    "highlightedPassage": "<p><span class=\"rp-evidence-highlight\" data-q=\"1\"><span class=\"evidence-badge\">[1]</span>Narcolepsy is a disease</span> <span class=\"rp-evidence-highlight\" data-q=\"2\"><span class=\"evidence-badge\">[2]</span>characterized by <strong>malfunctioning</strong> sleep mechanics.</span> <span class=\"rp-evidence-highlight\" data-q=\"5\"><span class=\"evidence-badge\">[5]</span>It can consist of a sudden and uncontrollable <strong>bout</strong> of sleep during daylight hours</span> <span class=\"rp-evidence-highlight\" data-q=\"10\"><span class=\"evidence-badge\">[10]</span>and disturbed sleep during nighttime hours.</span> It occurs more often in men than in women, and <span class=\"rp-evidence-highlight\" data-q=\"3\"><span class=\"evidence-badge\">[3]</span>it commonly makes its appearance during adolescence or young adulthood.</span> <span class=\"rp-evidence-highlight\" data-q=\"4\"><span class=\"evidence-badge\">[4]</span>At least a half million Americans are believed to be affected by narcolepsy.</span></p>\n\n<p>Narcolepsy can take a number of forms during daylight hours. One common symptom of the disease during daytime hours is a sudden attack of REM (rapid-eye movement) sleep during normal waking hours. This occurs in some people hundreds of times in a single day, while others only have rare occurrences. <span class=\"rp-evidence-highlight\" data-q=\"6\"><span class=\"evidence-badge\">[6]</span>During a sleep attack, narcoleptics may experience <strong>automatic behavior</strong>; even though asleep, they may continue automatically performing the activity they were involved in prior to falling asleep. They may, for example, continue walking, or driving, or stirring a pot until the activity is interrupted by external forces.</span> Others experience <strong>cataplexy</strong> during daytime hours; <span class=\"rp-evidence-highlight\" data-q=\"7\"><span class=\"evidence-badge\">[7]</span>cataplexy involves a sudden loss of muscle tone that may cause the head to droop or the knees to wobble in minor attacks or a total collapse in more serious attacks.</span> Cataplexy seems to occur most often in conjunction with intense emotion or excitement.</p>\n\n<p>During sleep hours, narcolepsy can also manifest itself in a variety of ways. <span class=\"rp-evidence-highlight\" data-q=\"9\"><span class=\"evidence-badge\">[9]</span>During the transitional phase that precedes the onset of sleep, it is common for hallucinations to occur. These hallucinations, known as <strong>hypnagogic phenomena</strong>, consist of realistic perceptions of sights and sounds during the semi-conscious state between wakefulness and sleep.</span> Narcoleptics may also suffer from night wakening during sleep, <strong><span class=\"rp-evidence-highlight\" data-q=\"8\"><span class=\"evidence-badge\">[8]</span>resulting in</strong> extremely fragmented and restless sleep.</span> Then, upon waking, a narcoleptic may experience sleep paralysis, the inability to move, perhaps for several minutes, immediately after waking.</p>"
   },
   "rp-03": {
     "id": "rp-03",
     "title": "READING PRACTICE 03: THE CINEMA",
     "badge": "Passage 03",
-    "passage": "<p>The cinema did not emerge as a form of mass consumption until its technology evolved from the initial \"peepshow\" format to the point where images were projected on a screen in a darkened theater. In the early 1890s, Thomas Edison and his assistant William Dickson invented the Kinetoscope, a peepshow device in which an individual viewed a brief film strip through a magnifying lens. These Kinetoscope arcades were modeled on phonograph parlors, which had proven successful for Edison several years earlier. In these arcades, customers could move from one machine to another, watching short films of dancers, jugglers, or prizefights.</p>\n\n<p>These Kinetoscope arcades were modeled on phonograph parlors, which had proven successful for Edison several years earlier. In the phonograph parlors, customers listened to recordings through individual ear tubes, moving from one machine to the next of hear a variety of songs or comedic sketches. The Kinetoscope parlors adopted essentially the same approach, providing customers with a similar kind of individualized entertainment for a small fee.</p>\n\n<p>[A] Exhibitors, however, wanted to maximize their profits, which they could do more <strong>readily</strong> by projecting a handful of films to hundreds of customers at a time (rather than one at a time) and by charging 25 to 50 cents admission. [B] About a year after the opening of the first Kinetoscope parlor in 1894, showmen such as Louis and Auguste Lumière, Thomas Armat and Charles Francis Jenkins, and Orville and Woodville Latham (with the assistance of Edison's former assistant, William Dickson) perfected projection devices. [C] These early projection devices were used in vaudeville theaters, legitimate theaters, local town halls, makeshift storefront theaters, fairgrounds, and amusement parks to show films to a mass audience. [D]</p>\n\n<p>With the advent of projection in 1895-1896, motion pictures became the ultimate form of mass consumption. Previously, large audiences had viewed spectacles at the theater, where vaudeville, popular dramas, musical and minstrel shows, classical plays, lectures, and slide-and-lantern shows had been presented to several hundred spectators at a time. But the movies differed significantly from these other forms of entertainment, which depended on either live performance or (in the case of the slide and-lantern shows) the active involvement of a master of ceremonies who assembled the final program.</p>\n\n<p>Although early exhibitors regularly accompanied movies with live acts, the substance of the movies themselves is mass-produced, prerecorded material that can easily be reproduced by theaters with little or no active participation by the exhibitor. Even though early exhibitors shaped their film programs by mixing films and other entertainments together in whichever way they thought would be most attractive to audiences or by accompanying them with lectures, their creative control remained limited. What audiences came to see was the technological marvel of the movies; the lifelike reproduction of the commonplace motion of trains, of waves striking the shore, and of people walking in the street; and the magic made possible by trick photography and the manipulation of the camera.</p>\n\n<p>With the advent of projection, the viewer's relationship with the image was no longer private, as it had been with earlier peepshow devices such as the Kinetoscope and the Mutoscope, which was a similar machine that reproduced motion by means of successive images on individual photographic cards instead of on strips of celluloid. <strong>It</strong> suddenly became public - an experience that the viewer shared with dozens, scores, and even hundreds of others. At the same time, the image that the spectator looked at expanded from the minuscule peepshow dimensions of 1 or 2 inches (in height) to the life-size proportions of 6 or 9 feet.</p>",
+    "passage": "<p>The cinema did not emerge as a form of mass consumption until its technology evolved from the initial \"peepshow\" format to the point where images were projected on a screen in a darkened theater. In the early 1890s, Thomas Edison and his assistant William Dickson invented the Kinetoscope, a peepshow device in which an individual viewed a brief film strip through a magnifying lens. These Kinetoscope arcades were modeled on phonograph parlors, which had proven successful for Edison several years earlier. In these arcades, customers could move from one machine to another, watching short films of dancers, jugglers, or prizefights.</p>\n\n<p>These Kinetoscope arcades were modeled on phonograph parlors, which had proven successful for Edison several years earlier. In the phonograph parlors, customers listened to recordings through individual ear tubes, moving from one machine to the next of hear a variety of songs or comedic sketches. The Kinetoscope parlors adopted essentially the same approach, providing customers with a similar kind of individualized entertainment for a small fee. Edison was more interested in the sale of Kinetoscopes (for roughly $1,000 apiece) to these parlors than in the films that would be run in them. <u>He refused to develop projection technology, reasoning that if he made and sold projectors, then exhibitors would purchase only one machine - a projector - from him instead of several.</u></p>\n\n<p>[A] Exhibitors, however, wanted to maximize their profits, which they could do more <strong>readily</strong> by projecting a handful of films to hundreds of customers at a time (rather than one at a time) and by charging 25 to 50 cents admission. [B] About a year after the opening of the first Kinetoscope parlor in 1894, showmen such as Louis and Auguste Lumière, Thomas Armat and Charles Francis Jenkins, and Orville and Woodville Latham (with the assistance of Edison's former assistant, William Dickson) perfected projection devices. [C] These early projection devices were used in vaudeville theaters, legitimate theaters, local town halls, makeshift storefront theaters, fairgrounds, and amusement parks to show films to a mass audience. [D]</p>\n\n<p>With the advent of projection in 1895-1896, motion pictures became the ultimate form of mass consumption. Previously, large audiences had viewed spectacles at the theater, where vaudeville, popular dramas, musical and minstrel shows, classical plays, lectures, and slide-and-lantern shows had been presented to several hundred spectators at a time. But the movies differed significantly from these other forms of entertainment, which depended on either live performance or (in the case of the slide and-lantern shows) the active involvement of a master of ceremonies who assembled the final program.</p>\n\n<p>Although early exhibitors regularly accompanied movies with live acts, the substance of the movies themselves is mass-produced, prerecorded material that can easily be reproduced by theaters with little or no active participation by the exhibitor. Even though early exhibitors shaped their film programs by mixing films and other entertainments together in whichever way they thought would be most attractive to audiences or by accompanying them with lectures, their creative control remained limited. What audiences came to see was the technological marvel of the movies; the lifelike reproduction of the commonplace motion of trains, of waves striking the shore, and of people walking in the street; and the magic made possible by trick photography and the manipulation of the camera.</p>\n\n<p>With the advent of projection, the viewer's relationship with the image was no longer private, as it had been with earlier peepshow devices such as the Kinetoscope and the Mutoscope, which was a similar machine that reproduced motion by means of successive images on individual photographic cards instead of on strips of celluloid. <strong>It</strong> suddenly became public - an experience that the viewer shared with dozens, scores, and even hundreds of others. At the same time, the image that the spectator looked at expanded from the minuscule peepshow dimensions of 1 or 2 inches (in height) to the life-size proportions of 6 or 9 feet.</p>",
     "translation": "<p><strong>Đoạn 1:</strong> Điện ảnh đã không trở thành một hình thức tiêu thụ đại chúng cho đến khi công nghệ của nó phát triển từ định dạng \"peepshow\" (kính nhìn trộm đơn lẻ) ban đầu đến mức hình ảnh có thể được chiếu lên màn hình trong một rạp chiếu phim tối. Vào đầu những năm 1890, Thomas Edison và trợ lý William Dickson đã phát minh ra Kinetoscope, một thiết bị nhìn lén trong đó một cá nhân xem một đoạn phim ngắn qua một thấu kính phóng đại. Những khu vui chơi Kinetoscope này được mô phỏng theo các phòng nghe máy quay đĩa (phonograph parlors), vốn đã chứng minh sự thành công cho Edison vài năm trước đó. Trong các khu vui chơi này, khách hàng có thể di chuyển từ máy này sang máy khác, xem các bộ phim ngắn về các vũ công, người tung hứng hoặc các trận đấu quyền anh.</p>\n<p><strong>Đoạn 2:</strong> Những khu vui chơi Kinetoscope này được mô phỏng theo các phòng nghe máy quay đĩa. Trong các phòng nghe máy quay đĩa, khách hàng nghe các bản thu âm qua các ống nghe cá nhân, di chuyển từ máy này sang máy khác để nghe nhiều bài hát hoặc các tiểu phẩm hài hước khác nhau. Các phòng Kinetoscope về cơ bản cũng áp dụng cách tiếp cận tương tự, cung cấp cho khách hàng loại hình giải trí mang tính cá nhân hóa tương tự với một khoản phí nhỏ.</p>\n<p><strong>Đoạn 3:</strong> [A] Tuy nhiên, các nhà chiếu phim muốn tối đa hóa lợi nhuận của họ, điều mà họ có thể thực hiện dễ dàng hơn bằng cách chiếu một số bộ phim cho hàng trăm khách hàng cùng một lúc (thay vì từng người một) và thu phí vào cửa từ 25 đến 50 xu. [B] Khoảng một năm sau khi khai trương phòng Kinetoscope đầu tiên vào năm 1894, các nhà làm trò như Louis và Auguste Lumière, Thomas Armat và Charles Francis Jenkins, cùng Orville và Woodville Latham (với sự giúp đỡ của cựu trợ lý của Edison là William Dickson) đã hoàn thiện các thiết bị máy chiếu. [C] Những thiết bị máy chiếu ban đầu này được sử dụng trong các rạp hát tạp kỹ, rạp hát chính thống, tòa thị chính địa phương, các rạp chiếu tạm bợ ở mặt tiền cửa hàng, hội chợ và công viên giải trí để chiếu phim cho đông đảo khán giả. [D]</p>\n<p><strong>Đoạn 4:</strong> Với sự ra đời của máy chiếu vào năm 1895-1896, phim ảnh đã trở thành hình thức tiêu thụ đại chúng đỉnh cao. Trước đây, đông đảo khán giả tụ tập tại nhà hát để xem các buổi diễn tạp kỹ, kịch nổi tiếng, nhạc kịch, các vở kịch cổ điển, bài giảng và trình chiếu đèn lồng. Nhưng phim ảnh khác biệt đáng kể so với các hình thức giải trí khác đòi hỏi biểu diễn trực tiếp hoặc sự tham gia tích cực của người dẫn chương trình.</p>\n<p><strong>Đoạn 5:</strong> Mặc dù các nhà chiếu phim thời kỳ đầu thường kết hợp phim với các tiết mục biểu diễn trực tiếp, bản thân nội dung phim đã được sản xuất hàng loạt, thu âm trước và có thể dễ dàng tái tạo tại các rạp với rất ít hoặc không cần sự tham gia của nhà chiếu phim. Khán giả đến rạp là để xem kỳ quan công nghệ của phim ảnh: sự tái hiện sống động như thật chuyển động của đoàn tàu, sóng vỗ bờ, dòng người đi bộ trên phố và phép thuật của nghệ thuật quay phim.</p>\n<p><strong>Đoạn 6:</strong> Với sự ra đời của máy chiếu, mối quan hệ của người xem với hình ảnh không còn mang tính riêng tư như trước. Nó đột nhiên trở thành trải nghiệm cộng đồng mà người xem chia sẻ với hàng chục, hàng trăm người khác. Đồng thời, hình ảnh mở rộng từ kích thước nhỏ bé 1-2 inch lên kích thước to lớn như người thật 6-9 feet.</p>",
     "questions": [
       {
@@ -7858,7 +7917,8 @@ const readingPracticesData = {
           "D. Vị trí [D]"
         ]
       }
-    ]
+    ],
+    "highlightedPassage": "<p>The cinema did not emerge as a form of mass consumption until its technology evolved from the initial \"peepshow\" format to the point where images were projected on a screen in a darkened theater. In the early 1890s, <span class=\"rp-evidence-highlight\" data-q=\"5\"><span class=\"evidence-badge\">[5]</span>Thomas Edison and his assistant William Dickson invented the Kinetoscope</span>, a peepshow device in which an individual viewed a brief film strip through a magnifying lens. <span class=\"rp-evidence-highlight\" data-q=\"2\"><span class=\"evidence-badge\">[2]</span>These Kinetoscope arcades were modeled on phonograph parlors, which had proven successful for Edison several years earlier.</span> <span class=\"rp-evidence-highlight\" data-q=\"1\"><span class=\"evidence-badge\">[1]</span>In these arcades, customers could move from one machine to another, watching short films of dancers, jugglers, or prizefights.</span></p>\n\n<p>These Kinetoscope arcades were modeled on phonograph parlors, which had proven successful for Edison several years earlier. In the phonograph parlors, customers listened to recordings through individual ear tubes, moving from one machine to the next of hear a variety of songs or comedic sketches. The Kinetoscope parlors adopted essentially the same approach, providing customers with a similar kind of individualized entertainment for a small fee. Edison was more interested in the sale of Kinetoscopes (for roughly $1,000 apiece) to these parlors than in the films that would be run in them. <span class=\"rp-evidence-highlight\" data-q=\"3\"><span class=\"evidence-badge\">[3]</span><u>He refused to develop projection technology, reasoning that if he made and sold projectors, then exhibitors would purchase only one machine - a projector - from him instead of several.</u></span></p>\n\n<p>[A] Exhibitors, however, wanted to maximize their profits, <span class=\"rp-evidence-highlight\" data-q=\"4\"><span class=\"evidence-badge\">[4]</span>which they could do more <strong>readily</strong> by projecting a handful of films to hundreds of customers at a time</span> (rather than one at a time) and by charging 25 to 50 cents admission. [B] About a year after the opening of the first Kinetoscope parlor in 1894, showmen such as Louis and Auguste Lumière, Thomas Armat and Charles Francis Jenkins, and Orville and Woodville Latham (with the assistance of Edison's former assistant, William Dickson) perfected projection devices. [C] These early projection devices were used in vaudeville theaters, legitimate theaters, local town halls, makeshift storefront theaters, fairgrounds, and amusement parks to show films to a mass audience. <span class=\"rp-evidence-highlight\" data-q=\"10\"><span class=\"evidence-badge\">[10]</span>[D]</span></p>\n\n<p>With the advent of projection in 1895-1896, motion pictures became the ultimate form of mass consumption. Previously, large audiences had viewed spectacles at the theater, where vaudeville, popular dramas, musical and minstrel shows, classical plays, lectures, and slide-and-lantern shows had been presented to several hundred spectators at a time. <span class=\"rp-evidence-highlight\" data-q=\"6\"><span class=\"evidence-badge\">[6]</span>But the movies differed significantly from these other forms of entertainment, which depended on either live performance or (in the case of the slide and-lantern shows) the active involvement of a master of ceremonies who assembled the final program.</span></p>\n\n<p>Although early exhibitors regularly accompanied movies with live acts, the substance of the movies themselves is mass-produced, prerecorded material that can easily be reproduced by theaters with little or no active participation by the exhibitor. <span class=\"rp-evidence-highlight\" data-q=\"7\"><span class=\"evidence-badge\">[7]</span>Even though early exhibitors shaped their film programs by mixing films and other entertainments together in whichever way they thought would be most attractive to audiences or by accompanying them with lectures, their creative control remained limited.</span> What audiences came to see was the technological marvel of the movies; the lifelike reproduction of the commonplace motion of trains, of waves striking the shore, and of people walking in the street; and the magic made possible by trick photography and the manipulation of the camera.</p>\n\n<p>With the advent of projection, <span class=\"rp-evidence-highlight\" data-q=\"9\"><span class=\"evidence-badge\">[9]</span>the viewer's relationship with the image was no longer private, as it had been with earlier peepshow devices such as the Kinetoscope and the Mutoscope, which was a similar machine that reproduced motion by means of successive images on individual photographic cards instead of on strips of celluloid.</span> <span class=\"rp-evidence-highlight\" data-q=\"8\"><span class=\"evidence-badge\">[8]</span><strong>It</strong> suddenly became public</span> - an experience that the viewer shared with dozens, scores, and even hundreds of others. At the same time, the image that the spectator looked at expanded from the minuscule peepshow dimensions of 1 or 2 inches (in height) to the life-size proportions of 6 or 9 feet.</p>"
   },
   "rp-04": {
     "id": "rp-04",
@@ -8057,9 +8117,10 @@ const readingPracticesData = {
           "D. Các yếu tố ảnh hưởng đến sa mạc hóa diễn ra theo chu kỳ và sẽ tự biến mất"
         ]
       }
-    ]
+    ],
+    "highlightedPassage": "<p>The deserts, which already occupy approximately a fourth of the Earth's land surface, have in recent decades been increasing at an alarming pace. The expansion of desert-like conditions into areas where they did not previously exist is called <strong>desertification</strong>. <span class=\"rp-evidence-highlight\" data-q=\"1\"><span class=\"evidence-badge\">[1]</span>It has been estimated that an additional one-fourth of the Earth's land surface is <strong>threatened</strong> by this process.</span></p>\n\n<p>Desertification is accomplished primarily through the loss of stabilizing natural vegetation and the subsequent accelerated erosion of the soil by wind and water. In some cases, the loose soil is blown completely away, leaving a stony surface. In other cases, the finer particles may be removed, while the sand-sized particles are accumulated to form mobile hills or ridges of sand.</p>\n\n<p>Even in the areas that retain a soil cover, <span class=\"rp-evidence-highlight\" data-q=\"2\"><span class=\"evidence-badge\">[2]</span>the reduction of vegetation typically results in the loss of the soil's ability to absorb substantial quantities of water.</span> The impact of raindrops on the loose soil tends to transfer fine clay particles into the tiniest soil spaces, sealing them and producing a surface that allows very little water penetration. Water absorption is greatly reduced, consequently runoff is increased, resulting in accelerated erosion rates. The gradual drying of the soil caused by its diminished ability to absorb water results in the further loss of vegetation, so that a cycle of progressive surface deterioration is established.</p>\n\n<p>In some regions, the increase in desert areas is occurring largely as the result of a trend toward drier climatic conditions. Continued gradual global warming has produced an increase in aridity for some areas over the past few thousand years. The process may be accelerated in subsequent decades if global warming resulting from air pollution seriously increases.</p>\n\n<p>There is little doubt, however, that desertification in most areas results primarily from human activities rather than natural processes. The semiarid lands bordering the deserts <span class=\"rp-evidence-highlight\" data-q=\"3\"><span class=\"evidence-badge\">[3]</span>exist in a <strong>delicate</strong> ecological balance</span> and are limited in their potential to adjust to increased environmental pressures. Expanding populations are subjecting the land to increasing pressures to provide them with food and fuel. In wet periods, the land may be able to respond to these stresses. <span class=\"rp-evidence-highlight\" data-q=\"4\"><span class=\"evidence-badge\">[4]</span>During the dry periods that are common phenomena along the desert margins, though, the pressure on the land is often far in excess of its diminished capacity, and desertification results.</span></p>\n\n<p><span class=\"rp-evidence-highlight\" data-q=\"8\"><span class=\"evidence-badge\">[8]</span>Four specific activities have been identified as major contributors to the desertification processes: over-cultivation, over-grazing, firewood gathering, and over-irrigation.</span> <span class=\"rp-evidence-highlight\" data-q=\"5\"><span class=\"evidence-badge\">[5]</span>The cultivation of crops has expanded into <strong>progressively</strong> drier regions as population densities have grown.</span> These regions are especially likely to have periods of severe dryness, so that crop failures are common. <span class=\"rp-evidence-highlight\" data-q=\"6\"><span class=\"evidence-badge\">[6]</span>Since the raising of most crops necessitates the prior removal of the natural vegetation, crop failures leave extensive tracts of land devoid of a plant cover and susceptible to wind and water erosion.</span></p>\n\n<p>The raising of livestock is a major economic activity in semiarid lands, where grasses are generally the dominant type of natural vegetation. The consequences of an excessive number of livestock grazing in an area are the reduction of the vegetation cover and the trampling and pulverization of the soil. This is usually followed by the drying of the soil and accelerated erosion.</p>\n\n<p>Firewood is the chief fuel used for cooking and heating in many countries. The increased pressures of expanding populations have led to the removal of woody plants so that many cities and towns are surrounded by large areas completely lacking in trees and shrubs. The increasing use of dried animal waste as a substitute fuel has also hurt the soil because this valuable soil conditioner and source of plant nutrients is no longer being returned to the land.</p>\n\n<p>The final major human cause of desertification is soil salinization resulting from over-irrigation. Excess water from irrigation sinks down into the water table. <span class=\"rp-evidence-highlight\" data-q=\"7\"><span class=\"evidence-badge\">[7]</span>If no drainage system exists, the water table rises, bringing dissolved salts to the surface. The water evaporates and the salts are left behind</span>, creating a white crustal layer that prevents air and water from reaching the underlying soil.</p>\n\n<p><span class=\"rp-evidence-highlight\" data-q=\"9\"><span class=\"evidence-badge\">[9]</span><u>The extreme seriousness of desertification results from the vast areas of land and the tremendous numbers of people affected, as well as from the great difficulty of reversing or even slowing the process.</u></span> Once the soil has been removed by erosion, only the passage of centuries or millennia will enable new soil to form. In areas where considerable soil still remains, though, <span class=\"rp-evidence-highlight\" data-q=\"10\"><span class=\"evidence-badge\">[10]</span>a rigorously enforced program of land protection and cover-crop planting may make it possible to reverse the present deterioration of the surface.</span></p>"
   }
-};
+};;
 
 
 const mockTestPassages = [
@@ -10170,6 +10231,9 @@ const mockTestPassages = [
                     <span style="color: #cbd5e1;">|</span>
                     <span>Đúng: <strong id="rp-correct-count" style="color: #10b981;">0</strong></span>
                 </div>
+                <button id="rp-btn-toggle-evidence" onclick="toggleAllRPEvidence()" style="background: #ffffff; color: #1e293b; border: 1.5px solid #cbd5e1; border-radius: 8px; padding: 6px 12px; font-weight: 700; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; gap: 6px;" title="Bật/tắt hiển thị tất cả dẫn chứng đáp án">
+                    <i class="fa-solid fa-highlighter" style="color: #d97706;"></i> <span id="rp-evidence-btn-text">Dẫn Chứng Đáp Án</span>
+                </button>
                 <button id="rp-btn-toggle-trans" style="background: #ffffff; color: #1e293b; border: 1.5px solid #cbd5e1; border-radius: 8px; padding: 6px 12px; font-weight: 700; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; gap: 6px;">
                     <i class="fa-solid fa-language" style="color: #3b82f6;"></i> <span id="rp-trans-btn-text">Dịch Bài Đọc</span>
                 </button>
@@ -16119,7 +16183,8 @@ function loadReadingPractice(rpId) {
     currentRPState = {
         rpId: rpId,
         answers: Array(data.questions.length).fill(null),
-        checked: Array(data.questions.length).fill(false)
+        checked: Array(data.questions.length).fill(false),
+        showAllEvidence: false
     };
 
     // Update active part tab
@@ -16127,12 +16192,22 @@ function loadReadingPractice(rpId) {
     const targetTab = document.getElementById(`rp-part-tab-${rpId}`);
     if (targetTab) targetTab.classList.add('active');
 
-    // Load Passage
+    // Load Passage (loads highlightedPassage with hidden badges by default)
     const passageContent = document.getElementById('rp-passage-content');
     if (passageContent) {
-        passageContent.innerHTML = data.passage;
+        passageContent.innerHTML = data.highlightedPassage || data.passage;
         passageContent.style.fontSize = `${currentRPFontSize}px`;
+        attachRPEvidenceEvents(passageContent);
     }
+
+    // Reset toggle evidence button state
+    const evBtn = document.getElementById('rp-btn-toggle-evidence');
+    const evBtnText = document.getElementById('rp-evidence-btn-text');
+    if (evBtn) {
+        evBtn.style.background = '#ffffff';
+        evBtn.style.borderColor = '#cbd5e1';
+    }
+    if (evBtnText) evBtnText.textContent = 'Dẫn Chứng Đáp Án';
 
     // Load Passage Translation
     const transBody = document.getElementById('rp-passage-translation-body');
@@ -16333,6 +16408,25 @@ function checkRPAnswer(qIdx) {
         }
     }
 
+    // Highlight and scroll to evidence in passage for this question
+    const qNum = qIdx + 1;
+    revealRPEvidence(qNum, true);
+
+    // Add interactive jump-to-evidence button in explanation box
+    if (expBox) {
+        let jumpBtn = document.getElementById(`rp-jump-btn-${qIdx}`);
+        if (!jumpBtn) {
+            const btnCont = document.createElement('div');
+            btnCont.style.marginTop = '10px';
+            btnCont.innerHTML = `
+                <button id="rp-jump-btn-${qIdx}" onclick="scrollToRPEvidence(${qNum})" style="background: #fef3c7; color: #92400e; border: 1.5px solid #fcd34d; border-radius: 8px; padding: 6px 14px; font-weight: 700; font-size: 0.88rem; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 1px 3px rgba(245, 158, 11, 0.2); transition: all 0.2s ease;">
+                    <i class="fa-solid fa-highlighter" style="color: #d97706;"></i> Xem dẫn chứng [${qNum}] trong bài đọc
+                </button>
+            `;
+            expBox.appendChild(btnCont);
+        }
+    }
+
     updateRPScore();
 
     // Check if all answered
@@ -16342,6 +16436,99 @@ function checkRPAnswer(qIdx) {
         if (totalCorrect >= 7 && window.confetti) {
             window.confetti({ particleCount: 120, spread: 80, origin: { y: 0.6 } });
         }
+    }
+}
+
+
+// ==========================================
+// READING PRACTICE EVIDENCE HIGHLIGHT ENGINE
+// ==========================================
+function attachRPEvidenceEvents(container) {
+    if (!container) return;
+    const highlights = container.querySelectorAll('.rp-evidence-highlight');
+    highlights.forEach(hl => {
+        const qNum = parseInt(hl.getAttribute('data-q'), 10);
+        if (qNum) {
+            hl.onclick = (e) => {
+                e.stopPropagation();
+                jumpToRPQuestion(qNum);
+            };
+            hl.title = `Nhấp để xem câu hỏi ${qNum}`;
+        }
+    });
+}
+
+function revealRPEvidence(qNum, shouldScroll) {
+    const passageContent = document.getElementById('rp-passage-content');
+    if (!passageContent) return;
+
+    // Remove active-target from all
+    passageContent.querySelectorAll('.rp-evidence-highlight').forEach(hl => {
+        hl.classList.remove('active-target');
+    });
+
+    const targetHls = passageContent.querySelectorAll(`.rp-evidence-highlight[data-q="${qNum}"]`);
+    if (targetHls.length > 0) {
+        targetHls.forEach(hl => {
+            hl.classList.add('revealed');
+            hl.classList.add('active-target');
+        });
+
+        if (shouldScroll) {
+            targetHls[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    }
+}
+
+function scrollToRPEvidence(qNum) {
+    revealRPEvidence(qNum, true);
+}
+
+function jumpToRPQuestion(qNum) {
+    const qIdx = qNum - 1;
+    const card = document.getElementById(`rp-qcard-${qIdx}`);
+    if (card) {
+        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        card.classList.add('highlight-target');
+        setTimeout(() => {
+            card.classList.remove('highlight-target');
+        }, 2200);
+    }
+    // Also set active target on this evidence in passage
+    revealRPEvidence(qNum, false);
+}
+
+function toggleAllRPEvidence() {
+    const passageContent = document.getElementById('rp-passage-content');
+    const btn = document.getElementById('rp-btn-toggle-evidence');
+    const btnText = document.getElementById('rp-evidence-btn-text');
+    if (!passageContent || !currentRPState) return;
+
+    currentRPState.showAllEvidence = !currentRPState.showAllEvidence;
+    const highlights = passageContent.querySelectorAll('.rp-evidence-highlight');
+
+    if (currentRPState.showAllEvidence) {
+        highlights.forEach(hl => hl.classList.add('revealed'));
+        if (btn) {
+            btn.style.background = '#fef08a';
+            btn.style.borderColor = '#eab308';
+        }
+        if (btnText) btnText.textContent = 'Ẩn Dẫn Chứng';
+    } else {
+        highlights.forEach(hl => {
+            const qNum = parseInt(hl.getAttribute('data-q'), 10);
+            if (qNum && currentRPState.checked[qNum - 1]) {
+                hl.classList.add('revealed');
+            } else {
+                hl.classList.remove('revealed');
+                hl.classList.remove('active-target');
+            }
+        });
+        if (btn) {
+            btn.style.background = '#ffffff';
+            btn.style.borderColor = '#cbd5e1';
+        }
+        if (btnText) btnText.textContent = 'Dẫn Chứng Đáp Án';
     }
 }
 
