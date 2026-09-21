@@ -11218,7 +11218,7 @@ const passwordConfig = {
     'B212': 6,
     'CB211': 11,
     'ONB103': 11,
-    'CB213': 99,
+    'CB213': 8,
     'CB210': 99,
     'CB206': 99,
     'GV': 99,
@@ -16527,6 +16527,8 @@ function switchRPPart(rpId) {
         const cleanClass = (state.studentClass || '').trim().toUpperCase();
         if (cleanClass === 'CB211' || cleanClass === 'ONB103') {
             alert(`🔒 Lớp ${cleanClass} chỉ được mở khóa tới Reading Practice 03. Reading Practice 04 chưa được mở!`);
+        } else if (cleanClass === 'CB213') {
+            alert(`🔒 Lớp CB213 chỉ được mở khóa tới Dạng 08. Phần Reading Practice chưa được mở cho lớp của bạn!`);
         } else {
             alert(`🔒 Phần này (${rpId.toUpperCase().replace('-', ' ')}) tạm thời bị khóa cho lớp của bạn. Vui lòng liên hệ giáo viên để được mở thêm tiến độ.`);
         }
