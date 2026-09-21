@@ -11211,13 +11211,14 @@ function printReportSuccessBanner() {
     setTimeout(() => banner.remove(), 4000);
 }
 
-// Class password & unlock level configuration
+// Class password & unlock level configuration:
+// Levels: 1-8 (Dạng 01 - 08), 9 (RP 01), 10 (RP 02), 11 (RP 03), 12 (RP 04), 99 (Full Access / Teacher)
 const passwordConfig = {
     'HEMINGWAY': 1,
     'B212': 6,
+    'CB211': 11,
+    'ONB103': 11,
     'CB213': 99,
-    'CB211': 99,
-    'ONB103': 99,
     'CB210': 99,
     'CB206': 99,
     'GV': 99,
@@ -11384,7 +11385,12 @@ function initSidebarNav() {
                 } else if (link.dataset.section === 'synonym-lab' || link.dataset.section === 'mock-test') {
                     reqLevel = 99;
                 } else if (link.dataset.section === 'reading-practice') {
-                    reqLevel = 1;
+                    const rpId = link.dataset.rpId;
+                    if (rpId === 'rp-01') reqLevel = 9;
+                    else if (rpId === 'rp-02') reqLevel = 10;
+                    else if (rpId === 'rp-03') reqLevel = 11;
+                    else if (rpId === 'rp-04') reqLevel = 12;
+                    else reqLevel = 9;
                 } else {
                     reqLevel = 1;
                 }
@@ -11406,7 +11412,13 @@ function initSidebarNav() {
                         link.click();
                     } else if (grantedLevel !== -1) {
                         playSound('fail');
-                        alert(`❌ Lớp ${cleanPass} chỉ được truy cập tối đa tới Dạng 0${grantedLevel}. Bạn chưa đủ tiến độ!`);
+                        if (cleanPass === 'CB211' || cleanPass === 'ONB103') {
+                            alert(`❌ Lớp ${cleanPass} chỉ được mở khóa tới Reading Practice 03. Reading Practice 04 chưa được mở!`);
+                        } else if (grantedLevel <= 8) {
+                            alert(`❌ Lớp ${cleanPass} chỉ được truy cập tối đa tới Dạng 0${grantedLevel}. Bạn chưa đủ tiến độ!`);
+                        } else {
+                            alert(`❌ Lớp ${cleanPass} chưa đủ quyền truy cập nội dung này.`);
+                        }
                     } else {
                         playSound('fail');
                         alert("❌ Mã lớp không đúng! Vui lòng liên hệ giáo viên để nhận quyền truy cập.");
@@ -16282,7 +16294,12 @@ document.addEventListener('DOMContentLoaded', () => {
             } else if (link.dataset.section === 'synonym-lab' || link.dataset.section === 'mock-test') {
                 reqLevel = 99;
             } else if (link.dataset.section === 'reading-practice') {
-                reqLevel = 1;
+                const rpId = link.dataset.rpId;
+                if (rpId === 'rp-01') reqLevel = 9;
+                else if (rpId === 'rp-02') reqLevel = 10;
+                else if (rpId === 'rp-03') reqLevel = 11;
+                else if (rpId === 'rp-04') reqLevel = 12;
+                else reqLevel = 9;
             } else {
                 reqLevel = 1;
             }
@@ -16290,6 +16307,34 @@ document.addEventListener('DOMContentLoaded', () => {
                 link.dataset.locked = 'false';
                 const lockIcon = link.querySelector('.lock-indicator');
                 if (lockIcon) lockIcon.style.display = 'none';
+            } else {
+                link.dataset.locked = 'true';
+                const lockIcon = link.querySelector('.lock-indicator');
+                if (lockIcon) lockIcon.style.display = '';
+            }
+        });
+
+        // Also update the Part Switcher Tabs in Reading Practice top bar
+        ['rp-01', 'rp-02', 'rp-03', 'rp-04'].forEach((rpId, idx) => {
+            const tabBtn = document.getElementById(`rp-part-tab-${rpId}`);
+            if (tabBtn) {
+                const reqLevel = 9 + idx;
+                const isLocked = (level < reqLevel);
+                tabBtn.dataset.locked = isLocked ? 'true' : 'false';
+                
+                let lockIcon = tabBtn.querySelector('.rp-tab-lock-icon');
+                if (isLocked) {
+                    tabBtn.style.opacity = '0.65';
+                    if (!lockIcon) {
+                        lockIcon = document.createElement('i');
+                        lockIcon.className = 'fa-solid fa-lock rp-tab-lock-icon';
+                        lockIcon.style.cssText = 'color: #d97706; font-size: 0.8rem; margin-left: 6px;';
+                        tabBtn.appendChild(lockIcon);
+                    }
+                } else {
+                    tabBtn.style.opacity = '';
+                    if (lockIcon) lockIcon.remove();
+                }
             }
         });
     };
@@ -16471,6 +16516,23 @@ function adjustRPFontSize(delta) {
 }
 
 function switchRPPart(rpId) {
+    let reqLevel = 9;
+    if (rpId === 'rp-01') reqLevel = 9;
+    else if (rpId === 'rp-02') reqLevel = 10;
+    else if (rpId === 'rp-03') reqLevel = 11;
+    else if (rpId === 'rp-04') reqLevel = 12;
+
+    if (state.unlockedLevel < reqLevel) {
+        playSound('fail');
+        const cleanClass = (state.studentClass || '').trim().toUpperCase();
+        if (cleanClass === 'CB211' || cleanClass === 'ONB103') {
+            alert(`🔒 Lớp ${cleanClass} chỉ được mở khóa tới Reading Practice 03. Reading Practice 04 chưa được mở!`);
+        } else {
+            alert(`🔒 Phần này (${rpId.toUpperCase().replace('-', ' ')}) tạm thời bị khóa cho lớp của bạn. Vui lòng liên hệ giáo viên để được mở thêm tiến độ.`);
+        }
+        return;
+    }
+
     // Update active tab button
     document.querySelectorAll('.rp-part-tab-btn').forEach(btn => btn.classList.remove('active'));
     const targetTab = document.getElementById(`rp-part-tab-${rpId}`);
