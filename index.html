@@ -4054,6 +4054,184 @@ em, i {
     color: #ef4444;
 }
 
+/* Reading Practice 15-Minute Countdown Timer Badge */
+.rp-timer-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #f8fafc;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-weight: 800;
+    font-size: 0.95rem;
+    color: #1e293b;
+    font-family: monospace;
+    letter-spacing: 0.5px;
+    transition: all 0.25s ease;
+}
+
+.rp-timer-badge i {
+    color: #2563eb;
+    font-size: 1rem;
+    font-family: "Font Awesome 6 Free", "Font Awesome 6 Pro", sans-serif;
+}
+
+.rp-timer-badge.warning {
+    background: #fffbeb;
+    border-color: #f59e0b;
+    color: #b45309;
+}
+
+.rp-timer-badge.warning i {
+    color: #f59e0b;
+}
+
+.rp-timer-badge.urgent {
+    background: #fef2f2;
+    border-color: #ef4444;
+    color: #b91c1c;
+    animation: rpTimerPulse 1s infinite alternate;
+}
+
+.rp-timer-badge.urgent i {
+    color: #ef4444;
+}
+
+@keyframes rpTimerPulse {
+    0% { transform: scale(1); box-shadow: 0 0 0 rgba(239, 68, 68, 0); }
+    100% { transform: scale(1.05); box-shadow: 0 0 10px rgba(239, 68, 68, 0.4); }
+}
+
+/* Big Submit Button & Submission Controls at Bottom */
+.rp-submit-container {
+    margin-top: 14px;
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.rp-submit-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    padding: 16px 24px;
+    font-weight: 800;
+    font-size: 1.05rem;
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+    transition: all 0.2s ease;
+}
+
+.rp-submit-btn:hover:not(:disabled) {
+    background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(37, 99, 235, 0.4);
+}
+
+.rp-submit-btn:disabled,
+.rp-submit-btn.submitted {
+    background: #10b981;
+    color: #ffffff;
+    cursor: default;
+    box-shadow: none;
+    transform: none;
+}
+
+/* Result summary banner */
+.rp-result-banner {
+    background: #ffffff;
+    border: 2px solid #3b82f6;
+    border-radius: 14px;
+    padding: 20px 24px;
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(59, 130, 246, 0.12);
+    animation: rpFadeIn 0.3s ease-out;
+}
+
+.rp-result-banner.good {
+    border-color: #10b981;
+    background: #f0fdf4;
+}
+
+.rp-result-banner.average {
+    border-color: #f59e0b;
+    background: #fffbeb;
+}
+
+.rp-result-banner.poor {
+    border-color: #ef4444;
+    background: #fef2f2;
+}
+
+.rp-result-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.rp-result-desc {
+    font-size: 0.98rem;
+    color: #475569;
+    line-height: 1.6;
+    margin-bottom: 14px;
+}
+
+.rp-result-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.rp-result-btn {
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+}
+
+.rp-result-btn-reset {
+    background: #ffffff;
+    color: #dc2626;
+    border: 1.5px solid #fca5a5;
+}
+
+.rp-result-btn-reset:hover {
+    background: #fee2e2;
+}
+
+.rp-result-btn-evidence {
+    background: #fef3c7;
+    color: #92400e;
+    border: 1.5px solid #fcd34d;
+}
+
+.rp-result-btn-evidence:hover {
+    background: #fde68a;
+}
+
+@keyframes rpFadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 @media (max-width: 1024px) {
     .rp-split-container {
         grid-template-columns: 1fr;
@@ -10221,8 +10399,13 @@ const mockTestPassages = [
                 </button>
             </div>
 
-            <!-- Right Controls: Highlighter, Font size, Translation, Reset -->
+            <!-- Right Controls: Timer, Highlighter, Font size, Translation, Reset -->
             <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                <!-- 15-Minute Countdown Timer -->
+                <div class="rp-timer-badge" id="rp-timer-badge" title="Thời gian làm bài còn lại">
+                    <i class="fa-solid fa-clock"></i>
+                    <span id="rp-timer-display">15:00</span>
+                </div>
                 <div style="display: flex; align-items: center; gap: 4px; background: #f8fafc; border: 1.5px solid #cbd5e1; padding: 4px 8px; border-radius: 8px;">
                     <span style="font-size: 0.82rem; font-weight: 800; color: #64748b;"><i class="fa-solid fa-text-height" style="color: #3b82f6;"></i> Cỡ chữ:</span>
                     <button class="rp-font-control-btn" id="rp-btn-font-dec" title="Thu nhỏ chữ" style="padding: 4px 10px; font-weight: 800; cursor: pointer; border: 1px solid #cbd5e1; border-radius: 6px; background: #fff;">A-</button>
@@ -10263,8 +10446,8 @@ const mockTestPassages = [
             <!-- Right: Scrollable Questions Panel -->
             <div class="rp-questions-panel" id="rp-questions-container">
                 <div class="rp-info-banner">
-                    <i class="fa-solid fa-circle-info" style="font-size: 1.1rem;"></i>
-                    <span>Chọn đáp án và bấm <strong>"Kiểm tra đáp án"</strong> để xem giải thích chi tiết và bản dịch từng câu.</span>
+                    <i class="fa-solid fa-stopwatch" style="font-size: 1.2rem; color: #2563eb;"></i>
+                    <span>Thời gian làm bài: <strong>15 phút</strong> (10 câu). Chọn đáp án cho các câu hỏi, sau đó nhấn <strong>"NỘP BÀI & KIỂM TRA"</strong> ở cuối để xem kết quả, giải thích chi tiết và dẫn chứng trên bài đọc.</span>
                 </div>
                 <!-- 10 question cards injected dynamically -->
             </div>
@@ -11136,6 +11319,7 @@ function initSidebarNav() {
                     if (vocabQuiz) vocabQuiz.style.display = '';
                     if (heroHeader) heroHeader.style.display = '';
                     if (cockpit) cockpit.style.display = '';
+                    if (typeof stopRPTimer === 'function') stopRPTimer();
                 }
                 
                 // Toggle hero header and cockpit visibility based on whether it is Trang Chu
@@ -16178,6 +16362,59 @@ function switchRPPart(rpId) {
     loadReadingPractice(rpId);
 }
 
+// ==========================================
+// READING PRACTICE TIMER & EXAMINATION LOGIC
+// ==========================================
+let rpTimerInterval = null;
+let rpTimeRemaining = 15 * 60; // 15 minutes = 900 seconds
+
+function startRPTimer() {
+    stopRPTimer();
+    rpTimeRemaining = 15 * 60;
+    updateRPTimerDisplay();
+    rpTimerInterval = setInterval(() => {
+        rpTimeRemaining--;
+        updateRPTimerDisplay();
+        if (rpTimeRemaining <= 0) {
+            stopRPTimer();
+            alert('⏰ Đã hết thời gian làm bài 15 phút! Hệ thống sẽ tự động nộp bài và kiểm tra đáp án.');
+            submitRPExam(true);
+        }
+    }, 1000);
+}
+
+function stopRPTimer() {
+    if (rpTimerInterval) {
+        clearInterval(rpTimerInterval);
+        rpTimerInterval = null;
+    }
+}
+
+function resetRPTimer() {
+    stopRPTimer();
+    rpTimeRemaining = 15 * 60;
+    updateRPTimerDisplay();
+}
+
+function updateRPTimerDisplay() {
+    const mins = Math.floor(Math.max(0, rpTimeRemaining) / 60);
+    const secs = Math.max(0, rpTimeRemaining) % 60;
+    const timeStr = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    
+    const displayEl = document.getElementById('rp-timer-display');
+    const badgeEl = document.getElementById('rp-timer-badge');
+    
+    if (displayEl) displayEl.textContent = timeStr;
+    if (badgeEl) {
+        badgeEl.classList.remove('warning', 'urgent');
+        if (rpTimeRemaining <= 60) {
+            badgeEl.classList.add('urgent');
+        } else if (rpTimeRemaining <= 180) {
+            badgeEl.classList.add('warning');
+        }
+    }
+}
+
 function loadReadingPractice(rpId) {
     const data = readingPracticesData[rpId];
     if (!data) return;
@@ -16186,6 +16423,7 @@ function loadReadingPractice(rpId) {
         rpId: rpId,
         answers: Array(data.questions.length).fill(null),
         checked: Array(data.questions.length).fill(false),
+        submitted: false,
         showAllEvidence: false
     };
 
@@ -16218,11 +16456,15 @@ function loadReadingPractice(rpId) {
     if (transContainer) transContainer.style.display = 'none';
     if (transBtnText) transBtnText.textContent = 'Dịch Bài Đọc';
 
-    // Render Questions
+    // Render Questions & Submission Section
     renderRPQuestions(data.questions);
 
-    // Update score display
+    // Update score display & submit button
     updateRPScore();
+    updateRPSubmitButton();
+
+    // Start 15-Minute Countdown Timer fresh
+    startRPTimer();
 
     // Reset scroll positions
     const pPanel = document.getElementById('rp-passage-container');
@@ -16238,8 +16480,8 @@ function renderRPQuestions(questions) {
     // Retain top info banner
     container.innerHTML = `
         <div class="rp-info-banner">
-            <i class="fa-solid fa-circle-info" style="font-size: 1.1rem; color: #2563eb;"></i>
-            <span>Bấm chọn đáp án và nhấn <strong>"Kiểm tra đáp án"</strong> để xem kết quả, giải thích chi tiết và bản dịch tiếng Việt.</span>
+            <i class="fa-solid fa-stopwatch" style="font-size: 1.2rem; color: #2563eb;"></i>
+            <span>Thời gian làm bài: <strong>15 phút</strong> (10 câu). Chọn đáp án cho các câu hỏi, sau đó nhấn <strong>"NỘP BÀI & KIỂM TRA"</strong> ở cuối để xem kết quả, giải thích chi tiết và dẫn chứng trên bài đọc.</span>
         </div>
     `;
 
@@ -16248,11 +16490,11 @@ function renderRPQuestions(questions) {
         card.className = 'rp-qcard';
         card.id = `rp-qcard-${qIdx}`;
 
-        // Header with number-only badge (1, 2, ...) & hidden Vietnamese translation until answered
+        // Header with number-only badge (1, 2, ...) & hidden Vietnamese translation until submitted
         const header = document.createElement('div');
         header.className = 'rp-qcard-header';
         header.innerHTML = `
-            <span class="rp-qnum-badge" style="min-width: 28px; text-align: center;">${qIdx + 1}</span>
+            <span class="rp-qnum-badge" id="rp-qnum-badge-${qIdx}" style="min-width: 28px; text-align: center;">${qIdx + 1}</span>
             <div class="rp-qtext-group">
                 <div class="rp-qtext-en">${q.question}</div>
                 ${q.translationQuestion ? `<div class="rp-qtext-vi" id="rp-qtext-vi-${qIdx}" style="display: none; margin-top: 6px; color: #475569; font-style: italic;">${q.translationQuestion}</div>` : ''}
@@ -16260,7 +16502,7 @@ function renderRPQuestions(questions) {
         `;
         card.appendChild(header);
 
-        // Options List (English only by default, Vietnamese hidden until answered)
+        // Options List (English only by default, Vietnamese hidden until submitted)
         const optList = document.createElement('div');
         optList.className = 'rp-options-list';
 
@@ -16284,49 +16526,52 @@ function renderRPQuestions(questions) {
             `;
             
             btn.onclick = () => {
-                if (currentRPState.checked[qIdx]) return;
+                if (currentRPState.submitted) return;
                 selectRPOption(qIdx, optIdx);
             };
             optList.appendChild(btn);
         });
         card.appendChild(optList);
 
-        // Actions & Feedback
-        const actionRow = document.createElement('div');
-        actionRow.style.display = 'flex';
-        actionRow.style.justifyContent = 'space-between';
-        actionRow.style.alignItems = 'center';
-        actionRow.style.marginTop = '14px';
-        actionRow.style.gap = '10px';
-        actionRow.style.flexWrap = 'wrap';
-
-        const checkBtn = document.createElement('button');
-        checkBtn.id = `rp-check-btn-${qIdx}`;
-        checkBtn.style.cssText = 'background: #3b82f6; color: white; border: none; border-radius: 8px; padding: 8px 18px; font-weight: 700; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 2px 6px rgba(59, 130, 246, 0.25);';
-        checkBtn.innerHTML = '<i class="fa-solid fa-check"></i> Kiểm tra đáp án';
-        checkBtn.onclick = () => checkRPAnswer(qIdx);
-
-        actionRow.appendChild(checkBtn);
-        card.appendChild(actionRow);
-
-        // Explanation Box
+        // Explanation Box (hidden until submitted)
         const expBox = document.createElement('div');
         expBox.id = `rp-exp-box-${qIdx}`;
         expBox.style.cssText = 'display: none; margin-top: 14px; padding: 14px 18px; border-radius: 10px; font-size: 0.95rem; line-height: 1.7;';
         
+        const qNum = qIdx + 1;
         expBox.innerHTML = `
             <div id="rp-exp-header-${qIdx}" style="font-weight: 800; font-size: 0.98rem; margin-bottom: 8px;"></div>
             <div id="rp-exp-body-${qIdx}" style="color: #1e293b; font-size: 0.93rem; line-height: 1.65;">
                 ${q.explanation}
+            </div>
+            <div style="margin-top: 10px;">
+                <button id="rp-jump-btn-${qIdx}" onclick="scrollToRPEvidence(${qNum})" style="background: #fef3c7; color: #92400e; border: 1.5px solid #fcd34d; border-radius: 8px; padding: 6px 14px; font-weight: 700; font-size: 0.88rem; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 1px 3px rgba(245, 158, 11, 0.2); transition: all 0.2s ease;">
+                    <i class="fa-solid fa-highlighter" style="color: #d97706;"></i> Xem dẫn chứng [${qNum}] trong bài đọc
+                </button>
             </div>
         `;
         card.appendChild(expBox);
 
         container.appendChild(card);
     });
+
+    // Unified Submission Container at the bottom of 10 questions
+    const submitContainer = document.createElement('div');
+    submitContainer.className = 'rp-submit-container';
+    submitContainer.id = 'rp-submit-container';
+    submitContainer.innerHTML = `
+        <div id="rp-result-banner-area"></div>
+        <button class="rp-submit-btn" id="rp-btn-submit-exam" onclick="submitRPExam()">
+            <i class="fa-solid fa-paper-plane"></i>
+            <span id="rp-submit-btn-text">NỘP BÀI & KIỂM TRA (Đã làm 0/${questions.length} câu)</span>
+        </button>
+    `;
+    container.appendChild(submitContainer);
 }
 
 function selectRPOption(qIdx, optIdx) {
+    if (currentRPState.submitted) return;
+
     currentRPState.answers[qIdx] = optIdx;
     
     const data = readingPracticesData[currentRPState.rpId];
@@ -16343,101 +16588,192 @@ function selectRPOption(qIdx, optIdx) {
     }
 
     updateRPScore();
+    updateRPSubmitButton();
+}
+
+function updateRPSubmitButton() {
+    const data = readingPracticesData[currentRPState.rpId];
+    if (!data) return;
+    
+    const total = data.questions.length;
+    const answered = currentRPState.answers.filter(ans => ans !== null).length;
+    const btnText = document.getElementById('rp-submit-btn-text');
+    const submitBtn = document.getElementById('rp-btn-submit-exam');
+    
+    if (currentRPState.submitted) {
+        if (btnText) btnText.innerHTML = `<i class="fa-solid fa-circle-check"></i> ĐÃ NỘP BÀI & ĐÃ KIỂM TRA ĐÁP ÁN`;
+        if (submitBtn) {
+            submitBtn.classList.add('submitted');
+            submitBtn.disabled = true;
+        }
+    } else {
+        if (btnText) {
+            if (answered === total) {
+                btnText.innerHTML = `NỘP BÀI & KIỂM TRA (Đã làm đủ ${total}/${total} câu - Sẵn sàng)`;
+            } else {
+                btnText.innerHTML = `NỘP BÀI & KIỂM TRA (Đã làm ${answered}/${total} câu)`;
+            }
+        }
+        if (submitBtn) {
+            submitBtn.classList.remove('submitted');
+            submitBtn.disabled = false;
+        }
+    }
+}
+
+function submitRPExam(isAuto = false) {
+    if (currentRPState.submitted) return;
+
+    const data = readingPracticesData[currentRPState.rpId];
+    if (!data) return;
+
+    const total = data.questions.length;
+    const answered = currentRPState.answers.filter(ans => ans !== null).length;
+
+    if (!isAuto && answered < total) {
+        const proceed = confirm(`⚠️ Bạn mới hoàn thành ${answered}/${total} câu hỏi.\nBạn có chắc chắn muốn NỘP BÀI & KIỂM TRA kết quả ngay bây giờ không?`);
+        if (!proceed) return;
+    }
+
+    // Stop timer
+    stopRPTimer();
+    currentRPState.submitted = true;
+
+    let correctCount = 0;
+
+    data.questions.forEach((q, qIdx) => {
+        currentRPState.checked[qIdx] = true;
+        const selected = currentRPState.answers[qIdx];
+        const isCorrect = (selected === q.correctIdx);
+        if (isCorrect) correctCount++;
+
+        // Update Question badge color
+        const qBadge = document.getElementById(`rp-qnum-badge-${qIdx}`);
+        if (qBadge) {
+            if (isCorrect) {
+                qBadge.style.background = '#10b981';
+            } else {
+                qBadge.style.background = '#ef4444';
+            }
+        }
+
+        // Update option buttons UI with checkmark / cross icon
+        for (let i = 0; i < q.options.length; i++) {
+            const btn = document.getElementById(`rp-opt-btn-${qIdx}-${i}`);
+            const iconDiv = document.getElementById(`rp-opt-icon-${qIdx}-${i}`);
+            if (btn) {
+                btn.classList.remove('selected');
+                if (i === q.correctIdx) {
+                    btn.classList.add('correct');
+                    if (iconDiv) iconDiv.innerHTML = '<i class="fa-regular fa-circle-check rp-opt-status-icon correct"></i>';
+                } else if (i === selected && !isCorrect) {
+                    btn.classList.add('incorrect');
+                    if (iconDiv) iconDiv.innerHTML = '<i class="fa-regular fa-circle-xmark rp-opt-status-icon incorrect"></i>';
+                }
+            }
+        }
+
+        // Reveal Vietnamese translation for Question & Options
+        const qVi = document.getElementById(`rp-qtext-vi-${qIdx}`);
+        if (qVi) qVi.style.display = 'block';
+
+        for (let i = 0; i < q.options.length; i++) {
+            const optVi = document.getElementById(`rp-opt-vi-${qIdx}-${i}`);
+            if (optVi) optVi.style.display = 'block';
+        }
+
+        // Show Explanation Box
+        const expBox = document.getElementById(`rp-exp-box-${qIdx}`);
+        const expHeader = document.getElementById(`rp-exp-header-${qIdx}`);
+        if (expBox && expHeader) {
+            expBox.style.display = 'block';
+            if (isCorrect) {
+                expBox.style.background = '#f0fdf4';
+                expBox.style.border = '1.5px solid #86efac';
+                expHeader.style.color = '#15803d';
+                expHeader.innerHTML = `<i class="fa-solid fa-circle-check"></i> CHÍNH XÁC! (Đáp án: ${String.fromCharCode(65 + q.correctIdx)})`;
+            } else {
+                expBox.style.background = '#fef2f2';
+                expBox.style.border = '1.5px solid #fca5a5';
+                expHeader.style.color = '#b91c1c';
+                const userChoiceText = selected !== null ? `Bạn chọn: ${String.fromCharCode(65 + selected)}.` : `Bạn chưa chọn câu trả lời.`;
+                expHeader.innerHTML = `<i class="fa-solid fa-circle-xmark"></i> CHƯA ĐÚNG (${userChoiceText} Đáp án đúng là: ${String.fromCharCode(65 + q.correctIdx)})`;
+            }
+        }
+    });
+
+    // Reveal ALL evidence on the reading passage automatically!
+    ensureRPHighlightedPassageLoaded();
+    const passageContent = document.getElementById('rp-passage-content');
+    if (passageContent) {
+        currentRPState.showAllEvidence = true;
+        const highlights = passageContent.querySelectorAll('.rp-evidence-highlight');
+        highlights.forEach(hl => hl.classList.add('revealed'));
+
+        const evBtn = document.getElementById('rp-btn-toggle-evidence');
+        const evBtnText = document.getElementById('rp-evidence-btn-text');
+        if (evBtn) {
+            evBtn.style.background = '#fef08a';
+            evBtn.style.borderColor = '#eab308';
+        }
+        if (evBtnText) evBtnText.textContent = 'Ẩn Dẫn Chứng';
+    }
+
+    // Sound and Confetti
+    playSound(correctCount >= 7 ? 'success' : 'fail');
+    if (correctCount >= 7 && window.confetti) {
+        window.confetti({ particleCount: 120, spread: 80, origin: { y: 0.6 } });
+    }
+
+    // Render Result Summary Banner
+    const bannerArea = document.getElementById('rp-result-banner-area');
+    if (bannerArea) {
+        const pct = Math.round((correctCount / total) * 100);
+        let bannerClass = 'good';
+        let feedbackMsg = '🎉 Xuất sắc! Bạn nắm bài rất tốt và đạt chuẩn điểm cao VSTEP B1-B2.';
+        let iconHtml = '<i class="fa-solid fa-trophy" style="color: #10b981;"></i>';
+        
+        if (correctCount < 5) {
+            bannerClass = 'poor';
+            feedbackMsg = '💪 Cố gắng thêm nhé! Hãy đọc kỹ lại bài đọc, xem phần dịch nghĩa và dẫn chứng [1] - [10] để rút kinh nghiệm.';
+            iconHtml = '<i class="fa-solid fa-circle-exclamation" style="color: #ef4444;"></i>';
+        } else if (correctCount < 7) {
+            bannerClass = 'average';
+            feedbackMsg = '👍 Khá tốt! Bạn đã đạt yêu cầu cơ bản. Hãy kiểm tra lại các câu sai để cải thiện điểm số.';
+            iconHtml = '<i class="fa-solid fa-award" style="color: #f59e0b;"></i>';
+        }
+
+        bannerArea.innerHTML = `
+            <div class="rp-result-banner ${bannerClass}">
+                <div class="rp-result-title" style="color: ${correctCount >= 7 ? '#15803d' : (correctCount >= 5 ? '#b45309' : '#b91c1c')};">
+                    ${iconHtml} KẾT QUẢ BÀI LÀM: ${correctCount}/${total} CÂU ĐÚNG (${pct}%)
+                </div>
+                <div class="rp-result-desc">${feedbackMsg}</div>
+                <div class="rp-result-actions">
+                    <button class="rp-result-btn rp-result-btn-reset" onclick="loadReadingPractice(currentRPState.rpId)">
+                        <i class="fa-solid fa-rotate-left"></i> Làm lại bài này (15:00)
+                    </button>
+                    <button class="rp-result-btn rp-result-btn-evidence" onclick="document.getElementById('rp-passage-container').scrollTop = 0;">
+                        <i class="fa-solid fa-magnifying-glass"></i> Xem dẫn chứng trên bài đọc
+                    </button>
+                </div>
+            </div>
+        `;
+    }
+
+    // Update Submit Button UI
+    updateRPSubmitButton();
+    updateRPScore();
+
+    // Smooth scroll to result
+    const resultBanner = document.getElementById('rp-result-banner-area');
+    if (resultBanner) {
+        resultBanner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
 }
 
 function checkRPAnswer(qIdx) {
-    const selected = currentRPState.answers[qIdx];
-    if (selected === null) {
-        alert('⚠️ Vui lòng chọn một phương án trước khi kiểm tra!');
-        return;
-    }
-
-    currentRPState.checked[qIdx] = true;
-    const data = readingPracticesData[currentRPState.rpId];
-    const q = data.questions[qIdx];
-    const isCorrect = (selected === q.correctIdx);
-
-    // Play sound
-    playSound(isCorrect ? 'success' : 'fail');
-
-    // Update option buttons UI with checkmark / cross icon
-    for (let i = 0; i < q.options.length; i++) {
-        const btn = document.getElementById(`rp-opt-btn-${qIdx}-${i}`);
-        const iconDiv = document.getElementById(`rp-opt-icon-${qIdx}-${i}`);
-        if (btn) {
-            btn.classList.remove('selected');
-            if (i === q.correctIdx) {
-                btn.classList.add('correct');
-                if (iconDiv) iconDiv.innerHTML = '<i class="fa-regular fa-circle-check rp-opt-status-icon correct"></i>';
-            } else if (i === selected && !isCorrect) {
-                btn.classList.add('incorrect');
-                if (iconDiv) iconDiv.innerHTML = '<i class="fa-regular fa-circle-xmark rp-opt-status-icon incorrect"></i>';
-            }
-        }
-    }
-
-    // Reveal Vietnamese translation for Question & Options
-    const qVi = document.getElementById(`rp-qtext-vi-${qIdx}`);
-    if (qVi) qVi.style.display = 'block';
-
-    for (let i = 0; i < q.options.length; i++) {
-        const optVi = document.getElementById(`rp-opt-vi-${qIdx}-${i}`);
-        if (optVi) optVi.style.display = 'block';
-    }
-
-    // Disable Check Button
-    const checkBtn = document.getElementById(`rp-check-btn-${qIdx}`);
-    if (checkBtn) {
-        checkBtn.style.display = 'none';
-    }
-
-    // Show Explanation
-    const expBox = document.getElementById(`rp-exp-box-${qIdx}`);
-    const expHeader = document.getElementById(`rp-exp-header-${qIdx}`);
-    if (expBox && expHeader) {
-        expBox.style.display = 'block';
-        if (isCorrect) {
-            expBox.style.background = '#f0fdf4';
-            expBox.style.border = '1.5px solid #86efac';
-            expHeader.style.color = '#15803d';
-            expHeader.innerHTML = `<i class="fa-solid fa-circle-check"></i> CHÍNH XÁC! (Đáp án: ${String.fromCharCode(65 + q.correctIdx)})`;
-        } else {
-            expBox.style.background = '#fef2f2';
-            expBox.style.border = '1.5px solid #fca5a5';
-            expHeader.style.color = '#b91c1c';
-            expHeader.innerHTML = `<i class="fa-solid fa-circle-xmark"></i> CHƯA ĐÚNG. Đáp án đúng là: ${String.fromCharCode(65 + q.correctIdx)}`;
-        }
-    }
-
-    // Highlight and scroll to evidence in passage for this question
-    const qNum = qIdx + 1;
-    revealRPEvidence(qNum, true);
-
-    // Add interactive jump-to-evidence button in explanation box
-    if (expBox) {
-        let jumpBtn = document.getElementById(`rp-jump-btn-${qIdx}`);
-        if (!jumpBtn) {
-            const btnCont = document.createElement('div');
-            btnCont.style.marginTop = '10px';
-            btnCont.innerHTML = `
-                <button id="rp-jump-btn-${qIdx}" onclick="scrollToRPEvidence(${qNum})" style="background: #fef3c7; color: #92400e; border: 1.5px solid #fcd34d; border-radius: 8px; padding: 6px 14px; font-weight: 700; font-size: 0.88rem; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 1px 3px rgba(245, 158, 11, 0.2); transition: all 0.2s ease;">
-                    <i class="fa-solid fa-highlighter" style="color: #d97706;"></i> Xem dẫn chứng [${qNum}] trong bài đọc
-                </button>
-            `;
-            expBox.appendChild(btnCont);
-        }
-    }
-
-    updateRPScore();
-
-    // Check if all answered
-    const totalChecked = currentRPState.checked.filter(Boolean).length;
-    if (totalChecked === data.questions.length) {
-        const totalCorrect = currentRPState.answers.reduce((acc, ans, idx) => acc + (ans === data.questions[idx].correctIdx ? 1 : 0), 0);
-        if (totalCorrect >= 7 && window.confetti) {
-            window.confetti({ particleCount: 120, spread: 80, origin: { y: 0.6 } });
-        }
-    }
+    submitRPExam(false);
 }
 
 
