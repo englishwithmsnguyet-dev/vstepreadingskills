@@ -4227,6 +4227,134 @@ em, i {
     background: #fde68a;
 }
 
+.rp-result-btn-trans {
+    background: #ecfdf5;
+    color: #065f46;
+    border: 1.5px solid #a7f3d0;
+}
+
+.rp-result-btn-trans:hover {
+    background: #d1fae5;
+}
+
+/* Reading Practice Paragraph Translation Styling */
+.rp-para-wrapper {
+    position: relative;
+    margin-bottom: 24px;
+    border-radius: 10px;
+    transition: all 0.25s ease;
+}
+
+.rp-para-wrapper.highlight-target {
+    background: #fefce8;
+    box-shadow: 0 0 0 3px #fde047;
+    padding: 12px;
+}
+
+.rp-para-wrapper p {
+    margin-bottom: 8px !important;
+}
+
+.rp-para-trans-bar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 8px;
+}
+
+.rp-para-trans-toggle-btn {
+    background: #f8fafc;
+    color: #475569;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    padding: 4px 12px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+}
+
+.rp-para-trans-toggle-btn:hover {
+    background: #e2e8f0;
+    color: #1e293b;
+    border-color: #94a3b8;
+}
+
+.rp-para-trans-toggle-btn.active {
+    background: #ecfdf5;
+    color: #065f46;
+    border-color: #10b981;
+}
+
+.rp-para-trans-box {
+    display: none;
+    margin-top: 6px;
+    margin-bottom: 14px;
+    padding: 14px 18px;
+    background: #f0fdf4;
+    border-left: 4px solid #10b981;
+    border-radius: 8px;
+    font-size: 0.98rem;
+    line-height: 1.85;
+    color: #166534;
+    animation: rpFadeIn 0.25s ease-out;
+}
+
+.rp-para-trans-box.show {
+    display: block;
+}
+
+/* Master Translation Bar at Top of Passage Panel after submission */
+.rp-passage-trans-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    background: #f0fdf4;
+    border: 1.5px solid #86efac;
+    border-radius: 12px;
+    padding: 10px 16px;
+    margin-bottom: 22px;
+    animation: rpFadeIn 0.3s ease-out;
+}
+
+.rp-passage-trans-toolbar-title {
+    font-size: 0.92rem;
+    font-weight: 800;
+    color: #15803d;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.rp-passage-trans-toolbar-btns {
+    display: flex;
+    gap: 8px;
+}
+
+.rp-btn-para-all {
+    background: #ffffff;
+    border: 1.5px solid #10b981;
+    color: #065f46;
+    border-radius: 8px;
+    padding: 5px 12px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+}
+
+.rp-btn-para-all:hover {
+    background: #dcfce7;
+}
+
 @keyframes rpFadeIn {
     from { opacity: 0; transform: translateY(8px); }
     to { opacity: 1; transform: translateY(0); }
@@ -10419,8 +10547,8 @@ const mockTestPassages = [
                 <button id="rp-btn-toggle-evidence" onclick="toggleAllRPEvidence()" style="background: #ffffff; color: #1e293b; border: 1.5px solid #cbd5e1; border-radius: 8px; padding: 6px 12px; font-weight: 700; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; gap: 6px;" title="Bật/tắt hiển thị tất cả dẫn chứng đáp án">
                     <i class="fa-solid fa-highlighter" style="color: #d97706;"></i> <span id="rp-evidence-btn-text">Dẫn Chứng Đáp Án</span>
                 </button>
-                <button id="rp-btn-toggle-trans" style="background: #ffffff; color: #1e293b; border: 1.5px solid #cbd5e1; border-radius: 8px; padding: 6px 12px; font-weight: 700; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; gap: 6px;">
-                    <i class="fa-solid fa-language" style="color: #3b82f6;"></i> <span id="rp-trans-btn-text">Dịch Bài Đọc</span>
+                <button id="rp-btn-toggle-trans" onclick="handleRPTransBtnClick()" style="background: #ffffff; color: #64748b; border: 1.5px solid #cbd5e1; border-radius: 8px; padding: 6px 12px; font-weight: 700; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; gap: 6px;" title="Bản dịch mở khóa sau khi nộp bài">
+                    <i class="fa-solid fa-lock" id="rp-trans-btn-icon" style="color: #94a3b8;"></i> <span id="rp-trans-btn-text">Dịch Bài Đọc (Khóa)</span>
                 </button>
                 <button id="rp-btn-reset" style="background: #ffffff; color: #dc2626; border: 1.5px solid #fca5a5; border-radius: 8px; padding: 6px 12px; font-weight: 700; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; gap: 6px;">
                     <i class="fa-solid fa-rotate-left"></i> Làm lại
@@ -16451,10 +16579,25 @@ function loadReadingPractice(rpId) {
     // Load Passage Translation
     const transBody = document.getElementById('rp-passage-translation-body');
     const transContainer = document.getElementById('rp-passage-translation');
-    const transBtnText = document.getElementById('rp-trans-btn-text');
     if (transBody) transBody.innerHTML = data.translation;
     if (transContainer) transContainer.style.display = 'none';
-    if (transBtnText) transBtnText.textContent = 'Dịch Bài Đọc';
+
+    // Reset toggle translation button state to locked
+    const transBtn = document.getElementById('rp-btn-toggle-trans');
+    const transBtnText = document.getElementById('rp-trans-btn-text');
+    const transBtnIcon = document.getElementById('rp-trans-btn-icon');
+    if (transBtn) {
+        transBtn.style.background = '#ffffff';
+        transBtn.style.borderColor = '#cbd5e1';
+        transBtn.style.color = '#64748b';
+        transBtn.title = 'Bản dịch mở khóa sau khi nộp bài';
+    }
+    if (transBtnIcon) {
+        transBtnIcon.className = 'fa-solid fa-lock';
+        transBtnIcon.style.color = '#94a3b8';
+    }
+    if (transBtnText) transBtnText.textContent = 'Dịch Bài Đọc (Khóa)';
+    rpAllParasShown = false;
 
     // Render Questions & Submission Section
     renderRPQuestions(data.questions);
@@ -16544,9 +16687,12 @@ function renderRPQuestions(questions) {
             <div id="rp-exp-body-${qIdx}" style="color: #1e293b; font-size: 0.93rem; line-height: 1.65;">
                 ${q.explanation}
             </div>
-            <div style="margin-top: 10px;">
+            <div style="margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap;">
                 <button id="rp-jump-btn-${qIdx}" onclick="scrollToRPEvidence(${qNum})" style="background: #fef3c7; color: #92400e; border: 1.5px solid #fcd34d; border-radius: 8px; padding: 6px 14px; font-weight: 700; font-size: 0.88rem; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 1px 3px rgba(245, 158, 11, 0.2); transition: all 0.2s ease;">
                     <i class="fa-solid fa-highlighter" style="color: #d97706;"></i> Xem dẫn chứng [${qNum}] trong bài đọc
+                </button>
+                <button id="rp-para-trans-btn-${qIdx}" onclick="scrollToRPQuestionPara(${qNum})" style="background: #ecfdf5; color: #065f46; border: 1.5px solid #a7f3d0; border-radius: 8px; padding: 6px 14px; font-weight: 700; font-size: 0.88rem; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 1px 3px rgba(16, 185, 129, 0.2); transition: all 0.2s ease;">
+                    <i class="fa-solid fa-language" style="color: #10b981;"></i> Xem dịch đoạn văn câu ${qNum}
                 </button>
             </div>
         `;
@@ -16703,21 +16849,31 @@ function submitRPExam(isAuto = false) {
     });
 
     // Reveal ALL evidence on the reading passage automatically!
-    ensureRPHighlightedPassageLoaded();
-    const passageContent = document.getElementById('rp-passage-content');
-    if (passageContent) {
-        currentRPState.showAllEvidence = true;
-        const highlights = passageContent.querySelectorAll('.rp-evidence-highlight');
-        highlights.forEach(hl => hl.classList.add('revealed'));
+    enableRPParagraphTranslations();
 
-        const evBtn = document.getElementById('rp-btn-toggle-evidence');
-        const evBtnText = document.getElementById('rp-evidence-btn-text');
-        if (evBtn) {
-            evBtn.style.background = '#fef08a';
-            evBtn.style.borderColor = '#eab308';
-        }
-        if (evBtnText) evBtnText.textContent = 'Ẩn Dẫn Chứng';
+    // Update top toolbar translation button to unlocked state
+    const transBtn = document.getElementById('rp-btn-toggle-trans');
+    const transBtnText = document.getElementById('rp-trans-btn-text');
+    const transBtnIcon = document.getElementById('rp-trans-btn-icon');
+    if (transBtn) {
+        transBtn.style.background = '#f0fdf4';
+        transBtn.style.borderColor = '#86efac';
+        transBtn.style.color = '#166534';
+        transBtn.title = 'Bấm để xem/ẩn bản dịch các đoạn văn';
     }
+    if (transBtnIcon) {
+        transBtnIcon.className = 'fa-solid fa-language';
+        transBtnIcon.style.color = '#10b981';
+    }
+    if (transBtnText) transBtnText.textContent = 'Dịch Đoạn Văn';
+
+    const evBtn = document.getElementById('rp-btn-toggle-evidence');
+    const evBtnText = document.getElementById('rp-evidence-btn-text');
+    if (evBtn) {
+        evBtn.style.background = '#fef08a';
+        evBtn.style.borderColor = '#eab308';
+    }
+    if (evBtnText) evBtnText.textContent = 'Ẩn Dẫn Chứng';
 
     // Sound and Confetti
     playSound(correctCount >= 7 ? 'success' : 'fail');
@@ -16753,6 +16909,9 @@ function submitRPExam(isAuto = false) {
                     <button class="rp-result-btn rp-result-btn-reset" onclick="loadReadingPractice(currentRPState.rpId)">
                         <i class="fa-solid fa-rotate-left"></i> Làm lại bài này (15:00)
                     </button>
+                    <button class="rp-result-btn rp-result-btn-trans" onclick="toggleRPAllParagraphTranslations(true); document.getElementById('rp-passage-container').scrollTop = 0;">
+                        <i class="fa-solid fa-language"></i> Dịch các đoạn văn song ngữ
+                    </button>
                     <button class="rp-result-btn rp-result-btn-evidence" onclick="document.getElementById('rp-passage-container').scrollTop = 0;">
                         <i class="fa-solid fa-magnifying-glass"></i> Xem dẫn chứng trên bài đọc
                     </button>
@@ -16774,6 +16933,152 @@ function submitRPExam(isAuto = false) {
 
 function checkRPAnswer(qIdx) {
     submitRPExam(false);
+}
+
+// ==========================================
+// READING PRACTICE PARAGRAPH TRANSLATIONS
+// ==========================================
+let rpAllParasShown = false;
+
+function enableRPParagraphTranslations() {
+    const data = readingPracticesData[currentRPState.rpId];
+    if (!data) return;
+
+    const passageContent = document.getElementById('rp-passage-content');
+    if (!passageContent) return;
+
+    const pParas = (data.highlightedPassage || data.passage).match(/<p[\s\S]*?<\/p>/g) || [];
+    const tParas = (data.translation || '').match(/<p[\s\S]*?<\/p>/g) || [];
+
+    let newHtml = `
+        <div class="rp-passage-trans-toolbar" id="rp-passage-trans-toolbar">
+            <div class="rp-passage-trans-toolbar-title">
+                <i class="fa-solid fa-language" style="color: #10b981; font-size: 1.25rem;"></i>
+                <span>BẢN DỊCH TỪNG ĐOẠN VĂN (ĐÃ MỞ KHÓA)</span>
+            </div>
+            <div class="rp-passage-trans-toolbar-btns">
+                <button class="rp-btn-para-all" id="rp-btn-toggle-all-paras" onclick="toggleRPAllParagraphTranslations()">
+                    <i class="fa-solid fa-language"></i> <span id="rp-toggle-all-paras-text">Dịch tất cả các đoạn</span>
+                </button>
+            </div>
+        </div>
+    `;
+
+    pParas.forEach((pText, idx) => {
+        let viText = '';
+        if (tParas[idx]) {
+            viText = tParas[idx].replace(/<\/?p>/g, '').replace(/^<strong>Đoạn \d+:<\/strong>\s*/, '');
+        }
+        newHtml += `
+            <div class="rp-para-wrapper" id="rp-para-wrapper-${idx}">
+                ${pText}
+                <div class="rp-para-trans-bar">
+                    <button class="rp-para-trans-toggle-btn" id="rp-para-btn-${idx}" onclick="toggleRPParaTrans(${idx})">
+                        <i class="fa-solid fa-language"></i> <span id="rp-para-btn-text-${idx}">Dịch Đoạn ${idx + 1}</span>
+                    </button>
+                </div>
+                <div class="rp-para-trans-box" id="rp-para-trans-box-${idx}">
+                    <div style="font-weight: 800; color: #15803d; margin-bottom: 6px; font-size: 0.9rem; display: flex; align-items: center; gap: 6px;">
+                        <i class="fa-solid fa-circle-check"></i> Bản dịch Đoạn ${idx + 1}:
+                    </div>
+                    <div>${viText}</div>
+                </div>
+            </div>
+        `;
+    });
+
+    passageContent.innerHTML = newHtml;
+    attachRPEvidenceEvents(passageContent);
+
+    // Make sure evidence highlights are revealed since test is submitted
+    const highlights = passageContent.querySelectorAll('.rp-evidence-highlight');
+    highlights.forEach(hl => hl.classList.add('revealed'));
+}
+
+function toggleRPParaTrans(idx, forceOpen = false) {
+    const box = document.getElementById(`rp-para-trans-box-${idx}`);
+    const btn = document.getElementById(`rp-para-btn-${idx}`);
+    const btnText = document.getElementById(`rp-para-btn-text-${idx}`);
+    if (!box) return;
+
+    const isOpen = box.classList.contains('show');
+    if (forceOpen || !isOpen) {
+        box.classList.add('show');
+        if (btn) btn.classList.add('active');
+        if (btnText) btnText.textContent = `Ẩn dịch Đoạn ${idx + 1}`;
+    } else {
+        box.classList.remove('show');
+        if (btn) btn.classList.remove('active');
+        if (btnText) btnText.textContent = `Dịch Đoạn ${idx + 1}`;
+    }
+}
+
+function toggleRPAllParagraphTranslations(forceOpen = false) {
+    const data = readingPracticesData[currentRPState.rpId];
+    if (!data) return;
+
+    const pParas = (data.highlightedPassage || data.passage).match(/<p[\s\S]*?<\/p>/g) || [];
+    if (forceOpen) {
+        rpAllParasShown = false;
+    }
+    rpAllParasShown = !rpAllParasShown;
+
+    pParas.forEach((_, idx) => {
+        const box = document.getElementById(`rp-para-trans-box-${idx}`);
+        const btn = document.getElementById(`rp-para-btn-${idx}`);
+        const btnText = document.getElementById(`rp-para-btn-text-${idx}`);
+        if (box) {
+            if (rpAllParasShown) {
+                box.classList.add('show');
+                if (btn) btn.classList.add('active');
+                if (btnText) btnText.textContent = `Ẩn dịch Đoạn ${idx + 1}`;
+            } else {
+                box.classList.remove('show');
+                if (btn) btn.classList.remove('active');
+                if (btnText) btnText.textContent = `Dịch Đoạn ${idx + 1}`;
+            }
+        }
+    });
+
+    const toggleAllText = document.getElementById('rp-toggle-all-paras-text');
+    if (toggleAllText) {
+        toggleAllText.textContent = rpAllParasShown ? 'Ẩn tất cả bản dịch' : 'Dịch tất cả các đoạn';
+    }
+}
+
+function scrollToRPQuestionPara(qNum) {
+    if (!currentRPState.submitted) return;
+
+    const hl = document.querySelector(`.rp-evidence-highlight[data-q="${qNum}"]`);
+    if (hl) {
+        const wrapper = hl.closest('.rp-para-wrapper');
+        if (wrapper) {
+            const idxMatch = wrapper.id.match(/rp-para-wrapper-(\d+)/);
+            if (idxMatch) {
+                const paraIdx = parseInt(idxMatch[1], 10);
+                toggleRPParaTrans(paraIdx, true);
+            }
+            wrapper.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            wrapper.classList.add('highlight-target');
+            setTimeout(() => {
+                wrapper.classList.remove('highlight-target');
+            }, 2500);
+            return;
+        }
+    }
+    scrollToRPEvidence(qNum);
+}
+
+function handleRPTransBtnClick() {
+    if (!currentRPState || !currentRPState.submitted) {
+        alert('🔒 Chức năng dịch đoạn văn sẽ được mở khóa ngay sau khi bạn bấm "NỘP BÀI & KIỂM TRA" để đảm bảo kết quả làm bài khách quan nhất.');
+        return;
+    }
+    toggleRPAllParagraphTranslations();
+    const pPanel = document.getElementById('rp-passage-container');
+    if (pPanel && rpAllParasShown) {
+        pPanel.scrollTop = 0;
+    }
 }
 
 
@@ -16932,16 +17237,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnTrans = document.getElementById('rp-btn-toggle-trans');
     if (btnTrans) {
         btnTrans.addEventListener('click', () => {
-            const transBox = document.getElementById('rp-passage-translation');
-            const btnText = document.getElementById('rp-trans-btn-text');
-            if (transBox) {
-                const isHidden = (transBox.style.display === 'none');
-                transBox.style.display = isHidden ? 'block' : 'none';
-                if (btnText) btnText.textContent = isHidden ? 'Ẩn Bản Dịch' : 'Dịch Bài Đọc';
-                if (isHidden) {
-                    transBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                }
-            }
+            handleRPTransBtnClick();
         });
     }
 
