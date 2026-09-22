@@ -11216,7 +11216,7 @@ function printReportSuccessBanner() {
 const passwordConfig = {
     'HEMINGWAY': 1,
     'B212': 6,
-    'CB211': 11,
+    'CB211': 12,
     'ONB103': 11,
     'CB213': 8,
     'CB210': 99,
@@ -11412,8 +11412,12 @@ function initSidebarNav() {
                         link.click();
                     } else if (grantedLevel !== -1) {
                         playSound('fail');
-                        if (cleanPass === 'CB211' || cleanPass === 'ONB103') {
-                            alert(`❌ Lớp ${cleanPass} chỉ được mở khóa tới Reading Practice 03. Reading Practice 04 chưa được mở!`);
+                        if (cleanPass === 'ONB103') {
+                            alert(`❌ Lớp ONB103 chỉ được mở khóa tới Reading Practice 03. Reading Practice 04 chưa được mở!`);
+                        } else if (cleanPass === 'CB211') {
+                            alert(`❌ Lớp CB211 chỉ được mở khóa tới Reading Practice 04. Nội dung này chưa được mở!`);
+                        } else if (cleanPass === 'CB213') {
+                            alert(`❌ Lớp CB213 chỉ được mở khóa tới Dạng 08. Phần này chưa được mở!`);
                         } else if (grantedLevel <= 8) {
                             alert(`❌ Lớp ${cleanPass} chỉ được truy cập tối đa tới Dạng 0${grantedLevel}. Bạn chưa đủ tiến độ!`);
                         } else {
@@ -16525,8 +16529,8 @@ function switchRPPart(rpId) {
     if (state.unlockedLevel < reqLevel) {
         playSound('fail');
         const cleanClass = (state.studentClass || '').trim().toUpperCase();
-        if (cleanClass === 'CB211' || cleanClass === 'ONB103') {
-            alert(`🔒 Lớp ${cleanClass} chỉ được mở khóa tới Reading Practice 03. Reading Practice 04 chưa được mở!`);
+        if (cleanClass === 'ONB103') {
+            alert(`🔒 Lớp ONB103 chỉ được mở khóa tới Reading Practice 03. Reading Practice 04 chưa được mở!`);
         } else if (cleanClass === 'CB213') {
             alert(`🔒 Lớp CB213 chỉ được mở khóa tới Dạng 08. Phần Reading Practice chưa được mở cho lớp của bạn!`);
         } else {
