@@ -10544,8 +10544,8 @@ const mockTestPassages = [
                     <span style="color: #cbd5e1;">|</span>
                     <span>Đúng: <strong id="rp-correct-count" style="color: #10b981;">0</strong></span>
                 </div>
-                <button id="rp-btn-toggle-evidence" onclick="toggleAllRPEvidence()" style="background: #ffffff; color: #1e293b; border: 1.5px solid #cbd5e1; border-radius: 8px; padding: 6px 12px; font-weight: 700; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; gap: 6px;" title="Bật/tắt hiển thị tất cả dẫn chứng đáp án">
-                    <i class="fa-solid fa-highlighter" style="color: #d97706;"></i> <span id="rp-evidence-btn-text">Dẫn Chứng Đáp Án</span>
+                <button id="rp-btn-toggle-evidence" onclick="handleRPEvidenceBtnClick()" style="background: #ffffff; color: #64748b; border: 1.5px solid #cbd5e1; border-radius: 8px; padding: 6px 12px; font-weight: 700; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; gap: 6px;" title="Dẫn chứng đáp án mở khóa sau khi nộp bài">
+                    <i class="fa-solid fa-lock" id="rp-evidence-btn-icon" style="color: #94a3b8;"></i> <span id="rp-evidence-btn-text">Dẫn Chứng (Khóa)</span>
                 </button>
                 <button id="rp-btn-toggle-trans" onclick="handleRPTransBtnClick()" style="background: #ffffff; color: #64748b; border: 1.5px solid #cbd5e1; border-radius: 8px; padding: 6px 12px; font-weight: 700; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; gap: 6px;" title="Bản dịch mở khóa sau khi nộp bài">
                     <i class="fa-solid fa-lock" id="rp-trans-btn-icon" style="color: #94a3b8;"></i> <span id="rp-trans-btn-text">Dịch Bài Đọc (Khóa)</span>
@@ -16635,14 +16635,21 @@ function loadReadingPractice(rpId) {
         passageContent.style.fontSize = `${currentRPFontSize}px`;
     }
 
-    // Reset toggle evidence button state
+    // Reset toggle evidence button state to locked
     const evBtn = document.getElementById('rp-btn-toggle-evidence');
     const evBtnText = document.getElementById('rp-evidence-btn-text');
+    const evBtnIcon = document.getElementById('rp-evidence-btn-icon');
     if (evBtn) {
         evBtn.style.background = '#ffffff';
         evBtn.style.borderColor = '#cbd5e1';
+        evBtn.style.color = '#64748b';
+        evBtn.title = 'Dẫn chứng đáp án mở khóa sau khi nộp bài';
     }
-    if (evBtnText) evBtnText.textContent = 'Dẫn Chứng Đáp Án';
+    if (evBtnIcon) {
+        evBtnIcon.className = 'fa-solid fa-lock';
+        evBtnIcon.style.color = '#94a3b8';
+    }
+    if (evBtnText) evBtnText.textContent = 'Dẫn Chứng (Khóa)';
 
     // Load Passage Translation
     const transBody = document.getElementById('rp-passage-translation-body');
@@ -16937,9 +16944,16 @@ function submitRPExam(isAuto = false) {
 
     const evBtn = document.getElementById('rp-btn-toggle-evidence');
     const evBtnText = document.getElementById('rp-evidence-btn-text');
+    const evBtnIcon = document.getElementById('rp-evidence-btn-icon');
     if (evBtn) {
         evBtn.style.background = '#fef08a';
         evBtn.style.borderColor = '#eab308';
+        evBtn.style.color = '#854d0e';
+        evBtn.title = 'Bấm để ẩn/hiện tất cả dẫn chứng trên bài đọc';
+    }
+    if (evBtnIcon) {
+        evBtnIcon.className = 'fa-solid fa-highlighter';
+        evBtnIcon.style.color = '#d97706';
     }
     if (evBtnText) evBtnText.textContent = 'Ẩn Dẫn Chứng';
 
@@ -17228,11 +17242,21 @@ function jumpToRPQuestion(qNum) {
     revealRPEvidence(qNum, false);
 }
 
+function handleRPEvidenceBtnClick() {
+    if (!currentRPState || !currentRPState.submitted) {
+        alert('🔒 Dẫn chứng đáp án sẽ được mở khóa ngay sau khi bạn bấm "NỘP BÀI & KIỂM TRA" để đảm bảo tính khách quan khi làm bài.');
+        return;
+    }
+    toggleAllRPEvidence();
+}
+
 function toggleAllRPEvidence() {
+    if (!currentRPState || !currentRPState.submitted) return;
     ensureRPHighlightedPassageLoaded();
     const passageContent = document.getElementById('rp-passage-content');
     const btn = document.getElementById('rp-btn-toggle-evidence');
     const btnText = document.getElementById('rp-evidence-btn-text');
+    const btnIcon = document.getElementById('rp-evidence-btn-icon');
     if (!passageContent || !currentRPState) return;
 
     currentRPState.showAllEvidence = !currentRPState.showAllEvidence;
@@ -17243,23 +17267,28 @@ function toggleAllRPEvidence() {
         if (btn) {
             btn.style.background = '#fef08a';
             btn.style.borderColor = '#eab308';
+            btn.style.color = '#854d0e';
+        }
+        if (btnIcon) {
+            btnIcon.className = 'fa-solid fa-highlighter';
+            btnIcon.style.color = '#d97706';
         }
         if (btnText) btnText.textContent = 'Ẩn Dẫn Chứng';
     } else {
         highlights.forEach(hl => {
-            const qNum = parseInt(hl.getAttribute('data-q'), 10);
-            if (qNum && currentRPState.checked[qNum - 1]) {
-                hl.classList.add('revealed');
-            } else {
-                hl.classList.remove('revealed');
-                hl.classList.remove('active-target');
-            }
+            hl.classList.remove('revealed');
+            hl.classList.remove('active-target');
         });
         if (btn) {
             btn.style.background = '#ffffff';
             btn.style.borderColor = '#cbd5e1';
+            btn.style.color = '#1e293b';
         }
-        if (btnText) btnText.textContent = 'Dẫn Chứng Đáp Án';
+        if (btnIcon) {
+            btnIcon.className = 'fa-solid fa-highlighter';
+            btnIcon.style.color = '#d97706';
+        }
+        if (btnText) btnText.textContent = 'Hiện Dẫn Chứng';
     }
 }
 
