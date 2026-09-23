@@ -16190,35 +16190,43 @@ function bindVocabularyClickTooltips() {
             return;
         }
         
-        // Extract caret coordinates
-        let range;
+        // Extract clicked text node and offset
+        let textNode = null;
+        let offset = 0;
         if (document.caretRangeFromPoint) {
-            range = document.caretRangeFromPoint(e.clientX, e.clientY);
-        } else if (e.rangeParent) {
-            range = document.createRange();
-            range.setStart(e.rangeParent, e.rangeOffset);
+            const r = document.caretRangeFromPoint(e.clientX, e.clientY);
+            if (r && r.startContainer && r.startContainer.nodeType === Node.TEXT_NODE) {
+                textNode = r.startContainer;
+                offset = r.startOffset;
+            }
+        } else if (document.caretPositionFromPoint) {
+            const pos = document.caretPositionFromPoint(e.clientX, e.clientY);
+            if (pos && pos.offsetNode && pos.offsetNode.nodeType === Node.TEXT_NODE) {
+                textNode = pos.offsetNode;
+                offset = pos.offset;
+            }
         }
         
-        if (range && range.startContainer.nodeType === Node.TEXT_NODE) {
-            const textNode = range.startContainer;
-            const offset = range.startOffset;
+        if (textNode) {
             const text = textNode.textContent;
-            
-            // Detect word borders
+            if (offset > 0 && offset === text.length && !/[A-Za-z]/.test(text[offset])) {
+                offset--;
+            }
+            // Detect word boundaries including hyphen and apostrophe
             let start = offset;
-            while (start > 0 && /\w/.test(text[start - 1])) {
+            while (start > 0 && /[A-Za-z'-]/.test(text[start - 1])) {
                 start--;
             }
             let end = offset;
-            while (end < text.length && /\w/.test(text[end])) {
+            while (end < text.length && /[A-Za-z'-]/.test(text[end])) {
                 end++;
             }
             
             const rawWord = text.substring(start, end).trim();
-            const cleanWord = rawWord.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?"']/g, "").trim();
+            const cleanWord = rawWord.replace(/^[^A-Za-z]+|[^A-Za-z]+$/g, "").trim();
             
-            // Ensure clicked word is a valid English word string (between 2 and 25 letters)
-            if (cleanWord.length >= 2 && cleanWord.length <= 25 && /^[A-Za-z'-]+$/.test(cleanWord)) {
+            // Ensure clicked word is a valid English word string (between 2 and 35 letters)
+            if (cleanWord.length >= 2 && cleanWord.length <= 35 && /^[A-Za-z'-]+$/.test(cleanWord)) {
                 showFloatingWordDefinition(cleanWord, e.clientX, e.clientY);
             }
         }
@@ -16269,16 +16277,56 @@ function bindVocabularyClickTooltips() {
 // Helper: Show floating definition card for any clicked/selected word
 async function showFloatingWordDefinition(word, clientX, clientY) {
     const lowerWord = word.toLowerCase();
-    const data = vocabData[lowerWord];
+    
+    // 1. Search in Reading Practice curated vocabulary (207 words)
+    let data = null;
+    if (typeof readingPracticesData !== 'undefined') {
+        for (const rpKey in readingPracticesData) {
+            const rp = readingPracticesData[rpKey];
+            if (rp && rp.vocab && Array.isArray(rp.vocab)) {
+                const found = rp.vocab.find(v => v.word.toLowerCase() === lowerWord);
+                if (found) {
+                    data = {
+                        pos: found.pos,
+                        phonetic: found.ipa,
+                        mean: found.meaning
+                    };
+                    break;
+                }
+            }
+        }
+    }
+    // 2. Search in pre-defined vocabData
+    if (!data && typeof vocabData !== 'undefined') {
+        data = vocabData[lowerWord];
+    }
     
     state.tooltipJustShown = true;
     
-    // Position floating card near caret coordinates
-    const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    // Ensure tooltip is child of body with fixed positioning
+    if (elements.vocabTooltip.parentNode !== document.body) {
+        document.body.appendChild(elements.vocabTooltip);
+    }
+    elements.vocabTooltip.style.position = 'fixed';
+    elements.vocabTooltip.style.zIndex = '99999999';
     
-    elements.vocabTooltip.style.left = `${clientX + scrollLeft - 50}px`;
-    elements.vocabTooltip.style.top = `${clientY + scrollTop + 12}px`;
+    // Position floating card near click coordinates with bounds checking
+    const cardWidth = 260;
+    const cardHeight = 180;
+    let left = clientX - 40;
+    let top = clientY + 16;
+    
+    if (left < 10) left = 10;
+    if (left + cardWidth > window.innerWidth - 10) {
+        left = window.innerWidth - cardWidth - 10;
+    }
+    if (top + cardHeight > window.innerHeight - 10) {
+        top = clientY - cardHeight - 10;
+        if (top < 10) top = 10;
+    }
+    
+    elements.vocabTooltip.style.left = `${Math.round(left)}px`;
+    elements.vocabTooltip.style.top = `${Math.round(top)}px`;
     
     // Show loading skeleton
     elements.tooltipWord.textContent = word;
