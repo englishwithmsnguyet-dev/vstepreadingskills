@@ -12519,8 +12519,8 @@ const passwordConfig = {
     'HEMINGWAY': 1,
     'B212': 6,
     'CB211': 12,
-    'ONB103': 11,
-    'CB213': 8,
+    'ONB103': 12,
+    'CB213': 12,
     'CB210': 99,
     'CB206': 99,
     'GV': 99,
@@ -12717,12 +12717,8 @@ function initSidebarNav() {
                         link.click();
                     } else if (grantedLevel !== -1) {
                         playSound('fail');
-                        if (cleanPass === 'ONB103') {
-                            alert(`❌ Lớp ONB103 chỉ được mở khóa tới Reading Practice 03. Reading Practice 04 chưa được mở!`);
-                        } else if (cleanPass === 'CB211') {
-                            alert(`❌ Lớp CB211 chỉ được mở khóa tới Reading Practice 04. Nội dung này chưa được mở!`);
-                        } else if (cleanPass === 'CB213') {
-                            alert(`❌ Lớp CB213 chỉ được mở khóa tới Dạng 08. Phần này chưa được mở!`);
+                        if (['CB211', 'CB213', 'ONB103'].includes(cleanPass)) {
+                            alert(`❌ Lớp ${cleanPass} chỉ được mở khóa tới Reading Practice 04. Nội dung này chưa được mở!`);
                         } else if (grantedLevel <= 8) {
                             alert(`❌ Lớp ${cleanPass} chỉ được truy cập tối đa tới Dạng 0${grantedLevel}. Bạn chưa đủ tiến độ!`);
                         } else {
@@ -18037,14 +18033,7 @@ function switchRPPart(rpId) {
 
     if (state.unlockedLevel < reqLevel) {
         playSound('fail');
-        const cleanClass = (state.studentClass || '').trim().toUpperCase();
-        if (cleanClass === 'ONB103') {
-            alert(`🔒 Lớp ONB103 chỉ được mở khóa tới Reading Practice 03. Reading Practice 04 chưa được mở!`);
-        } else if (cleanClass === 'CB213') {
-            alert(`🔒 Lớp CB213 chỉ được mở khóa tới Dạng 08. Phần Reading Practice chưa được mở cho lớp của bạn!`);
-        } else {
-            alert(`🔒 Phần này (${rpId.toUpperCase().replace('-', ' ')}) tạm thời bị khóa cho lớp của bạn. Vui lòng liên hệ giáo viên để được mở thêm tiến độ.`);
-        }
+        alert(`🔒 Phần này (${rpId.toUpperCase().replace('-', ' ')}) tạm thời bị khóa cho lớp của bạn. Vui lòng liên hệ giáo viên để được mở thêm tiến độ.`);
         return;
     }
 
