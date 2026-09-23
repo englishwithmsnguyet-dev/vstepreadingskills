@@ -11697,15 +11697,27 @@ const mockTestPassages = [
 </div>
 </div>
 </div>
+<!-- Quick Manual Vocab Add Box -->
+<div class="quick-add-vocab-box" style="margin-bottom: 20px; padding: 14px 18px; background: var(--surface-solid); border: 1.5px solid var(--border-color); border-radius: 12px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex: 1; min-width: 280px; flex-wrap: wrap;">
+        <i class="fa-solid fa-plus-circle" style="color: var(--primary-color); font-size: 1.15rem;"></i>
+        <input type="text" id="manual-vocab-input" placeholder="Nhập từ hoặc cụm từ mới..." onkeydown="if(event.key==='Enter') addManualVocab()" style="flex: 1; min-width: 140px; padding: 8px 12px; border: 1.5px solid var(--border-color); border-radius: 8px; font-size: 0.92rem; outline: none; background: var(--bg-color); color: var(--text-color);">
+        <input type="text" id="manual-meaning-input" placeholder="Nghĩa tiếng Việt (tự động dịch nếu để trống)..." onkeydown="if(event.key==='Enter') addManualVocab()" style="flex: 1.2; min-width: 180px; padding: 8px 12px; border: 1.5px solid var(--border-color); border-radius: 8px; font-size: 0.92rem; outline: none; background: var(--bg-color); color: var(--text-color);">
+    </div>
+    <button class="primary-btn btn-sm" id="btn-manual-add-vocab" onclick="addManualVocab()" style="padding: 8px 18px; font-weight: 700; border-radius: 8px; display: flex; align-items: center; gap: 6px; white-space: nowrap; cursor: pointer;">
+        <i class="fa-solid fa-cloud-arrow-up"></i> Tự động lưu từ
+    </button>
+</div>
 <!-- Word Bank container -->
 <div class="word-bank-grid" id="word-bank-container">
 <div class="empty-bank-message" id="empty-bank-message">
 <i class="fa-solid fa-folder-open empty-icon"></i>
-<p>Hộp từ vựng hiện đang trống. Hãy bấm vào các từ gạch chân nét đứt ở các phần bài học trên để lưu từ vựng vào đây!</p>
+<p>Hộp từ vựng hiện đang trống. Hãy bấm vào các từ gạch chân nét đứt, bôi đen từ trên bài đọc hoặc bấm 'Lưu' tại phần Từ vựng để tự động lưu vào đây!</p>
 </div>
 </div>
-<div class="vocab-actions mt-4 hidden" id="vocab-actions-panel">
+<div class="vocab-actions mt-4 hidden" id="vocab-actions-panel" style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center;">
 <button class="primary-btn btn-sm" id="reset-vocab-btn"><i class="fa-solid fa-trash-can"></i> Xóa tất cả từ đã lưu</button>
+<button class="wiz-btn btn-sm" id="export-vocab-btn" onclick="exportSavedVocabList()" style="border: 1px solid var(--border-color);"><i class="fa-solid fa-copy"></i> Sao chép tất cả từ (Copy)</button>
 </div>
 </section>
 <!-- SECTION: Trả bài từ vựng -->
@@ -11825,7 +11837,10 @@ const mockTestPassages = [
                             <i class="fa-solid fa-book-bookmark" style="color: #0284c7;"></i> TỪ VỰNG HỮU ÍCH (B1 - B2 CORE VOCABULARY)
                         </h4>
                         <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
-                            <input type="text" id="rp-vocab-search" placeholder="🔍 Tìm nhanh từ vựng..." oninput="filterRPVocab(this.value)" style="border: 1.5px solid #7dd3fc; border-radius: 8px; padding: 5px 12px; font-size: 0.88rem; outline: none; background: #ffffff; color: #0f172a; width: 190px;">
+                            <input type="text" id="rp-vocab-search" placeholder="🔍 Tìm nhanh từ vựng..." oninput="filterRPVocab(this.value)" style="border: 1.5px solid #7dd3fc; border-radius: 8px; padding: 5px 12px; font-size: 0.88rem; outline: none; background: #ffffff; color: #0f172a; width: 175px;">
+                            <button id="rp-btn-save-all-vocab" onclick="saveAllCurrentRPVocab()" title="Lưu toàn bộ từ vựng bài đọc này vào Sổ từ vựng cá nhân để ôn tập Flashcard" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'" style="background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); color: #ffffff; border: none; border-radius: 8px; padding: 6px 14px; font-size: 0.82rem; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 2px 6px rgba(2, 132, 199, 0.25); transition: transform 0.15s ease;">
+                                <i class="fa-solid fa-cloud-arrow-up"></i> Lưu tất cả vào Sổ từ
+                            </button>
                             <span id="rp-vocab-count-badge" style="background: #e0f2fe; color: #0369a1; font-size: 0.85rem; font-weight: 800; padding: 4px 12px; border-radius: 20px; border: 1px solid #7dd3fc;">50 từ then chốt</span>
                         </div>
                     </div>
@@ -12056,14 +12071,38 @@ function loadStudentData() {
         };
     }
     
-    const savedWordsList = localStorage.getItem(getStorageKey('vstep_saved_vocab'));
+    // Auto-load & Merge Persistence for Saved Words
+    let loadedWords = [];
+    const studentVocabKey = getStorageKey('vstep_saved_vocab');
+    const savedWordsList = localStorage.getItem(studentVocabKey);
     if (savedWordsList) {
         try {
-            state.savedWords = JSON.parse(savedWordsList);
+            const parsed = JSON.parse(savedWordsList);
+            if (Array.isArray(parsed)) loadedWords = parsed;
         } catch (e) { console.error(e); }
-    } else {
-        state.savedWords = [];
     }
+    
+    // Fallback/Merge with default key 'vstep_saved_vocab' so no word is ever lost
+    const baseWordsList = localStorage.getItem('vstep_saved_vocab');
+    if (baseWordsList && baseWordsList !== savedWordsList) {
+        try {
+            const baseWords = JSON.parse(baseWordsList);
+            if (Array.isArray(baseWords)) {
+                baseWords.forEach(bw => {
+                    if (bw && bw.word && !loadedWords.some(lw => lw.word.toLowerCase() === bw.word.toLowerCase())) {
+                        loadedWords.push(bw);
+                    }
+                });
+            }
+        } catch (e) { console.error(e); }
+    }
+    
+    state.savedWords = loadedWords;
+    // Auto-sync back to storage keys immediately
+    try {
+        localStorage.setItem(studentVocabKey, JSON.stringify(state.savedWords));
+        localStorage.setItem('vstep_saved_vocab', JSON.stringify(state.savedWords));
+    } catch (e) { console.warn(e); }
     
     const savedMockExam = localStorage.getItem(getStorageKey('vstep_mock_exam'));
     if (savedMockExam) {
@@ -12559,6 +12598,9 @@ function initStudentProfile() {
         // Save Name & Class in LocalStorage
         localStorage.setItem('vstep_student_name', state.studentName);
         localStorage.setItem('vstep_student_class', state.studentClass);
+        
+        // Auto-load student data & saved vocabulary immediately
+        loadStudentData();
         
         // Send login report to Google Form
         sendStudentLoginToForm(state.studentName, state.studentClass);
@@ -16622,20 +16664,175 @@ if (document.readyState === "complete" || document.readyState === "interactive")
 }
 window.addEventListener("load", initGlobalVocabSaver);
 
-function addWordToSavedList(word, data) {
-    const exists = state.savedWords.some(w => w.word.toLowerCase() === word.toLowerCase());
-    if (exists) return;
+function showAutoSaveToast(msg) {
+    let toast = document.getElementById('auto-save-toast');
+    if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'auto-save-toast';
+        toast.style.cssText = 'position: fixed; bottom: 25px; left: 50%; transform: translateX(-50%) translateY(20px); background: #0f172a; color: #38bdf8; border: 1.5px solid #0284c7; padding: 10px 22px; border-radius: 30px; font-size: 0.92rem; font-weight: 700; display: flex; align-items: center; gap: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); z-index: 999999999; opacity: 0; pointer-events: none; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);';
+        document.body.appendChild(toast);
+    }
+    toast.innerHTML = `<i class="fa-solid fa-cloud-arrow-up" style="color: #4ade80; font-size: 1.15rem;"></i> <span>${msg}</span>`;
+    toast.style.opacity = '1';
+    toast.style.transform = 'translateX(-50%) translateY(0)';
+    clearTimeout(toast._timer);
+    toast._timer = setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateX(-50%) translateY(20px)';
+    }, 2800);
+}
+window.showAutoSaveToast = showAutoSaveToast;
+
+function addWordToSavedList(word, data, silent = false) {
+    if (!word || !word.trim()) return false;
+    const cleanWord = word.trim();
+    const exists = state.savedWords.some(w => w.word.toLowerCase() === cleanWord.toLowerCase());
+    if (exists) {
+        if (!silent) showAutoSaveToast(`Từ "${cleanWord}" đã có sẵn trong Sổ từ vựng`);
+        return false;
+    }
     
-    // Enforce lowercase meaning for aesthetic consistency
-    const lowercaseMean = data.mean ? data.mean.toLowerCase().trim() : "";
-    const lowercaseData = { ...data, mean: lowercaseMean };
+    const lowercaseMean = data.mean ? data.mean.toLowerCase().trim() : (data.meaning ? data.meaning.toLowerCase().trim() : "");
+    const lowercaseData = { 
+        pos: data.pos || "(n)",
+        phonetic: data.phonetic || data.ipa || "/lookup/",
+        mean: lowercaseMean 
+    };
     
-    state.savedWords.push({ word, ...lowercaseData });
-    localStorage.setItem(getStorageKey('vstep_saved_vocab'), JSON.stringify(state.savedWords));
+    state.savedWords.push({ word: cleanWord, ...lowercaseData });
+    
+    // Auto-save immediately to localStorage for current student & base
+    const studentVocabKey = getStorageKey('vstep_saved_vocab');
+    try {
+        localStorage.setItem(studentVocabKey, JSON.stringify(state.savedWords));
+        localStorage.setItem('vstep_saved_vocab', JSON.stringify(state.savedWords));
+    } catch(e) { console.error("Auto-save vocab error:", e); }
     
     renderWordBankList();
     updateProgress();
+    
+    // Re-render current RP vocab to refresh save button status
+    if (typeof displayFilteredRPVocab === 'function' && typeof currentRPVocabList !== 'undefined' && currentRPVocabList.length) {
+        displayFilteredRPVocab(currentRPVocabList);
+    }
+    
+    if (!silent) {
+        showAutoSaveToast(`Đã tự động lưu từ "${cleanWord}" vào Sổ từ vựng!`);
+    }
+    return true;
 }
+
+function removeWordFromSavedList(word) {
+    if (!word) return;
+    const cleanWord = word.trim();
+    state.savedWords = state.savedWords.filter(item => item.word.toLowerCase() !== cleanWord.toLowerCase());
+    const studentVocabKey = getStorageKey('vstep_saved_vocab');
+    try {
+        localStorage.setItem(studentVocabKey, JSON.stringify(state.savedWords));
+        localStorage.setItem('vstep_saved_vocab', JSON.stringify(state.savedWords));
+    } catch(e) { console.error("Auto-save remove error:", e); }
+    
+    renderWordBankList();
+    updateProgress();
+    
+    if (typeof displayFilteredRPVocab === 'function' && typeof currentRPVocabList !== 'undefined' && currentRPVocabList.length) {
+        displayFilteredRPVocab(currentRPVocabList);
+    }
+    showAutoSaveToast(`Đã xóa từ "${cleanWord}" khỏi Sổ từ vựng`);
+}
+
+function toggleSaveRPWord(word, pos, ipa, meaning) {
+    if (!word) return;
+    const isSaved = state.savedWords.some(w => w.word.toLowerCase() === word.trim().toLowerCase());
+    if (isSaved) {
+        removeWordFromSavedList(word);
+        playSound('click');
+    } else {
+        addWordToSavedList(word, { pos, phonetic: ipa, mean: meaning });
+        playSound('success');
+    }
+}
+window.toggleSaveRPWord = toggleSaveRPWord;
+
+function saveAllCurrentRPVocab() {
+    if (!currentRPVocabList || !currentRPVocabList.length) {
+        alert("Không có từ vựng nào để lưu.");
+        return;
+    }
+    let addedCount = 0;
+    currentRPVocabList.forEach(item => {
+        const added = addWordToSavedList(item.word, { pos: item.pos, phonetic: item.ipa, mean: item.meaning }, true);
+        if (added) addedCount++;
+    });
+    
+    playSound('success');
+    if (addedCount > 0) {
+        showAutoSaveToast(`Đã tự động lưu toàn bộ ${addedCount} từ vựng mới vào Sổ từ vựng cá nhân!`);
+    } else {
+        showAutoSaveToast(`Tất cả các từ trong bài đã có sẵn trong Sổ từ vựng!`);
+    }
+}
+window.saveAllCurrentRPVocab = saveAllCurrentRPVocab;
+
+async function addManualVocab() {
+    const inputWord = document.getElementById('manual-vocab-input');
+    const inputMean = document.getElementById('manual-meaning-input');
+    if (!inputWord) return;
+    
+    const word = inputWord.value.trim();
+    if (!word) {
+        alert('Vui lòng nhập từ hoặc cụm từ bạn muốn lưu!');
+        inputWord.focus();
+        return;
+    }
+    
+    let mean = inputMean ? inputMean.value.trim() : '';
+    let pos = word.includes(' ') ? 'cụm từ' : 'từ vựng';
+    let ipa = '/custom/';
+    
+    if (!mean) {
+        const btn = document.getElementById('btn-manual-add-vocab');
+        if (btn) btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Đang dịch...';
+        try {
+            if (typeof translateWordENtoVI === 'function') {
+                const trans = await translateWordENtoVI(word);
+                if (trans) mean = trans;
+            }
+            if (!word.includes(' ') && typeof fetchPhoneticForWord === 'function') {
+                const fetchedPhonetic = await fetchPhoneticForWord(word);
+                if (fetchedPhonetic) ipa = fetchedPhonetic;
+            }
+        } catch(e){}
+        if (btn) btn.innerHTML = '<i class="fa-solid fa-cloud-arrow-up"></i> Tự động lưu từ';
+    }
+    
+    if (!mean) {
+        mean = prompt(`Nhập nghĩa tiếng Việt cho từ "${word}":`) || 'ghi chú từ vựng';
+    }
+    
+    const added = addWordToSavedList(word, { pos, phonetic: ipa, mean });
+    if (added) {
+        inputWord.value = '';
+        if (inputMean) inputMean.value = '';
+        playSound('success');
+    }
+}
+window.addManualVocab = addManualVocab;
+
+function exportSavedVocabList() {
+    if (!state.savedWords || !state.savedWords.length) {
+        alert("Sổ từ vựng của bạn hiện chưa có từ nào để sao chép.");
+        return;
+    }
+    const textContent = state.savedWords.map((w, idx) => `${idx + 1}. ${w.word} (${w.pos}) [${w.phonetic}]: ${w.mean}`).join('\n');
+    navigator.clipboard.writeText(textContent).then(() => {
+        playSound('success');
+        showAutoSaveToast(`Đã sao chép ${state.savedWords.length} từ vựng vào Clipboard! Bạn có thể dán (Ctrl+V) vào Word/Notepad.`);
+    }).catch(() => {
+        alert("Danh sách từ vựng của bạn:\n\n" + textContent);
+    });
+}
+window.exportSavedVocabList = exportSavedVocabList;
 
 function renderWordBankList() {
     elements.wordBankCount.textContent = state.savedWords.length;
@@ -17615,6 +17812,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     initSafely('StudentProfile', initStudentProfile);
+    initSafely('StudentData', loadStudentData);
     initSafely('ThemeSwitcher', initThemeSwitcher);
     initSafely('SidebarNav', initSidebarNav);
     initSafely('EyeTracker', initEyeTracker);
@@ -18527,19 +18725,34 @@ function displayFilteredRPVocab(vocabList) {
 
     if (countBadge) countBadge.textContent = `${vocabList.length} từ then chốt`;
 
-    vocabBody.innerHTML = vocabList.map(item => `
-        <div style="background: #ffffff; border: 1.5px solid #e0f2fe; border-radius: 12px; padding: 12px 16px; box-shadow: 0 2px 5px rgba(0,0,0,0.03); transition: all 0.2s ease; display: flex; flex-direction: column; gap: 4px;">
-            <div style="display: flex; align-items: center; justify-content: space-between;">
+    const savedWordSet = new Set((state.savedWords || []).map(w => w.word.toLowerCase()));
+
+    vocabBody.innerHTML = vocabList.map(item => {
+        const isSaved = savedWordSet.has(item.word.toLowerCase());
+        const cleanWord = item.word.replace(/'/g, "\\'");
+        const cleanPos = item.pos.replace(/'/g, "\\'");
+        const cleanIpa = item.ipa.replace(/'/g, "\\'");
+        const cleanMeaning = item.meaning.replace(/'/g, "\\'");
+
+        return `
+        <div style="background: #ffffff; border: 1.5px solid ${isSaved ? '#86efac' : '#e0f2fe'}; border-radius: 12px; padding: 12px 16px; box-shadow: 0 2px 5px rgba(0,0,0,0.03); transition: all 0.2s ease; display: flex; flex-direction: column; gap: 4px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px;">
                 <span style="font-weight: 800; color: #0f172a; font-size: 1.05rem; display: flex; align-items: center;">
                     ${item.word}
                     <i class="fa-solid fa-volume-high vocab-audio-btn" data-word="${item.word}" style="cursor: pointer; color: #0284c7; margin-left: 8px; font-size: 0.95rem;" title="Nghe phát âm"></i>
                 </span>
-                <span style="font-size: 0.78rem; font-weight: 800; color: #0369a1; background: #e0f2fe; padding: 2px 8px; border-radius: 6px;">${item.pos}</span>
+                <div style="display: flex; align-items: center; gap: 6px;">
+                    <span style="font-size: 0.78rem; font-weight: 800; color: #0369a1; background: #e0f2fe; padding: 2px 8px; border-radius: 6px;">${item.pos}</span>
+                    <button class="rp-card-save-btn" onclick="toggleSaveRPWord('${cleanWord}', '${cleanPos}', '${cleanIpa}', '${cleanMeaning}')" style="border: 1.5px solid ${isSaved ? '#22c55e' : '#cbd5e1'}; background: ${isSaved ? '#dcfce7' : '#f8fafc'}; color: ${isSaved ? '#15803d' : '#475569'}; border-radius: 6px; padding: 2px 9px; font-size: 0.76rem; font-weight: 800; cursor: pointer; display: inline-flex; align-items: center; gap: 4px; transition: all 0.15s ease;" title="${isSaved ? 'Nhấn để bỏ lưu khỏi Sổ từ' : 'Nhấn để lưu vào Sổ từ vựng cá nhân'}">
+                        <i class="fa-solid ${isSaved ? 'fa-circle-check' : 'fa-bookmark'}" style="${isSaved ? 'color: #16a34a;' : ''}"></i> ${isSaved ? 'Đã lưu' : 'Lưu từ'}
+                    </button>
+                </div>
             </div>
             <div style="font-size: 0.86rem; color: #64748b; font-family: monospace; font-weight: 500;">${item.ipa}</div>
             <div style="font-size: 0.95rem; color: #334155; line-height: 1.5; font-weight: 600; margin-top: 2px;">${item.meaning}</div>
         </div>
-    `).join('');
+        `;
+    }).join('');
 }
 
 function handleRPTransBtnClick() {
