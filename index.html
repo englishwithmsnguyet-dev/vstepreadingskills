@@ -11797,6 +11797,10 @@ const mockTestPassages = [
                     <button class="rp-font-control-btn" id="rp-btn-font-dec" title="Thu nhỏ chữ" style="padding: 4px 10px; font-weight: 800; cursor: pointer; border: 1px solid #cbd5e1; border-radius: 6px; background: #fff;">A-</button>
                     <button class="rp-font-control-btn" id="rp-btn-font-inc" title="Phóng to chữ" style="padding: 4px 10px; font-weight: 800; cursor: pointer; border: 1px solid #cbd5e1; border-radius: 6px; background: #fff;">A+</button>
                 </div>
+                <!-- Unlocked Vocabulary Button right next to Font size -->
+                <button id="rp-btn-toggle-vocab" onclick="handleRPVocabBtnClick()" style="background: #f0f9ff; color: #0369a1; border: 1.5px solid #7dd3fc; border-radius: 8px; padding: 6px 14px; font-weight: 700; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 1px 3px rgba(2, 132, 199, 0.1);" title="Bấm để xem/ẩn danh sách từ vựng hữu ích">
+                    <i class="fa-solid fa-book-bookmark" id="rp-vocab-btn-icon" style="color: #0284c7;"></i> <span id="rp-vocab-btn-text">Từ Vựng Bài Đọc</span>
+                </button>
                 <div class="rp-score-badge" style="background: #f8fafc; border: 1.5px solid #cbd5e1; border-radius: 8px; padding: 6px 14px; font-weight: 800; font-size: 0.92rem; display: flex; gap: 10px;">
                     <span>Đã làm: <strong id="rp-attempted-count" style="color: #3b82f6;">0</strong>/10</span>
                     <span style="color: #cbd5e1;">|</span>
@@ -11807,9 +11811,6 @@ const mockTestPassages = [
                 </button>
                 <button id="rp-btn-toggle-trans" onclick="handleRPTransBtnClick()" style="background: #ffffff; color: #64748b; border: 1.5px solid #cbd5e1; border-radius: 8px; padding: 6px 12px; font-weight: 700; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; gap: 6px;" title="Bản dịch mở khóa sau khi nộp bài">
                     <i class="fa-solid fa-lock" id="rp-trans-btn-icon" style="color: #94a3b8;"></i> <span id="rp-trans-btn-text">Dịch Bài Đọc (Khóa)</span>
-                </button>
-                <button id="rp-btn-toggle-vocab" onclick="handleRPVocabBtnClick()" style="background: #ffffff; color: #64748b; border: 1.5px solid #cbd5e1; border-radius: 8px; padding: 6px 12px; font-weight: 700; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; gap: 6px;" title="Từ vựng hữu ích mở khóa sau khi nộp bài">
-                    <i class="fa-solid fa-lock" id="rp-vocab-btn-icon" style="color: #94a3b8;"></i> <span id="rp-vocab-btn-text">Từ Vựng (Khóa)</span>
                 </button>
                 <button id="rp-btn-reset" style="background: #ffffff; color: #dc2626; border: 1.5px solid #fca5a5; border-radius: 8px; padding: 6px 12px; font-weight: 700; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; gap: 6px;">
                     <i class="fa-solid fa-rotate-left"></i> Làm lại
@@ -18182,7 +18183,7 @@ function loadReadingPractice(rpId) {
     if (transBtnText) transBtnText.textContent = 'Dịch Bài Đọc (Khóa)';
     rpAllParasShown = false;
 
-    // Render & Reset Vocabulary Section
+    // Render & Reset Vocabulary Section (Always Unlocked)
     renderRPVocab(data.vocab);
     const vocabContainer = document.getElementById('rp-passage-vocab');
     if (vocabContainer) vocabContainer.style.display = 'none';
@@ -18190,16 +18191,16 @@ function loadReadingPractice(rpId) {
     const vocabBtnText = document.getElementById('rp-vocab-btn-text');
     const vocabBtnIcon = document.getElementById('rp-vocab-btn-icon');
     if (vocabBtn) {
-        vocabBtn.style.background = '#ffffff';
-        vocabBtn.style.borderColor = '#cbd5e1';
-        vocabBtn.style.color = '#64748b';
-        vocabBtn.title = 'Từ vựng hữu ích mở khóa sau khi nộp bài';
+        vocabBtn.style.background = '#f0f9ff';
+        vocabBtn.style.borderColor = '#7dd3fc';
+        vocabBtn.style.color = '#0369a1';
+        vocabBtn.title = 'Bấm để xem/ẩn danh sách từ vựng hữu ích';
     }
     if (vocabBtnIcon) {
-        vocabBtnIcon.className = 'fa-solid fa-lock';
-        vocabBtnIcon.style.color = '#94a3b8';
+        vocabBtnIcon.className = 'fa-solid fa-book-bookmark';
+        vocabBtnIcon.style.color = '#0284c7';
     }
-    if (vocabBtnText) vocabBtnText.textContent = 'Từ Vựng (Khóa)';
+    if (vocabBtnText) vocabBtnText.textContent = 'Từ Vựng Bài Đọc';
     rpVocabShown = false;
 
     // Render Questions & Submission Section
@@ -18686,10 +18687,6 @@ function scrollToRPQuestionPara(qNum) {
 let rpVocabShown = false;
 
 function handleRPVocabBtnClick() {
-    if (!currentRPState || !currentRPState.submitted) {
-        alert('🔒 Danh sách từ vựng hữu ích sẽ được mở khóa ngay sau khi bạn bấm "NỘP BÀI & KIỂM TRA" để giúp bạn ôn tập và tra cứu sau khi làm bài.');
-        return;
-    }
     toggleRPVocab();
 }
 
