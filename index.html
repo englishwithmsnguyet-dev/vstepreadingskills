@@ -12514,11 +12514,11 @@ function printReportSuccessBanner() {
 }
 
 // Class password & unlock level configuration:
-// Levels: 1-8 (Dạng 01 - 08), 9 (RP 01), 10 (RP 02), 11 (RP 03), 12 (RP 04), 99 (Full Access / Teacher)
+// Levels: 1-8 (Dạng 01 - 08), 9 (RP 01), 10 (RP 02), 11 (RP 03), 12 (RP 04), 13 (Mock Test), 99 (Full Access / Teacher)
 const passwordConfig = {
     'HEMINGWAY': 1,
     'B212': 8,
-    'CB211': 12,
+    'CB211': 13,
     'ONB103': 12,
     'CB213': 12,
     'CB210': 99,
@@ -12687,7 +12687,9 @@ function initSidebarNav() {
                 let reqLevel = 99;
                 if (link.dataset.dangId) {
                     reqLevel = parseInt(link.dataset.dangId.replace('dang-', ''), 10);
-                } else if (link.dataset.section === 'synonym-lab' || link.dataset.section === 'mock-test') {
+                } else if (link.dataset.section === 'mock-test') {
+                    reqLevel = 13;
+                } else if (link.dataset.section === 'synonym-lab') {
                     reqLevel = 99;
                 } else if (link.dataset.section === 'reading-practice') {
                     const rpId = link.dataset.rpId;
@@ -12717,7 +12719,9 @@ function initSidebarNav() {
                         link.click();
                     } else if (grantedLevel !== -1) {
                         playSound('fail');
-                        if (['CB211', 'CB213', 'ONB103'].includes(cleanPass)) {
+                        if (cleanPass === 'CB211') {
+                            alert(`❌ Lớp CB211 chỉ được mở khóa tới Reading Mock Test. Nội dung này chưa được mở!`);
+                        } else if (['CB213', 'ONB103'].includes(cleanPass)) {
                             alert(`❌ Lớp ${cleanPass} chỉ được mở khóa tới Reading Practice 04. Nội dung này chưa được mở!`);
                         } else if (grantedLevel <= 8) {
                             alert(`❌ Lớp ${cleanPass} chỉ được truy cập tối đa tới Dạng 0${grantedLevel}. Bạn chưa đủ tiến độ!`);
@@ -17799,7 +17803,9 @@ document.addEventListener('DOMContentLoaded', () => {
             let reqLevel = 99;
             if (link.dataset.dangId) {
                 reqLevel = parseInt(link.dataset.dangId.replace('dang-', ''), 10);
-            } else if (link.dataset.section === 'synonym-lab' || link.dataset.section === 'mock-test') {
+            } else if (link.dataset.section === 'mock-test') {
+                reqLevel = 13;
+            } else if (link.dataset.section === 'synonym-lab') {
                 reqLevel = 99;
             } else if (link.dataset.section === 'reading-practice') {
                 const rpId = link.dataset.rpId;
