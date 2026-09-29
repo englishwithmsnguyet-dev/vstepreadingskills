@@ -5340,6 +5340,163 @@ em, i {
     box-shadow: 0 0 0 3px currentColor !important;
 }
 
+
+/* =====================================================
+   VOCAB CONQUEST (CHINH PHỤC TỪ VỰNG THEO NGỮ CẢNH) CSS
+   ===================================================== */
+.vc-mode-tab {
+    padding: 8px 18px;
+    border-radius: 9999px;
+    border: 1.5px solid #e2e8f0;
+    background: #ffffff;
+    color: #475569;
+    font-size: 0.88rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+.vc-mode-tab:hover {
+    background: #f1f5f9;
+    border-color: #cbd5e1;
+    color: #1e293b;
+}
+.vc-mode-tab.active {
+    background: #4f46e5 !important;
+    border-color: #4338ca !important;
+    color: #ffffff !important;
+    box-shadow: 0 3px 10px rgba(79, 70, 229, 0.35) !important;
+}
+
+/* 3D Flip Card Container */
+.vc-flip-scene {
+    perspective: 1200px;
+    width: 100%;
+    max-width: 620px;
+    margin: 0 auto;
+    cursor: pointer;
+}
+.vc-flip-card {
+    position: relative;
+    width: 100%;
+    min-height: 420px;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+    border-radius: 20px;
+    box-shadow: 0 12px 30px -6px rgba(0, 0, 0, 0.12), 0 8px 16px -6px rgba(0, 0, 0, 0.06);
+}
+.vc-flip-card.is-flipped {
+    transform: rotateY(180deg);
+}
+.vc-card-face {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 20px;
+    padding: 22px 26px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #ffffff;
+    border: 2px solid #e2e8f0;
+}
+.vc-card-front {
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+}
+.vc-card-back {
+    transform: rotateY(180deg);
+    background: linear-gradient(180deg, #f0fdf4 0%, #ffffff 100%);
+    border-color: #86efac;
+}
+
+/* Cloze choice buttons */
+.vc-cloze-opt-btn {
+    width: 100%;
+    padding: 13px 18px;
+    border: 2px solid #e2e8f0;
+    background: #ffffff;
+    border-radius: 12px;
+    text-align: left;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1e293b;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.vc-cloze-opt-btn:hover:not(:disabled) {
+    background: #f8fafc;
+    border-color: #cbd5e1;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+.vc-cloze-opt-btn.correct {
+    background: #f0fdf4 !important;
+    border-color: #22c55e !important;
+    color: #15803d !important;
+}
+.vc-cloze-opt-btn.wrong {
+    background: #fef2f2 !important;
+    border-color: #ef4444 !important;
+    color: #b91c1c !important;
+}
+
+/* Speed Match Cards */
+.vc-match-card {
+    padding: 14px 16px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    background: #ffffff;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #1e293b;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 60px;
+    user-select: none;
+    line-height: 1.45;
+}
+.vc-match-card:hover {
+    border-color: #a5b4fc;
+    background: #f5f3ff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(99, 102, 241, 0.15);
+}
+.vc-match-card.selected {
+    border-color: #6366f1 !important;
+    background: #eef2ff !important;
+    color: #4338ca !important;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3) !important;
+    transform: scale(1.02);
+}
+.vc-match-card.matched {
+    border-color: #22c55e !important;
+    background: #dcfce7 !important;
+    color: #15803d !important;
+    opacity: 0.38;
+    pointer-events: none;
+    transform: scale(0.96);
+}
+.vc-match-card.shake {
+    animation: vc-shake 0.4s ease;
+    border-color: #ef4444 !important;
+    background: #fee2e2 !important;
+}
+@keyframes vc-shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-6px); }
+    40%, 80% { transform: translateX(6px); }
+}
+
 </style>
 
 
@@ -11800,6 +11957,11 @@ const mockTestPassages = [
                 <!-- Unlocked Vocabulary Button right next to Font size -->
                 <button id="rp-btn-toggle-vocab" onclick="handleRPVocabBtnClick()" style="background: #f0f9ff; color: #0369a1; border: 1.5px solid #7dd3fc; border-radius: 8px; padding: 6px 14px; font-weight: 700; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 1px 3px rgba(2, 132, 199, 0.1);" title="Bấm để xem/ẩn danh sách từ vựng hữu ích">
                     <i class="fa-solid fa-book-bookmark" id="rp-vocab-btn-icon" style="color: #0284c7;"></i> <span id="rp-vocab-btn-text">Từ Vựng Bài Đọc</span>
+                </button>
+
+                <!-- Interactive Vocab Conquest Button -->
+                <button id="rp-btn-conquer-vocab" onclick="openVocabConquestModal(currentRPState.rpId)" style="background: linear-gradient(135deg, #7c3aed, #4f46e5); color: #ffffff; border: 1.5px solid #6366f1; border-radius: 8px; padding: 6px 14px; font-weight: 700; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 2px 8px rgba(124, 58, 237, 0.25); transition: all 0.2s ease;" title="Chinh phục từ vựng bài đọc qua trò chơi tương tác và ngữ cảnh">
+                    <i class="fa-solid fa-fire" style="color: #fde047;"></i> <span id="rp-conquer-btn-text">Chinh Phục Từ Vựng</span>
                 </button>
                 <div class="rp-score-badge" style="background: #f8fafc; border: 1.5px solid #cbd5e1; border-radius: 8px; padding: 6px 14px; font-weight: 800; font-size: 0.92rem; display: flex; gap: 10px;">
                     <span>Đã làm: <strong id="rp-attempted-count" style="color: #3b82f6;">0</strong>/10</span>
@@ -18515,6 +18677,9 @@ function submitRPExam(isAuto = false) {
                 </div>
                 <div class="rp-result-desc">${feedbackMsg}</div>
                 <div class="rp-result-actions">
+                    <button class="rp-result-btn" onclick="openVocabConquestModal(currentRPState.rpId)" style="background: linear-gradient(135deg, #7c3aed, #4f46e5); color: #ffffff; border: 1.5px solid #6366f1; font-weight: 800; box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);">
+                        <i class="fa-solid fa-fire" style="color: #fde047;"></i> Chinh Phục Từ Vựng Theo Ngữ Cảnh
+                    </button>
                     <button class="rp-result-btn rp-result-btn-reset" onclick="loadReadingPractice(currentRPState.rpId)">
                         <i class="fa-solid fa-rotate-left"></i> Làm lại bài này (15:00)
                     </button>
@@ -18993,6 +19158,1200 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+
+// =========================================================================
+// VOCAB CONQUEST (CHINH PHỤC TỪ VỰNG THEO NGỮ CẢNH) ENGINE & DATA
+// =========================================================================
+const vocabConquestData = {
+    "rp-01": {
+        title: "MOUNT RUSHMORE (NÚI RUSHMORE)",
+        badge: "Passage 01",
+        words: [
+            {
+                id: "rp01_1",
+                word: "monument",
+                pos: "n",
+                ipa: "/ˈmɑːn.jə.mənt/",
+                meaning: "đài tưởng niệm, tượng đài lịch sử",
+                image: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&auto=format&fit=crop&q=80",
+                contextEn: "Mount Rushmore is a well-known [monument] located in South Dakota.",
+                contextVi: "Núi Rushmore là một đài tưởng niệm nổi tiếng tọa lạc tại Nam Dakota.",
+                collocation: "a well-known monument (đài tưởng niệm nổi tiếng)",
+                options: ["monument", "fissure", "sculptor", "assistance"]
+            },
+            {
+                id: "rp01_2",
+                word: "countenance",
+                pos: "n",
+                ipa: "/ˈkaʊn.t̬ən.əns/",
+                meaning: "khuôn mặt, diện mạo, sắc mặt",
+                image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&auto=format&fit=crop&q=80",
+                contextEn: "The [countenance] of four United States presidents are carved into the mountain.",
+                contextVi: "Diện mạo khuôn mặt của bốn vị tổng thống Hoa Kỳ được tạc vào vách núi.",
+                collocation: "the countenance of presidents (diện mạo các vị tổng thống)",
+                options: ["countenance", "cataplexy", "vegetation", "projection"]
+            },
+            {
+                id: "rp01_3",
+                word: "fissure",
+                pos: "n",
+                ipa: "/ˈfɪʃ.ər/",
+                meaning: "vết nứt, khe nứt lớn trên đá",
+                image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&auto=format&fit=crop&q=80",
+                contextEn: "A large [fissure] in the granite occurred where Jefferson's face was carved.",
+                contextVi: "Một vết nứt lớn trên khối đá granite xuất hiện ngay nơi tạc mặt Jefferson.",
+                collocation: "a fissure in the rock/granite (vết nứt trên vách đá)",
+                options: ["fissure", "monument", "exhibitor", "bout"]
+            },
+            {
+                id: "rp01_4",
+                word: "blast away",
+                pos: "phr v",
+                ipa: "/blæst əˈweɪ/",
+                meaning: "nổ mìn phá hủy, làm nổ tung để dỡ bỏ",
+                image: "https://images.unsplash.com/photo-1520206183501-b80df61043c2?w=600&auto=format&fit=crop&q=80",
+                contextEn: "The first carving had to be [blasted away] with dynamite.",
+                contextVi: "Bức tượng tạc ban đầu đã phải bị nổ mìn phá bỏ bằng thuốc nổ.",
+                collocation: "blast away with dynamite (dùng thuốc nổ phá hủy)",
+                options: ["blasted away", "taken over", "progressed", "threatened"]
+            },
+            {
+                id: "rp01_5",
+                word: "lifelong friend",
+                pos: "n phr",
+                ipa: "/ˈlaɪf.lɑːŋ frend/",
+                meaning: "bạn tri kỷ suốt đời, bạn nối khố gắn bó",
+                image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&auto=format&fit=crop&q=80",
+                contextEn: "In Paris, he studied with Auguste Rodin, who became his [lifelong friend].",
+                contextVi: "Tại Paris, ông theo học Auguste Rodin, người sau này trở thành bạn tri kỷ suốt đời.",
+                collocation: "become a lifelong friend (trở thành bạn tri kỷ cả đời)",
+                options: ["lifelong friend", "live entertainer", "external force", "sleep mechanics"]
+            },
+            {
+                id: "rp01_6",
+                word: "take over",
+                pos: "phr v",
+                ipa: "/teɪk ˈoʊ.vər/",
+                meaning: "tiếp quản, đảm nhận thay công việc",
+                image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=600&auto=format&fit=crop&q=80",
+                contextEn: "When Borglum died, his son Lincoln [took over] the work on the monument.",
+                contextVi: "Khi Borglum qua đời, con trai Lincoln đã tiếp quản công việc đài tưởng niệm.",
+                collocation: "take over the work/project (tiếp quản dự án)",
+                options: ["took over", "resulted in", "blasted away", "interfered"]
+            },
+            {
+                id: "rp01_7",
+                word: "sculptor",
+                pos: "n",
+                ipa: "/ˈskʌlp.tɚ/",
+                meaning: "nhà điêu khắc nghệ thuật",
+                image: "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?w=600&auto=format&fit=crop&q=80",
+                contextEn: "John Gutzon Borglum was a talented American [sculptor].",
+                contextVi: "John Gutzon Borglum là một nhà điêu khắc người Mỹ tài hoa.",
+                collocation: "a talented sculptor (nhà điêu khắc tài năng)",
+                options: ["sculptor", "exhibitor", "narcoleptic", "settlement"]
+            },
+            {
+                id: "rp01_8",
+                word: "granite",
+                pos: "n",
+                ipa: "/ˈɡræn.ɪt/",
+                meaning: "đá hoa cương, đá granite",
+                image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&auto=format&fit=crop&q=80",
+                contextEn: "Borglum chose Mount Rushmore because of its magnificent [granite] cliff.",
+                contextVi: "Borglum chọn Núi Rushmore vì vách núi đá granite hùng vĩ.",
+                collocation: "granite cliff (vách đá granite)",
+                options: ["granite", "celluloid", "salinization", "cataplexy"]
+            },
+            {
+                id: "rp01_9",
+                word: "obstacle",
+                pos: "n",
+                ipa: "/ˈɑːb.stə.kəl/",
+                meaning: "trở ngại, chướng ngại vật khó khăn",
+                image: "https://images.unsplash.com/photo-1508057198894-247b23fe5ade?w=600&auto=format&fit=crop&q=80",
+                contextEn: "Mount Rushmore was a monumental project that was filled with numerous [obstacles].",
+                contextVi: "Núi Rushmore là một dự án đồ sộ chất chứa vô vàn trở ngại gian truân.",
+                collocation: "overcome numerous obstacles (vượt qua muôn vàn trở ngại)",
+                options: ["obstacles", "spectacles", "hallucinations", "irrigations"]
+            },
+            {
+                id: "rp01_10",
+                word: "predict",
+                pos: "v",
+                ipa: "/prɪˈdɪkt/",
+                meaning: "dự đoán, ước tính trước tương lai",
+                image: "https://images.unsplash.com/photo-1505686994434-e3cc5abf1330?w=600&auto=format&fit=crop&q=80",
+                contextEn: "Borglum [predicted] it would take five years, but it actually took fourteen.",
+                contextVi: "Borglum dự tính công trình mất 5 năm, nhưng thực tế mất tới 14 năm.",
+                collocation: "predict the completion time (dự tính thời gian xong)",
+                options: ["predicted", "occupied", "fragmented", "reversed"]
+            }
+        ]
+    },
+    "rp-02": {
+        title: "NARCOLEPSY (CHỨNG NGỦ RŨ)",
+        badge: "Passage 02",
+        words: [
+            {
+                id: "rp02_1",
+                word: "narcolepsy",
+                pos: "n",
+                ipa: "/ˈnɑːr.kə.lep.si/",
+                meaning: "chứng ngủ rũ (rối loạn thần kinh điều hòa giấc ngủ)",
+                image: "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=600&auto=format&fit=crop&q=80",
+                contextEn: "At least a half million Americans are believed to be affected by [narcolepsy].",
+                contextVi: "Ít nhất nửa triệu người Mỹ được cho là bị ảnh hưởng bởi chứng ngủ rũ.",
+                collocation: "affected by narcolepsy (bị mắc chứng ngủ rũ)",
+                options: ["narcolepsy", "cataplexy", "hallucinations", "paralysis"]
+            },
+            {
+                id: "rp02_2",
+                word: "malfunctioning",
+                pos: "adj",
+                ipa: "/ˌmælˈfʌŋk.ʃən.ɪŋ/",
+                meaning: "hoạt động sai lệch, bị trục trặc chức năng",
+                image: "https://images.unsplash.com/photo-1508057198894-247b23fe5ade?w=600&auto=format&fit=crop&q=80",
+                contextEn: "Narcolepsy is a disease characterized by [malfunctioning] sleep mechanics.",
+                contextVi: "Chứng ngủ rũ là một căn bệnh đặc trưng bởi cơ chế giấc ngủ bị rối loạn chức năng.",
+                collocation: "malfunctioning mechanics (cơ chế bị trục trặc)",
+                options: ["malfunctioning", "reversing", "restoring", "progressing"]
+            },
+            {
+                id: "rp02_3",
+                word: "bout",
+                pos: "n",
+                ipa: "/baʊt/",
+                meaning: "cơn bộc phát, đợt bùng phát ngắn",
+                image: "https://images.unsplash.com/photo-1520206183501-b80df61043c2?w=600&auto=format&fit=crop&q=80",
+                contextEn: "It can consist of a sudden and uncontrollable [bout] of sleep during daylight hours.",
+                contextVi: "Nó có thể gồm một cơn buồn ngủ đột ngột và không thể kìm nén vào ban ngày.",
+                collocation: "a bout of sleep / coughing (một cơn ngủ / cơn ho bộc phát)",
+                options: ["bout", "decay", "drought", "shift"]
+            },
+            {
+                id: "rp02_4",
+                word: "adolescence",
+                pos: "n",
+                ipa: "/ˌæd.əˈles.əns/",
+                meaning: "thời thanh thiếu niên (khoảng 12 - 18 tuổi)",
+                image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&auto=format&fit=crop&q=80",
+                contextEn: "It commonly makes its appearance during [adolescence] or young adulthood.",
+                contextVi: "Căn bệnh này thường xuất hiện ở tuổi thanh thiếu niên hoặc đầu tuổi trưởng thành.",
+                collocation: "during adolescence (trong giai đoạn vị thành niên)",
+                options: ["adolescence", "senility", "eternity", "settlement"]
+            },
+            {
+                id: "rp02_5",
+                word: "automatic behavior",
+                pos: "n phr",
+                ipa: "/ˌɔː.təˈmæt.ɪk bɪˈheɪ.vjər/",
+                meaning: "hành vi vô thức / tự động (vừa ngủ vừa tiếp tục thao tác)",
+                image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&auto=format&fit=crop&q=80",
+                contextEn: "During a sleep attack, narcoleptics may experience [automatic behavior].",
+                contextVi: "Trong cơn ngủ, người bệnh có thể trải qua hành vi vô thức tự động.",
+                collocation: "experience automatic behavior (trải qua hành vi vô thức)",
+                options: ["automatic behavior", "cataplexy", "sleep paralysis", "external force"]
+            },
+            {
+                id: "rp02_6",
+                word: "cataplexy",
+                pos: "n",
+                ipa: "/ˈkæt.ə.plek.si/",
+                meaning: "chứng mất trương lực cơ đột ngột (khiến quỵ ngã)",
+                image: "https://images.unsplash.com/photo-1579208575657-c595a053b977?w=600&auto=format&fit=crop&q=80",
+                contextEn: "Others experience [cataplexy] during daytime hours, a sudden loss of muscle tone.",
+                contextVi: "Những người khác lại bị chứng mất trương lực cơ ban ngày, mất đột ngột sức căng cơ.",
+                collocation: "suffer from cataplexy (bị chứng mất trương lực cơ)",
+                options: ["cataplexy", "narcolepsy", "spectacle", "exhibitor"]
+            },
+            {
+                id: "rp02_7",
+                word: "transitional phase",
+                pos: "n phr",
+                ipa: "/trænˈzɪʃ.ən.əl feɪz/",
+                meaning: "giai đoạn chuyển tiếp (giữa thức và ngủ)",
+                image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&auto=format&fit=crop&q=80",
+                contextEn: "During the [transitional phase] that precedes the onset of sleep, hallucinations occur.",
+                contextVi: "Trong giai đoạn chuyển tiếp xảy ra trước khi bắt đầu ngủ, ảo giác xuất hiện.",
+                collocation: "transitional phase (giai đoạn chuyển tiếp)",
+                options: ["transitional phase", "fissure", "irrigation", "projection"]
+            },
+            {
+                id: "rp02_8",
+                word: "hypnagogic phenomena",
+                pos: "n phr",
+                ipa: "/ˌhɪp.nəˈɡɑː.dʒɪk fəˈnɑː.mə.nə/",
+                meaning: "hiện tượng ảo giác lúc thiu thiu ngủ (nhìn thấy hình ảnh/âm thanh)",
+                image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&auto=format&fit=crop&q=80",
+                contextEn: "These hallucinations, known as [hypnagogic phenomena], consist of realistic perceptions.",
+                contextVi: "Những ảo giác này, gọi là hiện tượng hypnagogic, gồm những tri giác như thật.",
+                collocation: "known as hypnagogic phenomena (được gọi là hiện tượng hypnagogic)",
+                options: ["hypnagogic phenomena", "sleep mechanics", "muscle tone", "live entertainers"]
+            },
+            {
+                id: "rp02_9",
+                word: "fragmented",
+                pos: "adj",
+                ipa: "/fræɡˈmen.tɪd/",
+                meaning: "bị chia nhỏ, chắp vá, ngắt quãng",
+                image: "https://images.unsplash.com/photo-1584441405886-bc91be61e56a?w=600&auto=format&fit=crop&q=80",
+                contextEn: "Narcoleptics suffer from night wakening, resulting in extremely [fragmented] sleep.",
+                contextVi: "Người bệnh bị thức giấc ban đêm, dẫn tới giấc ngủ bị ngắt quãng vụn vặt.",
+                collocation: "fragmented sleep (giấc ngủ bị ngắt quãng, chắp vá)",
+                options: ["fragmented", "predictable", "assisted", "endangered"]
+            },
+            {
+                id: "rp02_10",
+                word: "sleep paralysis",
+                pos: "n phr",
+                ipa: "/sliːp pəˈræl.ə.sɪs/",
+                meaning: "chứng bóng đè / liệt cơ lúc tỉnh giấc",
+                image: "https://images.unsplash.com/photo-1505686994434-e3cc5abf1330?w=600&auto=format&fit=crop&q=80",
+                contextEn: "Upon waking, a narcoleptic may experience [sleep paralysis], unable to move.",
+                contextVi: "Khi vừa tỉnh dậy, người bệnh có thể bị bóng đè, mất khả năng cử động.",
+                collocation: "experience sleep paralysis (trải qua cơn bóng đè)",
+                options: ["sleep paralysis", "daylight hours", "external force", "onset of sleep"]
+            }
+        ]
+    },
+    "rp-03": {
+        title: "THE CINEMA (ĐIỆN ẢNH THỜI KỲ ĐẦU)",
+        badge: "Passage 03",
+        words: [
+            {
+                id: "rp03_1",
+                word: "kinetoscope",
+                pos: "n",
+                ipa: "/kɪˈnet̬.ə.skoʊp/",
+                meaning: "máy xem phim qua lỗ nhòm (cho từng người xem)",
+                image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&auto=format&fit=crop&q=80",
+                contextEn: "Viewing films in [Kinetoscope] parlors was an individual experience.",
+                contextVi: "Xem phim trong các phòng Kinetoscope là trải nghiệm dành cho từng cá nhân.",
+                collocation: "Kinetoscope parlors (phòng máy chiếu lỗ nhòm)",
+                options: ["kinetoscope", "vitascope", "phonograph", "projection"]
+            },
+            {
+                id: "rp03_2",
+                word: "projection",
+                pos: "n",
+                ipa: "/prəˈdʒek.ʃən/",
+                meaning: "sự chiếu phim, công nghệ máy chiếu lên màn hình",
+                image: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=600&auto=format&fit=crop&q=80",
+                contextEn: "The advent of [projection] transformed the viewer's relationship with the image.",
+                contextVi: "Sự ra đời của công nghệ máy chiếu đã biến đổi mối quan hệ giữa người xem và hình ảnh.",
+                collocation: "projection technology (công nghệ máy chiếu)",
+                options: ["projection", "cataplexy", "fragmentation", "adolescence"]
+            },
+            {
+                id: "rp03_3",
+                word: "phonograph parlor",
+                pos: "n phr",
+                ipa: "/ˈfoʊ.nə.ɡræf ˈpɑːr.lɚ/",
+                meaning: "phòng nghe máy quay đĩa hát thời kỳ đầu",
+                image: "https://images.unsplash.com/photo-1539375665275-f9de415ef9ac?w=600&auto=format&fit=crop&q=80",
+                contextEn: "Kinetoscope parlors were modeled on earlier [phonograph parlors].",
+                contextVi: "Các phòng Kinetoscope được mô phỏng theo mô hình các phòng nghe máy quay đĩa trước đó.",
+                collocation: "modeled on phonograph parlors (được mô phỏng từ phòng nghe đĩa)",
+                options: ["phonograph parlors", "live spectacles", "transitional phases", "sleep clinics"]
+            },
+            {
+                id: "rp03_4",
+                word: "exhibitor",
+                pos: "n",
+                ipa: "/ɪɡˈzɪb.ə.t̬ɚ/",
+                meaning: "chủ rạp chiếu phim, nhà trình chiếu",
+                image: "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?w=600&auto=format&fit=crop&q=80",
+                contextEn: "Early [exhibitors] shaped the movie program by selecting and ordering films.",
+                contextVi: "Những nhà chiếu phim thời kỳ đầu định hình chương trình phim bằng việc chọn và sắp xếp phim.",
+                collocation: "early film exhibitors (các nhà chiếu phim thuở sơ khai)",
+                options: ["exhibitors", "sculptors", "spectators", "narcoleptics"]
+            },
+            {
+                id: "rp03_5",
+                word: "celluloid",
+                pos: "n",
+                ipa: "/ˈsel.jə.lɔɪd/",
+                meaning: "phim nhựa xen-lu-lô (chất liệu làm cuộn phim)",
+                image: "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=600&auto=format&fit=crop&q=80",
+                contextEn: "The tiny images on the strip of [celluloid] were magnified by the projector.",
+                contextVi: "Những hình ảnh nhỏ bé trên dải phim nhựa celluloid được phóng đại bởi máy chiếu.",
+                collocation: "a strip of celluloid (dải cuộn phim nhựa)",
+                options: ["celluloid", "granite", "monument", "irrigation"]
+            },
+            {
+                id: "rp03_6",
+                word: "spectacle",
+                pos: "n",
+                ipa: "/ˈspek.tə.kəl/",
+                meaning: "cảnh tượng quy mô, màn biểu diễn hoành tráng",
+                image: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=600&auto=format&fit=crop&q=80",
+                contextEn: "Early movies differed from previous [spectacles] presented to large audiences.",
+                contextVi: "Phim ảnh thời kỳ đầu khác biệt so với các màn biểu diễn trước đó cho đông đảo khán giả.",
+                collocation: "previous spectacles (những màn biểu diễn quy mô trước đây)",
+                options: ["spectacles", "mechanics", "obstacles", "phenomena"]
+            },
+            {
+                id: "rp03_7",
+                word: "marvel",
+                pos: "n",
+                ipa: "/ˈmɑːr.vəl/",
+                meaning: "kỳ quan, điều kỳ diệu tuyệt tác",
+                image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&auto=format&fit=crop&q=80",
+                contextEn: "Edison introduced the projector as 'Edison's latest [marvel], the Vitascope.'",
+                contextVi: "Edison giới thiệu máy chiếu như là 'kỳ quan mới nhất của Edison mang tên Vitascope.'",
+                collocation: "latest marvel (kỳ quan mới nhất)",
+                options: ["marvel", "fissure", "bout", "paralysis"]
+            },
+            {
+                id: "rp03_8",
+                word: "readily",
+                pos: "adv",
+                ipa: "/ˈred.əl.i/",
+                meaning: "một cách dễ dàng, nhanh chóng có sẵn",
+                image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&auto=format&fit=crop&q=80",
+                contextEn: "The projection technology was [readily] available to inventors.",
+                contextVi: "Công nghệ máy chiếu đã nhanh chóng có sẵn cho các nhà phát minh.",
+                collocation: "readily available (có sẵn một cách dễ dàng)",
+                options: ["readily", "harshly", "incorrectly", "progressively"]
+            },
+            {
+                id: "rp03_9",
+                word: "assistance",
+                pos: "n",
+                ipa: "/əˈsɪs.təns/",
+                meaning: "sự giúp đỡ, sự hỗ trợ từ ai đó",
+                image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=600&auto=format&fit=crop&q=80",
+                contextEn: "He produced the machine with the [assistance] of his dedicated assistant.",
+                contextVi: "Ông chế tạo cỗ máy với sự giúp đỡ của người trợ tá tận tụy.",
+                collocation: "with the assistance of (với sự trợ giúp của)",
+                options: ["assistance", "resistance", "clearance", "maintenance"]
+            },
+            {
+                id: "rp03_10",
+                word: "widespread",
+                pos: "adj",
+                ipa: "/ˈwaɪd.spred/",
+                meaning: "lan rộng khắp, phổ biến rộng rãi",
+                image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&auto=format&fit=crop&q=80",
+                contextEn: "The [widespread] use of projection technology hurt the Kinetoscope business.",
+                contextVi: "Việc sử dụng rộng rãi công nghệ máy chiếu đã gây thiệt hại cho kinh doanh Kinetoscope.",
+                collocation: "widespread use (việc sử dụng rộng rãi khắp nơi)",
+                options: ["widespread", "delicate", "malfunctioning", "fragmented"]
+            }
+        ]
+    },
+    "rp-04": {
+        title: "DESERTIFICATION (SỰ SA MẠC HÓA)",
+        badge: "Passage 04",
+        words: [
+            {
+                id: "rp04_1",
+                word: "desertification",
+                pos: "n",
+                ipa: "/dɪˌzɝː.t̬ə.fəˈkeɪ.ʃən/",
+                meaning: "sự sa mạc hóa (đất đai phì nhiêu hóa thành cát cằn)",
+                image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=600&auto=format&fit=crop&q=80",
+                contextEn: "Human activities are contributing to the rapid [desertification] of dry lands.",
+                contextVi: "Hoạt động con người đang góp phần đẩy nhanh sự sa mạc hóa các vùng đất khô cằn.",
+                collocation: "combat desertification (chống lại sự sa mạc hóa)",
+                options: ["desertification", "projection", "narcolepsy", "monument"]
+            },
+            {
+                id: "rp04_2",
+                word: "delicate",
+                pos: "adj",
+                ipa: "/ˈdel.ə.kət/",
+                meaning: "mỏng manh, dễ vỡ, dễ bị tổn thương",
+                image: "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=600&auto=format&fit=crop&q=80",
+                contextEn: "The [delicate] balance of the arid ecosystem was easily disturbed.",
+                contextVi: "Sự cân bằng mỏng manh của hệ sinh thái khô hạn rất dễ bị phá vỡ.",
+                collocation: "delicate balance (sự cân bằng mong manh)",
+                options: ["delicate", "predictable", "assisted", "automatic"]
+            },
+            {
+                id: "rp04_3",
+                word: "arid",
+                pos: "adj",
+                ipa: "/ˈer.ɪd/",
+                meaning: "khô cằn, ít mưa, hạn hán kéo dài",
+                image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=600&auto=format&fit=crop&q=80",
+                contextEn: "Plant life in [arid] border regions struggles to survive during dry seasons.",
+                contextVi: "Thực vật tại các vùng ranh giới khô cằn vật lộn để tồn tại trong mùa khô.",
+                collocation: "arid regions / climate (vùng khô hạn / khí hậu khô cằn)",
+                options: ["arid", "lifelong", "transitional", "restless"]
+            },
+            {
+                id: "rp04_4",
+                word: "vegetation",
+                pos: "n",
+                ipa: "/ˌvedʒ.əˈteɪ.ʃən/",
+                meaning: "thảm thực vật, cây cỏ tự nhiên phủ trên đất",
+                image: "https://images.unsplash.com/photo-1448375240586-882707db888b?w=600&auto=format&fit=crop&q=80",
+                contextEn: "The loss of natural [vegetation] leaves the topsoil unprotected from wind.",
+                contextVi: "Việc mất đi thảm thực vật tự nhiên khiến tầng đất mặt không được che chắn trước gió.",
+                collocation: "loss of natural vegetation (mất thảm thực vật tự nhiên)",
+                options: ["vegetation", "cataplexy", "countenance", "paralysis"]
+            },
+            {
+                id: "rp04_5",
+                word: "water runoff",
+                pos: "n phr",
+                ipa: "/ˈwɑː.t̬ɚ ˈrʌn.ɑːf/",
+                meaning: "dòng nước chảy tràn trên mặt đất (gây xói mòn)",
+                image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=600&auto=format&fit=crop&q=80",
+                contextEn: "Compacted soil accelerates [water runoff] and strips away fertile nutrients.",
+                contextVi: "Đất bị nén chặt làm tăng tốc độ dòng chảy tràn và cuốn trôi các chất dinh dưỡng màu mỡ.",
+                collocation: "accelerate water runoff (làm tăng dòng chảy mặt)",
+                options: ["water runoff", "sleep mechanics", "celluloid strip", "time shift"]
+            },
+            {
+                id: "rp04_6",
+                word: "irrigation",
+                pos: "n",
+                ipa: "/ˌɪr.əˈɡeɪ.ʃən/",
+                meaning: "hệ thống tưới tiêu nước cho cây trồng",
+                image: "https://images.unsplash.com/photo-1622383563227-04401ab4e5ea?w=600&auto=format&fit=crop&q=80",
+                contextEn: "Excessive [irrigation] in arid lands can cause serious environmental problems.",
+                contextVi: "Việc tưới tiêu quá mức tại các vùng khô cằn có thể gây ra những vấn đề môi trường nghiêm trọng.",
+                collocation: "excessive irrigation (tưới tiêu quá mức)",
+                options: ["irrigation", "projection", "adolescence", "cataplexy"]
+            },
+            {
+                id: "rp04_7",
+                word: "salts",
+                pos: "n pl",
+                ipa: "/sɑːlts/",
+                meaning: "muối khoáng tích tụ gây mặn hóa đất",
+                image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&auto=format&fit=crop&q=80",
+                contextEn: "Evaporation of excess groundwater brings dissolved [salts] to the surface.",
+                contextVi: "Sự bốc hơi nước ngầm dư thừa đưa các loại muối khoáng hòa tan lên mặt đất.",
+                collocation: "bring salts to the surface (đưa muối khoáng lên bề mặt đất)",
+                options: ["salts", "granites", "obstacles", "phenomena"]
+            },
+            {
+                id: "rp04_8",
+                word: "threatened",
+                pos: "adj",
+                ipa: "/ˈθret.ənd/",
+                meaning: "bị đe dọa, bị đặt trong nguy cơ hiểm họa",
+                image: "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=600&auto=format&fit=crop&q=80",
+                contextEn: "Millions of farmers live in [threatened] semi-arid regions.",
+                contextVi: "Hàng triệu nông dân sinh sống tại các khu vực bán khô hạn đang bị đe dọa.",
+                collocation: "threatened regions (các vùng đất bị đe dọa)",
+                options: ["threatened", "readily", "uncontrollable", "automatic"]
+            },
+            {
+                id: "rp04_9",
+                word: "progressively",
+                pos: "adv",
+                ipa: "/prəˈɡres.ɪv.li/",
+                meaning: "ngày một tăng tiến, dần dần gia tăng liên tục",
+                image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&auto=format&fit=crop&q=80",
+                contextEn: "Overgrazing causes the soil to deteriorate [progressively].",
+                contextVi: "Chăn thả quá mức khiến chất lượng đất ngày càng suy thoái trầm trọng hơn.",
+                collocation: "deteriorate progressively (ngày càng xuống cấp tồi tệ hơn)",
+                options: ["progressively", "obviously", "harshly", "incorrectly"]
+            },
+            {
+                id: "rp04_10",
+                word: "absorption",
+                pos: "n",
+                ipa: "/əbˈzɔːrp.ʃən/",
+                meaning: "sự hấp thụ, khả năng thấm hút nước của đất",
+                image: "https://images.unsplash.com/photo-1508057198894-247b23fe5ade?w=600&auto=format&fit=crop&q=80",
+                contextEn: "Loss of plant cover severely limits the ground's [absorption] of rainwater.",
+                contextVi: "Mất đi lớp phủ thực vật làm hạn chế nghiêm trọng khả năng thấm hút nước mưa của đất.",
+                collocation: "ground's absorption of water (khả năng thấm hút nước của đất)",
+                options: ["absorption", "projection", "exhibition", "disturbed"]
+            }
+        ]
+    }
+};
+
+const vocabConquestState = {
+    rpId: 'rp-02',
+    currentMode: 'flashcard',
+    // Flashcard
+    flashcardIdx: 0,
+    isFlipped: false,
+    masteredWordIds: new Set(),
+    // Cloze
+    clozeIdx: 0,
+    clozeScore: 0,
+    clozeAnswered: false,
+    // Speed Match
+    matchSelectedLeft: null,
+    matchPairsCompleted: 0,
+    matchStreak: 0,
+    matchedLeftIds: new Set(),
+    matchedRightIds: new Set()
+};
+
+function openVocabConquestModal(rpId) {
+    if (!rpId) rpId = (currentRPState && currentRPState.rpId) ? currentRPState.rpId : 'rp-02';
+    vocabConquestState.rpId = rpId;
+
+    const data = vocabConquestData[rpId] || vocabConquestData['rp-02'];
+    const modal = document.getElementById('vocab-conquest-modal');
+    if (!modal) return;
+
+    // Update Header
+    const titleEl = document.getElementById('vc-passage-title');
+    const badgeEl = document.getElementById('vc-passage-badge');
+    if (titleEl) titleEl.textContent = data.title;
+    if (badgeEl) badgeEl.textContent = data.badge;
+
+    updateVocabMasteryCounters();
+
+    // Show modal
+    modal.classList.remove('hidden');
+    modal.style.display = 'flex';
+    playSound('click');
+
+    // Load active mode
+    switchVocabConquestMode(vocabConquestState.currentMode || 'flashcard');
+}
+
+function closeVocabConquestModal() {
+    const modal = document.getElementById('vocab-conquest-modal');
+    if (modal) {
+        modal.classList.add('hidden');
+        modal.style.display = 'none';
+        playSound('click');
+    }
+}
+
+function updateVocabMasteryCounters() {
+    const data = vocabConquestData[vocabConquestState.rpId] || vocabConquestData['rp-02'];
+    const totalEl = document.getElementById('vc-total-count');
+    const learnedEl = document.getElementById('vc-learned-count');
+    if (totalEl) totalEl.textContent = data.words.length;
+    if (learnedEl) learnedEl.textContent = vocabConquestState.masteredWordIds.size;
+}
+
+function switchVocabConquestMode(mode) {
+    vocabConquestState.currentMode = mode;
+
+    // Update Tab UI
+    ['flashcard', 'cloze', 'match'].forEach(m => {
+        const tab = document.getElementById(`vc-tab-${m}`);
+        if (tab) {
+            if (m === mode) tab.classList.add('active');
+            else tab.classList.remove('active');
+        }
+    });
+
+    const container = document.getElementById('vc-body-container');
+    if (!container) return;
+
+    if (mode === 'flashcard') {
+        renderVocabFlashcardMode();
+    } else if (mode === 'cloze') {
+        vocabConquestState.clozeIdx = 0;
+        vocabConquestState.clozeScore = 0;
+        vocabConquestState.clozeAnswered = false;
+        renderVocabClozeMode();
+    } else if (mode === 'match') {
+        initSpeedMatchGame();
+    }
+}
+
+function resetCurrentVocabConquestMode() {
+    if (vocabConquestState.currentMode === 'flashcard') {
+        vocabConquestState.flashcardIdx = 0;
+        vocabConquestState.isFlipped = false;
+        vocabConquestState.masteredWordIds.clear();
+        updateVocabMasteryCounters();
+        renderVocabFlashcardMode();
+    } else if (vocabConquestState.currentMode === 'cloze') {
+        vocabConquestState.clozeIdx = 0;
+        vocabConquestState.clozeScore = 0;
+        vocabConquestState.clozeAnswered = false;
+        renderVocabClozeMode();
+    } else if (vocabConquestState.currentMode === 'match') {
+        initSpeedMatchGame();
+    }
+    playSound('click');
+}
+
+// -------------------------------------------------------------------------
+// MODE 1: SMART VISUAL FLASHCARD
+// -------------------------------------------------------------------------
+function renderVocabFlashcardMode() {
+    const container = document.getElementById('vc-body-container');
+    const data = vocabConquestData[vocabConquestState.rpId] || vocabConquestData['rp-02'];
+    const words = data.words;
+    const idx = vocabConquestState.flashcardIdx;
+    const item = words[idx];
+    if (!item) return;
+
+    const isMastered = vocabConquestState.masteredWordIds.has(item.id);
+    vocabConquestState.isFlipped = false;
+
+    // Highlight word inside context
+    const cleanContextEn = item.contextEn.replace(/\[(.*?)\]/g, '<strong style="color: #4f46e5; text-decoration: underline;">$1</strong>');
+
+    container.innerHTML = `
+        <div style="max-width: 640px; margin: 0 auto;">
+            <!-- Top Card Header -->
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                <span style="font-size: 0.9rem; font-weight: 800; color: #64748b;">
+                    <i class="fa-solid fa-layer-group" style="color: #6366f1;"></i> Thẻ ${idx + 1} / ${words.length}
+                </span>
+                <span style="font-size: 0.8rem; font-weight: 700; padding: 3px 10px; border-radius: 9999px; ${isMastered ? 'background: #dcfce7; color: #15803d;' : 'background: #f1f5f9; color: #64748b;'}">
+                    ${isMastered ? '<i class="fa-solid fa-circle-check"></i> Đã thuộc' : '<i class="fa-regular fa-clock"></i> Đang học'}
+                </span>
+            </div>
+
+            <!-- 3D Flip Card -->
+            <div class="vc-flip-scene" onclick="toggleVocabCardFlip()">
+                <div class="vc-flip-card" id="vc-active-flipcard">
+                    <!-- FRONT FACE -->
+                    <div class="vc-card-face vc-card-front">
+                        <div>
+                            <div style="width: 100%; height: 180px; border-radius: 14px; overflow: hidden; margin-bottom: 14px; position: relative; box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);">
+                                <img src="${item.image}" alt="${item.word}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=600&auto=format&fit=crop&q=80'">
+                                <span style="position: absolute; bottom: 8px; left: 10px; background: rgba(15, 23, 42, 0.75); color: #fff; padding: 2px 8px; border-radius: 6px; font-size: 0.72rem; font-weight: 700; backdrop-filter: blur(4px);">
+                                    <i class="fa-solid fa-camera"></i> Hình minh họa ngữ cảnh
+                                </span>
+                            </div>
+                            <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+                                <div style="display: flex; align-items: baseline; gap: 8px;">
+                                    <h2 style="font-size: 1.6rem; font-weight: 900; color: #1e293b; margin: 0;">${item.word}</h2>
+                                    <span style="font-size: 0.85rem; font-weight: 700; color: #6366f1; background: #e0e7ff; padding: 2px 7px; border-radius: 6px;">(${item.pos})</span>
+                                </div>
+                                <button onclick="event.stopPropagation(); speakEnglishWord('${item.word.replace(/'/g, "\\'")}', this.querySelector('i'))" style="background: #f0fdf4; border: 1.5px solid #86efac; border-radius: 50%; width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: #16a34a; font-size: 1.1rem; box-shadow: 0 2px 5px rgba(22, 163, 74, 0.15);" title="Nghe phát âm chuẩn bản ngữ">
+                                    <i class="fa-solid fa-volume-high"></i>
+                                </button>
+                            </div>
+                            <div style="color: #64748b; font-size: 0.95rem; margin-top: 2px; font-family: monospace;">${item.ipa}</div>
+                        </div>
+
+                        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 12px 14px; margin-top: 12px;">
+                            <div style="font-size: 0.78rem; font-weight: 800; color: #94a3b8; text-transform: uppercase; margin-bottom: 4px;">Ngữ cảnh trong bài đọc:</div>
+                            <div style="font-size: 0.93rem; color: #1e293b; line-height: 1.55;"><em>"${cleanContextEn}"</em></div>
+                        </div>
+
+                        <div style="text-align: center; color: #6366f1; font-size: 0.82rem; font-weight: 700; margin-top: 10px;">
+                            <i class="fa-solid fa-arrow-rotate-right"></i> Nhấn vào thẻ để xem nghĩa tiếng Việt & giải thích
+                        </div>
+                    </div>
+
+                    <!-- BACK FACE -->
+                    <div class="vc-card-face vc-card-back">
+                        <div>
+                            <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1.5px solid #dcfce7; padding-bottom: 8px; margin-bottom: 12px;">
+                                <div style="display: flex; align-items: baseline; gap: 8px;">
+                                    <h3 style="font-size: 1.45rem; font-weight: 900; color: #15803d; margin: 0;">${item.word}</h3>
+                                    <span style="font-size: 0.85rem; font-weight: 700; color: #15803d;">(${item.pos})</span>
+                                </div>
+                                <span style="font-size: 0.8rem; font-weight: 700; color: #15803d; background: #dcfce7; padding: 3px 8px; border-radius: 6px;">MẶT SAU</span>
+                            </div>
+
+                            <div style="margin-bottom: 16px;">
+                                <div style="font-size: 0.8rem; font-weight: 800; color: #64748b; text-transform: uppercase; margin-bottom: 4px;">Nghĩa Tiếng Việt:</div>
+                                <div style="font-size: 1.15rem; font-weight: 800; color: #0f172a; line-height: 1.45;">${item.meaning}</div>
+                            </div>
+
+                            <div style="background: #ffffff; border: 1.5px solid #bbf7d0; border-radius: 12px; padding: 12px 14px; margin-bottom: 14px;">
+                                <div style="font-size: 0.78rem; font-weight: 800; color: #059669; text-transform: uppercase; margin-bottom: 4px;">Dịch nghĩa câu ngữ cảnh:</div>
+                                <div style="font-size: 0.93rem; color: #1e293b; line-height: 1.55;">${item.contextVi}</div>
+                            </div>
+
+                            <div style="background: #fefce8; border: 1.5px solid #fef08a; border-radius: 12px; padding: 10px 14px;">
+                                <div style="font-size: 0.78rem; font-weight: 800; color: #854d0e; text-transform: uppercase; margin-bottom: 3px;">
+                                    <i class="fa-solid fa-lightbulb" style="color: #eab308;"></i> Cụm từ hay gặp (Collocation):
+                                </div>
+                                <div style="font-size: 0.88rem; color: #713f12; font-weight: 700;">${item.collocation}</div>
+                            </div>
+                        </div>
+
+                        <div style="text-align: center; color: #15803d; font-size: 0.82rem; font-weight: 700; margin-top: 10px;">
+                            <i class="fa-solid fa-arrow-rotate-left"></i> Nhấn vào thẻ để lật lại mặt trước
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Flashcard Control Buttons -->
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 16px; gap: 10px;">
+                <button onclick="navVocabFlashcard(-1)" ${idx === 0 ? 'disabled style="opacity: 0.4; cursor: not-allowed;"' : ''} style="background: #ffffff; border: 1.5px solid #cbd5e1; border-radius: 10px; padding: 8px 16px; font-weight: 700; font-size: 0.88rem; color: #334155; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">
+                    <i class="fa-solid fa-chevron-left"></i> Câu trước
+                </button>
+
+                <div style="display: flex; gap: 8px;">
+                    <button onclick="markVocabCardLearned(false)" style="background: #fef2f2; border: 1.5px solid #fca5a5; color: #b91c1c; border-radius: 10px; padding: 8px 16px; font-weight: 800; font-size: 0.88rem; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">
+                        <i class="fa-solid fa-xmark"></i> Chưa nhớ
+                    </button>
+                    <button onclick="markVocabCardLearned(true)" style="background: #10b981; border: 1.5px solid #059669; color: #ffffff; border-radius: 10px; padding: 8px 18px; font-weight: 800; font-size: 0.88rem; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 2px 6px rgba(16, 185, 129, 0.25);">
+                        <i class="fa-solid fa-check"></i> Đã nhớ (+1)
+                    </button>
+                </div>
+
+                <button onclick="navVocabFlashcard(1)" ${idx === words.length - 1 ? 'disabled style="opacity: 0.4; cursor: not-allowed;"' : ''} style="background: #ffffff; border: 1.5px solid #cbd5e1; border-radius: 10px; padding: 8px 16px; font-weight: 700; font-size: 0.88rem; color: #334155; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">
+                    Câu sau <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    `;
+}
+
+function toggleVocabCardFlip() {
+    const card = document.getElementById('vc-active-flipcard');
+    if (card) {
+        vocabConquestState.isFlipped = !vocabConquestState.isFlipped;
+        if (vocabConquestState.isFlipped) card.classList.add('is-flipped');
+        else card.classList.remove('is-flipped');
+        playSound('click');
+    }
+}
+
+function navVocabFlashcard(dir) {
+    const data = vocabConquestData[vocabConquestState.rpId] || vocabConquestData['rp-02'];
+    const total = data.words.length;
+    const newIdx = vocabConquestState.flashcardIdx + dir;
+    if (newIdx >= 0 && newIdx < total) {
+        vocabConquestState.flashcardIdx = newIdx;
+        renderVocabFlashcardMode();
+        playSound('click');
+    }
+}
+
+function markVocabCardLearned(isLearned) {
+    const data = vocabConquestData[vocabConquestState.rpId] || vocabConquestData['rp-02'];
+    const words = data.words;
+    const currentItem = words[vocabConquestState.flashcardIdx];
+
+    if (isLearned) {
+        vocabConquestState.masteredWordIds.add(currentItem.id);
+        playSound('correct');
+    } else {
+        vocabConquestState.masteredWordIds.delete(currentItem.id);
+        playSound('click');
+    }
+
+    updateVocabMasteryCounters();
+
+    // Check if finished all cards
+    if (vocabConquestState.masteredWordIds.size === words.length) {
+        if (typeof initConfettiEffects === 'function') initConfettiEffects();
+    }
+
+    // Auto advance if not on last
+    if (vocabConquestState.flashcardIdx < words.length - 1) {
+        vocabConquestState.flashcardIdx++;
+    }
+    renderVocabFlashcardMode();
+}
+
+// -------------------------------------------------------------------------
+// MODE 2: CONTEXT CLOZE CHALLENGE
+// -------------------------------------------------------------------------
+function renderVocabClozeMode() {
+    const container = document.getElementById('vc-body-container');
+    const data = vocabConquestData[vocabConquestState.rpId] || vocabConquestData['rp-02'];
+    const words = data.words;
+    const idx = vocabConquestState.clozeIdx;
+
+    if (idx >= words.length) {
+        renderClozeCompletionCard();
+        return;
+    }
+
+    const item = words[idx];
+    vocabConquestState.clozeAnswered = false;
+
+    // Sentence with blank
+    const blankSentence = item.contextEn.replace(/\[(.*?)\]/g, '<span style="display: inline-block; min-width: 110px; border-bottom: 2.5px dashed #4f46e5; text-align: center; color: #4f46e5; font-weight: 800; padding: 0 8px;">[ ? ]</span>');
+
+    container.innerHTML = `
+        <div style="max-width: 640px; margin: 0 auto;">
+            <!-- Question Header -->
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;">
+                <span style="font-size: 0.92rem; font-weight: 800; color: #4338ca; background: #e0e7ff; padding: 4px 12px; border-radius: 9999px;">
+                    <i class="fa-solid fa-puzzle-piece"></i> Thử thách ${idx + 1} / ${words.length}
+                </span>
+                <span style="font-size: 0.9rem; font-weight: 800; color: #15803d; background: #dcfce7; padding: 4px 12px; border-radius: 9999px;">
+                    <i class="fa-solid fa-star" style="color: #eab308;"></i> Điểm: ${vocabConquestState.clozeScore} / ${words.length}
+                </span>
+            </div>
+
+            <!-- Question Card -->
+            <div style="background: #ffffff; border: 2px solid #e2e8f0; border-radius: 18px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.04); margin-bottom: 18px;">
+                <div style="width: 100%; height: 160px; border-radius: 12px; overflow: hidden; margin-bottom: 14px;">
+                    <img src="${item.image}" alt="${item.word}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=600&auto=format&fit=crop&q=80'">
+                </div>
+
+                <div style="font-size: 0.85rem; font-weight: 800; color: #64748b; margin-bottom: 6px; text-transform: uppercase;">
+                    Chọn từ thích hợp nhất để điền vào chỗ trống:
+                </div>
+
+                <div style="font-size: 1.08rem; color: #0f172a; line-height: 1.6; font-weight: 600; margin-bottom: 12px;">
+                    "${blankSentence}"
+                </div>
+
+                <div style="font-size: 0.88rem; color: #64748b; font-style: italic; background: #f8fafc; padding: 8px 12px; border-radius: 8px;">
+                    💡 Gợi ý nghĩa: <strong>${item.meaning}</strong>
+                </div>
+            </div>
+
+            <!-- 4 Options Grid -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;" id="vc-cloze-options-grid">
+                ${item.options.map((opt, optIdx) => `
+                    <button class="vc-cloze-opt-btn" onclick="checkClozeAnswer('${opt.replace(/'/g, "\\'")}', '${item.word.replace(/'/g, "\\'")}', ${optIdx})">
+                        <span><strong style="color: #6366f1; margin-right: 6px;">${String.fromCharCode(65 + optIdx)}.</strong> ${opt}</span>
+                        <i class="fa-regular fa-circle" id="vc-cloze-icon-${optIdx}" style="color: #cbd5e1;"></i>
+                    </button>
+                `).join('')}
+            </div>
+
+            <!-- Feedback Area (hidden until answered) -->
+            <div id="vc-cloze-feedback" style="display: none; margin-top: 14px; padding: 14px 18px; border-radius: 12px;"></div>
+        </div>
+    `;
+}
+
+function checkClozeAnswer(selectedWord, correctWord, selectedIdx) {
+    if (vocabConquestState.clozeAnswered) return;
+    vocabConquestState.clozeAnswered = true;
+
+    const data = vocabConquestData[vocabConquestState.rpId] || vocabConquestData['rp-02'];
+    const item = data.words[vocabConquestState.clozeIdx];
+    const isCorrect = (selectedWord.toLowerCase() === correctWord.toLowerCase());
+
+    const buttons = document.querySelectorAll('#vc-cloze-options-grid .vc-cloze-opt-btn');
+    buttons.forEach((btn, idx) => {
+        btn.disabled = true;
+        const optWord = item.options[idx];
+        const icon = document.getElementById(`vc-cloze-icon-${idx}`);
+        if (optWord.toLowerCase() === correctWord.toLowerCase()) {
+            btn.classList.add('correct');
+            if (icon) icon.className = 'fa-solid fa-circle-check';
+        } else if (idx === selectedIdx && !isCorrect) {
+            btn.classList.add('wrong');
+            if (icon) icon.className = 'fa-solid fa-circle-xmark';
+        }
+    });
+
+    if (isCorrect) {
+        vocabConquestState.clozeScore++;
+        vocabConquestState.masteredWordIds.add(item.id);
+        playSound('correct');
+    } else {
+        playSound('click');
+    }
+    updateVocabMasteryCounters();
+
+    // Render Feedback
+    const fb = document.getElementById('vc-cloze-feedback');
+    if (fb) {
+        fb.style.display = 'block';
+        if (isCorrect) {
+            fb.style.background = '#f0fdf4';
+            fb.style.border = '1.5px solid #86efac';
+            fb.innerHTML = `
+                <div style="font-weight: 800; color: #15803d; font-size: 1rem; margin-bottom: 6px;">
+                    <i class="fa-solid fa-circle-check"></i> CHÍNH XÁC! (+1 điểm)
+                </div>
+                <div style="color: #1e293b; font-size: 0.9rem; line-height: 1.5; margin-bottom: 8px;">
+                    <strong>Dịch câu:</strong> ${item.contextVi}
+                </div>
+                <div style="color: #065f46; font-size: 0.85rem; font-weight: 700; margin-bottom: 12px;">
+                    💡 Collocation: ${item.collocation}
+                </div>
+                <button onclick="nextClozeQuestion()" style="background: #10b981; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-weight: 800; font-size: 0.88rem; cursor: pointer;">
+                    Câu tiếp theo <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            `;
+        } else {
+            fb.style.background = '#fef2f2';
+            fb.style.border = '1.5px solid #fca5a5';
+            fb.innerHTML = `
+                <div style="font-weight: 800; color: #b91c1c; font-size: 1rem; margin-bottom: 6px;">
+                    <i class="fa-solid fa-circle-xmark"></i> CHƯA CHÍNH XÁC! Đáp án đúng là: <strong>${correctWord}</strong>
+                </div>
+                <div style="color: #1e293b; font-size: 0.9rem; line-height: 1.5; margin-bottom: 8px;">
+                    <strong>Dịch câu:</strong> ${item.contextVi}
+                </div>
+                <div style="color: #713f12; font-size: 0.85rem; font-weight: 700; margin-bottom: 12px;">
+                    💡 Collocation: ${item.collocation}
+                </div>
+                <button onclick="nextClozeQuestion()" style="background: #4f46e5; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-weight: 800; font-size: 0.88rem; cursor: pointer;">
+                    Tiếp tục câu sau <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            `;
+        }
+    }
+}
+
+function nextClozeQuestion() {
+    vocabConquestState.clozeIdx++;
+    renderVocabClozeMode();
+    playSound('click');
+}
+
+function renderClozeCompletionCard() {
+    const container = document.getElementById('vc-body-container');
+    const data = vocabConquestData[vocabConquestState.rpId] || vocabConquestData['rp-02'];
+    const total = data.words.length;
+    const score = vocabConquestState.clozeScore;
+    const pct = Math.round((score / total) * 100);
+
+    if (score >= 8 && typeof initConfettiEffects === 'function') {
+        initConfettiEffects();
+    }
+
+    container.innerHTML = `
+        <div style="max-width: 520px; margin: 20px auto; text-align: center; background: #ffffff; border: 2px solid #e2e8f0; border-radius: 20px; padding: 28px 24px; box-shadow: 0 10px 25px rgba(0,0,0,0.06);">
+            <div style="width: 70px; height: 70px; border-radius: 50%; background: linear-gradient(135deg, #10b981, #059669); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: 14px; box-shadow: 0 8px 20px rgba(16, 185, 129, 0.35);">
+                <i class="fa-solid fa-trophy"></i>
+            </div>
+            <h2 style="font-size: 1.4rem; font-weight: 900; color: #0f172a; margin: 0 0 6px 0;">HOÀN THÀNH THỬ THÁCH NGỮ CẢNH!</h2>
+            <p style="color: #64748b; font-size: 0.95rem; margin: 0 0 16px 0;">Bạn đã hoàn thành toàn bộ 10 câu điền từ trong bài đọc.</p>
+
+            <div style="background: #f8fafc; border: 1.5px solid #cbd5e1; border-radius: 14px; padding: 14px; margin-bottom: 20px;">
+                <div style="font-size: 2rem; font-weight: 900; color: ${score >= 7 ? '#10b981' : '#f59e0b'};">
+                    ${score} / ${total}
+                </div>
+                <div style="font-size: 0.88rem; font-weight: 700; color: #475569;">Đạt ${pct}% độ chuẩn xác ngữ cảnh</div>
+            </div>
+
+            <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+                <button onclick="switchVocabConquestMode('cloze')" style="background: #ffffff; border: 1.5px solid #cbd5e1; border-radius: 10px; padding: 10px 18px; font-weight: 800; font-size: 0.88rem; color: #334155; cursor: pointer;">
+                    <i class="fa-solid fa-rotate-left"></i> Thử thách lại
+                </button>
+                <button onclick="switchVocabConquestMode('match')" style="background: linear-gradient(135deg, #7c3aed, #4f46e5); color: #fff; border: none; border-radius: 10px; padding: 10px 20px; font-weight: 800; font-size: 0.88rem; cursor: pointer; box-shadow: 0 4px 12px rgba(124, 58, 237, 0.25);">
+                    <i class="fa-solid fa-bolt"></i> Chơi Ghép Cặp Thần Tốc ➔
+                </button>
+            </div>
+        </div>
+    `;
+}
+
+// -------------------------------------------------------------------------
+// MODE 3: SPEED MATCH GAME
+// -------------------------------------------------------------------------
+function initSpeedMatchGame() {
+    vocabConquestState.matchSelectedLeft = null;
+    vocabConquestState.matchPairsCompleted = 0;
+    vocabConquestState.matchStreak = 0;
+    vocabConquestState.matchedLeftIds.clear();
+    vocabConquestState.matchedRightIds.clear();
+
+    const data = vocabConquestData[vocabConquestState.rpId] || vocabConquestData['rp-02'];
+    // Take 6 words for game to keep board compact and exciting
+    const words = [...data.words].slice(0, 6);
+
+    // Shuffle right cards
+    const shuffledMeanings = [...words].sort(() => Math.random() - 0.5);
+
+    const container = document.getElementById('vc-body-container');
+    container.innerHTML = `
+        <div style="max-width: 680px; margin: 0 auto;">
+            <!-- Game Header -->
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;">
+                <span style="font-size: 0.92rem; font-weight: 800; color: #7c3aed; background: #f3e8ff; padding: 4px 12px; border-radius: 9999px;">
+                    <i class="fa-solid fa-bolt"></i> Ghép từ vựng với nghĩa phù hợp
+                </span>
+                <span id="vc-match-streak-badge" style="font-size: 0.88rem; font-weight: 800; color: #ea580c; background: #ffedd5; padding: 4px 12px; border-radius: 9999px;">
+                    🔥 Streak: 0
+                </span>
+            </div>
+
+            <!-- Two Columns Grid -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+                <!-- Left: English Words -->
+                <div style="display: flex; flex-direction: column; gap: 10px;" id="vc-match-col-left">
+                    ${words.map(w => `
+                        <div class="vc-match-card" id="vc-mcard-left-${w.id}" onclick="handleMatchLeftClick('${w.id}', '${w.word.replace(/'/g, "\\'")}')">
+                            <span style="font-weight: 800; color: #1e293b;">${w.word}</span>
+                            <i class="fa-solid fa-volume-high" style="color: #6366f1; font-size: 0.85rem;" onclick="event.stopPropagation(); speakEnglishWord('${w.word.replace(/'/g, "\\'")}', this)"></i>
+                        </div>
+                    `).join('')}
+                </div>
+
+                <!-- Right: Vietnamese Meanings -->
+                <div style="display: flex; flex-direction: column; gap: 10px;" id="vc-match-col-right">
+                    ${shuffledMeanings.map(w => `
+                        <div class="vc-match-card" id="vc-mcard-right-${w.id}" onclick="handleMatchRightClick('${w.id}')">
+                            <span style="font-weight: 600; color: #334155; font-size: 0.88rem;">${w.meaning}</span>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+
+            <!-- Status area -->
+            <div id="vc-match-status" style="text-align: center; margin-top: 16px; font-weight: 700; font-size: 0.9rem; color: #64748b;">
+                👉 Bấm chọn 1 từ tiếng Anh bên trái, sau đó chọn nghĩa tương ứng bên phải!
+            </div>
+        </div>
+    `;
+}
+
+function handleMatchLeftClick(id, word) {
+    if (vocabConquestState.matchedLeftIds.has(id)) return;
+
+    // Deselect previous
+    if (vocabConquestState.matchSelectedLeft) {
+        const prevCard = document.getElementById(`vc-mcard-left-${vocabConquestState.matchSelectedLeft}`);
+        if (prevCard) prevCard.classList.remove('selected');
+    }
+
+    vocabConquestState.matchSelectedLeft = id;
+    const card = document.getElementById(`vc-mcard-left-${id}`);
+    if (card) card.classList.add('selected');
+
+    // Pronounce word
+    speakEnglishWord(word);
+    playSound('click');
+}
+
+function handleMatchRightClick(id) {
+    if (vocabConquestState.matchedRightIds.has(id)) return;
+    if (!vocabConquestState.matchSelectedLeft) {
+        const status = document.getElementById('vc-match-status');
+        if (status) status.innerHTML = '<span style="color: #ea580c;">⚠️ Hãy chọn 1 từ tiếng Anh ở cột bên trái trước!</span>';
+        return;
+    }
+
+    const leftId = vocabConquestState.matchSelectedLeft;
+    const leftCard = document.getElementById(`vc-mcard-left-${leftId}`);
+    const rightCard = document.getElementById(`vc-mcard-right-${id}`);
+
+    if (leftId === id) {
+        // MATCH!
+        vocabConquestState.matchedLeftIds.add(leftId);
+        vocabConquestState.matchedRightIds.add(id);
+        vocabConquestState.matchPairsCompleted++;
+        vocabConquestState.matchStreak++;
+        vocabConquestState.masteredWordIds.add(id);
+
+        if (leftCard) {
+            leftCard.classList.remove('selected');
+            leftCard.classList.add('matched');
+        }
+        if (rightCard) rightCard.classList.add('matched');
+
+        playSound('correct');
+        vocabConquestState.matchSelectedLeft = null;
+        updateVocabMasteryCounters();
+
+        const streakBadge = document.getElementById('vc-match-streak-badge');
+        if (streakBadge) streakBadge.innerHTML = `🔥 Combo: x${vocabConquestState.matchStreak}!`;
+
+        const status = document.getElementById('vc-match-status');
+        if (status) status.innerHTML = '<span style="color: #15803d;">🎉 Chính xác! Tuyệt vời!</span>';
+
+        // Check if round complete (6 pairs)
+        if (vocabConquestState.matchPairsCompleted === 6) {
+            setTimeout(renderMatchCompletionFanfare, 600);
+        }
+    } else {
+        // MISMATCH!
+        vocabConquestState.matchStreak = 0;
+        const streakBadge = document.getElementById('vc-match-streak-badge');
+        if (streakBadge) streakBadge.innerHTML = `🔥 Streak: 0`;
+
+        if (leftCard) leftCard.classList.add('shake');
+        if (rightCard) rightCard.classList.add('shake');
+
+        playSound('click');
+
+        const status = document.getElementById('vc-match-status');
+        if (status) status.innerHTML = '<span style="color: #b91c1c;">❌ Chưa chính xác, hãy thử lại!</span>';
+
+        setTimeout(() => {
+            if (leftCard) {
+                leftCard.classList.remove('shake');
+                leftCard.classList.remove('selected');
+            }
+            if (rightCard) rightCard.classList.remove('shake');
+            vocabConquestState.matchSelectedLeft = null;
+        }, 400);
+    }
+}
+
+function renderMatchCompletionFanfare() {
+    const container = document.getElementById('vc-body-container');
+    if (typeof initConfettiEffects === 'function') initConfettiEffects();
+
+    container.innerHTML = `
+        <div style="max-width: 520px; margin: 20px auto; text-align: center; background: #ffffff; border: 2px solid #bbf7d0; border-radius: 20px; padding: 28px 24px; box-shadow: 0 10px 25px rgba(0,0,0,0.06);">
+            <div style="width: 72px; height: 72px; border-radius: 50%; background: linear-gradient(135deg, #f59e0b, #d97706); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-size: 2.2rem; margin-bottom: 14px; box-shadow: 0 8px 20px rgba(245, 158, 11, 0.35);">
+                <i class="fa-solid fa-crown"></i>
+            </div>
+            <h2 style="font-size: 1.4rem; font-weight: 900; color: #0f172a; margin: 0 0 6px 0;">GHÉP CẶP THẦN TỐC THÀNH CÔNG!</h2>
+            <p style="color: #64748b; font-size: 0.95rem; margin: 0 0 18px 0;">Bạn đã ghép đúng toàn bộ 6 cặp từ vựng trong thời gian kỷ lục!</p>
+
+            <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+                <button onclick="initSpeedMatchGame()" style="background: #ffffff; border: 1.5px solid #cbd5e1; border-radius: 10px; padding: 10px 18px; font-weight: 800; font-size: 0.88rem; color: #334155; cursor: pointer;">
+                    <i class="fa-solid fa-rotate-left"></i> Chơi thêm ván nữa
+                </button>
+                <button onclick="switchVocabConquestMode('flashcard')" style="background: linear-gradient(135deg, #4f46e5, #7c3aed); color: #fff; border: none; border-radius: 10px; padding: 10px 20px; font-weight: 800; font-size: 0.88rem; cursor: pointer; box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);">
+                    <i class="fa-solid fa-clone"></i> Ôn lại bằng Flashcard
+                </button>
+            </div>
+        </div>
+    `;
+}
+
 </script>
+
+<!-- ========================================================
+     MODAL CHINH PHỤC TỪ VỰNG THEO NGỮ CẢNH (VOCAB CONQUEST)
+     ======================================================== -->
+<div class="modal-overlay hidden" id="vocab-conquest-modal" style="z-index: 10001; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(8px); display: none; align-items: center; justify-content: center; padding: 14px;">
+    <div class="modal-content" style="max-width: 880px; width: 100%; max-height: 94vh; display: flex; flex-direction: column; border-radius: 20px; box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.45); background: #ffffff; border: 1.5px solid #cbd5e1; overflow: hidden; position: relative;">
+        <!-- Header -->
+        <div style="background: linear-gradient(135deg, #4f46e5, #7c3aed); color: #fff; padding: 18px 24px; display: flex; align-items: center; justify-content: space-between; position: relative;">
+            <div>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <span style="background: rgba(255,255,255,0.22); padding: 3px 10px; border-radius: 9999px; font-size: 0.78rem; font-weight: 800; letter-spacing: 0.5px;">CHINH PHỤC TỪ VỰNG</span>
+                    <span id="vc-passage-badge" style="background: #fde047; color: #78350f; padding: 2px 8px; border-radius: 6px; font-size: 0.76rem; font-weight: 800;">Passage 02</span>
+                </div>
+                <h3 id="vc-passage-title" style="margin: 6px 0 0 0; font-size: 1.25rem; font-weight: 800; color: #ffffff;">NARCOLEPSY (CHỨNG NGỦ RŨ)</h3>
+            </div>
+            <button onclick="closeVocabConquestModal()" style="background: rgba(255,255,255,0.18); border: none; border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; color: #ffffff; font-size: 1.1rem; cursor: pointer; transition: all 0.2s ease;">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <!-- Mode Selector Tabs -->
+        <div style="display: flex; background: #f8fafc; border-bottom: 1.5px solid #e2e8f0; padding: 10px 18px; gap: 10px; overflow-x: auto;">
+            <button class="vc-mode-tab active" id="vc-tab-flashcard" onclick="switchVocabConquestMode('flashcard')">
+                <i class="fa-solid fa-clone"></i> 1. Flashcard Đa Giác Quan
+            </button>
+            <button class="vc-mode-tab" id="vc-tab-cloze" onclick="switchVocabConquestMode('cloze')">
+                <i class="fa-solid fa-puzzle-piece"></i> 2. Điền Từ Vào Ngữ Cảnh
+            </button>
+            <button class="vc-mode-tab" id="vc-tab-match" onclick="switchVocabConquestMode('match')">
+                <i class="fa-solid fa-bolt"></i> 3. Ghép Cặp Thần Tốc
+            </button>
+        </div>
+
+        <!-- Dynamic Body Content Area -->
+        <div id="vc-body-container" style="flex: 1; overflow-y: auto; padding: 22px; background: #fdfdfe;">
+            <!-- Rendered by JS -->
+        </div>
+
+        <!-- Footer with overall progress -->
+        <div style="background: #f8fafc; border-top: 1px solid #e2e8f0; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; font-size: 0.88rem; flex-wrap: wrap; gap: 10px;">
+            <div id="vc-progress-text" style="color: #64748b; font-weight: 600; display: flex; align-items: center; gap: 8px;">
+                <i class="fa-solid fa-award" style="color: #f59e0b; font-size: 1.1rem;"></i> 
+                <span>Từ đã thuộc: <strong id="vc-learned-count" style="color: #4f46e5; font-size: 1rem;">0</strong>/<span id="vc-total-count">10</span> từ</span>
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <button onclick="resetCurrentVocabConquestMode()" style="background: #ffffff; border: 1.5px solid #cbd5e1; border-radius: 8px; padding: 6px 14px; font-size: 0.85rem; font-weight: 700; color: #475569; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">
+                    <i class="fa-solid fa-rotate-left"></i> Chơi lại từ đầu
+                </button>
+                <button onclick="closeVocabConquestModal()" style="background: #4f46e5; border: none; border-radius: 8px; padding: 6px 16px; font-size: 0.85rem; font-weight: 700; color: #ffffff; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">
+                    <i class="fa-solid fa-check"></i> Đóng & Quay lại
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>
