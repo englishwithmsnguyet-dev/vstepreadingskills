@@ -12681,7 +12681,7 @@ const passwordConfig = {
     'HEMINGWAY': 1,
     'B212': 8,
     'CB211': 13,
-    'ONB103': 12,
+    'ONB103': 13,
     'CB213': 12,
     'CB210': 99,
     'CB206': 99,
@@ -12881,9 +12881,9 @@ function initSidebarNav() {
                         link.click();
                     } else if (grantedLevel !== -1) {
                         playSound('fail');
-                        if (cleanPass === 'CB211') {
-                            alert(`❌ Lớp CB211 chỉ được mở khóa tới Reading Mock Test. Nội dung này chưa được mở!`);
-                        } else if (['CB213', 'ONB103'].includes(cleanPass)) {
+                        if (['CB211', 'ONB103'].includes(cleanPass)) {
+                            alert(`❌ Lớp ${cleanPass} chỉ được mở khóa tới Reading Mock Test. Nội dung này chưa được mở!`);
+                        } else if (cleanPass === 'CB213') {
                             alert(`❌ Lớp ${cleanPass} chỉ được mở khóa tới Reading Practice 04. Nội dung này chưa được mở!`);
                         } else if (grantedLevel <= 8) {
                             alert(`❌ Lớp ${cleanPass} chỉ được truy cập tối đa tới Dạng 0${grantedLevel}. Bạn chưa đủ tiến độ!`);
