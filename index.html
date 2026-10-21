@@ -11021,6 +11021,17 @@ const mockTestPassages = [
 <div id="sec-skimming" class="content-section hidden">
     <section class="lesson-section glass-panel">
         <h2 class="section-title"><i class="fa-solid fa-book-open-reader section-icon"></i> I. KỸ NĂNG SKIMMING (ĐỌC LƯỚT NHANH)</h2>
+        <div class="tabs-container">
+            <div class="tabs-nav">
+                <button class="tab-btn active" data-skill-tab="tab-skim-theory" onclick="switchSkillTab('skimming', 'tab-skim-theory')">
+                    <i class="fa-solid fa-book"></i> Lý Thuyết &amp; Mẹo Làm Bài
+                </button>
+                <button class="tab-btn" data-skill-tab="tab-skim-practice" onclick="switchSkillTab('skimming', 'tab-skim-practice')">
+                    <i class="fa-solid fa-pen-to-square"></i> Luyện Tập Phản Xạ (10 Bài)
+                </button>
+            </div>
+            <!-- Panel 1: Theory -->
+            <div class="tab-panel active" id="tab-skim-theory">
         <!-- I. BẢN CHẤT CỦA SKIMMING -->
         <h4 class="theory-sub-title" style="color:var(--primary-color); margin-top: 20px; font-weight: 700; font-size:1.15rem;"><i class="fa-solid fa-circle-info"></i> 1. BẢN CHẤT CỦA SKIMMING LÀ GÌ?</h4>
         <div style="background: var(--surface-solid); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 22px; margin-bottom: 24px;">
@@ -11095,6 +11106,71 @@ const mockTestPassages = [
         
         <!-- Skimming Eye-Tracking Lab Placeholder -->
         <div id="skimming-lab-placeholder"></div>
+        <div style="text-align: center; margin-top: 28px; padding-top: 20px; border-top: 1.5px dashed var(--border-color);">
+            <button onclick="switchSkillTab('skimming', 'tab-skim-practice'); window.scrollTo({top: 0, behavior: 'smooth'});" style="background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); color: white; border: none; padding: 14px 28px; border-radius: 14px; font-weight: 800; font-size: 1.05rem; cursor: pointer; box-shadow: 0 6px 16px rgba(99, 102, 241, 0.3); display: inline-flex; align-items: center; gap: 10px; transition: transform 0.15s ease;">
+                <i class="fa-solid fa-pen-to-square"></i> LUYỆN TẬP ÁP DỤNG SKIMMING (10 BÀI) <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </div>
+            </div>
+            <!-- Panel 2: Interactive Practices (10 Exercises) -->
+            <div class="tab-panel" id="tab-skim-practice">
+                <div class="practice-dashboard-card" style="background: linear-gradient(135deg, #eff6ff 0%, #f5f3ff 100%); border: 1.5px solid #c7d2fe; border-radius: 16px; padding: 18px 20px; margin-bottom: 20px; box-shadow: 0 4px 14px rgba(99, 102, 241, 0.08);">
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="background: #6366f1; color: white; width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);">
+                                <i class="fa-solid fa-bolt"></i>
+                            </div>
+                            <div>
+                                <h4 style="margin: 0; color: #1e1b4b; font-size: 1.1rem; font-weight: 800; display: flex; align-items: center; gap: 8px;">
+                                    Bài Tập Áp Dụng Kỹ Năng Skimming
+                                    <span id="skim-live-status-tag" style="background: #f1f5f9; color: #64748b; font-size: 0.78rem; padding: 2px 8px; border-radius: 20px; font-weight: 700;">Chưa làm</span>
+                                </h4>
+                                <p style="margin: 3px 0 0 0; color: #475569; font-size: 0.92rem;">Làm 10 bài tập bên dưới để tự động ghi điểm, xem giải thích chi tiết, dịch nghĩa &amp; từ vựng hữu ích.</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                            <button id="btn-open-skim-report" onclick="openSkillPracticeReport('skimming')" style="background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); color: white; border: none; padding: 10px 18px; border-radius: 12px; font-weight: 700; font-size: 0.92rem; display: flex; align-items: center; gap: 8px; cursor: pointer; box-shadow: 0 4px 12px rgba(99, 102, 241, 0.28); transition: transform 0.15s ease;">
+                                <i class="fa-solid fa-square-poll-vertical"></i> BÁO CÁO KẾT QUẢ (<span id="skim-btn-counter">0/10</span>)
+                            </button>
+                            <button id="btn-reset-skim-practice" onclick="resetSkillPractice('skimming')" style="background: #ffffff; color: #64748b; border: 1.5px solid #cbd5e1; padding: 10px 14px; border-radius: 12px; font-weight: 700; font-size: 0.88rem; display: flex; align-items: center; gap: 6px; cursor: pointer; transition: all 0.15s ease;" title="Làm lại tất cả 10 câu Skimming">
+                                <i class="fa-solid fa-rotate-left"></i> Làm lại
+                            </button>
+                        </div>
+                    </div>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; margin-top: 14px; padding-top: 14px; border-top: 1px solid rgba(199, 210, 254, 0.7);">
+                        <div style="background: white; padding: 10px 14px; border-radius: 10px; border: 1px solid #e2e8f0; display: flex; align-items: center; gap: 10px;">
+                            <i class="fa-solid fa-list-check" style="color: #6366f1; font-size: 1.1rem;"></i>
+                            <div>
+                                <div style="font-size: 0.75rem; color: #64748b; font-weight: 600; text-transform: uppercase;">Đã làm</div>
+                                <div id="stat-skim-completed" style="font-size: 1.05rem; font-weight: 800; color: #0f172a;">0 / 10</div>
+                            </div>
+                        </div>
+                        <div style="background: white; padding: 10px 14px; border-radius: 10px; border: 1px solid #e2e8f0; display: flex; align-items: center; gap: 10px;">
+                            <i class="fa-solid fa-circle-check" style="color: #10b981; font-size: 1.1rem;"></i>
+                            <div>
+                                <div style="font-size: 0.75rem; color: #64748b; font-weight: 600; text-transform: uppercase;">Đúng</div>
+                                <div id="stat-skim-correct" style="font-size: 1.05rem; font-weight: 800; color: #10b981;">0 câu</div>
+                            </div>
+                        </div>
+                        <div style="background: white; padding: 10px 14px; border-radius: 10px; border: 1px solid #e2e8f0; display: flex; align-items: center; gap: 10px;">
+                            <i class="fa-solid fa-circle-xmark" style="color: #ef4444; font-size: 1.1rem;"></i>
+                            <div>
+                                <div style="font-size: 0.75rem; color: #64748b; font-weight: 600; text-transform: uppercase;">Chưa đúng</div>
+                                <div id="stat-skim-wrong" style="font-size: 1.05rem; font-weight: 800; color: #ef4444;">0 câu</div>
+                            </div>
+                        </div>
+                        <div style="background: white; padding: 10px 14px; border-radius: 10px; border: 1px solid #e2e8f0; display: flex; align-items: center; gap: 10px;">
+                            <i class="fa-solid fa-bullseye" style="color: #f59e0b; font-size: 1.1rem;"></i>
+                            <div>
+                                <div style="font-size: 0.75rem; color: #64748b; font-weight: 600; text-transform: uppercase;">Độ chính xác</div>
+                                <div id="stat-skim-accuracy" style="font-size: 1.05rem; font-weight: 800; color: #f59e0b;">0%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="skimming-practices-list"></div>
+            </div>
+        </div>
     </section>
 </div>
 
@@ -11102,7 +11178,17 @@ const mockTestPassages = [
 <div id="sec-scanning" class="content-section hidden">
     <section class="lesson-section glass-panel">
         <h2 class="section-title"><i class="fa-solid fa-magnifying-glass-chart section-icon"></i> II. KỸ NĂNG SCANNING (ĐỌC QUÉT NHANH)</h2>
-        
+        <div class="tabs-container">
+            <div class="tabs-nav">
+                <button class="tab-btn active" data-skill-tab="tab-scan-theory" onclick="switchSkillTab('scanning', 'tab-scan-theory')">
+                    <i class="fa-solid fa-book"></i> Lý Thuyết &amp; Mẹo Làm Bài
+                </button>
+                <button class="tab-btn" data-skill-tab="tab-scan-practice" onclick="switchSkillTab('scanning', 'tab-scan-practice')">
+                    <i class="fa-solid fa-pen-to-square"></i> Luyện Tập Phản Xạ (10 Bài)
+                </button>
+            </div>
+            <!-- Panel 1: Theory -->
+            <div class="tab-panel active" id="tab-scan-theory">
         <!-- 1. BẢN CHẤT CỦA SCANNING -->
         <h4 class="theory-sub-title" style="color:var(--primary-color); margin-top: 20px; font-weight: 700; font-size:1.15rem;"><i class="fa-solid fa-circle-info"></i> 1. BẢN CHẤT CỦA SCANNING LÀ GÌ?</h4>
         <div style="background: var(--surface-solid); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 22px; margin-bottom: 24px;">
@@ -11305,6 +11391,71 @@ const mockTestPassages = [
         
         <!-- Scanning Eye-Tracking Lab Placeholder -->
         <div id="scanning-lab-placeholder"></div>
+        <div style="text-align: center; margin-top: 28px; padding-top: 20px; border-top: 1.5px dashed var(--border-color);">
+            <button onclick="switchSkillTab('scanning', 'tab-scan-practice'); window.scrollTo({top: 0, behavior: 'smooth'});" style="background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); color: white; border: none; padding: 14px 28px; border-radius: 14px; font-weight: 800; font-size: 1.05rem; cursor: pointer; box-shadow: 0 6px 16px rgba(99, 102, 241, 0.3); display: inline-flex; align-items: center; gap: 10px; transition: transform 0.15s ease;">
+                <i class="fa-solid fa-pen-to-square"></i> LUYỆN TẬP ÁP DỤNG SCANNING (10 BÀI) <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </div>
+            </div>
+            <!-- Panel 2: Interactive Practices (10 Exercises) -->
+            <div class="tab-panel" id="tab-scan-practice">
+                <div class="practice-dashboard-card" style="background: linear-gradient(135deg, #eff6ff 0%, #f5f3ff 100%); border: 1.5px solid #c7d2fe; border-radius: 16px; padding: 18px 20px; margin-bottom: 20px; box-shadow: 0 4px 14px rgba(99, 102, 241, 0.08);">
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="background: #6366f1; color: white; width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);">
+                                <i class="fa-solid fa-bolt"></i>
+                            </div>
+                            <div>
+                                <h4 style="margin: 0; color: #1e1b4b; font-size: 1.1rem; font-weight: 800; display: flex; align-items: center; gap: 8px;">
+                                    Bài Tập Áp Dụng Kỹ Năng Scanning
+                                    <span id="scan-live-status-tag" style="background: #f1f5f9; color: #64748b; font-size: 0.78rem; padding: 2px 8px; border-radius: 20px; font-weight: 700;">Chưa làm</span>
+                                </h4>
+                                <p style="margin: 3px 0 0 0; color: #475569; font-size: 0.92rem;">Làm 10 bài tập bên dưới để tự động ghi điểm, xem giải thích chi tiết, dịch nghĩa &amp; từ vựng hữu ích.</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                            <button id="btn-open-scan-report" onclick="openSkillPracticeReport('scanning')" style="background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); color: white; border: none; padding: 10px 18px; border-radius: 12px; font-weight: 700; font-size: 0.92rem; display: flex; align-items: center; gap: 8px; cursor: pointer; box-shadow: 0 4px 12px rgba(99, 102, 241, 0.28); transition: transform 0.15s ease;">
+                                <i class="fa-solid fa-square-poll-vertical"></i> BÁO CÁO KẾT QUẢ (<span id="scan-btn-counter">0/10</span>)
+                            </button>
+                            <button id="btn-reset-scan-practice" onclick="resetSkillPractice('scanning')" style="background: #ffffff; color: #64748b; border: 1.5px solid #cbd5e1; padding: 10px 14px; border-radius: 12px; font-weight: 700; font-size: 0.88rem; display: flex; align-items: center; gap: 6px; cursor: pointer; transition: all 0.15s ease;" title="Làm lại tất cả 10 câu Scanning">
+                                <i class="fa-solid fa-rotate-left"></i> Làm lại
+                            </button>
+                        </div>
+                    </div>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; margin-top: 14px; padding-top: 14px; border-top: 1px solid rgba(199, 210, 254, 0.7);">
+                        <div style="background: white; padding: 10px 14px; border-radius: 10px; border: 1px solid #e2e8f0; display: flex; align-items: center; gap: 10px;">
+                            <i class="fa-solid fa-list-check" style="color: #6366f1; font-size: 1.1rem;"></i>
+                            <div>
+                                <div style="font-size: 0.75rem; color: #64748b; font-weight: 600; text-transform: uppercase;">Đã làm</div>
+                                <div id="stat-scan-completed" style="font-size: 1.05rem; font-weight: 800; color: #0f172a;">0 / 10</div>
+                            </div>
+                        </div>
+                        <div style="background: white; padding: 10px 14px; border-radius: 10px; border: 1px solid #e2e8f0; display: flex; align-items: center; gap: 10px;">
+                            <i class="fa-solid fa-circle-check" style="color: #10b981; font-size: 1.1rem;"></i>
+                            <div>
+                                <div style="font-size: 0.75rem; color: #64748b; font-weight: 600; text-transform: uppercase;">Đúng</div>
+                                <div id="stat-scan-correct" style="font-size: 1.05rem; font-weight: 800; color: #10b981;">0 câu</div>
+                            </div>
+                        </div>
+                        <div style="background: white; padding: 10px 14px; border-radius: 10px; border: 1px solid #e2e8f0; display: flex; align-items: center; gap: 10px;">
+                            <i class="fa-solid fa-circle-xmark" style="color: #ef4444; font-size: 1.1rem;"></i>
+                            <div>
+                                <div style="font-size: 0.75rem; color: #64748b; font-weight: 600; text-transform: uppercase;">Chưa đúng</div>
+                                <div id="stat-scan-wrong" style="font-size: 1.05rem; font-weight: 800; color: #ef4444;">0 câu</div>
+                            </div>
+                        </div>
+                        <div style="background: white; padding: 10px 14px; border-radius: 10px; border: 1px solid #e2e8f0; display: flex; align-items: center; gap: 10px;">
+                            <i class="fa-solid fa-bullseye" style="color: #f59e0b; font-size: 1.1rem;"></i>
+                            <div>
+                                <div style="font-size: 0.75rem; color: #64748b; font-weight: 600; text-transform: uppercase;">Độ chính xác</div>
+                                <div id="stat-scan-accuracy" style="font-size: 1.05rem; font-weight: 800; color: #f59e0b;">0%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="scanning-practices-list"></div>
+            </div>
+        </div>
     </section>
 </div>
 <!-- SECTION: Dạng Chi Tiết (Dynamic Container) -->
@@ -12764,6 +12915,16 @@ function initStudentProfile() {
         }
         
         const cleanClass = classVal.trim().toUpperCase();
+        const normName = nameVal.toUpperCase();
+        const isTeacher = (normName === 'PTMN' && (cleanClass === 'GV' || !cleanClass)) || (normName === 'PTMN' && cleanClass === 'GV');
+
+        if (cleanClass === 'GV' && !isTeacher) {
+            playSound('fail');
+            elements.nameInput.style.borderColor = 'var(--error-color)';
+            alert('❌ Mã lớp GV chỉ dành riêng cho tài khoản Giáo viên (PTMN)!');
+            elements.nameInput.focus();
+            return;
+        }
 
         // Kiểm tra danh sách học viên bắt buộc cho lớp CB219 (từ thư mục CLASSES)
         let finalStudentName = nameVal;
@@ -12780,17 +12941,12 @@ function initStudentProfile() {
             finalStudentName = matchedName;
         }
 
-        state.studentName = finalStudentName;
-        state.studentClass = cleanClass;
+        state.studentName = isTeacher ? 'PTMN' : finalStudentName;
+        state.studentClass = isTeacher ? 'GV' : cleanClass;
         playSound('success');
         
         // Hide Modal
         elements.nameModal.classList.add('hidden');
-        
-        // Teacher Recognition Check (Tên: PTMN - Lớp: GV)
-        const isTeacher = (nameVal.toUpperCase() === 'PTMN' && classVal.toUpperCase() === 'GV') || 
-                          (classVal.toUpperCase() === 'GV') || 
-                          (nameVal.toUpperCase() === 'PTMN');
         
         if (isTeacher) {
             state.unlockedLevel = 99;
@@ -13422,7 +13578,7 @@ function openPracticeReportModal() {
         if (accuracy >= 90) {
             evalHTML = `
                 <div style="font-weight: 800; color: #15803d; margin-bottom: 4px;"><i class="fa-solid fa-trophy" style="color: #eab308;"></i> ĐÁNH GIÁ: XUẤT SẮC (CHUẨN B2 VSTEP (XUẤT SẮC))</div>
-                <div>Tuyệt vời! Bạn đã hoàn thành trọn vẹn 12 bài tập với độ chính xác <strong>${accuracy}%</strong>. Kỹ năng nhận diện và phản xạ dạng bài này của bạn đã đạt mức thượng thừa!</div>
+                <div>Tuyệt vời! Bạn đã hoàn thành trọn vẹn ${total} bài tập với độ chính xác <strong>${accuracy}%</strong>. Kỹ năng nhận diện và phản xạ dạng bài này của bạn đã đạt mức thượng thừa!</div>
             `;
             initConfettiEffects();
         } else if (accuracy >= 70) {
@@ -18130,6 +18286,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initSafely('Progress', updateProgress);
     initSafely('SkimExampleInit', () => switchSkimExample(1));
     initSafely('ScanExampleInit', () => switchScanExample(1));
+    initSafely('SkimPracticesInit', () => renderSkillPractices('skimming'));
+    initSafely('ScanPracticesInit', () => renderSkillPractices('scanning'));
 
     // Initial mount of eye tracker lab to skimming placeholder
     try {
@@ -18142,6 +18300,700 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Error mounting initial eye lab:', e);
     }
 });
+
+
+// ==========================================
+// CHAPTER 01: SKIMMING & SCANNING 10 PRACTICE EXERCISES
+// ==========================================
+const skillPracticesData = {
+    "skimming": [
+        {
+            "passage": "Sleep plays a vital role in consolidating human memory and supporting brain function. During deep sleep, the brain actively processes and organizes information gathered throughout the day, transferring short-term memories into long-term storage. For example, students who get seven to eight hours of sleep after studying perform up to 30% better on recall tests than those who stay up all night. Furthermore, adequate rest helps clear metabolic waste from neural pathways, keeping the mind sharp. Without sufficient sleep, both learning capacity and long-term memory retention are severely compromised.",
+            "question": "What is the **main idea** of the paragraph?",
+            "options": [
+                "A. Students should sleep seven to eight hours before taking an exam.",
+                "B. Sleep is essential for memory consolidation and effective brain functioning.",
+                "C. The human brain removes metabolic waste during deep sleep.",
+                "D. Staying up all night is a common habit among university students."
+            ],
+            "correctIdx": 1,
+            "explanation": "<strong>1. Áp dụng kỹ thuật Skimming:</strong><br>• <strong>Câu mở đầu (Topic Sentence):</strong> <em>“Sleep plays a vital role in consolidating human memory and supporting brain function.”</em> (Giấc ngủ đóng vai trò sống còn trong việc củng cố trí nhớ và hỗ trợ chức năng não bộ).<br>• <strong>Câu kết (Concluding Sentence):</strong> <em>“Without sufficient sleep, both learning capacity and long-term memory retention are severely compromised.”</em> (Nếu thiếu ngủ, cả khả năng học tập và lưu giữ trí nhớ dài hạn đều bị tổn hại nghiêm trọng).<br>→ Ghép câu đầu và câu cuối, ý chính xuyên suốt toàn đoạn là vai trò thiết yếu của giấc ngủ đối với việc củng cố trí nhớ và hoạt động của não bộ → <strong>Chọn B</strong> (<em>essential = vital role</em>).<br><br><strong>2. Loại trừ phương án bẫy:</strong><br>• <strong>A, C — Sai (Bẫy chi tiết phụ / Quá hẹp):</strong> Ví dụ về sinh viên ngủ 7–8 tiếng (câu 3) và việc dọn sạch chất thải trao đổi chất (câu 4) chỉ là các ý nhỏ bổ trợ (supporting details).<br>• <strong>D — Sai (Không được đề cập):</strong> Bài đọc không hề nói thức trắng đêm là thói quen phổ biến của sinh viên đại học.<hr style=\"margin: 16px 0; border: none; border-top: 1.5px dashed #cbd5e1;\"><div style=\"background: #e0f2fe; border-left: 4px solid #0ea5e9; padding: 14px 18px; border-radius: 12px; margin-top: 16px;\"><strong style=\"color: #0369a1; font-size: 1.05rem; display: flex; align-items: center; gap: 8px; margin-bottom: 10px;\"><i class=\"fa-solid fa-book-open\"></i> TỪ VỰNG HỮU ÍCH</strong><ul style=\"margin: 0; padding-left: 20px; color: #0369a1; line-height: 1.7; font-size: 0.95rem;\"><li><strong>vital role</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"vital role\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˈvaɪ.təl roʊl/</span>: vai trò thiết yếu, sống còn</li><li><strong>consolidate</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"consolidate\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(v) /kənˈsɒl.ɪ.deɪt/</span>: củng cố</li><li><strong>short-term memory</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"short-term memory\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˌʃɔːt.tɜːm ˈmem.ər.i/</span>: trí nhớ ngắn hạn</li><li><strong>long-term storage</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"long-term storage\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˌlɒŋ.tɜːm ˈstɔː.rɪdʒ/</span>: lưu trữ dài hạn</li><li><strong>adequate</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"adequate\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(adj) /ˈæd.ə.kwət/</span>: đầy đủ</li><li><strong>metabolic waste</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"metabolic waste\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˌmet.əˈbɒl.ɪk weɪst/</span>: chất thải trao đổi chất</li><li><strong>neural pathway</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"neural pathway\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˈnjʊə.rəl ˈpɑːθ.weɪ/</span>: đường dẫn truyền thần kinh</li><li><strong>retention</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"retention\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /rɪˈten.ʃən/</span>: sự lưu giữ, duy trì</li><li><strong>compromise</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"compromise\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(v) /ˈkɒm.prə.maɪz/</span>: làm tổn hại, làm suy yếu</li></ul></div>",
+            "translationPassage": "Giấc ngủ đóng một vai trò thiết yếu trong việc củng cố trí nhớ của con người và hỗ trợ chức năng não bộ. Trong giấc ngủ sâu, não bộ tích cực xử lý và sắp xếp các thông tin thu thập được suốt cả ngày, chuyển trí nhớ ngắn hạn sang bộ nhớ dài hạn. Ví dụ, những học sinh ngủ đủ từ bảy đến tám tiếng sau khi học có kết quả làm bài kiểm tra ghi nhớ tốt hơn tới 30% so với những người thức trắng đêm. Hơn nữa, nghỉ ngơi đầy đủ giúp dọn sạch các chất thải trao đổi chất khỏi các đường dẫn truyền thần kinh, giữ cho đầu óc luôn minh mẫn. Nếu không ngủ đủ giấc, cả khả năng học tập lẫn việc lưu giữ trí nhớ dài hạn đều bị suy giảm nghiêm trọng.",
+            "translationQuestion": "Ý chính của đoạn văn này là gì?",
+            "translationOptions": [
+                "A. Học sinh nên ngủ từ bảy đến tám tiếng trước khi đi thi.",
+                "B. Giấc ngủ rất cần thiết cho việc củng cố trí nhớ và hoạt động hiệu quả của não bộ.",
+                "C. Não người loại bỏ chất thải trao đổi chất trong giấc ngủ sâu.",
+                "D. Thức trắng đêm là một thói quen phổ biến ở sinh viên đại học."
+            ]
+        },
+        {
+            "passage": "Ecotourism has emerged as a sustainable alternative to traditional mass tourism in many developing countries. Unlike conventional travel, which often leads to overcrowded beaches and environmental degradation, ecotourism focuses on responsible visits to natural areas. Travelers participate in activities such as wildlife observation in Costa Rica or guided forest treks in Vietnam, where ticket revenues directly fund local conservation projects. Additionally, this form of travel creates stable jobs for indigenous communities without destroying their cultural heritage. By balancing economic growth with nature protection, ecotourism offers a promising path for the future of global travel.",
+            "question": "What does the paragraph **mainly discuss**?",
+            "options": [
+                "A. Popular wildlife observation destinations in Costa Rica and Vietnam.",
+                "B. How traditional mass tourism destroys beaches and local cultures.",
+                "C. Ecotourism as a sustainable travel model that benefits both nature and local communities.",
+                "D. The financial difficulties of funding conservation projects in developing countries."
+            ],
+            "correctIdx": 2,
+            "explanation": "<strong>1. Áp dụng kỹ thuật Skimming:</strong><br>• <strong>Câu mở đầu (Topic Sentence):</strong> <em>“Ecotourism has emerged as a sustainable alternative to traditional mass tourism in many developing countries.”</em> (Du lịch sinh thái đã nổi lên như một giải pháp thay thế bền vững cho du lịch đại chúng truyền thống).<br>• <strong>Câu kết (Concluding Sentence):</strong> <em>“By balancing economic growth with nature protection, ecotourism offers a promising path for the future of global travel.”</em> (Bằng cách cân bằng giữa tăng trưởng kinh tế và bảo vệ thiên nhiên, du lịch sinh thái mở ra hướng đi đầy triển vọng).<br>→ Ý chính toàn đoạn bàn về mô hình du lịch sinh thái bền vững mang lại lợi ích cho cả tự nhiên lẫn cộng đồng bản địa → <strong>Chọn C</strong>.<br><br><strong>2. Loại trừ phương án bẫy:</strong><br>• <strong>A — Sai (Bẫy ví dụ):</strong> Costa Rica và Việt Nam chỉ là ví dụ minh họa ở giữa đoạn.<br>• <strong>B — Sai (Quá hẹp):</strong> Du lịch đại chúng chỉ được nhắc thoáng qua ở câu 2 để làm nền so sánh với du lịch sinh thái.<br>• <strong>D — Sai (Không được đề cập):</strong> Đoạn văn không bàn về khó khăn tài chính.<hr style=\"margin: 16px 0; border: none; border-top: 1.5px dashed #cbd5e1;\"><div style=\"background: #e0f2fe; border-left: 4px solid #0ea5e9; padding: 14px 18px; border-radius: 12px; margin-top: 16px;\"><strong style=\"color: #0369a1; font-size: 1.05rem; display: flex; align-items: center; gap: 8px; margin-bottom: 10px;\"><i class=\"fa-solid fa-book-open\"></i> TỪ VỰNG HỮU ÍCH</strong><ul style=\"margin: 0; padding-left: 20px; color: #0369a1; line-height: 1.7; font-size: 0.95rem;\"><li><strong>ecotourism</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"ecotourism\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˈiː.kəʊˌtʊə.rɪ.zəm/</span>: du lịch sinh thái</li><li><strong>emerge</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"emerge\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(v) /ɪˈmɜːdʒ/</span>: nổi lên, xuất hiện</li><li><strong>sustainable</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"sustainable\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(adj) /səˈsteɪ.nə.bəl/</span>: bền vững</li><li><strong>mass tourism</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"mass tourism\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /mæs ˈtʊə.rɪ.zəm/</span>: du lịch đại chúng</li><li><strong>environmental degradation</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"environmental degradation\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ɪnˌvaɪ.rənˈmen.təl ˌdeɡ.rəˈdeɪ.ʃən/</span>: suy thoái môi trường</li><li><strong>revenue</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"revenue\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˈrev.ən.juː/</span>: doanh thu</li><li><strong>conservation</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"conservation\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˌkɒn.səˈveɪ.ʃən/</span>: sự bảo tồn</li><li><strong>indigenous</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"indigenous\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(adj) /ɪnˈdɪdʒ.ɪ.nəs/</span>: bản địa</li><li><strong>cultural heritage</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"cultural heritage\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˈkʌl.tʃər.əl ˈher.ɪ.tɪdʒ/</span>: di sản văn hóa</li></ul></div>",
+            "translationPassage": "Du lịch sinh thái đã nổi lên như một giải pháp thay thế bền vững cho du lịch đại chúng truyền thống ở nhiều quốc gia đang phát triển. Không giống như hình thức du lịch thông thường vốn thường dẫn đến tình trạng bãi biển quá tải và suy thoái môi trường, du lịch sinh thái tập trung vào các chuyến tham quan có trách nhiệm tới những khu vực tự nhiên. Du khách tham gia vào các hoạt động như quan sát động vật hoang dã ở Costa Rica hay đi bộ xuyên rừng có hướng dẫn viên ở Việt Nam, nơi doanh thu bán vé trực tiếp tài trợ cho các dự án bảo tồn địa phương. Ngoài ra, loại hình du lịch này còn tạo ra việc làm ổn định cho các cộng đồng bản địa mà không hủy hoại di sản văn hóa của họ. Bằng cách cân bằng giữa tăng trưởng kinh tế với bảo vệ thiên nhiên, du lịch sinh thái mang lại một hướng đi đầy hứa hẹn cho tương lai của ngành du lịch toàn cầu.",
+            "translationQuestion": "Đoạn văn chủ yếu thảo luận về nội dung gì?",
+            "translationOptions": [
+                "A. Các điểm đến quan sát động vật hoang dã phổ biến ở Costa Rica và Việt Nam.",
+                "B. Cách du lịch đại chúng truyền thống phá hủy các bãi biển và văn hóa địa phương.",
+                "C. Du lịch sinh thái như một mô hình du lịch bền vững mang lại lợi ích cho cả thiên nhiên và cộng đồng địa phương.",
+                "D. Những khó khăn tài chính khi tài trợ cho các dự án bảo tồn ở các nước đang phát triển."
+            ]
+        },
+        {
+            "passage": "Learning to play a musical instrument provides remarkable cognitive benefits that extend far beyond artistic expression. Neuroscientists have found that regular music practice engages multiple areas of the brain simultaneously, strengthening connections between the left and right hemispheres. Children who take piano or violin lessons for at least two years often show superior skills in mathematics, spatial reasoning, and language acquisition. Even in older adults, playing an instrument helps delay age-related cognitive decline. Overall, musical training serves as a powerful workout that enhances brain performance across all stages of life.",
+            "question": "What is the **main point** of the paragraph?",
+            "options": [
+                "A. Children should learn the piano or violin to get higher grades in mathematics.",
+                "B. Playing a musical instrument significantly boosts brain function at any age.",
+                "C. Neuroscientists are studying how the left and right brain hemispheres connect.",
+                "D. Older adults can prevent memory loss by listening to classical music."
+            ],
+            "correctIdx": 1,
+            "explanation": "<strong>1. Áp dụng kỹ thuật Skimming:</strong><br>• <strong>Câu mở đầu (Topic Sentence):</strong> <em>“Learning to play a musical instrument provides remarkable cognitive benefits that extend far beyond artistic expression.”</em> (Học chơi nhạc cụ mang lại những lợi ích nhận thức đáng kinh ngạc).<br>• <strong>Câu kết (Concluding Sentence):</strong> <em>“Overall, musical training serves as a powerful workout that enhances brain performance across all stages of life.”</em> (Nhìn chung, việc rèn luyện âm nhạc đóng vai trò như một bài tập mạnh mẽ giúp tăng cường hiệu suất não bộ ở mọi giai đoạn cuộc đời).<br>→ Đáp án <strong>B</strong> khái quát trọn vẹn ý của câu đầu và câu cuối (<em>boosts brain function = enhances brain performance</em>; <em>at any age = across all stages of life</em>).<br><br><strong>2. Loại trừ phương án bẫy:</strong><br>• <strong>A, C — Sai (Bẫy chi tiết phụ):</strong> Chỉ nhắc đến một phần thông tin nhỏ ở câu 2 và câu 3.<br>• <strong>D — Sai (Bóp méo thông tin):</strong> Bài đọc nói về <em>playing an instrument</em> (chơi nhạc cụ) chứ không phải <em>listening to classical music</em> (nghe nhạc cổ điển).<hr style=\"margin: 16px 0; border: none; border-top: 1.5px dashed #cbd5e1;\"><div style=\"background: #e0f2fe; border-left: 4px solid #0ea5e9; padding: 14px 18px; border-radius: 12px; margin-top: 16px;\"><strong style=\"color: #0369a1; font-size: 1.05rem; display: flex; align-items: center; gap: 8px; margin-bottom: 10px;\"><i class=\"fa-solid fa-book-open\"></i> TỪ VỰNG HỮU ÍCH</strong><ul style=\"margin: 0; padding-left: 20px; color: #0369a1; line-height: 1.7; font-size: 0.95rem;\"><li><strong>musical instrument</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"musical instrument\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˈmjuː.zɪ.kəl ˈɪn.strə.mənt/</span>: nhạc cụ</li><li><strong>remarkable</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"remarkable\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(adj) /rɪˈmɑː.kə.bəl/</span>: đáng chú ý, vượt trội</li><li><strong>cognitive benefit</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"cognitive benefit\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˈkɒɡ.nə.tɪv ˈben.ɪ.fɪt/</span>: lợi ích về nhận thức</li><li><strong>simultaneously</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"simultaneously\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(adv) /ˌsɪm.əlˈteɪ.ni.əs.li/</span>: đồng thời, cùng lúc</li><li><strong>hemisphere</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"hemisphere\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˈhem.ɪ.sfɪər/</span>: bán cầu (não)</li><li><strong>spatial reasoning</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"spatial reasoning\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˈspeɪ.ʃəl ˈriː.zən.ɪŋ/</span>: tư duy không gian</li><li><strong>language acquisition</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"language acquisition\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˈlæŋ.ɡwɪdʒ ˌæk.wɪˈzɪʃ.ən/</span>: sự tiếp thu ngôn ngữ</li><li><strong>cognitive decline</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"cognitive decline\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˈkɒɡ.nə.tɪv dɪˈklaɪn/</span>: sự suy giảm nhận thức</li><li><strong>enhance</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"enhance\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(v) /ɪnˈhɑːns/</span>: nâng cao, tăng cường</li></ul></div>",
+            "translationPassage": "Học chơi một nhạc cụ mang lại những lợi ích nhận thức đáng kinh ngạc vượt xa sự biểu đạt nghệ thuật đơn thuần. Các nhà thần kinh học đã phát hiện ra rằng việc luyện tập âm nhạc thường xuyên kích hoạt nhiều vùng não cùng lúc, làm tăng cường kết nối giữa bán cầu não trái và bán cầu não phải. Trẻ em học đàn piano hoặc violin ít nhất hai năm thường thể hiện kỹ năng vượt trội trong toán học, tư duy không gian và tiếp thu ngôn ngữ. Ngay cả ở người lớn tuổi, việc chơi nhạc cụ cũng giúp làm chậm quá trình suy giảm nhận thức do tuổi tác. Nhìn chung, rèn luyện âm nhạc đóng vai trò như một bài tập thể dục mạnh mẽ giúp nâng cao hiệu suất hoạt động của não bộ ở mọi giai đoạn của cuộc đời.",
+            "translationQuestion": "Điểm chính của đoạn văn này là gì?",
+            "translationOptions": [
+                "A. Trẻ em nên học đàn piano hoặc violin để đạt điểm cao hơn trong môn toán.",
+                "B. Chơi nhạc cụ giúp tăng cường đáng kể chức năng não bộ ở mọi lứa tuổi.",
+                "C. Các nhà thần kinh học đang nghiên cứu cách bán cầu não trái và phải kết nối với nhau.",
+                "D. Người lớn tuổi có thể ngăn ngừa mất trí nhớ bằng cách nghe nhạc cổ điển."
+            ]
+        },
+        {
+            "passage": "Many office workers pride themselves on their ability to multitask, believing that handling emails, phone calls, and reports at the same time maximizes efficiency. However, psychological research reveals that human brains are not wired to focus on multiple complex tasks simultaneously. What people call multitasking is actually rapid “task-switching,” which forces the brain to spend extra energy refocusing each time it shifts attention. Studies at Stanford University show that heavy multitaskers make more mistakes and take up to 40% longer to complete assignments than those who work on one task at a time. Consequently, doing several things at once actually reduces overall productivity rather than improving it.",
+            "question": "What is the **main idea** of the paragraph?",
+            "options": [
+                "A. Multitasking is an essential skill for modern office workers to save time.",
+                "B. Stanford University conducted a famous study on office workers' email habits.",
+                "C. Contrary to popular belief, multitasking harms focus and lowers productivity.",
+                "D. The human brain consumes a large amount of energy when writing reports."
+            ],
+            "correctIdx": 2,
+            "explanation": "<strong>1. Áp dụng kỹ thuật Skimming (Chú ý từ nối chuyển ý):</strong><br>• <strong>Câu mở đầu:</strong> Nêu quan niệm phổ biến của dân văn phòng rằng làm nhiều việc cùng lúc (multitasking) giúp tối đa hóa hiệu suất.<br>• <strong>Câu 2 có từ nối chuyển ý ngược lại “However” (Tuy nhiên):</strong> <em>“However, psychological research reveals that human brains are not wired to focus on multiple complex tasks simultaneously.”</em> → Đây mới là luận điểm chính của tác giả!<br>• <strong>Câu kết:</strong> <em>“Consequently, doing several things at once actually reduces overall productivity rather than improving it.”</em> (Do đó, làm nhiều việc cùng lúc thực chất làm giảm năng suất chung chứ không cải thiện nó).<br>→ Đáp án đúng là <strong>C</strong>.<br><br><strong>2. Loại trừ phương án bẫy:</strong><br>• <strong>A — Sai (Bẫy câu đầu / Ngược ý tác giả):</strong> Đây chỉ là niềm tin sai lầm của nhiều người ở câu 1 trước khi bị tác giả bác bỏ bằng từ <em>However</em>.<br>• <strong>B, D — Sai (Chi tiết phụ / Bóp méo thông tin).</strong><hr style=\"margin: 16px 0; border: none; border-top: 1.5px dashed #cbd5e1;\"><div style=\"background: #e0f2fe; border-left: 4px solid #0ea5e9; padding: 14px 18px; border-radius: 12px; margin-top: 16px;\"><strong style=\"color: #0369a1; font-size: 1.05rem; display: flex; align-items: center; gap: 8px; margin-bottom: 10px;\"><i class=\"fa-solid fa-book-open\"></i> TỪ VỰNG HỮU ÍCH</strong><ul style=\"margin: 0; padding-left: 20px; color: #0369a1; line-height: 1.7; font-size: 0.95rem;\"><li><strong>pride oneself on</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"pride oneself on\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(phr) /praɪd wʌnˈself ɒn/</span>: tự hào về điều gì</li><li><strong>multitask</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"multitask\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(v) /ˌmʌl.tiˈtɑːsk/</span>: làm nhiều việc cùng lúc (đa nhiệm)</li><li><strong>maximize efficiency</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"maximize efficiency\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(phr) /ˈmæk.sɪ.maɪz ɪˈfɪʃ.ən.si/</span>: tối đa hóa hiệu quả</li><li><strong>be wired to</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"be wired to\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(phr) /bi ˈwaɪəd tuː/</span>: được cấu tạo/thiết kế tự nhiên để làm gì</li><li><strong>task-switching</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"task-switching\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /tɑːsk ˈswɪtʃ.ɪŋ/</span>: sự chuyển đổi qua lại giữa các nhiệm vụ</li><li><strong>refocus</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"refocus\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(v) /ˌriːˈfəʊ.kəs/</span>: tập trung lại</li><li><strong>shift attention</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"shift attention\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(phr) /ʃɪft əˈten.ʃən/</span>: chuyển hướng sự chú ý</li><li><strong>consequently</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"consequently\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(adv) /ˈkɒn.sɪ.kwənt.li/</span>: do đó, kết quả là</li><li><strong>productivity</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"productivity\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˌprɒd.ʌkˈtɪv.ə.ti/</span>: năng suất</li></ul></div>",
+            "translationPassage": "Nhiều nhân viên văn phòng tự hào về khả năng làm nhiều việc cùng lúc của mình, tin rằng việc xử lý email, nghe điện thoại và viết báo cáo đồng thời sẽ tối đa hóa hiệu quả công việc. Tuy nhiên, các nghiên cứu tâm lý học chỉ ra rằng bộ não con người không được cấu tạo để tập trung vào nhiều tác vụ phức tạp cùng một lúc. Thứ mà mọi người gọi là đa nhiệm thực chất là sự “chuyển đổi tác vụ” liên tục, buộc não bộ phải tiêu tốn thêm năng lượng để tập trung lại mỗi khi chuyển hướng chú ý. Các nghiên cứu tại Đại học Stanford cho thấy những người thường xuyên làm nhiều việc cùng lúc mắc nhiều lỗi hơn và mất nhiều thời gian hơn tới 40% để hoàn thành công việc so với những người chỉ làm từng việc một. Do đó, làm nhiều việc cùng lúc thực sự làm giảm năng suất tổng thể thay vì cải thiện nó.",
+            "translationQuestion": "Ý chính của đoạn văn này là gì?",
+            "translationOptions": [
+                "A. Làm nhiều việc cùng lúc là một kỹ năng thiết yếu giúp nhân viên văn phòng hiện đại tiết kiệm thời gian.",
+                "B. Đại học Stanford đã thực hiện một nghiên cứu nổi tiếng về thói quen kiểm tra email của nhân viên văn phòng.",
+                "C. Trái với suy nghĩ phổ biến, việc làm nhiều việc cùng lúc gây hại cho sự tập trung và làm giảm năng suất.",
+                "D. Bộ não con người tiêu thụ một lượng lớn năng lượng khi viết báo cáo."
+            ]
+        },
+        {
+            "passage": "Shoppers often assume that frozen fruits and vegetables are far less nutritious than fresh produce displayed in supermarket aisles. In fact, scientific analyses demonstrate that frozen produce frequently retains just as many—and sometimes more—vitamins and minerals as fresh equivalents. This is because fruits and vegetables destined for freezing are harvested at their peak ripeness and flash-frozen within hours, locking in vital nutrients. By contrast, “fresh” produce may spend days or weeks in transit and storage, gradually losing vitamin C and B vitamins before reaching the consumer's plate. Therefore, frozen fruits and vegetables are a highly nutritious and reliable option for a healthy diet.",
+            "question": "What is the paragraph **primarily about**?",
+            "options": [
+                "A. How supermarkets transport and store fresh fruits and vegetables.",
+                "B. The misconception that frozen produce is less nutritious than fresh produce.",
+                "C. Why vitamin C and B vitamins disappear quickly during cooking.",
+                "D. The high cost of flash-freezing technology in modern agriculture."
+            ],
+            "correctIdx": 1,
+            "explanation": "<strong>1. Áp dụng kỹ thuật Skimming:</strong><br>• <strong>Câu 1:</strong> Người mua hàng thường cho rằng (<em>assume</em>) rau quả đông lạnh kém bổ dưỡng hơn đồ tươi.<br>• <strong>Câu 2 (Chuyển ý khẳng định bằng “In fact”):</strong> <em>“In fact, scientific analyses demonstrate that frozen produce frequently retains just as many—and sometimes more—vitamins and minerals as fresh equivalents.”</em> (Thực tế, phân tích khoa học chứng minh rau quả đông lạnh giữ được lượng vitamin và khoáng chất ngang bằng—thậm chí nhiều hơn—đồ tươi).<br>• <strong>Câu kết:</strong> <em>“Therefore, frozen fruits and vegetables are a highly nutritious and reliable option for a healthy diet.”</em><br>→ Toàn đoạn bác bỏ lầm tưởng (<em>misconception</em>) rằng thực phẩm đông lạnh kém dinh dưỡng hơn thực phẩm tươi → <strong>Chọn B</strong>.<br><br><strong>2. Loại trừ phương án bẫy:</strong><br>• <strong>A — Sai (Quá hẹp):</strong> Việc vận chuyển và lưu kho chỉ được nhắc ở câu 4.<br>• <strong>C, D — Sai (Không được đề cập):</strong> Bài không nói về việc nấu nướng (cooking) hay chi phí công nghệ cấp đông.<hr style=\"margin: 16px 0; border: none; border-top: 1.5px dashed #cbd5e1;\"><div style=\"background: #e0f2fe; border-left: 4px solid #0ea5e9; padding: 14px 18px; border-radius: 12px; margin-top: 16px;\"><strong style=\"color: #0369a1; font-size: 1.05rem; display: flex; align-items: center; gap: 8px; margin-bottom: 10px;\"><i class=\"fa-solid fa-book-open\"></i> TỪ VỰNG HỮU ÍCH</strong><ul style=\"margin: 0; padding-left: 20px; color: #0369a1; line-height: 1.7; font-size: 0.95rem;\"><li><strong>assume</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"assume\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(v) /əˈsjuːm/</span>: cho rằng, giả định</li><li><strong>nutritious</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"nutritious\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(adj) /njuːˈtrɪʃ.əs/</span>: giàu dinh dưỡng, bổ dưỡng</li><li><strong>fresh produce</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"fresh produce\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /freʃ ˈprɒd.juːs/</span>: nông sản tươi sống</li><li><strong>retain</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"retain\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(v) /rɪˈteɪn/</span>: giữ lại, duy trì</li><li><strong>equivalent</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"equivalent\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ɪˈkwɪv.əl.ənt/</span>: thứ tương đương</li><li><strong>peak ripeness</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"peak ripeness\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /piːk ˈraɪp.nəs/</span>: độ chín hoàn hảo nhất</li><li><strong>flash-frozen</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"flash-frozen\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(adj) /ˌflæʃˈfrəʊ.zən/</span>: cấp đông siêu tốc</li><li><strong>in transit</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"in transit\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(phr) /ɪn ˈtræn.zɪt/</span>: trong quá trình vận chuyển</li><li><strong>misconception</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"misconception\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˌmɪs.kənˈsep.ʃən/</span>: quan niệm sai lầm, lầm tưởng</li></ul></div>",
+            "translationPassage": "Người mua sắm thường cho rằng trái cây và rau củ đông lạnh kém bổ dưỡng hơn nhiều so với nông sản tươi được bày bán trên các quầy kệ siêu thị. Trên thực tế, các phân tích khoa học chứng minh rằng nông sản đông lạnh thường giữ lại được lượng vitamin và khoáng chất ngang bằng—và đôi khi còn nhiều hơn—so với thực phẩm tươi tương ứng. Điều này là do trái cây và rau củ dùng để đông lạnh được thu hoạch ở độ chín hoàn hảo nhất và được cấp đông siêu tốc chỉ trong vòng vài giờ, giúp khóa chặt các dưỡng chất thiết yếu. Ngược lại, nông sản “tươi” có thể phải trải qua nhiều ngày hoặc nhiều tuần vận chuyển và lưu kho, làm mất dần vitamin C và các vitamin nhóm B trước khi đến được đĩa ăn của người tiêu dùng. Do đó, rau quả đông lạnh là một lựa chọn rất giàu dinh dưỡng và đáng tin cậy cho một chế độ ăn uống lành mạnh.",
+            "translationQuestion": "Đoạn văn này chủ yếu nói về điều gì?",
+            "translationOptions": [
+                "A. Cách các siêu thị vận chuyển và bảo quản trái cây, rau củ tươi.",
+                "B. Quan niệm sai lầm cho rằng nông sản đông lạnh kém dinh dưỡng hơn nông sản tươi.",
+                "C. Lý do tại sao vitamin C và các vitamin nhóm B biến mất nhanh chóng trong quá trình nấu nướng.",
+                "D. Chi phí đắt đỏ của công nghệ cấp đông siêu tốc trong nông nghiệp hiện đại."
+            ]
+        },
+        {
+            "passage": "With the rapid rise of artificial intelligence (AI) capable of analyzing X-rays and diagnosing diseases in seconds, some people fear that human doctors will soon become obsolete. Yet, medical experts emphasize that AI is designed to assist physicians rather than replace them. While algorithms excel at processing vast datasets and spotting subtle patterns on medical scans, they lack human empathy, ethical judgment, and the ability to comfort a frightened patient. Complex treatment decisions still require a doctor's holistic understanding of a patient's lifestyle and emotional needs. Ultimately, the best healthcare outcomes will come from combining AI's analytical speed with the irreplaceable human touch of doctors.",
+            "question": "Which of the following best expresses the **main idea** of the paragraph?",
+            "options": [
+                "A. AI algorithms can analyze X-rays and medical scans much faster than humans.",
+                "B. Human doctors will soon lose their jobs due to advances in medical AI.",
+                "C. AI will serve as a powerful tool to support, not replace, human doctors in healthcare.",
+                "D. Patients prefer talking to AI chatbots rather than visiting hospitals."
+            ],
+            "correctIdx": 2,
+            "explanation": "<strong>1. Áp dụng kỹ thuật Skimming:</strong><br>• <strong>Câu 1:</strong> Nêu nỗi lo của một số người rằng bác sĩ con người sẽ sớm trở nên lỗi thời (<em>obsolete</em>).<br>• <strong>Câu 2 (Chuyển ý bằng từ nối “Yet” - Tuy nhiên):</strong> <em>“Yet, medical experts emphasize that AI is designed to assist physicians rather than replace them.”</em> (Tuy nhiên, các chuyên gia y tế nhấn mạnh rằng AI được thiết kế để hỗ trợ các bác sĩ chứ không phải thay thế họ).<br>• <strong>Câu kết:</strong> <em>“Ultimately, the best healthcare outcomes will come from combining AI's analytical speed with the irreplaceable human touch of doctors.”</em> (Kết quả chăm sóc sức khỏe tốt nhất sẽ đến từ việc kết hợp tốc độ phân tích của AI với sự thấu cảm không thể thay thế của bác sĩ).<br>→ Ý chính toàn đoạn: AI là công cụ hỗ trợ chứ không thay thế bác sĩ → <strong>Chọn C</strong>.<br><br><strong>2. Loại trừ phương án bẫy:</strong><br>• <strong>A — Sai (Quá hẹp):</strong> Chỉ là một chi tiết về khả năng của AI.<br>• <strong>B — Sai (Bẫy câu đầu / Ngược ý tác giả).</strong><br>• <strong>D — Sai (Không được đề cập).</strong><hr style=\"margin: 16px 0; border: none; border-top: 1.5px dashed #cbd5e1;\"><div style=\"background: #e0f2fe; border-left: 4px solid #0ea5e9; padding: 14px 18px; border-radius: 12px; margin-top: 16px;\"><strong style=\"color: #0369a1; font-size: 1.05rem; display: flex; align-items: center; gap: 8px; margin-bottom: 10px;\"><i class=\"fa-solid fa-book-open\"></i> TỪ VỰNG HỮU ÍCH</strong><ul style=\"margin: 0; padding-left: 20px; color: #0369a1; line-height: 1.7; font-size: 0.95rem;\"><li><strong>diagnose</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"diagnose\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(v) /ˈdaɪ.əɡ.nəʊz/</span>: chẩn đoán (bệnh)</li><li><strong>obsolete</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"obsolete\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(adj) /ˌɒb.səlˈiːt/</span>: lỗi thời, không còn được dùng</li><li><strong>physician</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"physician\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /fɪˈzɪʃ.ən/</span>: bác sĩ, thầy thuốc</li><li><strong>excel at</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"excel at\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(v) /ɪkˈsel æt/</span>: xuất sắc, vượt trội về</li><li><strong>subtle</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"subtle\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(adj) /ˈsʌt.əl/</span>: tinh vi, khó nhận thấy</li><li><strong>empathy</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"empathy\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˈem.pə.θi/</span>: sự thấu cảm, đồng cảm</li><li><strong>ethical judgment</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"ethical judgment\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˈeθ.ɪ.kəl ˈdʒʌdʒ.mənt/</span>: phán đoán đạo đức</li><li><strong>holistic</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"holistic\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(adj) /həʊˈlɪs.tɪk/</span>: toàn diện</li><li><strong>irreplaceable</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"irreplaceable\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(adj) /ˌɪr.ɪˈpleɪ.sə.bəl/</span>: không thể thay thế</li></ul></div>",
+            "translationPassage": "Với sự trỗi dậy nhanh chóng của trí tuệ nhân tạo (AI) có khả năng phân tích phim chụp X-quang và chẩn đoán bệnh chỉ trong vài giây, một số người lo ngại rằng các bác sĩ con người sẽ sớm trở nên lỗi thời. Tuy nhiên, các chuyên gia y tế nhấn mạnh rằng AI được thiết kế để hỗ trợ các bác sĩ chứ không phải để thay thế họ. Mặc dù các thuật toán rất xuất sắc trong việc xử lý kho dữ liệu khổng lồ và phát hiện những dấu hiệu tinh vi trên ảnh chụp y khoa, chúng lại thiếu đi sự thấu cảm của con người, phán đoán đạo đức và khả năng trấn an một bệnh nhân đang hoảng sợ. Những quyết định điều trị phức tạp vẫn đòi hỏi sự thấu hiểu toàn diện của bác sĩ về lối sống và nhu cầu cảm xúc của người bệnh. Suy cho cùng, kết quả chăm sóc sức khỏe tốt nhất sẽ đến từ sự kết hợp giữa tốc độ phân tích của AI với sự tận tâm không thể thay thế của người bác sĩ.",
+            "translationQuestion": "Phương án nào dưới đây diễn đạt đúng nhất ý chính của đoạn văn?",
+            "translationOptions": [
+                "A. Các thuật toán AI có thể phân tích phim chụp X-quang và ảnh chụp y khoa nhanh hơn nhiều so với con người.",
+                "B. Các bác sĩ con người sẽ sớm mất việc làm do những tiến bộ của AI trong y tế.",
+                "C. AI sẽ đóng vai trò là công cụ đắc lực để hỗ trợ, chứ không thay thế, các bác sĩ trong chăm sóc sức khỏe.",
+                "D. Bệnh nhân thích trò chuyện với chatbot AI hơn là đến bệnh viện."
+            ]
+        },
+        {
+            "passage": "For thousands of years, the way humans exchange value has continuously evolved to make trade faster and more convenient. Early societies relied on bartering, directly swapping livestock or grain, before transitioning to heavy metal coins made of gold, silver, and bronze. In the 7th century, China introduced the world's first paper money during the Tang Dynasty, relieving merchants from carrying bulky strings of copper coins. Centuries later, the 20th century brought plastic credit cards, and today, digital wallets and smartphones allow instant borderless transactions with a single tap. From tangible commodities to invisible digital code, currency has always adapted to meet the changing needs of human commerce.",
+            "question": "Which of the following would be the **best title** for this paragraph?",
+            "options": [
+                "A. The Invention of Paper Money in Ancient China",
+                "B. How Digital Wallets Are Replacing Credit Cards",
+                "C. The Evolution of Money Through Human History",
+                "D. The Difficulties of Bartering in Early Societies"
+            ],
+            "correctIdx": 2,
+            "explanation": "<strong>1. Áp dụng kỹ thuật Skimming:</strong><br>• <strong>Câu mở đầu (Topic Sentence):</strong> <em>“For thousands of years, the way humans exchange value has continuously evolved to make trade faster and more convenient.”</em> (Trong hàng ngàn năm, cách con người trao đổi giá trị đã không ngừng tiến hóa để giúp giao thương nhanh và thuận tiện hơn).<br>• <strong>Câu kết (Concluding Sentence):</strong> <em>“From tangible commodities to invisible digital code, currency has always adapted to meet the changing needs of human commerce.”</em> (Từ hàng hóa hữu hình đến mã kỹ thuật số vô hình, tiền tệ luôn thích nghi để đáp ứng nhu cầu thương mại).<br>→ Tiêu đề bao quát toàn bộ tiến trình lịch sử này là <strong>C. The Evolution of Money Through Human History</strong> (Sự tiến hóa của tiền tệ qua lịch sử nhân loại).<br><br><strong>2. Loại trừ phương án bẫy:</strong><br>• <strong>A, B, D — Sai (Quá hẹp):</strong> Mỗi đáp án chỉ nhắc tới một giai đoạn nhỏ trong lịch sử tiền tệ (hàng đổi hàng ở câu 2, tiền giấy Trung Quốc ở câu 3, ví điện tử ở câu 4).<hr style=\"margin: 16px 0; border: none; border-top: 1.5px dashed #cbd5e1;\"><div style=\"background: #e0f2fe; border-left: 4px solid #0ea5e9; padding: 14px 18px; border-radius: 12px; margin-top: 16px;\"><strong style=\"color: #0369a1; font-size: 1.05rem; display: flex; align-items: center; gap: 8px; margin-bottom: 10px;\"><i class=\"fa-solid fa-book-open\"></i> TỪ VỰNG HỮU ÍCH</strong><ul style=\"margin: 0; padding-left: 20px; color: #0369a1; line-height: 1.7; font-size: 0.95rem;\"><li><strong>evolve</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"evolve\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(v) /ɪˈvɒlv/</span>: tiến hóa, phát triển dần</li><li><strong>barter</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"barter\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(v/n) /ˈbɑː.tər/</span>: trao đổi hàng hóa trực tiếp (hàng đổi hàng)</li><li><strong>livestock</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"livestock\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˈlaɪv.stɒk/</span>: gia súc, vật nuôi</li><li><strong>transition</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"transition\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(v/n) /trænˈzɪʃ.ən/</span>: chuyển đổi</li><li><strong>merchant</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"merchant\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˈmɜː.tʃənt/</span>: thương nhân</li><li><strong>bulky</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"bulky\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(adj) /ˈbʌl.ki/</span>: cồng kềnh, nặng nề</li><li><strong>transaction</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"transaction\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /trænˈzæk.ʃən/</span>: giao dịch</li><li><strong>tangible commodity</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"tangible commodity\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˈtæn.dʒə.bəl kəˈmɒd.ə.ti/</span>: hàng hóa hữu hình</li><li><strong>commerce</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"commerce\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˈkɒm.ɜːs/</span>: thương mại, giao thương</li></ul></div>",
+            "translationPassage": "Trong hàng ngàn năm qua, phương thức con người trao đổi giá trị đã không ngừng phát triển để giúp việc giao thương trở nên nhanh chóng và thuận tiện hơn. Các xã hội sơ khai dựa vào hình thức hàng đổi hàng, trực tiếp đổi gia súc hoặc ngũ cốc, trước khi chuyển sang tiền xu kim loại nặng làm bằng vàng, bạc và đồng. Vào thế kỷ thứ 7, Trung Quốc đã giới thiệu tờ tiền giấy đầu tiên trên thế giới dưới thời nhà Đường, giúp các thương nhân thoát khỏi cảnh phải mang theo những xâu tiền đồng cồng kềnh. Nhiều thế kỷ sau, thế kỷ 20 mang đến thẻ tín dụng bằng nhựa, và ngày nay, ví điện tử cùng điện thoại thông minh cho phép thực hiện các giao dịch xuyên biên giới tức thì chỉ bằng một cú chạm. Từ hàng hóa hữu hình đến những dòng mã kỹ thuật số vô hình, tiền tệ luôn thích ứng để đáp ứng nhu cầu ngày càng thay đổi của nền thương mại nhân loại.",
+            "translationQuestion": "Phương án nào dưới đây sẽ là tiêu đề phù hợp nhất cho đoạn văn này?",
+            "translationOptions": [
+                "A. Sự phát minh ra tiền giấy ở Trung Quốc cổ đại",
+                "B. Ví điện tử đang thay thế thẻ tín dụng như thế nào",
+                "C. Sự tiến hóa của tiền tệ qua lịch sử nhân loại",
+                "D. Những khó khăn của hình thức hàng đổi hàng trong các xã hội sơ khai"
+            ]
+        },
+        {
+            "passage": "Every year, over eight million tons of plastic waste enter the world's oceans, creating an urgent ecological crisis. Unlike organic materials that decompose naturally, plastic merely breaks down into microscopic fragments known as microplastics. Marine animals such as sea turtles, seabirds, and whales frequently mistake these floating debris for food, leading to internal injuries, starvation, and death. Worse still, toxic chemicals absorbed by microplastics travel up the marine food chain and eventually reach human dining tables through seafood. Unless nations take immediate action to cut single-use plastics, marine ecosystems and human health will face irreversible damage.",
+            "question": "What is the author’s **main purpose** in writing this paragraph?",
+            "options": [
+                "A. To explain the chemical process of how plastic is manufactured.",
+                "B. To warn about the severe impacts of ocean plastic pollution and call for urgent action.",
+                "C. To compare the feeding habits of sea turtles, seabirds, and whales.",
+                "D. To encourage people to eat more seafood for a balanced diet."
+            ],
+            "correctIdx": 1,
+            "explanation": "<strong>1. Áp dụng kỹ thuật Skimming:</strong><br>• <strong>Câu mở đầu:</strong> <em>“Every year, over eight million tons of plastic waste enter the world's oceans, creating an urgent ecological crisis.”</em> (Mỗi năm, hơn 8 triệu tấn rác thải nhựa đổ ra đại dương, tạo ra cuộc khủng hoảng sinh thái khẩn cấp).<br>• <strong>Câu kết:</strong> <em>“Unless nations take immediate action to cut single-use plastics, marine ecosystems and human health will face irreversible damage.”</em> (Trừ khi các quốc gia hành động ngay lập tức để cắt giảm nhựa dùng một lần, hệ sinh thái biển và sức khỏe con người sẽ đối mặt với thiệt hại không thể đảo ngược).<br>→ Mục đích chính của tác giả là cảnh báo về tác hại nghiêm trọng của ô nhiễm nhựa đại dương và kêu gọi hành động khẩn cấp → <strong>Chọn B</strong>.<br><br><strong>2. Loại trừ phương án bẫy:</strong><br>• <strong>A — Sai (Không được đề cập):</strong> Bài không giải thích quy trình sản xuất nhựa.<br>• <strong>C — Sai (Chi tiết phụ bị bóp méo).</strong><br>• <strong>D — Sai (Ngược ý):</strong> Bài cảnh báo vi nhựa nhiễm vào hải sản chứ không khuyến khích ăn nhiều hải sản.<hr style=\"margin: 16px 0; border: none; border-top: 1.5px dashed #cbd5e1;\"><div style=\"background: #e0f2fe; border-left: 4px solid #0ea5e9; padding: 14px 18px; border-radius: 12px; margin-top: 16px;\"><strong style=\"color: #0369a1; font-size: 1.05rem; display: flex; align-items: center; gap: 8px; margin-bottom: 10px;\"><i class=\"fa-solid fa-book-open\"></i> TỪ VỰNG HỮU ÍCH</strong><ul style=\"margin: 0; padding-left: 20px; color: #0369a1; line-height: 1.7; font-size: 0.95rem;\"><li><strong>ecological crisis</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"ecological crisis\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˌiː.kəˈlɒdʒ.ɪ.kəl ˈkraɪ.sɪs/</span>: khủng hoảng sinh thái</li><li><strong>decompose</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"decompose\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(v) /ˌdiː.kəmˈpəʊz/</span>: phân hủy</li><li><strong>microscopic fragment</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"microscopic fragment\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˌmaɪ.krəˈskɒp.ɪk ˈfræɡ.mənt/</span>: mảnh vỡ siêu nhỏ</li><li><strong>floating debris</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"floating debris\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˈfləʊ.tɪŋ ˈdeb.riː/</span>: mảnh vụn trôi nổi</li><li><strong>starvation</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"starvation\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /stɑːˈveɪ.ʃən/</span>: sự chết đói</li><li><strong>food chain</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"food chain\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /fuːd tʃeɪn/</span>: chuỗi thức ăn</li><li><strong>single-use plastic</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"single-use plastic\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˌsɪŋ.ɡəlˈjuːs ˈplæs.tɪk/</span>: nhựa dùng một lần</li><li><strong>irreversible</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"irreversible\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(adj) /ˌɪr.ɪˈvɜː.sə.bəl/</span>: không thể đảo ngược, không thể cứu vãn</li></ul></div>",
+            "translationPassage": "Mỗi năm, hơn tám triệu tấn rác thải nhựa đổ ra các đại dương trên thế giới, gây ra một cuộc khủng hoảng sinh thái khẩn cấp. Không giống như các vật liệu hữu cơ tự phân hủy trong tự nhiên, nhựa chỉ vỡ vụn thành những mảnh siêu nhỏ được gọi là hạt vi nhựa. Các loài động vật biển như rùa biển, chim biển và cá voi thường xuyên nhầm lẫn những mảnh vụn trôi nổi này là thức ăn, dẫn đến tổn thương nội tạng, chết đói và tử vong. Tệ hơn nữa, các hóa chất độc hại được hấp thụ bởi hạt vi nhựa đi theo chuỗi thức ăn dưới biển và cuối cùng lên tới bàn ăn của con người thông qua hải sản. Trừ khi các quốc gia hành động ngay lập tức để cắt giảm nhựa dùng một lần, hệ sinh thái biển và sức khỏe con người sẽ phải đối mặt với những tổn thương không thể cứu vãn.",
+            "translationQuestion": "Mục đích chính của tác giả khi viết đoạn văn này là gì?",
+            "translationOptions": [
+                "A. Giải thích quy trình hóa học để sản xuất ra nhựa.",
+                "B. Cảnh báo về những tác động nghiêm trọng của ô nhiễm nhựa đại dương và kêu gọi hành động khẩn cấp.",
+                "C. So sánh thói quen kiếm ăn của rùa biển, chim biển và cá voi.",
+                "D. Khuyến khích mọi người ăn nhiều hải sản hơn để có chế độ ăn cân bằng."
+            ]
+        },
+        {
+            "passage": "As global urbanization accelerates, modern megacities are increasingly turning to “vertical forests”—high-rise buildings covered in trees and shrubs—to combat urban environmental challenges. Traditional concrete skyscrapers trap heat and worsen air quality, making city centers uncomfortably hot and polluted. By integrating thousands of plants directly onto building facades, architects can naturally cool interior spaces, absorb carbon dioxide, and filter fine dust particles from the street air. Famous examples like the Bosco Verticale in Milan have also proven that these green towers restore urban biodiversity by providing habitats for birds and butterflies. Ultimately, vertical forests represent a revolutionary architectural solution that brings nature back into densely populated cities.",
+            "question": "What does the paragraph **mainly discuss**?",
+            "options": [
+                "A. Why tourists enjoy visiting the Bosco Verticale building in Milan.",
+                "B. The high construction cost of traditional concrete skyscrapers.",
+                "C. How “vertical forests” help solve environmental problems in modern cities.",
+                "D. The types of birds and butterflies that live in urban areas."
+            ],
+            "correctIdx": 2,
+            "explanation": "<strong>1. Áp dụng kỹ thuật Skimming:</strong><br>• <strong>Câu mở đầu (Topic Sentence):</strong> <em>“As global urbanization accelerates, modern megacities are increasingly turning to ‘vertical forests’—high-rise buildings covered in trees and shrubs—to combat urban environmental challenges.”</em> (Khi đô thị hóa tăng tốc, các siêu đô thị đang hướng tới “rừng thẳng đứng” để chống lại các thách thức môi trường đô thị).<br>• <strong>Câu kết (Concluding Sentence):</strong> <em>“Ultimately, vertical forests represent a revolutionary architectural solution that brings nature back into densely populated cities.”</em> (Suy cho cùng, rừng thẳng đứng đại diện cho giải pháp kiến trúc mang tính cách mạng đưa thiên nhiên trở lại các thành phố đông đúc).<br>→ Ý chính toàn đoạn bàn về cách các tòa nhà “rừng thẳng đứng” giúp giải quyết vấn đề môi trường ở các đô thị hiện đại → <strong>Chọn C</strong>.<br><br><strong>2. Loại trừ phương án bẫy:</strong><br>• <strong>A, D — Sai (Chi tiết phụ ở câu 4).</strong><br>• <strong>B — Sai (Không được đề cập):</strong> Bài không bàn về chi phí xây dựng nhà chọc trời bê tông.<hr style=\"margin: 16px 0; border: none; border-top: 1.5px dashed #cbd5e1;\"><div style=\"background: #e0f2fe; border-left: 4px solid #0ea5e9; padding: 14px 18px; border-radius: 12px; margin-top: 16px;\"><strong style=\"color: #0369a1; font-size: 1.05rem; display: flex; align-items: center; gap: 8px; margin-bottom: 10px;\"><i class=\"fa-solid fa-book-open\"></i> TỪ VỰNG HỮU ÍCH</strong><ul style=\"margin: 0; padding-left: 20px; color: #0369a1; line-height: 1.7; font-size: 0.95rem;\"><li><strong>urbanization</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"urbanization\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˌɜː.bən.aɪˈzeɪ.ʃən/</span>: sự đô thị hóa</li><li><strong>accelerate</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"accelerate\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(v) /əkˈsel.ə.reɪt/</span>: tăng tốc, thúc đẩy nhanh</li><li><strong>vertical forest</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"vertical forest\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˈvɜː.tɪ.kəl ˈfɒr.ɪst/</span>: khu rừng thẳng đứng (tòa nhà phủ cây xanh)</li><li><strong>combat</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"combat\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(v) /ˈkɒm.bæt/</span>: chống lại, giải quyết</li><li><strong>skyscraper</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"skyscraper\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˈskaɪˌskreɪ.pər/</span>: tòa nhà chọc trời</li><li><strong>facade</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"facade\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /fəˈsɑːd/</span>: mặt tiền (tòa nhà)</li><li><strong>biodiversity</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"biodiversity\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˌbaɪ.əʊ.daɪˈvɜː.sə.ti/</span>: đa dạng sinh học</li><li><strong>habitat</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"habitat\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˈhæb.ɪ.tæt/</span>: môi trường sống</li><li><strong>densely populated</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"densely populated\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(adj) /ˈdens.li ˈpɒp.jə.leɪ.tɪd/</span>: đông dân cư, mật độ dân số cao</li></ul></div>",
+            "translationPassage": "Khi quá trình đô thị hóa toàn cầu tăng tốc, các siêu đô thị hiện đại đang ngày càng hướng tới mô hình “rừng thẳng đứng”—những tòa nhà cao tầng được bao phủ bởi cây cối và bụi cây—để chống lại các thách thức về môi trường đô thị. Những tòa nhà chọc trời bằng bê tông truyền thống giữ nhiệt và làm suy giảm chất lượng không khí, khiến khu vực trung tâm thành phố trở nên nóng bức và ô nhiễm ngột ngạt. Bằng cách tích hợp hàng ngàn cây xanh trực tiếp lên mặt tiền tòa nhà, các kiến trúc sư có thể làm mát tự nhiên không gian bên trong, hấp thụ khí carbon dioxide và lọc các hạt bụi mịn từ không khí ngoài đường phố. Những công trình nổi tiếng như Bosco Verticale ở Milan cũng đã chứng minh rằng những tòa tháp xanh này giúp khôi phục đa dạng sinh học đô thị bằng cách cung cấp nơi cư trú cho chim chóc và bướm. Suy cho cùng, rừng thẳng đứng đại diện cho một giải pháp kiến trúc mang tính cách mạng giúp đưa thiên nhiên trở lại các thành phố đông dân cư.",
+            "translationQuestion": "Đoạn văn chủ yếu thảo luận về điều gì?",
+            "translationOptions": [
+                "A. Lý do du khách thích ghé thăm tòa nhà Bosco Verticale ở Milan.",
+                "B. Chi phí xây dựng đắt đỏ của các tòa nhà chọc trời bằng bê tông truyền thống.",
+                "C. Cách các “khu rừng thẳng đứng” giúp giải quyết các vấn đề môi trường ở các thành phố hiện đại.",
+                "D. Các loài chim và bướm sinh sống tại các khu vực đô thị."
+            ]
+        },
+        {
+            "passage": "In marketing and branding, color psychology is a powerful tool used to influence consumer emotions and purchasing decisions. Marketing researchers have long observed that people form subconscious judgments about a product within 90 seconds, and up to 85% of that assessment is based on color alone. For instance, fast-food chains frequently use red and yellow because these warm hues stimulate appetite and create a sense of urgency, whereas banks and tech companies favor blue to project trust, security, and stability. Green is widely adopted by organic brands to evoke health and eco-friendliness. By strategically selecting brand colors, companies can effectively communicate their core values and shape customer behavior without saying a word.",
+            "question": "Which title **best summarizes** the main idea of the paragraph?",
+            "options": [
+                "A. Why Fast-Food Chains Prefer Red and Yellow Logos",
+                "B. The Strategic Role of Color Psychology in Marketing and Consumer Behavior",
+                "C. How Banks Build Security and Trust with Customers",
+                "D. A Ninety-Second Experiment on Subconscious Judgments"
+            ],
+            "correctIdx": 1,
+            "explanation": "<strong>1. Áp dụng kỹ thuật Skimming:</strong><br>• <strong>Câu mở đầu (Topic Sentence):</strong> <em>“In marketing and branding, color psychology is a powerful tool used to influence consumer emotions and purchasing decisions.”</em> (Trong tiếp thị và xây dựng thương hiệu, tâm lý học màu sắc là công cụ mạnh mẽ dùng để tác động đến cảm xúc và quyết định mua hàng).<br>• <strong>Câu kết (Concluding Sentence):</strong> <em>“By strategically selecting brand colors, companies can effectively communicate their core values and shape customer behavior without saying a word.”</em> (Bằng cách lựa chọn màu sắc thương hiệu có chiến lược, các công ty có thể truyền tải giá trị cốt lõi và định hình hành vi khách hàng).<br>→ Tiêu đề tóm tắt chuẩn xác nhất là <strong>B. The Strategic Role of Color Psychology in Marketing and Consumer Behavior</strong>.<br><br><strong>2. Loại trừ phương án bẫy:</strong><br>• <strong>A, C, D — Sai (Bẫy chi tiết phụ):</strong> Màu đỏ/vàng của chuỗi đồ ăn nhanh, màu xanh của ngân hàng, hay con số 90 giây chỉ là các ví dụ minh họa.<hr style=\"margin: 16px 0; border: none; border-top: 1.5px dashed #cbd5e1;\"><div style=\"background: #e0f2fe; border-left: 4px solid #0ea5e9; padding: 14px 18px; border-radius: 12px; margin-top: 16px;\"><strong style=\"color: #0369a1; font-size: 1.05rem; display: flex; align-items: center; gap: 8px; margin-bottom: 10px;\"><i class=\"fa-solid fa-book-open\"></i> TỪ VỰNG HỮU ÍCH</strong><ul style=\"margin: 0; padding-left: 20px; color: #0369a1; line-height: 1.7; font-size: 0.95rem;\"><li><strong>color psychology</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"color psychology\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˈkʌl.ər saɪˈkɒl.ə.dʒi/</span>: tâm lý học màu sắc</li><li><strong>purchasing decision</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"purchasing decision\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˈpɜː.tʃə.sɪŋ dɪˈsɪʒ.ən/</span>: quyết định mua hàng</li><li><strong>subconscious</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"subconscious\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(adj) /ˌsʌbˈkɒn.ʃəs/</span>: tiềm thức, vô thức</li><li><strong>assessment</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"assessment\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /əˈses.mənt/</span>: sự đánh giá, nhận định</li><li><strong>hue</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"hue\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /hjuː/</span>: sắc màu, tông màu</li><li><strong>stimulate appetite</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"stimulate appetite\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(phr) /ˈstɪm.jə.leɪt ˈæp.ə.taɪt/</span>: kích thích sự thèm ăn</li><li><strong>sense of urgency</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"sense of urgency\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /sens əv ˈɜː.dʒən.si/</span>: cảm giác khẩn trương, thôi thúc</li><li><strong>evoke</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"evoke\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(v) /ɪˈvəʊk/</span>: gợi lên</li><li><strong>core value</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"core value\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /kɔːr ˈvæl.juː/</span>: giá trị cốt lõi</li></ul></div>",
+            "translationPassage": "Trong tiếp thị và xây dựng thương hiệu, tâm lý học màu sắc là một công cụ đắc lực được sử dụng để tác động đến cảm xúc và quyết định mua sắm của người tiêu dùng. Các nhà nghiên cứu tiếp thị từ lâu đã quan sát thấy rằng con người hình thành những đánh giá trong tiềm thức về một sản phẩm chỉ trong vòng 90 giây, và tới 85% sự đánh giá đó chỉ dựa vào màu sắc. Chẳng hạn, các chuỗi cửa hàng thức ăn nhanh thường xuyên sử dụng màu đỏ và vàng vì những tông màu ấm này kích thích cảm giác thèm ăn và tạo ra sự thôi thúc khẩn trương, trong khi các ngân hàng và công ty công nghệ lại chuộng màu xanh dương để thể hiện sự tin cậy, an toàn và ổn định. Màu xanh lá cây được các thương hiệu hữu cơ áp dụng rộng rãi nhằm gợi lên hình ảnh sức khỏe và thân thiện với môi trường. Bằng cách lựa chọn màu sắc thương hiệu một cách có chiến lược, các doanh nghiệp có thể truyền tải hiệu quả các giá trị cốt lõi và định hình hành vi của khách hàng mà không cần nói một lời nào.",
+            "translationQuestion": "Tiêu đề nào dưới đây tóm tắt đúng nhất ý chính của đoạn văn?",
+            "translationOptions": [
+                "A. Tại sao các chuỗi thức ăn nhanh lại thích logo màu đỏ và vàng",
+                "B. Vai trò chiến lược của tâm lý học màu sắc trong tiếp thị và hành vi người tiêu dùng",
+                "C. Cách các ngân hàng xây dựng sự an toàn và niềm tin với khách hàng",
+                "D. Thí nghiệm chín mươi giây về những phán đoán trong tiềm thức"
+            ]
+        }
+    ],
+    "scanning": [
+        {
+            "passage": "Space telescopes have transformed our understanding of the universe over the past four decades. The famous Hubble Space Telescope was originally scheduled for launch in 1986, but the Challenger disaster delayed its deployment until April 1990. Three years later, in 1993, astronauts performed a servicing mission to correct a flaw in Hubble's primary mirror. Decades later, NASA partnered with European and Canadian space agencies to develop its successor, the James Webb Space Telescope (JWST). After numerous technical postponements from its initial 2014 target date, the James Webb Space Telescope was finally launched on December 25, 2021, orbiting the Sun at a distance of 1.5 million kilometers from Earth.",
+            "question": "In what year was the **James Webb Space Telescope** officially launched into space?",
+            "options": [
+                "A. 1990",
+                "B. 1993",
+                "C. 2014",
+                "D. 2021"
+            ],
+            "correctIdx": 3,
+            "explanation": "<strong>1. Áp dụng kỹ thuật Scanning (Quét tên riêng & số liệu):</strong><br>• <strong>Từ khóa ưu tiên (Khó thay thế):</strong> <em>James Webb Space Telescope</em> và động từ <em>launched</em>.<br>• <strong>Định vị trong bài:</strong> Quét nhanh qua các mốc năm của Hubble (1986, 1990, 1993) để đến câu cuối cùng chứa cụm <em>James Webb Space Telescope</em>: <em>“After numerous technical postponements from its initial 2014 target date, the James Webb Space Telescope was finally launched on December 25, 2021...”</em><br>→ Năm phóng chính thức là <strong>2021</strong> → <strong>Chọn D</strong>.<br><br><strong>2. Loại trừ phương án bẫy số liệu:</strong><br>• <strong>A (1990):</strong> Năm phóng kính viễn vọng <em>Hubble</em> (bẫy nhầm đối tượng).<br>• <strong>B (1993):</strong> Năm sửa gương chính của <em>Hubble</em>.<br>• <strong>C (2014):</strong> Năm dự kiến ban đầu (<em>initial target date</em>) nhưng đã bị hoãn (<em>postponements</em>).<hr style=\"margin: 16px 0; border: none; border-top: 1.5px dashed #cbd5e1;\"><div style=\"background: #e0f2fe; border-left: 4px solid #0ea5e9; padding: 14px 18px; border-radius: 12px; margin-top: 16px;\"><strong style=\"color: #0369a1; font-size: 1.05rem; display: flex; align-items: center; gap: 8px; margin-bottom: 10px;\"><i class=\"fa-solid fa-book-open\"></i> TỪ VỰNG HỮU ÍCH</strong><ul style=\"margin: 0; padding-left: 20px; color: #0369a1; line-height: 1.7; font-size: 0.95rem;\"><li><strong>space telescope</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"space telescope\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /speɪs ˈtel.ɪ.skəʊp/</span>: kính viễn vọng không gian</li><li><strong>deployment</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"deployment\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /dɪˈplɔɪ.mənt/</span>: sự triển khai, đưa vào hoạt động</li><li><strong>servicing mission</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"servicing mission\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˈsɜː.vɪ.sɪŋ ˈmɪʃ.ən/</span>: sứ mệnh bảo trì, sửa chữa</li><li><strong>flaw</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"flaw\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /flɔː/</span>: lỗi, khiếm khuyết</li><li><strong>successor</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"successor\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /səkˈses.ər/</span>: người/vật kế nhiệm</li><li><strong>postponement</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"postponement\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /pəʊstˈpəʊn.mənt/</span>: sự trì hoãn</li><li><strong>launch</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"launch\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(v/n) /lɔːntʃ/</span>: phóng (tàu vũ trụ, vệ tinh)</li><li><strong>orbit</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"orbit\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(v/n) /ˈɔː.bɪt/</span>: quay quanh quỹ đạo</li></ul></div>",
+            "translationPassage": "Kính viễn vọng không gian đã làm thay đổi hiểu biết của chúng ta về vũ trụ trong suốt bốn thập kỷ qua. Kính viễn vọng Không gian Hubble nổi tiếng ban đầu được lên lịch phóng vào năm 1986, nhưng thảm họa tàu Challenger đã làm trì hoãn việc triển khai nó cho đến tháng 4 năm 1990. Ba năm sau, vào năm 1993, các phi hành gia đã thực hiện một sứ mệnh bảo trì để sửa chữa một khiếm khuyết ở gương chính của Hubble. Nhiều thập kỷ sau, NASA đã hợp tác với các cơ quan vũ trụ châu Âu và Canada để phát triển thế hệ kế nhiệm của nó là Kính viễn vọng Không gian James Webb (JWST). Sau nhiều lần trì hoãn kỹ thuật so với mục tiêu ban đầu vào năm 2014, Kính viễn vọng Không gian James Webb cuối cùng đã được phóng lên vào ngày 25 tháng 12 năm 2021, quay quanh Mặt Trời ở khoảng cách 1,5 triệu km tính từ Trái Đất.",
+            "translationQuestion": "Kính viễn vọng Không gian James Webb chính thức được phóng vào vũ trụ vào năm nào?",
+            "translationOptions": [
+                "A. Năm 1990",
+                "B. Năm 1993",
+                "C. Năm 2014",
+                "D. Năm 2021"
+            ]
+        },
+        {
+            "passage": "Geothermal energy—heat derived within the sub-surface of the earth—is one of the most reliable renewable energy sources available today. Unlike solar or wind power, which fluctuate with weather conditions, geothermal plants can generate electricity 24 hours a day. Worldwide, around 30 countries currently utilize geothermal energy for heating and power generation. However, Iceland is the undisputed global leader in this field: while roughly 25% of its electricity comes from geothermal steam, an impressive 90% of all households in the country are heated by geothermal water. The government aims to achieve complete carbon neutrality by the year 2040.",
+            "question": "What percentage of **households in Iceland** use geothermal energy for **heating**?",
+            "options": [
+                "A. 24%",
+                "B. 25%",
+                "C. 30%",
+                "D. 90%"
+            ],
+            "correctIdx": 3,
+            "explanation": "<strong>1. Áp dụng kỹ thuật Scanning (Quét ký hiệu % & từ khóa):</strong><br>• <strong>Từ khóa ưu tiên:</strong> <em>Iceland</em>, <em>households</em>, <em>heating</em> và ký hiệu <em>%</em>.<br>• <strong>Định vị trong bài:</strong> Tại câu thứ 4 có từ khóa viết hoa <em>Iceland</em>: <em>“...while roughly 25% of its electricity comes from geothermal steam, an impressive 90% of all households in the country are heated by geothermal water.”</em><br>→ Tỉ lệ hộ gia đình (<em>households</em>) được sưởi ấm (<em>heated</em>) bằng địa nhiệt là <strong>90%</strong> → <strong>Chọn D</strong>.<br><br><strong>2. Loại trừ phương án bẫy số liệu:</strong><br>• <strong>A (24%):</strong> Bẫy từ con số <em>24 hours a day</em> (24 giờ/ngày, không phải %).<br>• <strong>B (25%):</strong> Tỉ lệ sản xuất <em>điện năng (electricity)</em> của Iceland chứ không phải sưởi ấm hộ gia đình.<br>• <strong>C (30%):</strong> Bẫy từ con số <em>30 countries</em> (30 quốc gia).<hr style=\"margin: 16px 0; border: none; border-top: 1.5px dashed #cbd5e1;\"><div style=\"background: #e0f2fe; border-left: 4px solid #0ea5e9; padding: 14px 18px; border-radius: 12px; margin-top: 16px;\"><strong style=\"color: #0369a1; font-size: 1.05rem; display: flex; align-items: center; gap: 8px; margin-bottom: 10px;\"><i class=\"fa-solid fa-book-open\"></i> TỪ VỰNG HỮU ÍCH</strong><ul style=\"margin: 0; padding-left: 20px; color: #0369a1; line-height: 1.7; font-size: 0.95rem;\"><li><strong>geothermal energy</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"geothermal energy\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˌdʒiː.əʊˈθɜː.məl ˈen.ə.dʒi/</span>: năng lượng địa nhiệt</li><li><strong>derive</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"derive\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(v) /dɪˈraɪv/</span>: bắt nguồn từ, thu được từ</li><li><strong>renewable energy</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"renewable energy\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /rɪˈnjuː.ə.bəl ˈen.ə.dʒi/</span>: năng lượng tái tạo</li><li><strong>fluctuate</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"fluctuate\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(v) /ˈflʌk.tʃu.eɪt/</span>: dao động, thất thường</li><li><strong>utilize</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"utilize\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(v) /ˈjuː.təl.aɪz/</span>: sử dụng, tận dụng</li><li><strong>undisputed</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"undisputed\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(adj) /ˌʌn.dɪˈspjuː.tɪd/</span>: không thể bàn cãi</li><li><strong>household</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"household\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˈhaʊs.həʊld/</span>: hộ gia đình</li><li><strong>carbon neutrality</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"carbon neutrality\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˌkɑː.bən njuːˈtræl.ə.ti/</span>: trung hòa carbon</li></ul></div>",
+            "translationPassage": "Năng lượng địa nhiệt—nhiệt lượng thu được từ bên dưới bề mặt Trái Đất—là một trong những nguồn năng lượng tái tạo đáng tin cậy nhất hiện nay. Không giống như năng lượng mặt trời hay năng lượng gió vốn biến động theo điều kiện thời tiết, các nhà máy địa nhiệt có thể phát điện 24 giờ mỗi ngày. Trên toàn thế giới, hiện có khoảng 30 quốc gia sử dụng năng lượng địa nhiệt để sưởi ấm và phát điện. Tuy nhiên, Iceland là quốc gia dẫn đầu toàn cầu không thể bàn cãi trong lĩnh vực này: trong khi khoảng 25% lượng điện của nước này đến từ hơi nước địa nhiệt, có tới 90% tổng số hộ gia đình trong cả nước được sưởi ấm bằng nước địa nhiệt. Chính phủ nước này đặt mục tiêu đạt mức trung hòa carbon hoàn toàn vào năm 2040.",
+            "translationQuestion": "Bao nhiêu phần trăm hộ gia đình ở Iceland sử dụng năng lượng địa nhiệt để sưởi ấm?",
+            "translationOptions": [
+                "A. 24%",
+                "B. 25%",
+                "C. 30%",
+                "D. 90%"
+            ]
+        },
+        {
+            "passage": "The Heroic Age of Antarctic Exploration in the early 20th century saw fierce international competition to reach the geographic South Pole. In 1902, British explorer Robert Falcon Scott led the Discovery Expedition, reaching further south than anyone before him. A few years later, in 1909, Ernest Shackleton came within 97 geographical miles of the pole before turning back to save his crew's lives. The ultimate prize was finally claimed on December 14, 1911, by Roald Amundsen, a Norwegian explorer who skillfully used sled dogs and skis to beat Scott's second expedition by 34 days. Later, in 1929, American aviator Richard E. Byrd became the first person to fly over the South Pole by airplane.",
+            "question": "According to the passage, who was the **first explorer** to actually reach the **geographic South Pole**?",
+            "options": [
+                "A. Robert Falcon Scott",
+                "B. Ernest Shackleton",
+                "C. Roald Amundsen",
+                "D. Richard E. Byrd"
+            ],
+            "correctIdx": 2,
+            "explanation": "<strong>1. Áp dụng kỹ thuật Scanning (Quét tên riêng viết hoa):</strong><br>• <strong>Từ khóa ưu tiên:</strong> Tên riêng các nhà thám hiểm và cụm <em>first explorer to actually reach the geographic South Pole</em>.<br>• <strong>Định vị trong bài:</strong> Câu 1 đặt bối cảnh cuộc đua chạm tới Nam Cực (<em>reach the geographic South Pole</em>). Quét qua các tên riêng:<br>  – <em>Robert Falcon Scott (1902):</em> mới chỉ tiến xa hơn về phía nam.<br>  – <em>Ernest Shackleton (1909):</em> còn cách cực 97 dặm thì phải quay đầu (<em>turning back</em>).<br>  – Câu 4: <em>“The ultimate prize was finally claimed on December 14, 1911, by Roald Amundsen, a Norwegian explorer who skillfully used sled dogs and skis to beat Scott's second expedition by 34 days.”</em> (Giải thưởng tối thượng cuối cùng đã thuộc về Roald Amundsen vào ngày 14/12/1911, đánh bại đoàn thứ hai của Scott 34 ngày).<br>→ Người đầu tiên thực sự đặt chân tới Nam Cực là <strong>Roald Amundsen</strong> → <strong>Chọn C</strong>.<br><br><strong>2. Loại trừ phương án bẫy:</strong><br>• <strong>D (Richard E. Byrd):</strong> Người đầu tiên <em>bay qua (fly over)</em> Nam Cực bằng máy bay năm 1929.<hr style=\"margin: 16px 0; border: none; border-top: 1.5px dashed #cbd5e1;\"><div style=\"background: #e0f2fe; border-left: 4px solid #0ea5e9; padding: 14px 18px; border-radius: 12px; margin-top: 16px;\"><strong style=\"color: #0369a1; font-size: 1.05rem; display: flex; align-items: center; gap: 8px; margin-bottom: 10px;\"><i class=\"fa-solid fa-book-open\"></i> TỪ VỰNG HỮU ÍCH</strong><ul style=\"margin: 0; padding-left: 20px; color: #0369a1; line-height: 1.7; font-size: 0.95rem;\"><li><strong>exploration</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"exploration\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˌek.spləˈreɪ.ʃən/</span>: sự thám hiểm</li><li><strong>fierce competition</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"fierce competition\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /fɪəs ˌkɒm.pəˈtɪʃ.ən/</span>: cuộc cạnh tranh khốc liệt</li><li><strong>expedition</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"expedition\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˌek.spəˈdɪʃ.ən/</span>: cuộc thám hiểm, đoàn thám hiểm</li><li><strong>turn back</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"turn back\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(phr) /tɜːn bæk/</span>: quay đầu trở lại</li><li><strong>ultimate prize</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"ultimate prize\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˈʌl.tɪ.mət praɪz/</span>: phần thưởng/đích đến tối thượng</li><li><strong>claim</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"claim\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(v) /kleɪm/</span>: giành được, chinh phục được</li><li><strong>sled dog</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"sled dog\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /sled dɒɡ/</span>: chó kéo xe trượt tuyết</li><li><strong>aviator</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"aviator\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˈeɪ.vi.eɪ.tər/</span>: phi công</li></ul></div>",
+            "translationPassage": "Kỷ nguyên Anh hùng của Công cuộc Thám hiểm Nam Cực vào đầu thế kỷ 20 đã chứng kiến cuộc cạnh tranh quốc tế khốc liệt nhằm chạm tới Cực Nam địa lý. Năm 1902, nhà thám hiểm người Anh Robert Falcon Scott đã dẫn đầu Đoàn thám hiểm Discovery, tiến xa hơn về phía nam so với bất kỳ ai trước đó. Vài năm sau, vào năm 1909, Ernest Shackleton đã tiến đến cách cực 97 dặm địa lý trước khi phải quay đầu để cứu mạng các thành viên trong đoàn. Đích đến tối thượng cuối cùng đã được chinh phục vào ngày 14 tháng 12 năm 1911 bởi Roald Amundsen, một nhà thám hiểm người Na Uy đã khéo léo sử dụng chó kéo xe và ván trượt tuyết để vượt qua đoàn thám hiểm thứ hai của Scott sớm hơn 34 ngày. Sau đó, vào năm 1929, phi công người Mỹ Richard E. Byrd đã trở thành người đầu tiên bay qua Nam Cực bằng máy bay.",
+            "translationQuestion": "Theo đoạn văn, ai là nhà thám hiểm đầu tiên thực sự đặt chân tới Cực Nam địa lý?",
+            "translationOptions": [
+                "A. Robert Falcon Scott",
+                "B. Ernest Shackleton",
+                "C. Roald Amundsen",
+                "D. Richard E. Byrd"
+            ]
+        },
+        {
+            "passage": "Plants have evolved extraordinary mechanisms to survive in extreme climates. In arid deserts where rainfall is scarce, succulents like cacti store water in thick, fleshy stems. Meanwhile, in nutrient-poor wetlands and bogs, certain plants have turned to carnivory. The Venus flytrap, for instance, uses hinged leaves that snap shut when tiny trigger hairs are touched twice by an insect. Another fascinating survival strategy is allelopathy, a biological phenomenon in which a plant releases biochemical substances into the soil to inhibit the germination or growth of neighboring competing plants. Black walnut trees are well-known for using this chemical defense to monopolize water and sunlight.",
+            "question": "In the passage, what does the term “allelopathy” refer to?",
+            "options": [
+                "A. Storing water inside thick, fleshy stems in arid deserts.",
+                "B. Trapping insects using hinged leaves and sensitive trigger hairs.",
+                "C. Releasing chemicals into the soil to prevent nearby plants from growing.",
+                "D. Absorbing nitrogen directly from bog water in wetlands."
+            ],
+            "correctIdx": 2,
+            "explanation": "<strong>1. Áp dụng kỹ thuật Scanning (Quét thuật ngữ chuyên ngành):</strong><br>• <strong>Từ khóa không biến đổi:</strong> Thuật ngữ <em>“allelopathy”</em>.<br>• <strong>Định vị trong bài:</strong> Quét mắt đến câu thứ 5 chứa từ <em>allelopathy</em>: <em>“Another fascinating survival strategy is allelopathy, a biological phenomenon in which a plant releases biochemical substances into the soil to inhibit the germination or growth of neighboring competing plants.”</em><br>• <strong>Đối chiếu Paraphrase:</strong><br>  – <em>releases biochemical substances into the soil</em> = <em>releasing chemicals into the soil</em> (tiết hóa chất vào đất)<br>  – <em>inhibit the germination or growth of neighboring competing plants</em> = <em>prevent nearby plants from growing</em> (ngăn cản các cây lân cận phát triển).<br>→ Đáp án đúng là <strong>C</strong>.<br><br><strong>2. Loại trừ phương án bẫy:</strong><br>• <strong>A — Sai:</strong> Cơ chế của cây mọng nước/xương rồng (<em>succulents like cacti</em>).<br>• <strong>B — Sai:</strong> Cơ chế của cây bắt ruồi (<em>Venus flytrap</em>).<br>• <strong>D — Sai:</strong> Không được đề cập.<hr style=\"margin: 16px 0; border: none; border-top: 1.5px dashed #cbd5e1;\"><div style=\"background: #e0f2fe; border-left: 4px solid #0ea5e9; padding: 14px 18px; border-radius: 12px; margin-top: 16px;\"><strong style=\"color: #0369a1; font-size: 1.05rem; display: flex; align-items: center; gap: 8px; margin-bottom: 10px;\"><i class=\"fa-solid fa-book-open\"></i> TỪ VỰNG HỮU ÍCH</strong><ul style=\"margin: 0; padding-left: 20px; color: #0369a1; line-height: 1.7; font-size: 0.95rem;\"><li><strong>mechanism</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"mechanism\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˈmek.ə.nɪ.zəm/</span>: cơ chế</li><li><strong>arid</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"arid\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(adj) /ˈær.ɪd/</span>: khô cằn</li><li><strong>scarce</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"scarce\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(adj) /skeəs/</span>: khan hiếm</li><li><strong>succulent</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"succulent\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˈsʌk.jə.lənt/</span>: cây mọng nước</li><li><strong>biochemical substance</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"biochemical substance\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˌbaɪ.əʊˈkem.ɪ.kəl ˈsʌb.stəns/</span>: chất hóa sinh</li><li><strong>inhibit</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"inhibit\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(v) /ɪnˈhɪb.ɪt/</span>: ức chế, ngăn chặn</li><li><strong>germination</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"germination\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˌdʒɜː.mɪˈneɪ.ʃən/</span>: sự nảy mầm</li><li><strong>monopolize</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"monopolize\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(v) /məˈnɒp.əl.aɪz/</span>: độc chiếm</li></ul></div>",
+            "translationPassage": "Thực vật đã tiến hóa những cơ chế phi thường để sinh tồn trong các điều kiện khí hậu khắc nghiệt. Ở những sa mạc khô cằn nơi lượng mưa khan hiếm, các loài cây mọng nước như xương rồng tích trữ nước trong phần thân dày và mọng. Trong khi đó, tại các vùng đầm lầy nghèo dinh dưỡng, một số loài thực vật đã chuyển sang hình thức ăn thịt. Chẳng hạn, cây bắt ruồi Venus sử dụng những chiếc lá có khớp gập sẽ sập kín lại khi những sợi lông kích hoạt nhỏ li ti bị côn trùng chạm vào hai lần. Một chiến lược sinh tồn thú vị khác là hiện tượng cảm nhiễm thực vật (allelopathy), một hiện tượng sinh học trong đó cây tiết ra các chất hóa sinh vào đất nhằm ức chế sự nảy mầm hoặc phát triển của các cây cạnh tranh lân cận. Cây óc chó đen rất nổi tiếng với việc sử dụng cơ chế phòng vệ hóa học này để độc chiếm nguồn nước và ánh sáng mặt trời.",
+            "translationQuestion": "Trong đoạn văn, thuật ngữ “allelopathy” dùng để chỉ điều gì?",
+            "translationOptions": [
+                "A. Tích trữ nước bên trong thân cây dày và mọng ở các sa mạc khô cằn.",
+                "B. Bẫy côn trùng bằng lá có khớp gập và các sợi lông kích hoạt nhạy bén.",
+                "C. Tiết hóa chất vào đất để ngăn các cây xung quanh phát triển.",
+                "D. Hấp thụ nitơ trực tiếp từ nước đầm lầy ở các vùng đất ngập nước."
+            ]
+        },
+        {
+            "passage": "Linguists estimate that out of approximately 7,000 languages spoken in the world today, nearly half are in danger of disappearing by the end of this century. When an indigenous language dies, humanity loses a unique repository of ecological knowledge, oral history, and cultural identity. While globalization and urban migration are major drivers of language shift, technology is now offering a lifeline. Mobile applications and digital audio archives allow elders to record vocabulary and folktales, making it possible for younger generations to learn their ancestral tongue anywhere. Organizations in Australia and Canada have already used these digital tools to revive languages that had fewer than ten fluent speakers left.",
+            "question": "How is **modern technology** helping to preserve **endangered languages**?",
+            "options": [
+                "A. By translating all indigenous books into English and Spanish.",
+                "B. By enabling communities to record and teach native languages through digital apps and archives.",
+                "C. By encouraging young people to move back to rural villages.",
+                "D. By replacing oral folktales with modern computer games."
+            ],
+            "correctIdx": 1,
+            "explanation": "<strong>1. Áp dụng kỹ thuật Scanning (Quét từ khóa dễ thay thế & Paraphrase):</strong><br>• <strong>Từ khóa:</strong> <em>technology</em>, <em>preserve endangered languages</em>.<br>• <strong>Định vị trong bài:</strong> Cuối câu 3 xuất hiện từ <em>technology</em>: <em>“...technology is now offering a lifeline.”</em> Đọc tiếp câu liền kề (câu 4): <em>“Mobile applications and digital audio archives allow elders to record vocabulary and folktales, making it possible for younger generations to learn their ancestral tongue anywhere.”</em><br>• <strong>Đối chiếu Paraphrase:</strong><br>  – <em>Mobile applications and digital audio archives</em> = <em>digital apps and archives</em><br>  – <em>allow elders to record... younger generations to learn their ancestral tongue</em> = <em>enabling communities to record and teach native languages</em>.<br>→ Đáp án đúng là <strong>B</strong>.<br><br><strong>2. Loại trừ phương án bẫy:</strong><br>• <strong>A, C, D — Sai (Không được đề cập / Bóp méo thông tin).</strong><hr style=\"margin: 16px 0; border: none; border-top: 1.5px dashed #cbd5e1;\"><div style=\"background: #e0f2fe; border-left: 4px solid #0ea5e9; padding: 14px 18px; border-radius: 12px; margin-top: 16px;\"><strong style=\"color: #0369a1; font-size: 1.05rem; display: flex; align-items: center; gap: 8px; margin-bottom: 10px;\"><i class=\"fa-solid fa-book-open\"></i> TỪ VỰNG HỮU ÍCH</strong><ul style=\"margin: 0; padding-left: 20px; color: #0369a1; line-height: 1.7; font-size: 0.95rem;\"><li><strong>linguist</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"linguist\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˈlɪŋ.ɡwɪst/</span>: nhà ngôn ngữ học</li><li><strong>repository</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"repository\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /rɪˈpɒz.ɪ.tər.i/</span>: kho tàng, nơi lưu trữ</li><li><strong>oral history</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"oral history\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˈɔː.rəl ˈhɪs.tər.i/</span>: lịch sử truyền miệng</li><li><strong>cultural identity</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"cultural identity\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˈkʌl.tʃər.əl aɪˈden.tə.ti/</span>: bản sắc văn hóa</li><li><strong>lifeline</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"lifeline\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˈlaɪf.laɪn/</span>: phao cứu sinh</li><li><strong>digital archive</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"digital archive\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˈdɪdʒ.ɪ.təl ˈɑː.kaɪv/</span>: kho lưu trữ kỹ thuật số</li><li><strong>ancestral tongue</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"ancestral tongue\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ænˈses.trəl tʌŋ/</span>: tiếng mẹ đẻ/ngôn ngữ tổ tiên</li><li><strong>revive</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"revive\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(v) /rɪˈvaɪv/</span>: hồi sinh, khôi phục</li></ul></div>",
+            "translationPassage": "Các nhà ngôn ngữ học ước tính rằng trong số khoảng 7.000 ngôn ngữ đang được sử dụng trên thế giới hiện nay, gần một nửa đang có nguy cơ biến mất vào cuối thế kỷ này. Khi một ngôn ngữ bản địa mai một, nhân loại mất đi một kho tàng độc nhất về tri thức sinh thái, lịch sử truyền miệng và bản sắc văn hóa. Mặc dù toàn cầu hóa và di cư đô thị là những nguyên nhân chính dẫn đến sự dịch chuyển ngôn ngữ, công nghệ hiện đang mang lại một chiếc phao cứu sinh. Các ứng dụng di động và kho lưu trữ âm thanh kỹ thuật số cho phép các bậc cao niên ghi âm lại từ vựng và truyện dân gian, giúp thế hệ trẻ có thể học ngôn ngữ tổ tiên của mình ở bất cứ đâu. Các tổ chức tại Úc và Canada đã sử dụng những công cụ kỹ thuật số này để hồi sinh những ngôn ngữ chỉ còn chưa đầy mười người nói thông thạo.",
+            "translationQuestion": "Công nghệ hiện đại đang giúp bảo tồn các ngôn ngữ có nguy cơ tuyệt chủng bằng cách nào?",
+            "translationOptions": [
+                "A. Bằng cách dịch tất cả sách bản địa sang tiếng Anh và tiếng Tây Ban Nha.",
+                "B. Bằng cách giúp các cộng đồng ghi âm và dạy ngôn ngữ bản địa thông qua các ứng dụng và kho lưu trữ kỹ thuật số.",
+                "C. Bằng cách khuyến khích người trẻ chuyển về sinh sống tại các ngôi làng nông thôn.",
+                "D. Bằng cách thay thế các câu chuyện dân gian truyền miệng bằng trò chơi máy tính hiện đại."
+            ]
+        },
+        {
+            "passage": "Metropolitan areas are often significantly warmer than their surrounding rural environments, a phenomenon meteorologists call the “Urban Heat Island” (UHI) effect. On hot summer days, city temperatures can be 3°C to 5°C higher than in nearby countryside towns. The primary cause of this temperature gap is the widespread replacement of natural vegetation with dark, impermeable surfaces such as asphalt roads and concrete roofs, which absorb and trap solar radiation. Waste heat generated by air conditioners, factories, and motor vehicles further intensifies the problem. To mitigate the UHI effect, urban planners are now promoting reflective white rooftops and expanding tree canopies along city streets.",
+            "question": "According to the passage, what is the **main reason** for the **Urban Heat Island** effect?",
+            "options": [
+                "A. Heavy rainfall trapped on impermeable city streets.",
+                "B. The planting of too many trees along narrow urban roads.",
+                "C. The use of reflective white paint on commercial rooftops.",
+                "D. The substitution of green plants with heat-absorbing materials like asphalt and concrete."
+            ],
+            "correctIdx": 3,
+            "explanation": "<strong>1. Áp dụng kỹ thuật Scanning (Tìm nguyên nhân chính):</strong><br>• <strong>Từ khóa:</strong> <em>main reason</em> (được paraphrase trong bài là <em>primary cause</em>) và <em>Urban Heat Island effect</em>.<br>• <strong>Định vị trong bài:</strong> Câu thứ 3: <em>“The primary cause of this temperature gap is the widespread replacement of natural vegetation with dark, impermeable surfaces such as asphalt roads and concrete roofs, which absorb and trap solar radiation.”</em><br>• <strong>Đối chiếu Paraphrase:</strong><br>  – <em>main reason</em> = <em>primary cause</em> (nguyên nhân chính)<br>  – <em>substitution</em> = <em>replacement</em> (sự thay thế)<br>  – <em>green plants</em> = <em>natural vegetation</em> (thảm thực vật tự nhiên)<br>  – <em>heat-absorbing materials</em> = <em>surfaces... which absorb and trap solar radiation</em>.<br>→ Đáp án đúng là <strong>D</strong>.<br><br><strong>2. Loại trừ phương án bẫy:</strong><br>• <strong>B, C — Sai:</strong> Trồng thêm cây (<em>expanding tree canopies</em>) và sơn mái nhà màu trắng phản quang (<em>reflective white rooftops</em>) là <em>giải pháp giảm thiểu (mitigate)</em> ở câu cuối, không phải nguyên nhân.<hr style=\"margin: 16px 0; border: none; border-top: 1.5px dashed #cbd5e1;\"><div style=\"background: #e0f2fe; border-left: 4px solid #0ea5e9; padding: 14px 18px; border-radius: 12px; margin-top: 16px;\"><strong style=\"color: #0369a1; font-size: 1.05rem; display: flex; align-items: center; gap: 8px; margin-bottom: 10px;\"><i class=\"fa-solid fa-book-open\"></i> TỪ VỰNG HỮU ÍCH</strong><ul style=\"margin: 0; padding-left: 20px; color: #0369a1; line-height: 1.7; font-size: 0.95rem;\"><li><strong>metropolitan area</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"metropolitan area\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˌmet.rəˈpɒl.ɪ.tən ˈeə.ri.ə/</span>: khu vực đô thị lớn</li><li><strong>meteorologist</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"meteorologist\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˌmiː.ti.əˈrɒl.ə.dʒɪst/</span>: nhà khí tượng học</li><li><strong>natural vegetation</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"natural vegetation\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˈnætʃ.ər.əl ˌvedʒ.ɪˈteɪ.ʃən/</span>: thảm thực vật tự nhiên</li><li><strong>impermeable</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"impermeable\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(adj) /ɪmˈpɜː.mi.ə.bəl/</span>: không thấm nước</li><li><strong>asphalt</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"asphalt\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˈæs.fælt/</span>: nhựa đường</li><li><strong>solar radiation</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"solar radiation\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˈsəʊ.lər ˌreɪ.diˈeɪ.ʃən/</span>: bức xạ mặt trời</li><li><strong>intensify</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"intensify\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(v) /ɪnˈten.sɪ.faɪ/</span>: làm trầm trọng thêm, gia tăng</li><li><strong>mitigate</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"mitigate\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(v) /ˈmɪt.ɪ.ɡeɪt/</span>: giảm nhẹ, làm dịu bớt</li><li><strong>tree canopy</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"tree canopy\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /triː ˈkæn.ə.pi/</span>: tán cây</li></ul></div>",
+            "translationPassage": "Các khu vực đô thị lớn thường ấm hơn đáng kể so với môi trường nông thôn xung quanh, một hiện tượng được các nhà khí tượng học gọi là hiệu ứng “Đảo nhiệt Đô thị” (UHI). Vào những ngày hè nóng bức, nhiệt độ trong thành phố có thể cao hơn từ 3°C đến 5°C so với các thị trấn vùng quê lân cận. Nguyên nhân chính của sự chênh lệch nhiệt độ này là việc thay thế hàng loạt thảm thực vật tự nhiên bằng các bề mặt tối màu, không thấm nước như đường nhựa và mái nhà bê tông—những vật liệu hấp thụ và giữ lại bức xạ mặt trời. Nhiệt thải sinh ra từ máy điều hòa không khí, nhà máy và phương tiện cơ giới càng làm vấn đề thêm trầm trọng. Để giảm thiểu hiệu ứng UHI, các nhà quy hoạch đô thị hiện đang thúc đẩy việc làm mái nhà màu trắng phản quang và mở rộng độ che phủ của tán cây dọc theo các tuyến phố.",
+            "translationQuestion": "Theo đoạn văn, nguyên nhân chính gây ra hiệu ứng Đảo nhiệt Đô thị là gì?",
+            "translationOptions": [
+                "A. Lượng mưa lớn bị giữ lại trên các con phố không thấm nước.",
+                "B. Việc trồng quá nhiều cây xanh dọc theo những con đường đô thị chật hẹp.",
+                "C. Việc sử dụng sơn trắng phản quang trên mái các tòa nhà thương mại.",
+                "D. Việc thay thế cây xanh bằng các vật liệu hấp thụ nhiệt như nhựa đường và bê tông."
+            ]
+        },
+        {
+            "passage": "Honeybees possess one of the most sophisticated communication systems in the insect world. When a scout bee discovers a rich patch of nectar-producing flowers, she returns to the hive and performs a specialized figure-eight movement known as the “waggle dance.” Austrian ethologist Karl von Frisch decoded this behavior in the 1940s. He discovered that the angle of the bee's dance relative to the vertical honeycomb indicates the direction of the food source in relation to the Sun. Meanwhile, the duration of the waggle run tells the other bees how far away the flowers are—the longer the bee waggles, the greater the distance to the food.",
+            "question": "How do **honeybees** communicate the **distance** to a food source?",
+            "options": [
+                "A. By flying in a circle around the Sun before returning to the hive.",
+                "B. Through the length of time they perform the waggle part of their dance.",
+                "C. By changing the angle of their wings on the vertical honeycomb.",
+                "D. By bringing flower petals back to the queen bee."
+            ],
+            "correctIdx": 1,
+            "explanation": "<strong>1. Áp dụng kỹ thuật Scanning:</strong><br>• <strong>Từ khóa:</strong> <em>communicate</em>, <em>distance</em>, <em>food source</em>.<br>• <strong>Định vị trong bài:</strong> Câu cuối cùng chứa từ <em>distance</em> và <em>how far away</em>: <em>“Meanwhile, the duration of the waggle run tells the other bees how far away the flowers are—the longer the bee waggles, the greater the distance to the food.”</em><br>• <strong>Đối chiếu Paraphrase:</strong> <em>the duration of the waggle run</em> = <em>the length of time they perform the waggle part of their dance</em> (khoảng thời gian chúng thực hiện phần lắc bụng trong điệu nhảy).<br>→ Đáp án đúng là <strong>B</strong>.<br><br><strong>2. Loại trừ phương án bẫy:</strong><br>• <strong>C — Sai (Bẫy nhầm thông tin):</strong> Góc của điệu nhảy (<em>the angle of the bee's dance</em>) ở câu 4 dùng để chỉ <em>phương hướng (direction)</em> chứ không phải khoảng cách (<em>distance</em>).<br>• <strong>A, D — Sai (Không được đề cập).</strong><hr style=\"margin: 16px 0; border: none; border-top: 1.5px dashed #cbd5e1;\"><div style=\"background: #e0f2fe; border-left: 4px solid #0ea5e9; padding: 14px 18px; border-radius: 12px; margin-top: 16px;\"><strong style=\"color: #0369a1; font-size: 1.05rem; display: flex; align-items: center; gap: 8px; margin-bottom: 10px;\"><i class=\"fa-solid fa-book-open\"></i> TỪ VỰNG HỮU ÍCH</strong><ul style=\"margin: 0; padding-left: 20px; color: #0369a1; line-height: 1.7; font-size: 0.95rem;\"><li><strong>sophisticated</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"sophisticated\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(adj) /səˈfɪs.tɪ.keɪ.tɪd/</span>: tinh vi, phức tạp</li><li><strong>scout bee</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"scout bee\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /skaʊt biː/</span>: ong trinh sát</li><li><strong>nectar</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"nectar\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˈnek.tər/</span>: mật hoa</li><li><strong>hive</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"hive\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /haɪv/</span>: tổ ong</li><li><strong>decode</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"decode\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(v) /diːˈkəʊd/</span>: giải mã</li><li><strong>honeycomb</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"honeycomb\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˈhʌn.i.kəʊm/</span>: tầng sáp ong</li><li><strong>duration</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"duration\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /djʊəˈreɪ.ʃən/</span>: khoảng thời gian kéo dài</li><li><strong>in relation to</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"in relation to\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(phr) /ɪn rɪˈleɪ.ʃən tuː/</span>: tương quan với, so với</li></ul></div>",
+            "translationPassage": "Ong mật sở hữu một trong những hệ thống giao tiếp tinh vi nhất trong thế giới côn trùng. Khi một con ong trinh sát phát hiện ra một đám hoa giàu mật, nó sẽ quay trở về tổ và thực hiện một chuyển động hình số tám đặc biệt được gọi là “điệu nhảy lắc bụng” (waggle dance). Nhà tập tính học người Áo Karl von Frisch đã giải mã hành vi này vào những năm 1940. Ông khám phá ra rằng góc nhảy của con ong so với tầng sáp thẳng đứng biểu thị phương hướng của nguồn thức ăn tương quan với Mặt Trời. Trong khi đó, thời lượng của nhịp chạy lắc bụng cho những con ong khác biết những bông hoa ở cách bao xa—ong lắc bụng càng lâu thì khoảng cách tới nguồn thức ăn càng lớn.",
+            "translationQuestion": "Ong mật truyền đạt thông tin về khoảng cách tới nguồn thức ăn bằng cách nào?",
+            "translationOptions": [
+                "A. Bằng cách bay thành vòng tròn quanh Mặt Trời trước khi quay về tổ.",
+                "B. Thông qua khoảng thời gian chúng thực hiện phần lắc bụng trong điệu nhảy.",
+                "C. Bằng cách thay đổi góc cánh của chúng trên tầng sáp thẳng đứng.",
+                "D. Bằng cách mang cánh hoa về cho ong chúa."
+            ]
+        },
+        {
+            "passage": "Every autumn, millions of monarch butterflies undertake a breathtaking 4,000-kilometer migration from Canada and the United States to the mountain forests of central Mexico. However, conservationists report that the eastern monarch population has declined by more than 80% over the past three decades. While severe weather and deforestation in Mexico contribute to this decline, scientists point out that the single greatest threat to the butterflies is the widespread destruction of milkweed plants across North American farmlands due to herbicide use. Because female monarchs lay their eggs exclusively on milkweed—and caterpillars feed on no other plant—the loss of milkweed directly halts their reproduction cycle.",
+            "question": "Why does the **destruction of milkweed plants** severely threaten **monarch butterflies**?",
+            "options": [
+                "A. Adult butterflies need milkweed nectar to survive the cold winter in Mexico.",
+                "B. Milkweed is the only plant where monarchs lay eggs and their caterpillars feed.",
+                "C. Milkweed protects butterflies from toxic herbicides on North American farms.",
+                "D. Monarchs use the scent of milkweed to navigate their 4,000-kilometer migration."
+            ],
+            "correctIdx": 1,
+            "explanation": "<strong>1. Áp dụng kỹ thuật Scanning (Tìm nguyên nhân “Why”):</strong><br>• <strong>Từ khóa:</strong> <em>destruction of milkweed plants</em>, <em>threaten monarch butterflies</em>.<br>• <strong>Định vị trong bài:</strong> Câu cuối cùng bắt đầu bằng từ chỉ nguyên nhân <em>“Because”</em>: <em>“Because female monarchs lay their eggs exclusively on milkweed—and caterpillars feed on no other plant—the loss of milkweed directly halts their reproduction cycle.”</em><br>• <strong>Đối chiếu Paraphrase:</strong> <em>lay their eggs exclusively on milkweed—and caterpillars feed on no other plant</em> = <em>Milkweed is the only plant where monarchs lay eggs and their caterpillars feed</em> (Bông tai là loài cây duy nhất mà bướm chúa đẻ trứng và sâu bướm ăn).<br>→ Đáp án đúng là <strong>B</strong>.<br><br><strong>2. Loại trừ phương án bẫy:</strong><br>• <strong>A, C, D — Sai (Bóp méo thông tin / Không được đề cập).</strong><hr style=\"margin: 16px 0; border: none; border-top: 1.5px dashed #cbd5e1;\"><div style=\"background: #e0f2fe; border-left: 4px solid #0ea5e9; padding: 14px 18px; border-radius: 12px; margin-top: 16px;\"><strong style=\"color: #0369a1; font-size: 1.05rem; display: flex; align-items: center; gap: 8px; margin-bottom: 10px;\"><i class=\"fa-solid fa-book-open\"></i> TỪ VỰNG HỮU ÍCH</strong><ul style=\"margin: 0; padding-left: 20px; color: #0369a1; line-height: 1.7; font-size: 0.95rem;\"><li><strong>undertake</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"undertake\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(v) /ˌʌn.dəˈteɪk/</span>: thực hiện (hành trình, nhiệm vụ)</li><li><strong>migration</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"migration\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /maɪˈɡreɪ.ʃən/</span>: sự di cư</li><li><strong>conservationist</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"conservationist\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˌkɒn.səˈveɪ.ʃən.ɪst/</span>: nhà bảo tồn thiên nhiên</li><li><strong>deforestation</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"deforestation\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /diːˌfɒr.ɪˈsteɪ.ʃən/</span>: nạn phá rừng</li><li><strong>herbicide</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"herbicide\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˈhɜː.bɪ.saɪd/</span>: thuốc diệt cỏ</li><li><strong>exclusively</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"exclusively\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(adv) /ɪkˈskluː.sɪv.li/</span>: duy nhất, chỉ dành riêng</li><li><strong>caterpillar</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"caterpillar\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˈkæt.ə.pɪl.ər/</span>: sâu bướm</li><li><strong>halt</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"halt\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(v) /hɒlt/</span>: làm ngưng trệ, chặn đứng</li><li><strong>reproduction cycle</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"reproduction cycle\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˌriː.prəˈdʌk.ʃən ˈsaɪ.kəl/</span>: chu kỳ sinh sản</li></ul></div>",
+            "translationPassage": "Mỗi mùa thu, hàng triệu con bướm chúa lại thực hiện cuộc di cư ngoạn mục dài 4.000 km từ Canada và Hoa Kỳ đến những cánh rừng núi ở miền trung Mexico. Tuy nhiên, các nhà bảo tồn báo cáo rằng quần thể bướm chúa phía đông đã suy giảm hơn 80% trong ba thập kỷ qua. Mặc dù thời tiết khắc nghiệt và nạn phá rừng ở Mexico góp phần vào sự suy giảm này, các nhà khoa học chỉ ra rằng mối đe dọa lớn nhất đối với loài bướm này là sự xóa sổ hàng loạt cây bông tai (milkweed) trên khắp các vùng đất nông nghiệp Bắc Mỹ do việc sử dụng thuốc diệt cỏ. Bởi vì bướm chúa cái chỉ đẻ trứng duy nhất trên cây bông tai—và sâu bướm cũng không ăn bất kỳ loài cây nào khác—sự biến mất của cây bông tai trực tiếp làm ngưng trệ chu kỳ sinh sản của chúng.",
+            "translationQuestion": "Tại sao sự phá hủy cây bông tai (milkweed) lại đe dọa nghiêm trọng đến loài bướm chúa?",
+            "translationOptions": [
+                "A. Bướm trưởng thành cần mật hoa bông tai để sống sót qua mùa đông lạnh giá ở Mexico.",
+                "B. Cây bông tai là loài thực vật duy nhất mà bướm chúa đẻ trứng và sâu bướm của chúng làm thức ăn.",
+                "C. Cây bông tai bảo vệ bướm khỏi thuốc diệt cỏ độc hại trên các trang trại ở Bắc Mỹ.",
+                "D. Bướm chúa dùng mùi hương của cây bông tai để định hướng trong hành trình di cư dài 4.000 km."
+            ]
+        },
+        {
+            "passage": "Located primarily in the state of Wyoming, Yellowstone was established in 1872 as the world's first national park. The park is famous for its dramatic geothermal features, including over 500 active geysers and vibrant hot springs. Because Yellowstone is also home to free-ranging predators and large mammals, strict safety regulations are enforced for the four million tourists who visit annually. Visitors are legally required to stay at least 100 yards (91 meters) away from bears and wolves, and at least 25 yards away from all other wildlife, including bison and elk. Furthermore, staying on designated wooden boardwalks in hydrothermal areas is mandatory, as the thin ground crust covers boiling acidic water. Feeding any wild animal is strictly prohibited to prevent wildlife from becoming aggressive toward humans.",
+            "question": "According to the passage, all of the following are safety rules for visitors in **Yellowstone** EXCEPT ___________.",
+            "options": [
+                "A. keeping a distance of at least 100 yards from bears and wolves",
+                "B. walking only on marked boardwalks in geothermal areas",
+                "C. swimming in warm hot springs during the summer months",
+                "D. not giving food to any wild animals in the park"
+            ],
+            "correctIdx": 2,
+            "explanation": "<strong>1. Áp dụng kỹ thuật Scanning cho câu hỏi phủ định (EXCEPT):</strong><br>• <strong>Từ khóa:</strong> <em>safety rules</em> (được paraphrase trong bài là <em>strict safety regulations</em>).<br>• <strong>Định vị & Đối chiếu 4 phương án từ câu thứ 4 đến câu cuối:</strong><br>  – <strong>A có trong bài:</strong> <em>“stay at least 100 yards (91 meters) away from bears and wolves”</em> (giữ khoảng cách ít nhất 100 thước Anh với gấu và sói).<br>  – <strong>B có trong bài:</strong> <em>“staying on designated wooden boardwalks in hydrothermal areas is mandatory”</em> (bắt buộc đi trên lối đi lát gỗ được chỉ định ở vùng thủy nhiệt).<br>  – <strong>D có trong bài:</strong> <em>“Feeding any wild animal is strictly prohibited”</em> (nghiêm cấm cho động vật hoang dã ăn).<br>  – <strong>C KHÔNG có trong bài (và trái với cảnh báo nguy hiểm):</strong> Bài nói lớp vỏ đất mỏng che phủ nước axit sôi (<em>boiling acidic water</em>), hoàn toàn không có quy định cho phép bơi trong suối nước nóng → <strong>Chọn C</strong>.<hr style=\"margin: 16px 0; border: none; border-top: 1.5px dashed #cbd5e1;\"><div style=\"background: #e0f2fe; border-left: 4px solid #0ea5e9; padding: 14px 18px; border-radius: 12px; margin-top: 16px;\"><strong style=\"color: #0369a1; font-size: 1.05rem; display: flex; align-items: center; gap: 8px; margin-bottom: 10px;\"><i class=\"fa-solid fa-book-open\"></i> TỪ VỰNG HỮU ÍCH</strong><ul style=\"margin: 0; padding-left: 20px; color: #0369a1; line-height: 1.7; font-size: 0.95rem;\"><li><strong>geyser</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"geyser\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˈɡiː.zər/</span>: mạch nước phun</li><li><strong>hot spring</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"hot spring\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˌhɒt ˈsprɪŋ/</span>: suối nước nóng</li><li><strong>free-ranging predator</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"free-ranging predator\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˌfriːˈreɪn.dʒɪŋ ˈpred.ə.tər/</span>: thú săn mồi tự do</li><li><strong>enforce</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"enforce\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(v) /ɪnˈfɔːs/</span>: thực thi, áp dụng nghiêm ngặt</li><li><strong>designated</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"designated\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(adj) /ˈdez.ɪɡ.neɪ.tɪd/</span>: được chỉ định, có đánh dấu</li><li><strong>boardwalk</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"boardwalk\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˈbɔːd.wɔːk/</span>: lối đi lát ván gỗ</li><li><strong>mandatory</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"mandatory\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(adj) /ˈmæn.də.tər.i/</span>: bắt buộc</li><li><strong>strictly prohibited</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"strictly prohibited\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(phr) /ˈstrɪkt.li prəˈhɪb.ɪ.tɪd/</span>: bị nghiêm cấm hoàn toàn</li></ul></div>",
+            "translationPassage": "Nằm chủ yếu ở bang Wyoming, Yellowstone được thành lập vào năm 1872 với tư cách là vườn quốc gia đầu tiên trên thế giới. Công viên này nổi tiếng với các đặc điểm địa nhiệt kỳ vĩ, bao gồm hơn 500 mạch nước phun đang hoạt động và những suối nước nóng rực rỡ sắc màu. Bởi vì Yellowstone cũng là nơi sinh sống của các loài thú săn mồi tự do và động vật có vú cỡ lớn, các quy định an toàn nghiêm ngặt được thực thi đối với bốn triệu du khách ghé thăm hàng năm. Du khách được pháp luật yêu cầu phải giữ khoảng cách ít nhất 100 thước Anh (91 mét) với gấu và chó sói, và ít nhất 25 thước Anh với tất cả các loài động vật hoang dã khác, bao gồm bò rừng bison và nai sừng tấm. Hơn nữa, việc đi trên các lối đi lát ván gỗ được chỉ định tại các khu vực thủy nhiệt là bắt buộc, vì lớp vỏ mặt đất mỏng bên trên che phủ dòng nước có tính axit đang sôi bên dưới. Việc cho bất kỳ động vật hoang dã nào ăn đều bị nghiêm cấm hoàn toàn nhằm ngăn thú rừng trở nên hung dữ với con người.",
+            "translationQuestion": "Theo đoạn văn, tất cả những điều sau đây đều là quy tắc an toàn dành cho du khách tại Yellowstone NGOẠI TRỪ ___________.",
+            "translationOptions": [
+                "A. giữ khoảng cách ít nhất 100 thước Anh với gấu và chó sói",
+                "B. chỉ đi bộ trên các lối đi lát gỗ có đánh dấu tại các khu vực địa nhiệt",
+                "C. bơi lội trong các suối nước nóng ấm áp vào những tháng mùa hè",
+                "D. không cho bất kỳ loài động vật hoang dã nào trong công viên ăn"
+            ]
+        },
+        {
+            "passage": "Before the invention of mechanical refrigeration in the mid-19th century, preserving food for long periods was a constant struggle for human civilizations. Ancient societies developed several ingenious methods to prevent meat, fish, and vegetables from spoiling. Drying food under the hot sun or over smoky fires removed moisture that bacteria needed to grow. In coastal regions, heavily salting fish and pork drew out water from microbial cells, allowing sailors to carry provisions on months-long ocean voyages. Fermentation—using beneficial bacteria to convert sugars into acids or alcohol—created long-lasting staples such as kimchi in Korea, sauerkraut in Germany, and cheese across Europe. In cold northern climates, people also buried meat in underground ice pits during the winter.",
+            "question": "Which of the following **traditional food preservation methods** is NOT mentioned in the passage?",
+            "options": [
+                "A. Removing moisture by drying food in the sun or smoke",
+                "B. Using large amounts of salt to preserve fish and meat",
+                "C. Sealing cooked food inside airtight glass jars",
+                "D. Fermenting food to produce items like cheese and kimchi"
+            ],
+            "correctIdx": 2,
+            "explanation": "<strong>1. Áp dụng kỹ thuật Scanning cho câu hỏi phủ định (NOT mentioned):</strong><br>• <strong>Định vị & Đối chiếu các phương pháp bảo quản thực phẩm trong bài:</strong><br>  – <strong>A có trong bài (Câu 3):</strong> <em>“Drying food under the hot sun or over smoky fires removed moisture...”</em> (Phơi khô dưới nắng hoặc hun khói để loại bỏ độ ẩm).<br>  – <strong>B có trong bài (Câu 4):</strong> <em>“heavily salting fish and pork drew out water...”</em> (Ướp nhiều muối vào cá và thịt lợn).<br>  – <strong>D có trong bài (Câu 5):</strong> <em>“Fermentation... created long-lasting staples such as kimchi in Korea, sauerkraut in Germany, and cheese across Europe.”</em> (Lên men tạo ra kim chi, dưa cải muối và phô mai).<br>  – <strong>C (Đóng kín thức ăn chín trong lọ thủy tinh kín khí):</strong> Hoàn toàn KHÔNG được nhắc đến trong bài → <strong>Chọn C</strong>.<hr style=\"margin: 16px 0; border: none; border-top: 1.5px dashed #cbd5e1;\"><div style=\"background: #e0f2fe; border-left: 4px solid #0ea5e9; padding: 14px 18px; border-radius: 12px; margin-top: 16px;\"><strong style=\"color: #0369a1; font-size: 1.05rem; display: flex; align-items: center; gap: 8px; margin-bottom: 10px;\"><i class=\"fa-solid fa-book-open\"></i> TỪ VỰNG HỮU ÍCH</strong><ul style=\"margin: 0; padding-left: 20px; color: #0369a1; line-height: 1.7; font-size: 0.95rem;\"><li><strong>mechanical refrigeration</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"mechanical refrigeration\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /məˈkæn.ɪ.kəl rɪˌfrɪdʒ.əˈreɪ.ʃən/</span>: kỹ thuật làm lạnh cơ học</li><li><strong>preserve</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"preserve\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(v) /prɪˈzɜːv/</span>: bảo quản</li><li><strong>ingenious</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"ingenious\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(adj) /ɪnˈdʒiː.ni.əs/</span>: khéo léo, tài tình</li><li><strong>spoil</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"spoil\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(v) /spɔɪl/</span>: bị hỏng, ôi thiu (thức ăn)</li><li><strong>moisture</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"moisture\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˈmɔɪs.tʃər/</span>: độ ẩm</li><li><strong>microbial cell</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"microbial cell\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /maɪˈkrəʊ.bi.əl sel/</span>: tế bào vi sinh vật</li><li><strong>provisions</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"provisions\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /prəˈvɪʒ.ənz/</span>: lương thực dự trữ</li><li><strong>fermentation</strong> <i class=\"fa-solid fa-volume-high vocab-audio-btn\" data-word=\"fermentation\" style=\"cursor: pointer; color: #3b82f6; margin-left: 6px; font-size: 0.95rem;\" title=\"Nghe phát âm\"></i> <span style=\"color: #64748b; font-size: 0.9rem; margin-left: 4px; font-weight: 500;\">(n) /ˌfɜː.menˈteɪ.ʃən/</span>: sự lên men</li></ul></div>",
+            "translationPassage": "Trước khi kỹ thuật làm lạnh cơ học được phát minh vào giữa thế kỷ 19, việc bảo quản thực phẩm trong thời gian dài là một cuộc vật lộn thường trực đối với các nền văn minh nhân loại. Các xã hội cổ đại đã phát triển nhiều phương pháp tài tình để ngăn thịt, cá và rau củ bị ôi thiu. Việc phơi khô thực phẩm dưới ánh nắng gay gắt hoặc trên những bếp lửa nhiều khói giúp loại bỏ độ ẩm mà vi khuẩn cần để sinh sôi. Ở các vùng ven biển, việc ướp thật nhiều muối vào cá và thịt lợn giúp rút nước khỏi các tế bào vi sinh vật, cho phép các thủy thủ mang theo lương thực dự trữ trong những chuyến hải trình kéo dài hàng tháng trời. Lên men—sử dụng lợi khuẩn để chuyển hóa đường thành axit hoặc cồn—đã tạo ra những món ăn để được lâu như kim chi ở Hàn Quốc, dưa cải muối ở Đức và phô mai trên khắp châu Âu. Ở những vùng khí hậu phía bắc lạnh giá, người ta còn chôn thịt trong các hố băng ngầm suốt mùa đông.",
+            "translationQuestion": "Phương pháp bảo quản thực phẩm truyền thống nào dưới đây KHÔNG được đề cập trong đoạn văn?",
+            "translationOptions": [
+                "A. Loại bỏ độ ẩm bằng cách phơi khô thực phẩm dưới nắng hoặc hun khói",
+                "B. Sử dụng một lượng lớn muối để bảo quản cá và thịt",
+                "C. Đóng kín thực phẩm đã nấu chín bên trong các lọ thủy tinh kín khí",
+                "D. Lên men thực phẩm để tạo ra các sản phẩm như phô mai và kim chi"
+            ]
+        }
+    ]
+};
+
+const skillPracticeStates = {
+    skimming: {
+        skillId: 'skimming',
+        title: 'I. KỸ NĂNG SKIMMING (ĐỌC LƯỚT NHANH)',
+        prefix: 'skim',
+        containerId: 'skimming-practices-list',
+        secId: 'sec-skimming',
+        theoryTabId: 'tab-skim-theory',
+        practiceTabId: 'tab-skim-practice',
+        total: 10,
+        results: []
+    },
+    scanning: {
+        skillId: 'scanning',
+        title: 'II. KỸ NĂNG SCANNING (ĐỌC QUÉT NHANH)',
+        prefix: 'scan',
+        containerId: 'scanning-practices-list',
+        secId: 'sec-scanning',
+        theoryTabId: 'tab-scan-theory',
+        practiceTabId: 'tab-scan-practice',
+        total: 10,
+        results: []
+    }
+};
+
+function switchSkillTab(skillKey, targetPanelId) {
+    try {
+        playSound('click');
+        const info = skillPracticeStates[skillKey];
+        if (!info) return;
+        const secEl = document.getElementById(info.secId);
+        if (!secEl) return;
+
+        const tabBtns = secEl.querySelectorAll('.tabs-nav .tab-btn');
+        const tabPanels = secEl.querySelectorAll('.tabs-container > .tab-panel');
+
+        tabBtns.forEach(btn => {
+            if (btn.getAttribute('data-skill-tab') === targetPanelId) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+
+        tabPanels.forEach(panel => {
+            if (panel.id === targetPanelId) {
+                panel.classList.add('active');
+            } else {
+                panel.classList.remove('active');
+            }
+        });
+
+        if (targetPanelId === info.practiceTabId) {
+            updateSkillPracticeDashboard(skillKey);
+        }
+    } catch (e) {
+        console.error('Error switching skill tab:', e);
+    }
+}
+window.switchSkillTab = switchSkillTab;
+
+function updateSkillPracticeDashboard(skillKey) {
+    const info = skillPracticeStates[skillKey];
+    if (!info) return;
+    const pfx = info.prefix;
+    const results = info.results;
+    const total = info.total;
+    const attemptedCount = results.filter(r => r.attempted).length;
+    const correctCount = results.filter(r => r.attempted && r.isCorrect).length;
+    const wrongCount = attemptedCount - correctCount;
+    const accuracy = attemptedCount > 0 ? Math.round((correctCount / attemptedCount) * 100) : 0;
+
+    const elCompleted = document.getElementById(`stat-${pfx}-completed`);
+    const elCorrect = document.getElementById(`stat-${pfx}-correct`);
+    const elWrong = document.getElementById(`stat-${pfx}-wrong`);
+    const elAccuracy = document.getElementById(`stat-${pfx}-accuracy`);
+    const elCounter = document.getElementById(`${pfx}-btn-counter`);
+    const elTag = document.getElementById(`${pfx}-live-status-tag`);
+
+    if (elCompleted) elCompleted.textContent = `${attemptedCount} / ${total}`;
+    if (elCorrect) elCorrect.textContent = `${correctCount} câu`;
+    if (elWrong) elWrong.textContent = `${wrongCount} câu`;
+    if (elAccuracy) elAccuracy.textContent = `${accuracy}%`;
+    if (elCounter) elCounter.textContent = `${attemptedCount}/${total}`;
+
+    if (elTag) {
+        if (attemptedCount === 0) {
+            elTag.textContent = "Chưa làm";
+            elTag.style.background = "#f1f5f9";
+            elTag.style.color = "#64748b";
+        } else if (attemptedCount < total) {
+            elTag.textContent = `Đang làm (${attemptedCount}/${total})`;
+            elTag.style.background = "#e0e7ff";
+            elTag.style.color = "#4338ca";
+        } else {
+            elTag.textContent = "Đã hoàn thành 100%";
+            elTag.style.background = "#dcfce7";
+            elTag.style.color = "#15803d";
+        }
+    }
+}
+
+function openSkillPracticeReport(skillKey) {
+    const info = skillPracticeStates[skillKey];
+    if (!info) return;
+    currentDangPracticeState = {
+        dangId: info.skillId,
+        dangTitle: info.title,
+        total: info.total,
+        results: info.results
+    };
+    openPracticeReportModal();
+
+    const btnCloseX = document.getElementById('btn-close-report-modal-x');
+    if (btnCloseX) btnCloseX.onclick = closePracticeReportModal;
+    const btnContinue = document.getElementById('btn-report-modal-continue');
+    if (btnContinue) btnContinue.onclick = closePracticeReportModal;
+    const btnRetry = document.getElementById('btn-report-modal-retry');
+    if (btnRetry) {
+        btnRetry.onclick = () => {
+            closePracticeReportModal();
+            resetSkillPractice(skillKey);
+        };
+    }
+    const btnTheory = document.getElementById('btn-report-modal-theory');
+    if (btnTheory) {
+        btnTheory.onclick = () => {
+            closePracticeReportModal();
+            switchSkillTab(skillKey, info.theoryTabId);
+        };
+    }
+}
+window.openSkillPracticeReport = openSkillPracticeReport;
+
+function resetSkillPractice(skillKey) {
+    playSound('click');
+    if (confirm("Bạn có chắc chắn muốn làm lại tất cả 10 bài tập của kỹ năng này từ đầu không?")) {
+        renderSkillPractices(skillKey);
+    }
+}
+window.resetSkillPractice = resetSkillPractice;
+
+function renderSkillPractices(skillKey) {
+    try {
+        const info = skillPracticeStates[skillKey];
+        const practices = skillPracticesData[skillKey];
+        if (!info || !practices) return;
+
+        info.total = practices.length;
+        info.results = Array(practices.length).fill(null).map(() => ({
+            attempted: false,
+            selectedIdx: -1,
+            isCorrect: false,
+            correctIdx: -1
+        }));
+        updateSkillPracticeDashboard(skillKey);
+
+        const practicesContainer = document.getElementById(info.containerId);
+        if (!practicesContainer) return;
+        practicesContainer.innerHTML = '';
+
+        practices.forEach((prac, pIdx) => {
+            const card = document.createElement('div');
+            card.className = 'mini-practice-card';
+            card.innerHTML = `
+                <div class="practice-header">PRACTICE ${(pIdx + 1).toString().padStart(2, '0')}</div>
+                <div class="practice-passage">${prac.passage}</div>
+                <p class="practice-question">${highlightQuestionKeywords(prac.question)}</p>
+                <div class="mini-options"></div>
+                <button class="primary-btn btn-sm hidden check-practice-btn" style="margin-top: 12px; width: 100%; padding: 8px; border: none; font-weight: bold; background: var(--primary-color); color: white; border-radius: 12px; cursor: pointer;">KIỂM TRA (CHECK)</button>
+                <div class="mini-feedback hidden" style="margin-top: 12px;"></div>
+                <div class="translation-box hidden" style="margin-top: 12px; padding: 10px; border-radius: var(--radius-sm); border: 1.5px dashed var(--border-color); background: var(--primary-light);"></div>
+            `;
+
+            const optionsContainer = card.querySelector('.mini-options');
+            const feedbackEl = card.querySelector('.mini-feedback');
+            const transBox = card.querySelector('.translation-box');
+            const checkBtn = card.querySelector('.check-practice-btn');
+
+            prac.options.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'mini-option';
+                const cleanText = opt.replace(/^[A-D]\.\s*/, '');
+                btn.textContent = `${String.fromCharCode(65 + idx)}. ${cleanText}`;
+
+                btn.addEventListener('click', () => {
+                    playSound('click');
+                    optionsContainer.querySelectorAll('.mini-option').forEach(b => b.classList.remove('selected'));
+                    btn.classList.add('selected');
+                    card.dataset.selectedIdx = idx;
+                    checkBtn.classList.remove('hidden');
+                });
+                optionsContainer.appendChild(btn);
+            });
+
+            checkBtn.addEventListener('click', () => {
+                const idx = parseInt(card.dataset.selectedIdx);
+                if (isNaN(idx)) return;
+
+                checkBtn.classList.add('hidden');
+                optionsContainer.querySelectorAll('.mini-option').forEach(b => b.setAttribute('disabled', 'true'));
+
+                const isCorrect = (idx === prac.correctIdx);
+                let statusBadge = "";
+                if (isCorrect) {
+                    playSound('success');
+                    optionsContainer.children[idx].classList.add('correct');
+                    statusBadge = `<div class="ans-badge" style="background: var(--success-color); color: white; display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 8px; font-size: 0.82rem; font-weight: bold; margin-bottom: 10px;"><i class="fa-solid fa-circle-check"></i> CHÍNH XÁC (CORRECT)</div>`;
+                    state.miniPractices.completedCount++;
+                    updateProgress();
+                } else {
+                    playSound('fail');
+                    optionsContainer.children[idx].classList.add('incorrect');
+                    optionsContainer.children[prac.correctIdx].classList.add('correct');
+                    statusBadge = `<div class="ans-badge" style="background: var(--error-color); color: white; display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 8px; font-size: 0.82rem; font-weight: bold; margin-bottom: 10px;"><i class="fa-solid fa-circle-xmark"></i> CHƯA CHÍNH XÁC (INCORRECT)</div>`;
+                }
+
+                info.results[pIdx] = {
+                    attempted: true,
+                    selectedIdx: idx,
+                    isCorrect: isCorrect,
+                    correctIdx: prac.correctIdx
+                };
+                updateSkillPracticeDashboard(skillKey);
+
+                const completedAll = info.results.every(r => r.attempted);
+                if (completedAll) {
+                    if (skillKey === 'skimming') state.progress.skimmingTheory = true;
+                    if (skillKey === 'scanning') state.progress.scanningTheory = true;
+                    updateProgress();
+                    setTimeout(() => {
+                        openSkillPracticeReport(skillKey);
+                    }, 800);
+                }
+
+                feedbackEl.innerHTML = `
+                    ${statusBadge}
+                    <h5 class="theory-explain-title" style="margin-top: 4px; margin-bottom: 8px; font-weight: 700; font-size: 0.9rem; color: var(--text-color); display: flex; align-items: center; gap: 6px;"><i class="fa-solid fa-wand-magic-sparkles" style="color: var(--primary-color);"></i> PHÂN TÍCH & GIẢI THÍCH CHI TIẾT</h5>
+                    <div style="font-size: 0.9rem; line-height: 1.5; color: var(--text-color); font-weight: normal; text-align: justify;">
+                        ${highlightStrategyText(prac.explanation)}
+                    </div>
+                `;
+                feedbackEl.className = 'mini-feedback-premium';
+                feedbackEl.classList.remove('hidden');
+
+                transBox.classList.remove('hidden');
+                const translatedPassage = prac.translationPassage || prac.passage;
+                const translatedQuestion = prac.translationQuestion || prac.question;
+                const translatedOptions = prac.translationOptions || prac.options.map(opt => opt.replace(/^[A-D]\.\s*/, ''));
+
+                transBox.innerHTML = `
+                    <h5 style="font-weight: 700; color: var(--primary-color); margin-bottom: 8px; font-size: 0.9rem; display: flex; align-items: center; gap: 6px;"><i class="fa-solid fa-language"></i> BẢN DỊCH CHI TIẾT (TRANSLATIONS)</h5>
+                    <div style="margin-bottom: 8px; font-size: 0.85rem; line-height: 1.4;">
+                        <strong>Dịch câu hỏi:</strong> ${typeof translatedQuestion === 'string' ? translatedQuestion.replace(/\*\*([^\*]+)\*\*/g, '<strong>$1</strong>') : translatedQuestion}
+                    </div>
+                    <div style="margin-bottom: 8px; font-size: 0.85rem; line-height: 1.4;">
+                        <strong>Dịch các phương án lựa chọn:</strong>
+                        <ul style="list-style: none; padding-left: 10px; margin-top: 4px; margin-bottom: 0;">
+                            ${translatedOptions.map((optTrans, optIdx) => {
+                                const isOptCorrect = optIdx === prac.correctIdx;
+                                const letter = String.fromCharCode(65 + optIdx);
+                                const transText = optTrans.replace(/^[A-D]\s*[\.\s-]\s*/i, '');
+                                if (isOptCorrect) {
+                                    return `<li style="color: var(--success-color); font-weight: bold; margin-bottom: 4px;"><i class="fa-solid fa-circle-check" style="font-size: 0.75rem;"></i> ${letter}. ${transText}</li>`;
+                                } else {
+                                    return `<li style="color: var(--text-muted); margin-bottom: 4px;"><i class="fa-solid fa-circle" style="font-size: 0.35rem; vertical-align: middle; margin-right: 4px;"></i> ${letter}. ${transText}</li>`;
+                                }
+                            }).join('')}
+                        </ul>
+                    </div>
+                    <div style="font-size: 0.85rem; border-top: 1px solid rgba(0,0,0,0.06); padding-top: 6px; line-height: 1.4; text-align: justify;">
+                        <strong>Dịch đoạn văn:</strong><br/>
+                        <span style="color: var(--text-muted); font-style: italic;">${translatedPassage}</span>
+                    </div>
+                `;
+            });
+            practicesContainer.appendChild(card);
+        });
+    } catch (err) {
+        console.error('Error rendering skill practices:', err);
+    }
+}
 
 // Global Tab Switcher for Chapter 2 Dạng tabs (Lý Thuyết & Luyện Tập Phản Xạ)
 function switchDangTab(targetPanelId) {
