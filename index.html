@@ -13276,6 +13276,9 @@ const classStudentRosters = {
         "Thị Thu Trinh",
         "Nguyễn Thị Mỹ Xuyên",
         "Nguyễn Như Ý"
+    ],
+    'B2': [
+        "Gia Tuệ"
     ]
 };
 
@@ -13307,6 +13310,7 @@ window.switchSection = function(sectionName, element) {
 // Class password & unlock level configuration:
 // Levels: 0.5 (Chương 01: Skimming & Scanning), 1-8 (Dạng 01 - 08), 9 (RP 01), 10 (RP 02), 11 (RP 03), 12 (RP 04), 13 (Mock Test), 99 (Full Access / Teacher)
 const passwordConfig = {
+    'B2': 99,
     'CB219': 0.5,
     'HEMINGWAY': 1,
     'B212': 8,
@@ -13358,7 +13362,7 @@ function initStudentProfile() {
             return;
         }
 
-        // Kiểm tra danh sách học viên bắt buộc cho lớp CB219 (từ thư mục CLASSES)
+        // Kiểm tra danh sách học viên bắt buộc cho lớp CB219 và B2 (từ thư mục CLASSES)
         let finalStudentName = nameVal;
         if (cleanClass === 'CB219') {
             const roster = classStudentRosters['CB219'];
@@ -13367,6 +13371,17 @@ function initStudentProfile() {
                 playSound('fail');
                 elements.nameInput.style.borderColor = 'var(--error-color)';
                 alert(`❌ Họ tên "${nameVal}" không nằm trong danh sách học viên lớp CB219!\n\nVui lòng kiểm tra và nhập đúng Họ và Tên theo danh sách lớp (Ví dụ: Lưu Thị Vân Anh, Nguyễn Tuấn Anh,...).`);
+                elements.nameInput.focus();
+                return;
+            }
+            finalStudentName = matchedName;
+        } else if (cleanClass === 'B2') {
+            const roster = classStudentRosters['B2'];
+            const matchedName = findStudentInRoster(nameVal, roster);
+            if (!matchedName) {
+                playSound('fail');
+                elements.nameInput.style.borderColor = 'var(--error-color)';
+                alert(`❌ Họ tên "${nameVal}" không nằm trong danh sách học viên lớp B2!\n\nVui lòng kiểm tra và nhập đúng Họ và Tên theo danh sách lớp (Ví dụ: Gia Tuệ).`);
                 elements.nameInput.focus();
                 return;
             }
@@ -13397,6 +13412,9 @@ function initStudentProfile() {
                 const classGrantedLevel = passwordConfig[cleanClass];
                 if (classGrantedLevel > state.unlockedLevel) {
                     state.unlockedLevel = classGrantedLevel;
+                    if (classGrantedLevel >= 99) {
+                        state.unlockedAll = true;
+                    }
                     if (window.updateLockStatus) {
                         window.updateLockStatus(classGrantedLevel);
                     }
