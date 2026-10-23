@@ -13519,10 +13519,8 @@ function initSidebarNav() {
                 let reqLevel = 99;
                 if (link.dataset.section === 'trang-chu') {
                     reqLevel = 0;
-                } else if (['skimming-theory', 'scanning-theory'].includes(link.dataset.section)) {
+                } else if (['skimming-theory', 'scanning-theory', 'skimming-practice', 'scanning-practice'].includes(link.dataset.section)) {
                     reqLevel = 0.5;
-                } else if (['skimming-practice', 'scanning-practice'].includes(link.dataset.section)) {
-                    reqLevel = 0.8;
                 } else if (link.dataset.dangId) {
                     reqLevel = parseInt(link.dataset.dangId.replace('dang-', ''), 10);
                 } else if (link.dataset.section === 'mock-test') {
@@ -13558,11 +13556,7 @@ function initSidebarNav() {
                     } else if (grantedLevel !== -1) {
                         playSound('fail');
                         if (cleanPass === 'CB219') {
-                            if (['skimming-practice', 'scanning-practice'].includes(link.dataset.section)) {
-                                alert(`❌ Lớp ${cleanPass} mới học xong phần Lý thuyết Chương 01. Phần Bài tập luyện tập phản xạ tạm thời khóa!`);
-                            } else {
-                                alert(`❌ Lớp ${cleanPass} mới học xong CHƯƠNG 01 (Kỹ năng đọc: Skimming & Scanning). Các chương tiếp theo chưa học đến nên tạm thời khóa!`);
-                            }
+                            alert(`❌ Lớp ${cleanPass} mới học xong CHƯƠNG 01 (Kỹ năng đọc: Skimming & Scanning). Các chương tiếp theo chưa học đến nên tạm thời khóa!`);
                         } else if (['CB211', 'ONB103'].includes(cleanPass)) {
                             alert(`❌ Lớp ${cleanPass} chỉ được mở khóa tới Reading Mock Test. Nội dung này chưa được mở!`);
                         } else if (cleanPass === 'CB213') {
@@ -18658,10 +18652,8 @@ document.addEventListener('DOMContentLoaded', () => {
             let reqLevel = 99;
             if (link.dataset.section === 'trang-chu') {
                 reqLevel = 0;
-            } else if (['skimming-theory', 'scanning-theory'].includes(link.dataset.section)) {
+            } else if (['skimming-theory', 'scanning-theory', 'skimming-practice', 'scanning-practice'].includes(link.dataset.section)) {
                 reqLevel = 0.5;
-            } else if (['skimming-practice', 'scanning-practice'].includes(link.dataset.section)) {
-                reqLevel = 0.8;
             } else if (link.dataset.dangId) {
                 reqLevel = parseInt(link.dataset.dangId.replace('dang-', ''), 10);
             } else if (link.dataset.section === 'mock-test') {
@@ -18699,7 +18691,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const practiceTabBtns = document.querySelectorAll('[data-skill-tab="tab-skim-practice"], [data-skill-tab="tab-scan-practice"]');
         practiceTabBtns.forEach(btn => {
             let lockSpan = btn.querySelector('.tab-lock-icon');
-            if (level < 0.8) {
+            if (level < 0.5) {
                 if (!lockSpan) {
                     lockSpan = document.createElement('span');
                     lockSpan.className = 'tab-lock-icon';
@@ -19926,10 +19918,10 @@ function switchSkillTab(skillKey, targetPanelId) {
         const info = skillPracticeStates[skillKey];
         if (!info) return;
 
-        // Check if switching to practice tab while locked for CB219 (level < 0.8)
-        if (targetPanelId === info.practiceTabId && (state.unlockedLevel < 0.8)) {
+        // Check if switching to practice tab while unauthenticated (level < 0.5)
+        if (targetPanelId === info.practiceTabId && (state.unlockedLevel < 0.5)) {
             playSound('fail');
-            alert("🔐 Phần Luyện tập phản xạ tạm thời khóa đối với lớp CB219 do chưa học đến. Giáo viên sẽ mở sau buổi học!");
+            alert("🔐 Vui lòng đăng nhập với mã lớp học để mở bài tập luyện tập phản xạ!");
             return;
         }
 
