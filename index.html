@@ -13311,7 +13311,7 @@ window.switchSection = function(sectionName, element) {
 // Levels: 0.5 (Chương 01: Skimming & Scanning), 1-8 (Dạng 01 - 08), 9 (RP 01), 10 (RP 02), 11 (RP 03), 12 (RP 04), 13 (Mock Test), 99 (Full Access / Teacher)
 const passwordConfig = {
     'B2': 99,
-    'CB219': 0.5,
+    'CB219': 1,
     'HEMINGWAY': 1,
     'B212': 8,
     'CB211': 13,
@@ -13555,9 +13555,7 @@ function initSidebarNav() {
                         link.click();
                     } else if (grantedLevel !== -1) {
                         playSound('fail');
-                        if (cleanPass === 'CB219') {
-                            alert(`❌ Lớp ${cleanPass} mới học xong CHƯƠNG 01 (Kỹ năng đọc: Skimming & Scanning). Các chương tiếp theo chưa học đến nên tạm thời khóa!`);
-                        } else if (['CB211', 'ONB103'].includes(cleanPass)) {
+                        if (['CB211', 'ONB103'].includes(cleanPass)) {
                             alert(`❌ Lớp ${cleanPass} chỉ được mở khóa tới Reading Mock Test. Nội dung này chưa được mở!`);
                         } else if (cleanPass === 'CB213') {
                             alert(`❌ Lớp ${cleanPass} chỉ được mở khóa tới Reading Practice 04. Nội dung này chưa được mở!`);
