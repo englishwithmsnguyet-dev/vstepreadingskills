@@ -1,0 +1,9 @@
+*.py
+*.txt
+*.docx
+*.scpt
+temp*
+old_*.html
+original_*.html
+index_*.html
+dang05_theory_dump.html
