@@ -2,8 +2,12 @@
 *.txt
 *.docx
 *.scpt
+*.json
 temp*
 old_*.html
 original_*.html
 index_*.html
 dang05_theory_dump.html
+BAI_TAP_*.html
+check_*.js
+test_*.js
