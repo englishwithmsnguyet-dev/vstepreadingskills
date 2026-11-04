@@ -5791,7 +5791,7 @@ body.dark-theme .login-footer-signature a:hover {
    READING COMPETENCE FRAMEWORK (TỔNG QUAN NĂNG LỰC ĐỌC)
    ======================================================== */
 .rc-overview-section {
-    margin-top: 28px;
+    margin-top: 0;
     padding: 36px 28px;
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
@@ -11554,10 +11554,14 @@ const mockTestPassages = [
 <span class="progress-percentage" id="progress-text">0% Hoàn thành</span>
 </div>
 <ul class="nav-links">
-<!-- Trang Chu -->
+<!-- Trang Chu & Tong Quan -->
 <li class="lesson-group active" style="margin-bottom: 12px;">
 <ul class="sub-nav-links" style="padding-left: 0;">
 <li><a class="sub-tab-link active" data-section="trang-chu" href="#sec-trang-chu">
+<span class="sub-icon"><i class="fa-solid fa-house"></i></span>
+<span class="sub-text">TRANG CHỦ</span>
+</a></li>
+<li><a class="sub-tab-link" data-section="tong-quan" href="#sec-tong-quan">
 <span class="sub-icon"><i class="fa-solid fa-compass"></i></span>
 <span class="sub-text">TỔNG QUAN</span>
 </a></li>
@@ -11821,10 +11825,21 @@ const mockTestPassages = [
 <li><i class="fa-solid fa-circle-check text-green" style="margin-right: 8px; color: var(--success-color);"></i> Ôn tập phản xạ từ vựng bằng game ghép từ đồng nghĩa và Trả bài chính tả nâng cao.</li>
 </ul>
 </div>
+<div style="margin-top: 28px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+    <button class="rc-cta-btn primary" onclick="switchSection('tong-quan', this)" style="padding: 12px 24px; font-size: 0.95rem; border-radius: 999px; background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%); color: white; border: none; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35); transition: transform 0.2s, box-shadow 0.2s;">
+        <i class="fa-solid fa-compass"></i> Khám Phá 5 Yếu Tố Cốt Lõi Năng Lực Đọc <i class="fa-solid fa-arrow-right"></i>
+    </button>
+    <button class="rc-cta-btn secondary" onclick="switchSection('skimming-theory', this)" style="padding: 12px 24px; font-size: 0.95rem; border-radius: 999px; background: var(--surface-color, #ffffff); color: var(--primary-color, #6366f1); border: 2px solid var(--primary-color, #6366f1); font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: all 0.2s;">
+        <i class="fa-solid fa-book-open"></i> Vào Học Chương 01 <i class="fa-solid fa-arrow-right"></i>
+    </button>
+</div>
 </section>
+</div>
 
+<!-- SECTION: Tong Quan (5 Core Components of Reading Competence) -->
+<div class="content-section hidden" id="sec-tong-quan">
     <!-- MODULE: 5 Core Components of Reading Competence -->
-    <section class="lesson-section glass-panel rc-overview-section">
+    <section class="lesson-section glass-panel rc-overview-section" style="margin-top: 0;">
         <div class="rc-section-header">
             <div class="rc-badge"><i class="fa-solid fa-bullseye"></i> VSTEP READING COMPETENCE FRAMEWORK</div>
             <h2 class="rc-main-title">5 CORE COMPONENTS OF READING COMPETENCE</h2>
@@ -14581,7 +14596,7 @@ function initSidebarNav() {
                 e.stopPropagation();
                 
                 let reqLevel = 99;
-                if (link.dataset.section === 'trang-chu') {
+                if (link.dataset.section === 'trang-chu' || link.dataset.section === 'tong-quan') {
                     reqLevel = 0;
                 } else if (['skimming-theory', 'scanning-theory', 'skimming-practice', 'scanning-practice'].includes(link.dataset.section)) {
                     reqLevel = 0.5;
@@ -19712,7 +19727,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const links = document.querySelectorAll('.sub-tab-link');
         links.forEach(link => {
             let reqLevel = 99;
-            if (link.dataset.section === 'trang-chu') {
+            if (link.dataset.section === 'trang-chu' || link.dataset.section === 'tong-quan') {
                 reqLevel = 0;
             } else if (['skimming-theory', 'scanning-theory', 'skimming-practice', 'scanning-practice'].includes(link.dataset.section)) {
                 reqLevel = 0.5;
