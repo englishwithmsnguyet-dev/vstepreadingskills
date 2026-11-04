@@ -5773,6 +5773,478 @@ body.dark-theme .login-footer-signature a:hover {
     color: #38bdf8;
 }
 
+
+/* ========================================================
+   READING COMPETENCE FRAMEWORK (TỔNG QUAN NĂNG LỰC ĐỌC)
+   ======================================================== */
+.rc-overview-section {
+    margin-top: 28px;
+    padding: 36px 28px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.rc-section-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.rc-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(168, 85, 247, 0.12) 100%);
+    border: 1.5px solid rgba(99, 102, 241, 0.3);
+    color: var(--primary-color);
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.rc-main-title {
+    font-size: 1.85rem;
+    font-weight: 900;
+    color: var(--text-color);
+    margin: 0 0 8px 0;
+    line-height: 1.3;
+    letter-spacing: -0.5px;
+}
+
+.rc-sub-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 0 0 14px 0;
+}
+
+.rc-lead-desc {
+    font-size: 1.02rem;
+    line-height: 1.8;
+    color: var(--text-muted);
+    max-width: 820px;
+    margin: 0 auto;
+}
+
+/* 5 Components Cards Grid */
+.rc-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+    margin-bottom: 36px;
+}
+
+@media (max-width: 900px) {
+    .rc-cards-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.rc-card {
+    background: var(--surface-solid);
+    border: 1.5px solid var(--border-color);
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.rc-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.rc-card.card-vocab { border-top: 4px solid #3b82f6; }
+.rc-card.card-grammar { border-top: 4px solid #10b981; }
+.rc-card.card-skills { border-top: 4px solid #f59e0b; }
+.rc-card.card-background { border-top: 4px solid #8b5cf6; }
+.rc-card.card-logic { border-top: 4px solid #f43f5e; }
+
+.rc-card.span-full {
+    grid-column: 1 / -1;
+}
+
+.rc-card-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 12px;
+    padding-bottom: 14px;
+    border-bottom: 1px dashed var(--border-color);
+}
+
+.rc-card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    flex-shrink: 0;
+}
+
+.card-vocab .rc-card-icon { background: rgba(59, 130, 246, 0.12); color: #2563eb; }
+.card-grammar .rc-card-icon { background: rgba(16, 185, 129, 0.12); color: #059669; }
+.card-skills .rc-card-icon { background: rgba(245, 158, 11, 0.12); color: #d97706; }
+.card-background .rc-card-icon { background: rgba(139, 92, 246, 0.12); color: #7c3aed; }
+.card-logic .rc-card-icon { background: rgba(244, 63, 94, 0.12); color: #e11d48; }
+
+.rc-card-title-group h3 {
+    margin: 0;
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--text-color);
+    line-height: 1.35;
+}
+
+.rc-card-title-group span {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.rc-card-role-desc {
+    font-size: 0.93rem;
+    color: var(--text-muted);
+    font-style: italic;
+    line-height: 1.6;
+    margin: 0 0 16px 0;
+}
+
+.rc-item-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.rc-item-list.two-col-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 18px;
+}
+
+@media (max-width: 768px) {
+    .rc-item-list.two-col-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+.rc-item-list li {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-color);
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.rc-bullet-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    margin-top: 8px;
+    flex-shrink: 0;
+}
+
+.card-vocab .rc-bullet-dot { background: #3b82f6; }
+.card-grammar .rc-bullet-dot { background: #10b981; }
+.card-skills .rc-bullet-dot { background: #f59e0b; }
+.card-background .rc-bullet-dot { background: #8b5cf6; }
+.card-logic .rc-bullet-dot { background: #f43f5e; }
+
+.rc-item-term {
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.rc-item-trans {
+    color: var(--text-muted);
+}
+
+/* Background Knowledge Topic Tags */
+.rc-topic-tags-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.rc-topic-tag {
+    background: rgba(139, 92, 246, 0.08);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    border-radius: 10px;
+    padding: 8px 10px;
+    font-size: 0.86rem;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 600;
+}
+
+.rc-topic-tag i {
+    color: #8b5cf6;
+    font-size: 0.9rem;
+}
+
+.rc-purpose-callout {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.08) 0%, rgba(99, 102, 241, 0.08) 100%);
+    border-left: 3.5px solid #8b5cf6;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: var(--text-color);
+    margin-top: auto;
+}
+
+/* 5 Elements Flowchart Diagram */
+.rc-diagram-section {
+    background: var(--surface-solid);
+    border: 1.5px solid var(--border-color);
+    border-radius: 24px;
+    padding: 32px 24px;
+    margin-top: 36px;
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+}
+
+.rc-diagram-header {
+    margin-bottom: 28px;
+}
+
+.rc-diagram-header h3 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--text-color);
+    margin: 0 0 8px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.rc-diagram-header p {
+    font-size: 0.98rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.rc-flow-container {
+    max-width: 760px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.rc-flow-box {
+    width: 100%;
+    padding: 18px 24px;
+    border-radius: 14px;
+    font-weight: 700;
+    text-align: center;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+    box-sizing: border-box;
+}
+
+.rc-flow-box:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+}
+
+.rc-flow-box .box-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    margin-bottom: 4px;
+    display: block;
+}
+
+.rc-flow-box .box-sub {
+    font-size: 0.92rem;
+    font-weight: 500;
+    opacity: 0.95;
+    display: block;
+}
+
+/* Light Mode Flow Colors */
+.rc-flow-vocab {
+    background: #e0f2fe;
+    border: 1.5px solid #bae6fd;
+    color: #0369a1;
+}
+
+.rc-flow-grammar {
+    background: #ecfdf5;
+    border: 1.5px solid #a7f3d0;
+    color: #047857;
+}
+
+.rc-flow-skills {
+    background: #fef3c7;
+    border: 1.5px solid #fde68a;
+    color: #b45309;
+}
+
+.rc-flow-bg {
+    background: #f3e8ff;
+    border: 1.5px solid #e9d5ff;
+    color: #6b21a8;
+}
+
+.rc-flow-logic {
+    background: #ffe4e6;
+    border: 1.5px solid #fecdd3;
+    color: #be123c;
+}
+
+.rc-flow-target {
+    background: #ffffff;
+    border: 2.5px solid #10b981;
+    color: #047857;
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.18);
+}
+
+.rc-flow-target .box-title {
+    color: #059669;
+    font-size: 1.28rem;
+    letter-spacing: 0.5px;
+}
+
+.rc-flow-target .box-sub {
+    color: #10b981;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.rc-flow-connector {
+    color: #94a3b8;
+    font-size: 1.25rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    margin: 2px 0;
+}
+
+.rc-flow-row-dual {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+    .rc-flow-row-dual {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Dark Mode Overrides for Flowchart */
+body.dark-mode .rc-flow-vocab {
+    background: rgba(30, 58, 138, 0.3);
+    border-color: rgba(59, 130, 246, 0.5);
+    color: #93c5fd;
+}
+
+body.dark-mode .rc-flow-grammar {
+    background: rgba(6, 78, 59, 0.3);
+    border-color: rgba(16, 185, 129, 0.5);
+    color: #6ee7b7;
+}
+
+body.dark-mode .rc-flow-skills {
+    background: rgba(120, 53, 15, 0.3);
+    border-color: rgba(245, 158, 11, 0.5);
+    color: #fde68a;
+}
+
+body.dark-mode .rc-flow-bg {
+    background: rgba(88, 28, 135, 0.3);
+    border-color: rgba(139, 92, 246, 0.5);
+    color: #d8b4fe;
+}
+
+body.dark-mode .rc-flow-logic {
+    background: rgba(136, 19, 55, 0.3);
+    border-color: rgba(244, 63, 94, 0.5);
+    color: #fecdd3;
+}
+
+body.dark-mode .rc-flow-target {
+    background: rgba(6, 78, 59, 0.4);
+    border-color: #10b981;
+    color: #34d399;
+}
+
+body.dark-mode .rc-flow-target .box-title {
+    color: #34d399;
+}
+
+body.dark-mode .rc-flow-target .box-sub {
+    color: #6ee7b7;
+}
+
+/* Call to action section */
+.rc-cta-container {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 36px;
+    flex-wrap: wrap;
+}
+
+.rc-cta-btn {
+    padding: 14px 28px;
+    border-radius: 14px;
+    font-weight: 800;
+    font-size: 1rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.rc-cta-btn.primary {
+    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
+}
+
+.rc-cta-btn.secondary {
+    background: var(--surface-solid);
+    border: 1.5px solid var(--border-color);
+    color: var(--text-color);
+    box-shadow: var(--shadow-sm);
+}
+
+.rc-cta-btn:hover {
+    transform: translateY(-2px);
+}
+
 </style>
 
 
@@ -11073,8 +11545,8 @@ const mockTestPassages = [
 <li class="lesson-group active" style="margin-bottom: 12px;">
 <ul class="sub-nav-links" style="padding-left: 0;">
 <li><a class="sub-tab-link active" data-section="trang-chu" href="#sec-trang-chu">
-<span class="sub-icon"><i class="fa-solid fa-house"></i></span>
-<span class="sub-text">TRANG CHỦ</span>
+<span class="sub-icon"><i class="fa-solid fa-compass"></i></span>
+<span class="sub-text">TỔNG QUAN</span>
 </a></li>
 </ul>
 </li>
@@ -11335,6 +11807,274 @@ const mockTestPassages = [
 </ul>
 </div>
 </section>
+
+    <!-- MODULE: 5 Core Components of Reading Competence -->
+    <section class="lesson-section glass-panel rc-overview-section">
+        <div class="rc-section-header">
+            <div class="rc-badge"><i class="fa-solid fa-bullseye"></i> VSTEP READING COMPETENCE FRAMEWORK</div>
+            <h2 class="rc-main-title">5 CORE COMPONENTS OF READING COMPETENCE</h2>
+            <div class="rc-sub-title">5 Yếu Tố Cốt Lõi Cấu Thành Năng Lực Đọc Hiểu Tiếng Anh (B1 - B2 - C1)</div>
+            <p class="rc-lead-desc">
+                Để làm chủ bài thi Đọc hiểu VSTEP và phát triển năng lực đọc học thuật thực tế, học viên cần rèn luyện và phối hợp đồng bộ <strong>5 thành tố cốt lõi</strong>: từ vựng &amp; nhận diện diễn đạt lại, kiến thức ngữ pháp nền tảng, kỹ năng đọc chiến thuật, vốn kiến thức nền phong phú và tư duy logic phản biện.
+            </p>
+        </div>
+
+        <!-- 5 Components Cards Grid -->
+        <div class="rc-cards-grid">
+            <!-- 1. Vocabulary & Paraphrasing -->
+            <div class="rc-card card-vocab">
+                <div class="rc-card-header">
+                    <div class="rc-card-icon"><i class="fa-solid fa-spell-check"></i></div>
+                    <div class="rc-card-title-group">
+                        <h3>1. Vocabulary &amp; Paraphrasing</h3>
+                        <span>Từ vựng &amp; Nhận diện diễn đạt lại</span>
+                    </div>
+                </div>
+                <p class="rc-card-role-desc">Nền móng ngôn ngữ quyết định trực tiếp khả năng thấu hiểu nội dung và nhận diện bẫy đáp án.</p>
+                <ul class="rc-item-list">
+                    <li>
+                        <span class="rc-bullet-dot"></span>
+                        <div><strong class="rc-item-term">Vocabulary range:</strong> <span class="rc-item-trans">Vốn từ vựng rộng theo các chủ điểm học thuật và đời sống.</span></div>
+                    </li>
+                    <li>
+                        <span class="rc-bullet-dot"></span>
+                        <div><strong class="rc-item-term">Synonyms &amp; antonyms:</strong> <span class="rc-item-trans">Từ đồng nghĩa và trái nghĩa (chìa khóa bẻ khóa câu hỏi và phương án chọn).</span></div>
+                    </li>
+                    <li>
+                        <span class="rc-bullet-dot"></span>
+                        <div><strong class="rc-item-term">Collocations:</strong> <span class="rc-item-trans">Các cụm từ cố định thường đi cùng nhau theo quy chuẩn tự nhiên của người bản xứ.</span></div>
+                    </li>
+                    <li>
+                        <span class="rc-bullet-dot"></span>
+                        <div><strong class="rc-item-term">Word formation:</strong> <span class="rc-item-trans">Cấu tạo từ (gốc từ, tiền tố, hậu tố; chuyển đổi linh hoạt danh - động - tính - trạng).</span></div>
+                    </li>
+                    <li>
+                        <span class="rc-bullet-dot"></span>
+                        <div><strong class="rc-item-term">Paraphrasing recognition:</strong> <span class="rc-item-trans">Nhận diện cách diễn đạt lại (thay thế từ đồng nghĩa, chuyển đổi cấu trúc câu).</span></div>
+                    </li>
+                    <li>
+                        <span class="rc-bullet-dot"></span>
+                        <div><strong class="rc-item-term">Guessing meaning from context:</strong> <span class="rc-item-trans">Đoán nghĩa từ vựng mới dựa vào ngữ cảnh và các dấu hiệu trong câu.</span></div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 2. Grammar Knowledge -->
+            <div class="rc-card card-grammar">
+                <div class="rc-card-header">
+                    <div class="rc-card-icon"><i class="fa-solid fa-diagram-project"></i></div>
+                    <div class="rc-card-title-group">
+                        <h3>2. Grammar Knowledge</h3>
+                        <span>Kiến thức ngữ pháp</span>
+                    </div>
+                </div>
+                <p class="rc-card-role-desc">Bộ khung logic giúp bẻ khóa câu dài, phân tích mệnh đề phức và hiểu đúng mạch liên kết câu.</p>
+                <ul class="rc-item-list">
+                    <li>
+                        <span class="rc-bullet-dot"></span>
+                        <div><strong class="rc-item-term">Sentence structures:</strong> <span class="rc-item-trans">Cấu trúc câu cơ bản và nâng cao (S-V-O, S-V-C, câu đảo ngữ, câu chẻ nhấn mạnh).</span></div>
+                    </li>
+                    <li>
+                        <span class="rc-bullet-dot"></span>
+                        <div><strong class="rc-item-term">Parts of speech:</strong> <span class="rc-item-trans">Từ loại và chức năng ngữ pháp (Danh từ, Động từ, Tính từ, Trạng từ, Giới từ).</span></div>
+                    </li>
+                    <li>
+                        <span class="rc-bullet-dot"></span>
+                        <div><strong class="rc-item-term">Tenses &amp; passive voice:</strong> <span class="rc-item-trans">Các thì ngữ pháp và cấu trúc câu bị động học thuật.</span></div>
+                    </li>
+                    <li>
+                        <span class="rc-bullet-dot"></span>
+                        <div><strong class="rc-item-term">Relative clauses:</strong> <span class="rc-item-trans">Mệnh đề quan hệ (who, which, that...) và các dạng rút gọn (V-ing, V-ed, to-V).</span></div>
+                    </li>
+                    <li>
+                        <span class="rc-bullet-dot"></span>
+                        <div><strong class="rc-item-term">Conjunctions &amp; linking words:</strong> <span class="rc-item-trans">Liên từ và từ nối tạo tính liên kết mạch lạc (cohesive devices).</span></div>
+                    </li>
+                    <li>
+                        <span class="rc-bullet-dot"></span>
+                        <div><strong class="rc-item-term">Pronoun references:</strong> <span class="rc-item-trans">Đại từ quy chiếu và từ thay thế ngữ cảnh (it, they, this, that, these, such...).</span></div>
+                    </li>
+                    <li>
+                        <span class="rc-bullet-dot"></span>
+                        <div><strong class="rc-item-term">Complex sentences:</strong> <span class="rc-item-trans">Câu phức và câu ghép với các mệnh đề phụ thuộc quan hệ logic.</span></div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 3. Reading Skills (Span Full Grid) -->
+            <div class="rc-card card-skills span-full">
+                <div class="rc-card-header">
+                    <div class="rc-card-icon"><i class="fa-solid fa-book-open-reader"></i></div>
+                    <div class="rc-card-title-group">
+                        <h3>3. Reading Skills</h3>
+                        <span>Kỹ năng đọc hiểu chiến thuật</span>
+                    </div>
+                </div>
+                <p class="rc-card-role-desc">Phương pháp tiếp cận bài đọc tốc độ và khoa học, giúp tiết kiệm thời gian và tối ưu độ chuẩn xác.</p>
+                <ul class="rc-item-list two-col-list">
+                    <li>
+                        <span class="rc-bullet-dot"></span>
+                        <div><strong class="rc-item-term">Skimming:</strong> <span class="rc-item-trans">Đọc lướt nhanh để nắm bắt ý chính (Main idea), cấu trúc bài và chủ đề tổng quát.</span></div>
+                    </li>
+                    <li>
+                        <span class="rc-bullet-dot"></span>
+                        <div><strong class="rc-item-term">Scanning:</strong> <span class="rc-item-trans">Đọc quét định vị nhanh từ khóa (keywords), tên riêng, số liệu, thuật ngữ trong văn bản.</span></div>
+                    </li>
+                    <li>
+                        <span class="rc-bullet-dot"></span>
+                        <div><strong class="rc-item-term">Reading for specific information:</strong> <span class="rc-item-trans">Đọc tìm kiếm các dữ kiện cụ thể theo yêu cầu của từng câu hỏi.</span></div>
+                    </li>
+                    <li>
+                        <span class="rc-bullet-dot"></span>
+                        <div><strong class="rc-item-term">Reading for detailed information:</strong> <span class="rc-item-trans">Đọc hiểu chi tiết và phân tích sâu sắc thái các câu văn chứa đáp án.</span></div>
+                    </li>
+                    <li>
+                        <span class="rc-bullet-dot"></span>
+                        <div><strong class="rc-item-term">Identifying main ideas:</strong> <span class="rc-item-trans">Xác định chuẩn xác câu chủ đề (Topic sentence) và ý chính của từng đoạn văn.</span></div>
+                    </li>
+                    <li>
+                        <span class="rc-bullet-dot"></span>
+                        <div><strong class="rc-item-term">Identifying references:</strong> <span class="rc-item-trans">Nhận diện chính xác đối tượng mà đại từ quy chiếu đang đại diện.</span></div>
+                    </li>
+                    <li>
+                        <span class="rc-bullet-dot"></span>
+                        <div><strong class="rc-item-term">Understanding writer's purpose:</strong> <span class="rc-item-trans">Hiểu mục đích viết (thuyết phục, thông tin, cảnh báo) và thái độ/giọng điệu tác giả.</span></div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 4. Background Knowledge -->
+            <div class="rc-card card-background">
+                <div class="rc-card-header">
+                    <div class="rc-card-icon"><i class="fa-solid fa-earth-americas"></i></div>
+                    <div class="rc-card-title-group">
+                        <h3>4. Background Knowledge</h3>
+                        <span>Kiến thức nền (Schema Theory)</span>
+                    </div>
+                </div>
+                <p class="rc-card-role-desc">Vốn hiểu biết về thế giới giúp kích hoạt sơ đồ nhận thức, dự đoán nội dung và đọc hiểu tự tin.</p>
+                <div class="rc-topic-tags-grid">
+                    <div class="rc-topic-tag"><i class="fa-solid fa-graduation-cap"></i> <span>Education (Giáo dục)</span></div>
+                    <div class="rc-topic-tag"><i class="fa-solid fa-seedling"></i> <span>Environment (Môi trường)</span></div>
+                    <div class="rc-topic-tag"><i class="fa-solid fa-microchip"></i> <span>Technology (Công nghệ)</span></div>
+                    <div class="rc-topic-tag"><i class="fa-solid fa-heart-pulse"></i> <span>Health (Y tế &amp; Sức khỏe)</span></div>
+                    <div class="rc-topic-tag"><i class="fa-solid fa-flask"></i> <span>Science (Khoa học)</span></div>
+                    <div class="rc-topic-tag"><i class="fa-solid fa-people-group"></i> <span>Society &amp; Culture (Xã hội)</span></div>
+                    <div class="rc-topic-tag"><i class="fa-solid fa-landmark"></i> <span>History (Lịch sử)</span></div>
+                    <div class="rc-topic-tag"><i class="fa-solid fa-person-running"></i> <span>Lifestyle (Lối sống)</span></div>
+                </div>
+                <div class="rc-purpose-callout">
+                    <i class="fa-solid fa-lightbulb" style="color: #8b5cf6; margin-right: 6px;"></i>
+                    <strong>Mục tiêu cốt lõi:</strong> Giúp học viên hiểu sâu bối cảnh, chủ động dự đoán nội dung và kết nối các dữ kiện trong bài đọc với vốn hiểu biết sẵn có, giảm thiểu áp lực khi gặp từ mới.
+                </div>
+            </div>
+
+            <!-- 5. Logical Thinking -->
+            <div class="rc-card card-logic">
+                <div class="rc-card-header">
+                    <div class="rc-card-icon"><i class="fa-solid fa-brain"></i></div>
+                    <div class="rc-card-title-group">
+                        <h3>5. Logical Thinking</h3>
+                        <span>Tư duy logic &amp; Phân tích</span>
+                    </div>
+                </div>
+                <p class="rc-card-role-desc">Khả năng suy luận, liên kết logic và phân biệt bản chất thông tin để không bị bẫy bởi phương án gây nhiễu.</p>
+                <ul class="rc-item-list">
+                    <li>
+                        <span class="rc-bullet-dot"></span>
+                        <div><strong class="rc-item-term">Cause and effect:</strong> <span class="rc-item-trans">Nhận diện mối quan hệ Nguyên nhân và Kết quả.</span></div>
+                    </li>
+                    <li>
+                        <span class="rc-bullet-dot"></span>
+                        <div><strong class="rc-item-term">Comparison and contrast:</strong> <span class="rc-item-trans">Đối chiếu quan hệ So sánh tương đồng và Tương phản khác biệt.</span></div>
+                    </li>
+                    <li>
+                        <span class="rc-bullet-dot"></span>
+                        <div><strong class="rc-item-term">Fact and opinion:</strong> <span class="rc-item-trans">Phân biệt rạch ròi Sự thật khách quan và Quan điểm chủ quan.</span></div>
+                    </li>
+                    <li>
+                        <span class="rc-bullet-dot"></span>
+                        <div><strong class="rc-item-term">Main ideas vs. details:</strong> <span class="rc-item-trans">Phân định rõ Ý chính (Luận điểm) và Ý bổ trợ (Minh chứng, số liệu).</span></div>
+                    </li>
+                    <li>
+                        <span class="rc-bullet-dot"></span>
+                        <div><strong class="rc-item-term">Making inferences:</strong> <span class="rc-item-trans">Kỹ năng suy luận logic dựa trên các dữ kiện gián tiếp (Read between the lines).</span></div>
+                    </li>
+                    <li>
+                        <span class="rc-bullet-dot"></span>
+                        <div><strong class="rc-item-term">Connecting ideas:</strong> <span class="rc-item-trans">Xác định mối quan hệ logic xuyên suốt giữa các câu văn và các đoạn trong bài.</span></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 5 Elements Flowchart Diagram -->
+        <div class="rc-diagram-section">
+            <div class="rc-diagram-header">
+                <div class="rc-badge" style="background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.3); color: #059669;">
+                    <i class="fa-solid fa-network-wired"></i> COMPREHENSION FLOW MODEL
+                </div>
+                <h3><i class="fa-solid fa-arrows-split-up-and-left" style="color: #10b981;"></i> Mối quan hệ giữa 5 yếu tố</h3>
+                <p>Có thể hình dung quá trình đọc hiểu diễn ra theo mô hình phân tầng tương hỗ như sau:</p>
+            </div>
+            <div class="rc-flow-container">
+                <!-- Step 1: Vocabulary & Paraphrasing -->
+                <div class="rc-flow-box rc-flow-vocab">
+                    <span class="box-title">Vocabulary &amp; Paraphrasing</span>
+                    <span class="box-sub">Hiểu từ và nhận diện cách diễn đạt lại</span>
+                </div>
+
+                <div class="rc-flow-connector"><i class="fa-solid fa-plus"></i></div>
+
+                <!-- Step 2: Grammar -->
+                <div class="rc-flow-box rc-flow-grammar">
+                    <span class="box-title">Grammar</span>
+                    <span class="box-sub">Hiểu cấu trúc câu và quan hệ ngữ pháp</span>
+                </div>
+
+                <div class="rc-flow-connector"><i class="fa-solid fa-arrow-down"></i></div>
+
+                <!-- Step 3: Reading Skills -->
+                <div class="rc-flow-box rc-flow-skills">
+                    <span class="box-title">Reading Skills</span>
+                    <span class="box-sub">Xử lý và tìm kiếm thông tin trong văn bản</span>
+                </div>
+
+                <div class="rc-flow-connector"><i class="fa-solid fa-arrow-down"></i></div>
+
+                <!-- Step 4: Dual Box (Background Knowledge + Logical Thinking) -->
+                <div class="rc-flow-row-dual">
+                    <div class="rc-flow-box rc-flow-bg">
+                        <span class="box-title">Background Knowledge</span>
+                        <span class="box-sub">Hiểu bối cảnh &amp; chủ điểm</span>
+                    </div>
+                    <div class="rc-flow-box rc-flow-logic">
+                        <span class="box-title">Logical Thinking</span>
+                        <span class="box-sub">Phân tích và suy luận</span>
+                    </div>
+                </div>
+
+                <div class="rc-flow-connector"><i class="fa-solid fa-arrow-down"></i></div>
+
+                <!-- Step 5: Target Output -->
+                <div class="rc-flow-box rc-flow-target">
+                    <span class="box-title"><i class="fa-solid fa-circle-check" style="color: #10b981; margin-right: 8px;"></i> EFFECTIVE READING COMPREHENSION</span>
+                    <span class="box-sub">Đọc hiểu hiệu quả &amp; Chinh phục bài thi VSTEP</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Action Pathways -->
+        <div class="rc-cta-container">
+            <button class="rc-cta-btn primary" onclick="switchSection('skimming-theory', this)">
+                <i class="fa-solid fa-graduation-cap"></i> Bắt đầu Chương 01: Kỹ Năng Đọc (Skimming &amp; Scanning) <i class="fa-solid fa-arrow-right"></i>
+            </button>
+            <button class="rc-cta-btn secondary" onclick="switchSection('dang-01', this)">
+                <i class="fa-solid fa-list-check"></i> Khám phá 8 Dạng Câu Hỏi VSTEP <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </div>
+    </section>
+
 </div>
 <!-- SECTION: Skimming -->
 <div id="sec-skimming" class="content-section hidden">
