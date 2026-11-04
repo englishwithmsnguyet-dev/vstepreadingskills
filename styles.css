@@ -132,24 +132,34 @@ em, i {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2px;
+    gap: 3px;
 }
 
 .brand-text h3 {
     font-family: var(--font-ui);
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-weight: 800;
     color: var(--primary-color);
-    line-height: 1.2;
+    line-height: 1.25;
     margin: 0;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
 }
 
 .brand-text span {
-    font-size: 0.72rem;
-    letter-spacing: 2.5px;
-    color: var(--text-muted);
-    font-weight: 700;
+    font-family: var(--font-ui);
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    line-height: 1.25;
     margin: 0;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+body.dark-mode .brand-text h3,
+body.dark-mode .brand-text span {
+    color: #818cf8;
 }
 
 /* Progress Tracker Sidebar */
@@ -3442,12 +3452,15 @@ em, i {
 .galaxy-signature-btn {
     display: inline-block;
     font-family: var(--font-ui);
-    font-size: 2.1rem;
+    font-size: clamp(1.25rem, 3.2vw, 1.95rem);
     font-weight: 900;
     text-decoration: none;
-    letter-spacing: 2px;
-    padding: 14px 32px;
-    margin-top: 10px;
+    letter-spacing: 1.5px;
+    padding: 8px 20px;
+    margin-top: 8px;
+    white-space: nowrap;
+    max-width: 95vw;
+    box-sizing: border-box;
     background: linear-gradient(135deg, #ff007f, #7f00ff, #00f0ff, #ff007f);
     background-size: 300% 300%;
     -webkit-background-clip: text;

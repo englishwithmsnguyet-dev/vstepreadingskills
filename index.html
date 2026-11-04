@@ -150,24 +150,34 @@ em, i {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2px;
+    gap: 3px;
 }
 
 .brand-text h3 {
     font-family: var(--font-ui);
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-weight: 800;
     color: var(--primary-color);
-    line-height: 1.2;
+    line-height: 1.25;
     margin: 0;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
 }
 
 .brand-text span {
-    font-size: 0.72rem;
-    letter-spacing: 2.5px;
-    color: var(--text-muted);
-    font-weight: 700;
+    font-family: var(--font-ui);
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    line-height: 1.25;
     margin: 0;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+body.dark-mode .brand-text h3,
+body.dark-mode .brand-text span {
+    color: #818cf8;
 }
 
 /* Progress Tracker Sidebar */
@@ -3548,12 +3558,15 @@ em, i {
 .galaxy-signature-btn {
     display: inline-block;
     font-family: var(--font-ui);
-    font-size: 2.1rem;
+    font-size: clamp(1.25rem, 3.2vw, 1.95rem);
     font-weight: 900;
     text-decoration: none;
-    letter-spacing: 2px;
-    padding: 14px 32px;
-    margin-top: 10px;
+    letter-spacing: 1.5px;
+    padding: 8px 20px;
+    margin-top: 8px;
+    white-space: nowrap;
+    max-width: 95vw;
+    box-sizing: border-box;
     background: linear-gradient(135deg, #ff007f, #7f00ff, #00f0ff, #ff007f);
     background-size: 300% 300%;
     -webkit-background-clip: text;
@@ -11373,7 +11386,7 @@ const mockTestPassages = [
     }
 ];</script>
     <!-- Hệ Thống Chậu Hoa VSTEP 8 Loài Hoa -->
-    <link rel="stylesheet" href="flower_garden.css?v=20261104_v10">
+    <link rel="stylesheet" href="flower_garden.css?v=20261104_v11">
 </head>
 
 <body>
@@ -11791,10 +11804,12 @@ const mockTestPassages = [
 <img alt="English with Miss Nguyet" src="miss_nguyet.jpg" style="width: 120px; height: 120px; object-fit: cover; object-position: center 20%; border-radius: 50%; box-shadow: 0 8px 24px rgba(99, 102, 241, 0.25); border: 4px solid var(--surface-solid);"/>
 </div>
 <!-- Miss Nguyet Signature Title with Galaxy Gradient and Pulsing Animation -->
-<a class="galaxy-signature-btn" href="https://www.facebook.com/nguyetpham28" style="margin-bottom: 8px;" target="_blank">
-                        ENGLISH WITH MISS NGUYET
-                    </a>
-<h2 style="font-size: 0.95rem; letter-spacing: 2px; color: var(--text-muted); font-weight: 700; margin-bottom: 24px; text-transform: uppercase;">ENGLISH WITH MISS NGUYET</h2>
+<a class="galaxy-signature-btn" href="https://www.facebook.com/nguyetpham28" style="margin-bottom: 10px;" target="_blank" title="Ghé thăm Facebook English with Miss Nguyet">
+    ENGLISH WITH MISS NGUYET
+</a>
+<div style="font-size: 0.9rem; letter-spacing: 1.5px; color: var(--primary-color); font-weight: 800; margin-bottom: 22px; text-transform: uppercase;">
+    <i class="fa-solid fa-graduation-cap"></i> HỆ THỐNG LUYỆN TẬP PHẢN XẠ ĐỌC VSTEP
+</div>
 <p style="font-size: 1.12rem; color: var(--text-color); max-width: 600px; line-height: 1.8; margin: 0 auto 28px auto; font-style: italic;">
                         Chào mừng học viên đến với hệ thống luyện tập phản xạ đọc VSTEP! Nhấp chọn bài học từ thanh menu bên trái để bắt đầu bài học của bạn.
                     </p>
@@ -23631,7 +23646,7 @@ function renderMatchCompletionFanfare() {
 </div>
 
     <!-- Hệ Thống Chậu Hoa VSTEP & Tích Luỹ Nước Nỗ Lực -->
-    <script src="flower_definitions.js?v=20261104_v10"></script>
-    <script src="flower_garden.js?v=20261104_v10"></script>
+    <script src="flower_definitions.js?v=20261104_v11"></script>
+    <script src="flower_garden.js?v=20261104_v11"></script>
 </body>
 </html>
