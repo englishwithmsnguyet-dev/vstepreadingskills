@@ -14356,6 +14356,23 @@ const classStudentRosters = {
         "Nguyễn Thị Mỹ Xuyên",
         "Nguyễn Như Ý"
     ],
+    'CB220': [
+        "Lý Quốc Dũng",
+        "Phan Minh Khôi",
+        "Huỳnh Văn My",
+        "Mai Thúy Ngân",
+        "Võ Huỳnh Thảo Nguyên",
+        "Đặng Dũ Nguyên",
+        "Nguyễn Gia Nguyễn",
+        "Trương Thị Thảo Như",
+        "Huỳnh Nhật Phát",
+        "Nguyễn Huỳnh Thanh Sơn",
+        "Thái Nhựt Thịnh",
+        "Trần Nguyễn Huỳnh Trâm",
+        "Nguyễn Thị Tường Vi",
+        "Lê Tường Vy",
+        "Bùi Ngọc Như Ý"
+    ],
     'B2': [
         "Gia Tuệ"
     ]
@@ -14390,6 +14407,7 @@ window.switchSection = function(sectionName, element) {
 // Levels: 0.5 (Chương 01: Skimming & Scanning), 1-8 (Dạng 01 - 08), 9 (RP 01), 10 (RP 02), 11 (RP 03), 12 (RP 04), 13 (Mock Test), 99 (Full Access / Teacher)
 const passwordConfig = {
     'B2': 99,
+    'CB220': 0.5,
     'CB219': 1,
     'HEMINGWAY': 1,
     'B212': 8,
@@ -14441,7 +14459,7 @@ function initStudentProfile() {
             return;
         }
 
-        // Kiểm tra danh sách học viên bắt buộc cho lớp CB219 và B2 (từ thư mục CLASSES)
+        // Kiểm tra danh sách học viên bắt buộc cho lớp CB219, CB220 và B2 (từ thư mục CLASSES)
         let finalStudentName = nameVal;
         if (cleanClass === 'CB219') {
             const roster = classStudentRosters['CB219'];
@@ -14450,6 +14468,17 @@ function initStudentProfile() {
                 playSound('fail');
                 elements.nameInput.style.borderColor = 'var(--error-color)';
                 alert(`❌ Họ tên "${nameVal}" không nằm trong danh sách học viên lớp CB219!\n\nVui lòng kiểm tra và nhập đúng Họ và Tên theo danh sách lớp (Ví dụ: Lưu Thị Vân Anh, Nguyễn Tuấn Anh,...).`);
+                elements.nameInput.focus();
+                return;
+            }
+            finalStudentName = matchedName;
+        } else if (cleanClass === 'CB220') {
+            const roster = classStudentRosters['CB220'];
+            const matchedName = findStudentInRoster(nameVal, roster);
+            if (!matchedName) {
+                playSound('fail');
+                elements.nameInput.style.borderColor = 'var(--error-color)';
+                alert(`❌ Họ tên "${nameVal}" không nằm trong danh sách học viên lớp CB220!\n\nVui lòng kiểm tra và nhập đúng Họ và Tên theo danh sách lớp (Ví dụ: Lý Quốc Dũng, Phan Minh Khôi,...).`);
                 elements.nameInput.focus();
                 return;
             }
@@ -14598,8 +14627,10 @@ function initSidebarNav() {
                 let reqLevel = 99;
                 if (link.dataset.section === 'trang-chu' || link.dataset.section === 'tong-quan') {
                     reqLevel = 0;
-                } else if (['skimming-theory', 'scanning-theory', 'skimming-practice', 'scanning-practice'].includes(link.dataset.section)) {
+                } else if (['skimming-theory', 'scanning-theory'].includes(link.dataset.section)) {
                     reqLevel = 0.5;
+                } else if (['skimming-practice', 'scanning-practice'].includes(link.dataset.section)) {
+                    reqLevel = 0.8;
                 } else if (link.dataset.dangId) {
                     reqLevel = parseInt(link.dataset.dangId.replace('dang-', ''), 10);
                 } else if (link.dataset.section === 'mock-test') {
@@ -14634,7 +14665,13 @@ function initSidebarNav() {
                         link.click();
                     } else if (grantedLevel !== -1) {
                         playSound('fail');
-                        if (['CB211', 'ONB103'].includes(cleanPass)) {
+                        if (cleanPass === 'CB220') {
+                            if (['skimming-practice', 'scanning-practice'].includes(link.dataset.section)) {
+                                alert(`❌ Lớp ${cleanPass} mới học xong phần Lý thuyết Chương 01. Phần Bài tập luyện tập phản xạ tạm thời khóa!`);
+                            } else {
+                                alert(`❌ Lớp ${cleanPass} mới học Chương 01 (Kỹ năng đọc: Skimming & Scanning). Các dạng câu hỏi khác chưa học đến nên tạm thời khóa!`);
+                            }
+                        } else if (['CB211', 'ONB103'].includes(cleanPass)) {
                             alert(`❌ Lớp ${cleanPass} chỉ được mở khóa tới Reading Mock Test. Nội dung này chưa được mở!`);
                         } else if (cleanPass === 'CB213') {
                             alert(`❌ Lớp ${cleanPass} chỉ được mở khóa tới Reading Practice 04. Nội dung này chưa được mở!`);
@@ -19729,8 +19766,10 @@ document.addEventListener('DOMContentLoaded', () => {
             let reqLevel = 99;
             if (link.dataset.section === 'trang-chu' || link.dataset.section === 'tong-quan') {
                 reqLevel = 0;
-            } else if (['skimming-theory', 'scanning-theory', 'skimming-practice', 'scanning-practice'].includes(link.dataset.section)) {
+            } else if (['skimming-theory', 'scanning-theory'].includes(link.dataset.section)) {
                 reqLevel = 0.5;
+            } else if (['skimming-practice', 'scanning-practice'].includes(link.dataset.section)) {
+                reqLevel = 0.8;
             } else if (link.dataset.dangId) {
                 reqLevel = parseInt(link.dataset.dangId.replace('dang-', ''), 10);
             } else if (link.dataset.section === 'mock-test') {
@@ -19768,7 +19807,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const practiceTabBtns = document.querySelectorAll('[data-skill-tab="tab-skim-practice"], [data-skill-tab="tab-scan-practice"]');
         practiceTabBtns.forEach(btn => {
             let lockSpan = btn.querySelector('.tab-lock-icon');
-            if (level < 0.5) {
+            if (level < 0.8) {
                 if (!lockSpan) {
                     lockSpan = document.createElement('span');
                     lockSpan.className = 'tab-lock-icon';
@@ -20995,10 +21034,14 @@ function switchSkillTab(skillKey, targetPanelId) {
         const info = skillPracticeStates[skillKey];
         if (!info) return;
 
-        // Check if switching to practice tab while unauthenticated (level < 0.5)
-        if (targetPanelId === info.practiceTabId && (state.unlockedLevel < 0.5)) {
+        // Check if switching to practice tab while practice is locked (level < 0.8)
+        if (targetPanelId === info.practiceTabId && (state.unlockedLevel < 0.8)) {
             playSound('fail');
-            alert("🔐 Vui lòng đăng nhập với mã lớp học để mở bài tập luyện tập phản xạ!");
+            if (state.studentClass === 'CB220') {
+                alert("🔐 Phần Luyện tập phản xạ tạm thời khóa đối với lớp CB220 do chưa học đến. Giáo viên sẽ mở sau buổi học!");
+            } else {
+                alert("🔐 Phần Luyện tập phản xạ tạm thời khóa do chưa học đến. Giáo viên sẽ mở sau buổi học!");
+            }
             return;
         }
 
@@ -23661,7 +23704,7 @@ function renderMatchCompletionFanfare() {
 </div>
 
     <!-- Hệ Thống Chậu Hoa VSTEP & Tích Luỹ Nước Nỗ Lực -->
-    <script src="flower_definitions.js?v=20261105_v20"></script>
-    <script src="flower_garden.js?v=20261105_v20"></script>
+    <script src="flower_definitions.js?v=20261106_v21"></script>
+    <script src="flower_garden.js?v=20261106_v21"></script>
 </body>
 </html>
