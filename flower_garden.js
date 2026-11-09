@@ -413,8 +413,8 @@
         container.id = 'garden-container';
       }
 
-      if (!container.parentNode) {
-        const targetParent = gardenPane || document.querySelector('.garden-dedicated-view, #flower-garden, #view-flower-garden, .content-area, .app-main, main, #main-content, .main-content, #app');
+      if (!container.parentNode || (gardenPane && container.parentNode !== gardenPane)) {
+        const targetParent = gardenPane || document.querySelector('.garden-dedicated-view, #flower-garden, #view-flower-garden, #sec-flower-garden, .content-area, .app-main, main, #main-content, .main-content, #app');
         if (targetParent) {
           targetParent.appendChild(container);
         }
@@ -519,10 +519,9 @@
 
     ensureSidebarNavItem() {
       if (typeof document === 'undefined') return;
-      if (document.getElementById('sidebar-nav-garden')) return;
 
       // Check if there is already a garden nav item in HTML
-      const existing = document.querySelector('[data-target="flower-garden"], [data-view="flower-garden"], [data-section="flower-garden"], a[href="#flower-garden"]');
+      const existing = document.getElementById('sidebar-nav-garden') || document.querySelector('[data-target="flower-garden"], [data-view="flower-garden"], [data-section="flower-garden"], a[href="#flower-garden"], a[href="#sec-flower-garden"]');
       if (existing) {
         existing.id = 'sidebar-nav-garden';
         existing.classList.add('garden-nav-item');
@@ -582,14 +581,21 @@
     },
 
     wireSidebarNavClick(navItem) {
+      if (navItem._gardenWired) return;
+      navItem._gardenWired = true;
+
       navItem.addEventListener('click', (e) => {
-        e.preventDefault();
+        // If it's a sub-tab-link, initSidebarNav will handle the section show/hide
         if (typeof window.switchTab === 'function') {
           window.switchTab('flower-garden');
         } else if (window.app && typeof window.app.switchView === 'function') {
           window.app.switchView('flower-garden');
-        } else {
+        } else if (!navItem.classList.contains('sub-tab-link')) {
+          e.preventDefault();
           this.openGardenTab();
+        } else {
+          // Render garden stage on tab click
+          this.render();
         }
       });
 
@@ -620,7 +626,7 @@
       if (navItem) navItem.classList.add('active');
 
       // 2. Hide all other tab panes / views
-      document.querySelectorAll('.tab-pane, .view-panel, .lesson-section').forEach(pane => {
+      document.querySelectorAll('.tab-pane, .view-panel, .content-section, .lesson-section').forEach(pane => {
         if (pane.id !== 'flower-garden' && pane.id !== 'view-flower-garden' && pane.id !== 'sec-flower-garden') {
           pane.classList.remove('active');
           pane.classList.add('hidden');
@@ -680,7 +686,7 @@
           }
 
           // Unhide other panes if fallback openGardenTab had hidden them with inline style
-          document.querySelectorAll('.tab-pane, .view-panel, .lesson-section').forEach(p => {
+          document.querySelectorAll('.tab-pane, .view-panel, .content-section, .lesson-section').forEach(p => {
             if (p !== gardenPane) {
               p.style.display = '';
             }
@@ -732,7 +738,7 @@
       const hash = window.location.hash;
       if (!hash) return;
 
-      if (hash === '#flower-garden') {
+      if (hash === '#flower-garden' || hash === '#sec-flower-garden') {
         setTimeout(() => this.openGardenTab(), 150);
       } else if (hash === '#quiz') {
         setTimeout(() => this.openQuizModal(), 200);

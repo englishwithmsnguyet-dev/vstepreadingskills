@@ -11554,9 +11554,13 @@ const mockTestPassages = [
 <span class="progress-percentage" id="progress-text">0% Hoàn thành</span>
 </div>
 <ul class="nav-links">
-<!-- Trang Chu & Tong Quan -->
+<!-- Cham Hoa Cham Hoc, Trang Chu & Tong Quan -->
 <li class="lesson-group active" style="margin-bottom: 12px;">
 <ul class="sub-nav-links" style="padding-left: 0;">
+<li><a class="sub-tab-link" data-section="flower-garden" href="#sec-flower-garden" id="sidebar-nav-garden" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(5, 150, 105, 0.08) 100%); border-left: 4px solid #10b981; color: #047857; font-weight: 700;">
+<span class="sub-icon"><i class="fa-solid fa-seedling" style="color: #10b981;"></i></span>
+<span class="sub-text">CHĂM HOA CHĂM HỌC</span>
+</a></li>
 <li><a class="sub-tab-link active" data-section="trang-chu" href="#sec-trang-chu">
 <span class="sub-icon"><i class="fa-solid fa-house"></i></span>
 <span class="sub-text">TRANG CHỦ</span>
@@ -11727,8 +11731,6 @@ const mockTestPassages = [
 </nav>
 <!-- Main Content -->
 <main class="main-content">
-            <!-- Chậu Hoa VSTEP & Tích Luỹ Nước Nỗ Lực -->
-            <div id="garden-container" style="max-width: 960px; margin: 0 auto 24px auto;"></div>
 <!-- Header -->
 <header class="hero hidden">
 <div class="hero-bg"></div>
@@ -11801,6 +11803,11 @@ const mockTestPassages = [
 </div>
 </div>
 <!-- CONTENT SECTIONS -->
+<!-- SECTION: Cham Hoa Cham Hoc -->
+<div class="content-section hidden" id="sec-flower-garden" style="padding-top: 10px;">
+    <div id="garden-container" style="max-width: 960px; margin: 0 auto 24px auto;"></div>
+</div>
+
 <!-- SECTION: Trang Chu -->
 <div class="content-section" id="sec-trang-chu">
 <section class="lesson-section glass-panel welcome-landing" style="text-align: center; padding: 40px 24px; min-height: 520px; display: flex; flex-direction: column; justify-content: flex-start; align-items: center; border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
@@ -11826,6 +11833,9 @@ const mockTestPassages = [
 </ul>
 </div>
 <div style="margin-top: 28px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+    <button class="rc-cta-btn" onclick="switchSection('flower-garden', this)" style="padding: 12px 24px; font-size: 0.95rem; border-radius: 999px; background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; border: none; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35); transition: transform 0.2s, box-shadow 0.2s;">
+        <i class="fa-solid fa-seedling"></i> Chăm Hoa Chăm Học <i class="fa-solid fa-arrow-right"></i>
+    </button>
     <button class="rc-cta-btn primary" onclick="switchSection('tong-quan', this)" style="padding: 12px 24px; font-size: 0.95rem; border-radius: 999px; background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%); color: white; border: none; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35); transition: transform 0.2s, box-shadow 0.2s;">
         <i class="fa-solid fa-compass"></i> Khám Phá 5 Yếu Tố Cốt Lõi Năng Lực Đọc <i class="fa-solid fa-arrow-right"></i>
     </button>
@@ -14403,6 +14413,12 @@ window.switchSection = function(sectionName, element) {
     }
 };
 
+window.switchTab = function(tabName) {
+    if (tabName === 'flower-garden' || tabName === 'sec-flower-garden') {
+        window.switchSection('flower-garden');
+    }
+};
+
 // Class password & unlock level configuration:
 // Levels: 0.5 (Chương 01: Skimming & Scanning), 1-8 (Dạng 01 - 08), 9 (RP 01), 10 (RP 02), 11 (RP 03), 12 (RP 04), 13 (Mock Test), 99 (Full Access / Teacher)
 const passwordConfig = {
@@ -14625,7 +14641,7 @@ function initSidebarNav() {
                 e.stopPropagation();
                 
                 let reqLevel = 99;
-                if (link.dataset.section === 'trang-chu' || link.dataset.section === 'tong-quan') {
+                if (link.dataset.section === 'trang-chu' || link.dataset.section === 'tong-quan' || link.dataset.section === 'flower-garden') {
                     reqLevel = 0;
                 } else if (['skimming-theory', 'scanning-theory'].includes(link.dataset.section)) {
                     reqLevel = 0.5;
@@ -14708,7 +14724,7 @@ function initSidebarNav() {
                 const heroHeader = document.querySelector('.main-content > header.hero');
                 const cockpit = document.querySelector('.dashboard-cockpit');
 
-                if (targetId === '#sec-reading-practice' || targetId === '#sec-mock-test') {
+                if (targetId === '#sec-reading-practice' || targetId === '#sec-mock-test' || targetId === '#sec-flower-garden') {
                     if (mainEl) mainEl.classList.add('rp-mode');
                     if (vocabBox) vocabBox.style.display = 'none';
                     if (vocabQuiz) vocabQuiz.style.display = 'none';
@@ -14723,8 +14739,15 @@ function initSidebarNav() {
                     if (typeof stopRPTimer === 'function') stopRPTimer();
                 }
                 
-                // Toggle hero header and cockpit visibility based on whether it is Trang Chu
-                toggleLandingPageHeader(targetId === '#sec-trang-chu');
+                // Toggle hero header and cockpit visibility based on whether it is Trang Chu or Garden
+                toggleLandingPageHeader(targetId === '#sec-trang-chu' || targetId === '#sec-flower-garden');
+
+                // If flower garden tab is clicked, trigger garden render
+                if (targetId === '#sec-flower-garden') {
+                    if (window.FlowerGarden && typeof window.FlowerGarden.render === 'function') {
+                        window.FlowerGarden.render();
+                    }
+                }
                 
                 // Dynamic Eye-Tracking & Heatmap Lab Portal
                 const eyeLab = document.getElementById('eye-tracker-lab-root');
@@ -19764,7 +19787,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const links = document.querySelectorAll('.sub-tab-link');
         links.forEach(link => {
             let reqLevel = 99;
-            if (link.dataset.section === 'trang-chu' || link.dataset.section === 'tong-quan') {
+            if (link.dataset.section === 'trang-chu' || link.dataset.section === 'tong-quan' || link.dataset.section === 'flower-garden') {
                 reqLevel = 0;
             } else if (['skimming-theory', 'scanning-theory'].includes(link.dataset.section)) {
                 reqLevel = 0.5;
@@ -23704,7 +23727,7 @@ function renderMatchCompletionFanfare() {
 </div>
 
     <!-- Hệ Thống Chậu Hoa VSTEP & Tích Luỹ Nước Nỗ Lực -->
-    <script src="flower_definitions.js?v=20261106_v21"></script>
-    <script src="flower_garden.js?v=20261106_v21"></script>
+    <script src="flower_definitions.js?v=20261109_v22"></script>
+    <script src="flower_garden.js?v=20261109_v22"></script>
 </body>
 </html>
