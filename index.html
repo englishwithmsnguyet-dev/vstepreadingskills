@@ -14402,7 +14402,19 @@ function normalizeVietnameseName(str) {
 function findStudentInRoster(inputName, rosterList) {
     if (!inputName || !rosterList || !Array.isArray(rosterList)) return null;
     const cleanInput = normalizeVietnameseName(inputName);
-    return rosterList.find(officialName => normalizeVietnameseName(officialName) === cleanInput) || null;
+    
+    // 1. Exact match (case & accent insensitive)
+    const exact = rosterList.find(officialName => normalizeVietnameseName(officialName) === cleanInput);
+    if (exact) return exact;
+    
+    // 2. Flexible matching (allows typing full name e.g. "Nguyễn Gia Tuệ" ending with "Gia Tuệ", or vice versa)
+    const flexible = rosterList.find(officialName => {
+        const cleanOfficial = normalizeVietnameseName(officialName);
+        return cleanInput.endsWith(' ' + cleanOfficial) || cleanOfficial.endsWith(' ' + cleanInput);
+    });
+    if (flexible) return flexible;
+    
+    return null;
 }
 
 // Global safe section switcher
@@ -14463,7 +14475,7 @@ function initStudentProfile() {
             return;
         }
         
-        const cleanClass = classVal.trim().toUpperCase();
+        const cleanClass = classVal.trim().toUpperCase().replace(/^(LỚP|LOP)\s+/i, '');
         const normName = nameVal.toUpperCase();
         const isTeacher = (normName === 'PTMN' && (cleanClass === 'GV' || !cleanClass)) || (normName === 'PTMN' && cleanClass === 'GV');
 
@@ -14509,7 +14521,7 @@ function initStudentProfile() {
                 elements.nameInput.focus();
                 return;
             }
-            finalStudentName = matchedName;
+            finalStudentName = (cleanClass === 'B2' && nameVal.trim().length > matchedName.length) ? nameVal.trim() : matchedName;
         }
 
         state.studentName = isTeacher ? 'PTMN' : finalStudentName;
@@ -14531,7 +14543,7 @@ function initStudentProfile() {
             elements.cockpitStudentName.innerHTML = `${teacherBadge} <span style="font-weight: 800; margin-left: 6px;">Giáo viên: ${state.studentName} (${state.studentClass})</span>`;
         } else {
             // Auto-unlock based on student class code
-            const cleanClass = classVal.trim().toUpperCase();
+            const cleanClass = classVal.trim().toUpperCase().replace(/^(LỚP|LOP)\s+/i, '');
             if (passwordConfig[cleanClass] && passwordConfig[cleanClass] > 0) {
                 const classGrantedLevel = passwordConfig[cleanClass];
                 if (classGrantedLevel > state.unlockedLevel) {
@@ -14666,7 +14678,7 @@ function initSidebarNav() {
 
                 const enteredPass = prompt("🔐 Nội dung này tạm thời bị khóa. Vui lòng nhập Mã lớp để mở khóa (VD: CB210):");
                 if (enteredPass !== null) {
-                    const cleanPass = enteredPass.trim().toUpperCase();
+                    const cleanPass = enteredPass.trim().toUpperCase().replace(/^(LỚP|LOP)\s+/i, '');
                     const grantedLevel = passwordConfig[cleanPass] || -1;
                     
                     if (grantedLevel >= reqLevel) {
