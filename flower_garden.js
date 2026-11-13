@@ -585,17 +585,26 @@
       navItem._gardenWired = true;
 
       navItem.addEventListener('click', (e) => {
-        // If it's a sub-tab-link, initSidebarNav will handle the section show/hide
+        // If it's a sub-tab-link, initSidebarNav in index.html already handles the section show/hide!
+        // DO NOT call window.switchTab/switchSection here as that would cause infinite click recursion.
+        if (navItem.classList.contains('sub-tab-link')) {
+          const gardenPane = document.getElementById('sec-flower-garden') || document.getElementById('flower-garden') || document.getElementById('view-flower-garden');
+          if (gardenPane) {
+            gardenPane.classList.remove('hidden');
+            gardenPane.classList.add('active');
+            gardenPane.style.display = 'block';
+          }
+          this.render();
+          return;
+        }
+
         if (typeof window.switchTab === 'function') {
           window.switchTab('flower-garden');
         } else if (window.app && typeof window.app.switchView === 'function') {
           window.app.switchView('flower-garden');
-        } else if (!navItem.classList.contains('sub-tab-link')) {
+        } else {
           e.preventDefault();
           this.openGardenTab();
-        } else {
-          // Render garden stage on tab click
-          this.render();
         }
       });
 
@@ -604,66 +613,64 @@
 
     openGardenTab() {
       if (this._switchingGardenTab) return;
-      if (typeof window.switchTab === 'function') {
-        this._switchingGardenTab = true;
-        try {
-          window.switchTab('flower-garden');
-        } finally {
-          this._switchingGardenTab = false;
+      this._switchingGardenTab = true;
+      try {
+        const navItem = document.getElementById('sidebar-nav-garden') || document.querySelector('.sub-tab-link[data-section="flower-garden"]');
+        if (navItem && navItem.classList.contains('sub-tab-link')) {
+          if (!navItem.classList.contains('active')) {
+            navItem.click();
+            return;
+          }
         }
-        return;
-      }
-      if (window.app && typeof window.app.switchView === 'function') {
-        window.app.switchView('flower-garden');
-        return;
-      }
 
-      // 1. Update active state on sidebar items
-      document.querySelectorAll('.nav-item, .menu-item, .test-item, .sub-tab-link, .sidebar-nav-item').forEach(el => {
-        el.classList.remove('active');
-      });
-      const navItem = document.getElementById('sidebar-nav-garden') || document.querySelector('[data-target="flower-garden"], [data-view="flower-garden"]');
-      if (navItem) navItem.classList.add('active');
+        // 1. Update active state on sidebar items
+        document.querySelectorAll('.nav-item, .menu-item, .test-item, .sub-tab-link, .sidebar-nav-item').forEach(el => {
+          el.classList.remove('active');
+        });
+        if (navItem) navItem.classList.add('active');
 
-      // 2. Hide all other tab panes / views
-      document.querySelectorAll('.tab-pane, .view-panel, .content-section, .lesson-section').forEach(pane => {
-        if (pane.id !== 'flower-garden' && pane.id !== 'view-flower-garden' && pane.id !== 'sec-flower-garden') {
-          pane.classList.remove('active');
-          pane.classList.add('hidden');
-          pane.style.display = 'none';
+        // 2. Hide all other tab panes / views
+        document.querySelectorAll('.tab-pane, .view-panel, .content-section, .lesson-section').forEach(pane => {
+          if (pane.id !== 'flower-garden' && pane.id !== 'view-flower-garden' && pane.id !== 'sec-flower-garden') {
+            pane.classList.remove('active');
+            pane.classList.add('hidden');
+            pane.style.display = 'none';
+          }
+        });
+
+        // 3. For SPEAKING MOCK TESTS: hide mock dashboard grid & welcome header
+        const dashGrid = document.querySelector('.dashboard-grid');
+        if (dashGrid) dashGrid.style.display = 'none';
+        const welcomeHeader = document.querySelector('.welcome-header-center, .welcome-header');
+        if (welcomeHeader) welcomeHeader.style.display = 'none';
+
+        // 4. Show flower garden pane
+        const gardenPane = document.getElementById('flower-garden') || document.getElementById('view-flower-garden') || document.getElementById('sec-flower-garden');
+        if (gardenPane) {
+          gardenPane.classList.remove('hidden');
+          gardenPane.classList.add('active');
+          gardenPane.style.display = 'block';
+          gardenPane.classList.remove('fade-in');
+          void gardenPane.offsetWidth;
+          gardenPane.classList.add('fade-in');
         }
-      });
 
-      // 3. For SPEAKING MOCK TESTS: hide mock dashboard grid & welcome header
-      const dashGrid = document.querySelector('.dashboard-grid');
-      if (dashGrid) dashGrid.style.display = 'none';
-      const welcomeHeader = document.querySelector('.welcome-header-center, .welcome-header');
-      if (welcomeHeader) welcomeHeader.style.display = 'none';
+        // 5. Update top title if present
+        const topTitle = document.getElementById('top-title');
+        if (topTitle) topTitle.textContent = 'CHĂM HOA CHĂM HỌC';
 
-      // 4. Show flower garden pane
-      const gardenPane = document.getElementById('flower-garden') || document.getElementById('view-flower-garden') || document.getElementById('sec-flower-garden');
-      if (gardenPane) {
-        gardenPane.classList.remove('hidden');
-        gardenPane.classList.add('active');
-        gardenPane.style.display = 'block';
-        gardenPane.classList.remove('fade-in');
-        void gardenPane.offsetWidth;
-        gardenPane.classList.add('fade-in');
+        // 6. In mobile, close sidebar drawer
+        const sidebar = document.getElementById('sidebar') || document.getElementById('app-sidebar') || document.querySelector('.sidebar, .test-sidebar');
+        if (sidebar && sidebar.classList.contains('open')) {
+          sidebar.classList.remove('open');
+        }
+
+        // 7. Scroll smoothly to top & render
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        this.render();
+      } finally {
+        this._switchingGardenTab = false;
       }
-
-      // 5. Update top title if present
-      const topTitle = document.getElementById('top-title');
-      if (topTitle) topTitle.textContent = 'CHĂM HOA CHĂM HỌC';
-
-      // 6. In mobile, close sidebar drawer
-      const sidebar = document.getElementById('sidebar') || document.getElementById('app-sidebar') || document.querySelector('.sidebar, .test-sidebar');
-      if (sidebar && sidebar.classList.contains('open')) {
-        sidebar.classList.remove('open');
-      }
-
-      // 7. Scroll smoothly to top & render
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      this.render();
     },
 
     wireOtherNavClicks() {

@@ -13054,7 +13054,7 @@ const mockTestPassages = [
     }
 ];</script>
     <!-- Hệ Thống Chậu Hoa VSTEP 8 Loài Hoa -->
-    <link rel="stylesheet" href="flower_garden.css?v=20261105_v20">
+    <link rel="stylesheet" href="flower_garden.css?v=20261113_v25">
 </head>
 
 <body>
@@ -16391,10 +16391,14 @@ function initSidebarNav() {
             
             if (targetSec) {
                 // Hide all main content views
-                contentSections.forEach(sec => sec.classList.add('hidden'));
+                contentSections.forEach(sec => {
+                    sec.classList.add('hidden');
+                    sec.style.display = 'none';
+                });
                 
                 // Show target view
                 targetSec.classList.remove('hidden');
+                targetSec.style.display = 'block';
                 
                 // Expand main-content to full screen if reading practice & hide global vocab box
                 const mainEl = document.querySelector('.main-content');
@@ -16424,8 +16428,17 @@ function initSidebarNav() {
 
                 // If flower garden tab is clicked, trigger garden render
                 if (targetId === '#sec-flower-garden') {
-                    if (window.FlowerGarden && typeof window.FlowerGarden.render === 'function') {
-                        window.FlowerGarden.render();
+                    if (targetSec) {
+                        targetSec.style.display = 'block';
+                        targetSec.classList.remove('hidden');
+                    }
+                    if (window.FlowerGarden) {
+                        if (typeof window.FlowerGarden.ensureGardenContainerDom === 'function') {
+                            window.FlowerGarden.ensureGardenContainerDom();
+                        }
+                        if (typeof window.FlowerGarden.render === 'function') {
+                            window.FlowerGarden.render();
+                        }
                     }
                 }
                 
@@ -26322,7 +26335,7 @@ function renderMatchCompletionFanfare() {
 </div>
 
     <!-- Hệ Thống Chậu Hoa VSTEP & Tích Luỹ Nước Nỗ Lực -->
-    <script src="flower_definitions.js?v=20261109_v22"></script>
-    <script src="flower_garden.js?v=20261109_v22"></script>
+    <script src="flower_definitions.js?v=20261113_v25"></script>
+    <script src="flower_garden.js?v=20261113_v25"></script>
 </body>
 </html>
