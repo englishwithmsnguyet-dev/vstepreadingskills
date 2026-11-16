@@ -18385,7 +18385,7 @@ const mockTestPassages = [
     }
 ];</script>
     <!-- Hệ Thống Chậu Hoa VSTEP 8 Loài Hoa -->
-    <link rel="stylesheet" href="flower_garden.css?v=20261114_v05">
+    <link rel="stylesheet" href="flower_garden.css?v=20261116_v01">
 </head>
 
 <body>
@@ -21434,7 +21434,7 @@ window.switchTab = function(tabName) {
 // Levels: 0.5 (Chương 01: Skimming & Scanning), 1-8 (Dạng 01 - 08), 9 (RP 01), 10 (RP 02), 11 (RP 03), 12 (RP 04), 13 (Mock Test), 99 (Full Access / Teacher)
 const passwordConfig = {
     'B2': 99,
-    'CB220': 0.5,
+    'CB220': 0.8,
     'CB219': 2,
     'HEMINGWAY': 1,
     'B212': 8,
@@ -21693,11 +21693,7 @@ function initSidebarNav() {
                     } else if (grantedLevel !== -1) {
                         playSound('fail');
                         if (cleanPass === 'CB220') {
-                            if (['skimming-practice', 'scanning-practice'].includes(link.dataset.section)) {
-                                alert(`❌ Lớp ${cleanPass} mới học xong phần Lý thuyết Chương 01. Phần Bài tập luyện tập phản xạ tạm thời khóa!`);
-                            } else {
-                                alert(`❌ Lớp ${cleanPass} mới học Chương 01 (Kỹ năng đọc: Skimming & Scanning). Các dạng câu hỏi khác chưa học đến nên tạm thời khóa!`);
-                            }
+                            alert(`❌ Lớp ${cleanPass} đã mở toàn bộ Chương 01 (Lý thuyết & Bài tập phản xạ Skimming & Scanning). Các dạng câu hỏi tiếp theo chưa học đến nên tạm thời khóa!`);
                         } else if (['CB211', 'ONB103'].includes(cleanPass)) {
                             alert(`❌ Lớp ${cleanPass} chỉ được mở khóa tới Reading Mock Test. Nội dung này chưa được mở!`);
                         } else if (cleanPass === 'CB213') {
@@ -31666,7 +31662,7 @@ function renderMatchCompletionFanfare() {
 </div>
 
     <!-- Hệ Thống Chậu Hoa VSTEP & Tích Luỹ Nước Nỗ Lực -->
-    <script src="flower_definitions.js?v=20261114_v05"></script>
-    <script src="flower_garden.js?v=20261114_v05"></script>
+    <script src="flower_definitions.js?v=20261116_v01"></script>
+    <script src="flower_garden.js?v=20261116_v01"></script>
 </body>
 </html>
