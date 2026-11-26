@@ -21382,10 +21382,7 @@ const classStudentRosters = {
         "Lê Tường Vy",
         "Bùi Ngọc Như Ý"
     ],
-    'B2': [
-        "Gia Tuệ"
-    ]
-};
+    };
 
 // Hàm chuẩn hóa tiếng Việt để so sánh họ tên học viên chính xác và linh hoạt
 function normalizeVietnameseName(str) {
@@ -21433,7 +21430,6 @@ window.switchTab = function(tabName) {
 // Class password & unlock level configuration:
 // Levels: 0.5 (Chương 01: Skimming & Scanning), 1-8 (Dạng 01 - 08), 9 (RP 01), 10 (RP 02), 11 (RP 03), 12 (RP 04), 13 (Mock Test), 99 (Full Access / Teacher)
 const passwordConfig = {
-    'B2': 99,
     'CB220': 1,
     'CB219': 3,
     'HEMINGWAY': 1,
@@ -21476,6 +21472,17 @@ function initStudentProfile() {
         
         const cleanClass = classVal.trim().toUpperCase().replace(/^(LỚP|LOP)\s+/i, '');
         const normName = nameVal.toUpperCase();
+
+        const normNoTone = normalizeVietnameseName(nameVal);
+        const isGiaTue = normNoTone.includes('gia tue') || normNoTone.replace(/\s+/g, '').includes('giatue');
+        if (isGiaTue || cleanClass === 'B2') {
+            playSound('fail');
+            elements.nameInput.style.borderColor = 'var(--error-color)';
+            alert('Tài khoản học viên "Gia Tuệ" hiện đã bị KHÓA! Vui lòng liên hệ Giáo viên (Cô Nguyệt).');
+            elements.nameInput.focus();
+            return;
+        }
+
         const isTeacher = (normName === 'PTMN' && (cleanClass === 'GV' || !cleanClass)) || (normName === 'PTMN' && cleanClass === 'GV');
 
         if (cleanClass === 'GV' && !isTeacher) {
@@ -21510,32 +21517,7 @@ function initStudentProfile() {
                 return;
             }
             finalStudentName = matchedName;
-        } else if (cleanClass === 'B2') {
-            const roster = classStudentRosters['B2'];
-            const matchedName = findStudentInRoster(nameVal, roster);
-            if (!matchedName) {
-                playSound('fail');
-                elements.nameInput.style.borderColor = 'var(--error-color)';
-                alert(`❌ Họ tên "${nameVal}" không nằm trong danh sách học viên lớp B2!\n\nVui lòng kiểm tra và nhập đúng Họ và Tên theo danh sách lớp (Ví dụ: Gia Tuệ).`);
-                elements.nameInput.focus();
-                return;
-            }
-            finalStudentName = (cleanClass === 'B2' && nameVal.trim().length > matchedName.length) ? nameVal.trim() : matchedName;
-        }
-
-        state.studentName = isTeacher ? 'PTMN' : finalStudentName;
-        state.studentClass = isTeacher ? 'GV' : cleanClass;
-        playSound('success');
         
-        // Hide Modal
-        elements.nameModal.classList.add('hidden');
-        
-        if (isTeacher) {
-            state.unlockedLevel = 99;
-            state.unlockedAll = true;
-            if (window.updateLockStatus) {
-                window.updateLockStatus(99);
-            }
             
             const teacherBadge = `<span style="background: linear-gradient(135deg, #fef08a 0%, #fde047 100%); color: #854d0e; padding: 4px 12px; border-radius: 20px; font-weight: 800; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 2px 6px rgba(234, 179, 8, 0.25);"><i class="fa-solid fa-chalkboard-user"></i> GIÁO VIÊN</span>`;
             elements.displayName.innerHTML = `${teacherBadge} <span style="font-weight: 800; margin-left: 6px;">${state.studentName} (${state.studentClass})</span>`;
