@@ -18385,7 +18385,7 @@ const mockTestPassages = [
     }
 ];</script>
     <!-- Hệ Thống Chậu Hoa VSTEP 8 Loài Hoa -->
-    <link rel="stylesheet" href="flower_garden.css?v=20261126_v2">
+    <link rel="stylesheet" href="flower_garden.css?v=20261127_v1">
 </head>
 
 <body>
@@ -21517,7 +21517,21 @@ function initStudentProfile() {
                 return;
             }
             finalStudentName = matchedName;
+        }
+
+        state.studentName = isTeacher ? 'PTMN' : finalStudentName;
+        state.studentClass = isTeacher ? 'GV' : cleanClass;
+        playSound('success');
         
+        // Hide Modal
+        elements.nameModal.classList.add('hidden');
+        
+        if (isTeacher) {
+            state.unlockedLevel = 99;
+            state.unlockedAll = true;
+            if (window.updateLockStatus) {
+                window.updateLockStatus(99);
+            }
             
             const teacherBadge = `<span style="background: linear-gradient(135deg, #fef08a 0%, #fde047 100%); color: #854d0e; padding: 4px 12px; border-radius: 20px; font-weight: 800; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 2px 6px rgba(234, 179, 8, 0.25);"><i class="fa-solid fa-chalkboard-user"></i> GIÁO VIÊN</span>`;
             elements.displayName.innerHTML = `${teacherBadge} <span style="font-weight: 800; margin-left: 6px;">${state.studentName} (${state.studentClass})</span>`;
@@ -31642,7 +31656,7 @@ function renderMatchCompletionFanfare() {
 </div>
 
     <!-- Hệ Thống Chậu Hoa VSTEP & Tích Luỹ Nước Nỗ Lực -->
-    <script src="flower_definitions.js?v=20261126_v2"></script>
-    <script src="flower_garden.js?v=20261126_v2"></script>
+    <script src="flower_definitions.js?v=20261127_v1"></script>
+    <script src="flower_garden.js?v=20261127_v1"></script>
 </body>
 </html>
