@@ -4874,6 +4874,71 @@ body.dark-mode .brand-text span {
 .rp-evidence-highlight.revealed:hover {
     background-color: #fde047;
 }
+
+/* Practice Card Post-Answer Evidence Highlighting */
+.practice-evidence-highlight {
+    background: linear-gradient(120deg, #fef08a 0%, #fde047 100%);
+    color: #0f172a;
+    padding: 2px 5px;
+    border-radius: 5px;
+    border-bottom: 2px solid #eab308;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    animation: practiceEvidenceReveal 0.6s ease-out;
+}
+body.dark-mode .practice-evidence-highlight {
+    background: linear-gradient(120deg, rgba(250, 204, 21, 0.30) 0%, rgba(234, 179, 8, 0.36) 100%);
+    color: #fef9c3;
+    border-bottom-color: #facc15;
+}
+.practice-evidence-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: #d97706;
+    color: #ffffff;
+    font-family: var(--font-ui);
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 1px 8px;
+    border-radius: 999px;
+    margin-right: 6px;
+    vertical-align: middle;
+    letter-spacing: 0.2px;
+    box-shadow: 0 2px 5px rgba(217, 119, 6, 0.28);
+    user-select: none;
+}
+.practice-insert-slot-correct {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    background: #dcfce7;
+    color: #15803d;
+    border: 1.5px solid #22c55e;
+    border-radius: 6px;
+    padding: 0px 7px;
+    margin: 0 3px;
+    font-family: var(--font-ui);
+    font-size: 0.88em;
+    font-weight: 800;
+    vertical-align: baseline;
+    animation: practiceEvidenceReveal 0.6s ease-out;
+}
+body.dark-mode .practice-insert-slot-correct {
+    background: rgba(34, 197, 94, 0.25);
+    color: #86efac;
+    border-color: #22c55e;
+}
+.practice-evidence-confirmed {
+    border-bottom: 2.5px solid #16a34a !important;
+    padding: 2px 5px;
+    border-radius: 5px;
+    animation: practiceEvidenceReveal 0.6s ease-out;
+}
+@keyframes practiceEvidenceReveal {
+    0% { box-shadow: 0 0 0 5px rgba(250, 204, 21, 0.55); }
+    100% { box-shadow: 0 0 0 0 rgba(250, 204, 21, 0); }
+}
 .rp-evidence-highlight.revealed .evidence-badge {
     display: inline-flex;
 }
@@ -6368,6 +6433,10 @@ const dangsData = {
             "ipa": "/ˈkʌl.tʃər.əl ˈmiː.nɪŋ/",
             "meaning": "ý nghĩa về mặt văn hóa"
           }
+        ],
+        "evidence": [
+          "Coffee is more than just a beverage; it plays a significant role in many cultures around the world.",
+          "Whether it’s enjoyed alone or with friends, coffee holds cultural meaning beyond its taste."
         ]
       },
       {
@@ -6456,6 +6525,10 @@ const dangsData = {
             "ipa": "/dɪˈspaɪt/",
             "meaning": "mặc dù, bất chấp"
           }
+        ],
+        "evidence": [
+          "However, some experts argue that writing by hand helps improve memory, focus, and learning.",
+          "Despite modern technology, handwriting still plays a vital role in education and cognitive development."
         ]
       },
       {
@@ -6544,6 +6617,10 @@ const dangsData = {
             "ipa": "/ˈpræk.tɪ.kəl səˈluː.ʃən/",
             "meaning": "giải pháp mang tính thực tiễn cao"
           }
+        ],
+        "evidence": [
+          "Urban farming has become increasingly popular in recent years.",
+          "As more people become aware of environmental issues, urban farming offers a practical solution to improve both health and the planet."
         ]
       },
       {
@@ -6632,6 +6709,10 @@ const dangsData = {
             "ipa": "/ˈɪn.stənt/",
             "meaning": "ngay tức khắc, tức thời"
           }
+        ],
+        "evidence": [
+          "The invention of the internet has completely changed how people communicate.",
+          "Social media, emails, and video calls have made it easier for people to stay in touch across the globe."
         ]
       },
       {
@@ -6720,6 +6801,10 @@ const dangsData = {
             "ipa": "/spred əv aɪˈdɪəz/",
             "meaning": "sự lan tỏa các luồng tư tưởng"
           }
+        ],
+        "evidence": [
+          "Invented in the 15th century by Johannes Gutenberg, the printing press revolutionized how information was shared.",
+          "This innovation increased literacy rates across Europe and facilitated the spread of new scientific and philosophical ideas."
         ]
       },
       {
@@ -6808,6 +6893,10 @@ const dangsData = {
             "ipa": "/ˈes.tɪ.meɪt/",
             "meaning": "ước tính, phỏng tính"
           }
+        ],
+        "evidence": [
+          "Bees play a crucial role in maintaining the balance of our ecosystem through pollination.",
+          "In fact, it is estimated that one-third of the human food supply depends on pollination by bees and other insects."
         ]
       },
       {
@@ -6902,6 +6991,10 @@ const dangsData = {
             "ipa": "/ˌsaɪ.kəˈlɒdʒ.ɪ.kəl ˈɪʃ.uː/",
             "meaning": "vấn đề thuộc tâm lý học"
           }
+        ],
+        "evidence": [
+          "While the physical benefits of regular exercise are well known, its positive effects on mental health are equally profound.",
+          "Consequently, many health professionals recommend exercise as a natural treatment for various psychological issues."
         ]
       },
       {
@@ -6990,6 +7083,10 @@ const dangsData = {
             "ipa": "/ɪkˈses/",
             "meaning": "phần dư thừa, sự thái quá"
           }
+        ],
+        "evidence": [
+          "Minimalism is a lifestyle choice that focuses on living with only the things you truly need.",
+          "Ultimately, minimalism is not just about having less stuff, but about making room for more meaning and joy in everyday life."
         ]
       },
       {
@@ -7078,6 +7175,10 @@ const dangsData = {
             "ipa": "/ˈreɪn.fɒr.ɪst əv ðə siː/",
             "meaning": "rừng nhiệt đới của đại dương"
           }
+        ],
+        "evidence": [
+          "These massive structures are actually built by tiny marine animals called coral polyps.",
+          "Over thousands of years, this continuous cycle of life and death creates the vast, colorful reef ecosystems that support thousands of marine species today."
         ]
       },
       {
@@ -7172,6 +7273,10 @@ const dangsData = {
             "ipa": "/fɪˈlɒs.ə.fi/",
             "meaning": "hệ thống triết học, tư tưởng"
           }
+        ],
+        "evidence": [
+          "The Silk Road was not a single paved highway, but rather a complex network of trade routes connecting the East and the West.",
+          "However, its most profound impact was the cultural exchange it fostered."
         ]
       },
       {
@@ -7260,6 +7365,11 @@ const dangsData = {
             "ipa": "/ˌlɒŋˈdɪs.təns ˈtræv.əl.ər/",
             "meaning": "người di chuyển/du lịch đường dài"
           }
+        ],
+        "evidence": [
+          "The global popularity of electric vehicles (EVs) has surged over the past decade.",
+          "This shift has significantly reduced greenhouse gas emissions in major cities.",
+          "However, the lack of charging stations in rural areas remains a significant challenge for long-distance travelers."
         ]
       },
       {
@@ -7348,6 +7458,10 @@ const dangsData = {
             "ipa": "/tækˈseɪ.ʃən ˈpɜː.pəs/",
             "meaning": "mục đích áp thuế quan"
           }
+        ],
+        "evidence": [
+          "Although they are scientifically classified as a fruit because they contain seeds and develop from the ovary of a flower, they are treated as vegetables in the culinary world.",
+          "This is primarily due to their savory flavor, which makes them a perfect ingredient for salads, sauces, and stews."
         ]
       }
     ]
@@ -7448,6 +7562,9 @@ const dangsData = {
             "ipa": "/ˈplæn.ɪt/",
             "meaning": "hành tinh, Trái Đất"
           }
+        ],
+        "evidence": [
+          "Deforestation has been destroying large areas of the forest, mainly for agriculture and cattle ranching."
         ]
       },
       {
@@ -7528,6 +7645,9 @@ const dangsData = {
             "ipa": "/dɪˈspaɪt/",
             "meaning": "mặc dù, bất chấp nguy cơ"
           }
+        ],
+        "evidence": [
+          "Despite the dangers, she continued her research on radioactivity until her death in 1934, which was likely caused by prolonged exposure to radiation."
         ]
       },
       {
@@ -7614,6 +7734,9 @@ const dangsData = {
             "ipa": "/ˈəʊ.vər taɪm/",
             "meaning": "qua thời gian, dần dần về sau"
           }
+        ],
+        "evidence": [
+          "The Eiffel Tower, completed in 1889, was originally built as the entrance arch to the World's Fair held in Paris."
         ]
       },
       {
@@ -7694,6 +7817,9 @@ const dangsData = {
             "ipa": "/səˈdʒest/",
             "meaning": "cho thấy, gợi ý một điều gì"
           }
+        ],
+        "evidence": [
+          "Scientists have discovered that dolphins can recognize themselves in mirrors, a trait shared by only a few species."
         ]
       },
       {
@@ -7774,6 +7900,9 @@ const dangsData = {
             "ipa": "/ˈbɔː.dər dɪˈfens/",
             "meaning": "phòng thủ biên giới"
           }
+        ],
+        "evidence": [
+          "The wall was primarily built during the Ming Dynasty to protect the Chinese Empire from nomadic invasions from the north."
         ]
       },
       {
@@ -7860,6 +7989,9 @@ const dangsData = {
             "ipa": "/streɪn/",
             "meaning": "chủng vi khuẩn/nấm"
           }
+        ],
+        "evidence": [
+          "Alexander Fleming discovered penicillin in 1928 by accident when he noticed a mold growing on a petri dish of Staphylococcus bacteria."
         ]
       },
       {
@@ -7946,6 +8078,9 @@ const dangsData = {
             "ipa": "/ˈdeθ təʊl/",
             "meaning": "số lượng người thiệt mạng"
           }
+        ],
+        "evidence": [
+          "The disaster was largely attributed to the lack of sufficient lifeboats for all passengers."
         ]
       },
       {
@@ -8032,6 +8167,9 @@ const dangsData = {
             "ipa": "/ˈsʌm.ɪt/",
             "meaning": "đỉnh núi cao nhất"
           }
+        ],
+        "evidence": [
+          "Climbing Everest presents numerous dangers, including altitude sickness, harsh weather, and avalanches, yet it attracts hundreds of highly experienced mountaineers every year."
         ]
       },
       {
@@ -8112,6 +8250,9 @@ const dangsData = {
             "ipa": "/ˈspɔː.tɪŋ ɪˈvent/",
             "meaning": "sự kiện thể thao lớn"
           }
+        ],
+        "evidence": [
+          "The modern Olympic Games, inspired by ancient Greek competitions, were first held in Athens, Greece, in 1896."
         ]
       },
       {
@@ -8192,6 +8333,9 @@ const dangsData = {
             "ipa": "/trænsˈfɔːm ˈɪn.tuː/",
             "meaning": "biến đổi dần dần trở thành"
           }
+        ],
+        "evidence": [
+          "The Mayans and Aztecs consumed cacao not as a sweet treat, but as a bitter, frothy drink mixed with spices and chili peppers."
         ]
       },
       {
@@ -8272,6 +8416,9 @@ const dangsData = {
             "ipa": "/deɪ leŋθ/",
             "meaning": "độ dài một ngày quay quanh trục"
           }
+        ],
+        "evidence": [
+          "In 2021, NASA's Perseverance rover successfully landed on Mars to search for signs of ancient microbial life and to collect rock samples."
         ]
       },
       {
@@ -8352,6 +8499,9 @@ const dangsData = {
             "ipa": "/əˈsaɪ.ləm/",
             "meaning": "viện điều dưỡng tâm thần, bệnh viện tâm thần"
           }
+        ],
+        "evidence": [
+          "His most renowned masterpiece, 'The Starry Night', was painted in 1889 while he was staying in an asylum in Saint-Rémy-de-Provence."
         ]
       }
     ]
@@ -8460,6 +8610,9 @@ const dangsData = {
             "ipa": "/ˈɪl.ə.streɪt/",
             "meaning": "minh họa trực quan, làm sáng tỏ"
           }
+        ],
+        "evidence": [
+          "She shared several <strong>anecdotes</strong>, or short stories about her own travels, to explain the rules."
         ]
       },
       {
@@ -8548,6 +8701,10 @@ const dangsData = {
             "ipa": "/əˈten.ʃən tuː ˈdiː.teɪl/",
             "meaning": "sự chú ý đến từng chi tiết nhỏ"
           }
+        ],
+        "evidence": [
+          "She checks every answer in her test paper very carefully before submitting it.",
+          "In contrast, her brother Tom is careless and often makes silly mistakes because he rushes."
         ]
       },
       {
@@ -8636,6 +8793,10 @@ const dangsData = {
             "ipa": "/kənˈsjuː.mər ˈpref.ər.əns/",
             "meaning": "thị hiếu của người tiêu dùng"
           }
+        ],
+        "evidence": [
+          "In recent years, traditional bookstores in the city have experienced a gradual <strong>decline</strong> in sales.",
+          "As a result of this drop in customer numbers, several small bookshops have closed down."
         ]
       },
       {
@@ -8724,6 +8885,10 @@ const dangsData = {
             "ipa": "/ˈjuː.zər əˈdɒp.ʃən/",
             "meaning": "mức độ người dùng đón nhận và cài đặt"
           }
+        ],
+        "evidence": [
+          "After working hard for six months, the young software team was finally ready to <strong>launch</strong> their new language learning mobile app.",
+          "They organized an online event to introduce the app to students."
         ]
       },
       {
@@ -8812,6 +8977,9 @@ const dangsData = {
             "ipa": "/ˌəʊ.vəˈkʌm ˈfeɪ.ljər/",
             "meaning": "vượt qua thất bại ban đầu"
           }
+        ],
+        "evidence": [
+          "Although Nam failed his driving test twice, he remained <strong>determined</strong> and refused to give up."
         ]
       },
       {
@@ -8900,6 +9068,9 @@ const dangsData = {
             "ipa": "/ˌæp.lɪˈkeɪ.ʃən/",
             "meaning": "ứng dụng phần mềm"
           }
+        ],
+        "evidence": [
+          "This clear display allows users to see right through the device while using their favorite applications."
         ]
       },
       {
@@ -8988,6 +9159,9 @@ const dangsData = {
             "ipa": "/ˈwel.nəs/",
             "meaning": "trạng thái khỏe mạnh toàn diện"
           }
+        ],
+        "evidence": [
+          "Furthermore, getting enough sleep is also <strong>vital</strong> for the human body to recover after a long day of working and studying."
         ]
       },
       {
@@ -9076,6 +9250,9 @@ const dangsData = {
             "ipa": "/hɑːʃ ˈhæb.ɪ.tæt/",
             "meaning": "môi trường sinh sống khắc nghiệt"
           }
+        ],
+        "evidence": [
+          "These native birds have thick feathers to protect themselves from the freezing snow."
         ]
       },
       {
@@ -9164,6 +9341,9 @@ const dangsData = {
             "ipa": "/əˈfɔːd/",
             "meaning": "có đủ khả năng tài chính chi trả"
           }
+        ],
+        "evidence": [
+          "Within just three years, he was able to buy a large house and a luxury sports car with his bonuses."
         ]
       },
       {
@@ -9258,6 +9438,10 @@ const dangsData = {
             "ipa": "/ˌrev.əˈluː.ʃən.ər.i/",
             "meaning": "mang tính cách mạng"
           }
+        ],
+        "evidence": [
+          "Unlike any other device on the market, it can project a holographic display into the air and translate 50 languages in real-time.",
+          "This groundbreaking approach to technology has won several international awards for creativity."
         ]
       },
       {
@@ -9352,6 +9536,9 @@ const dangsData = {
             "ipa": "/dɪˈkeɪ/",
             "meaning": "sự hoang phế, phân hủy theo năm tháng"
           }
+        ],
+        "evidence": [
+          "The roof had collapsed, the walls were covered in thick vines, and no one had lived there since the medieval era."
         ]
       },
       {
@@ -9446,6 +9633,9 @@ const dangsData = {
             "ipa": "/ˈklaɪ.mət rɪˈzɪl.i.əns/",
             "meaning": "khả năng thích ứng chống chịu biến đổi khí hậu"
           }
+        ],
+        "evidence": [
+          "To <strong>mitigate</strong> this ongoing problem, the local government has decided to build a massive sea wall and improve the drainage system to reduce the severity of the floods."
         ]
       }
     ]
@@ -9554,6 +9744,11 @@ const dangsData = {
             "ipa": "/ˈəʊ.ʃən ˈiː.kəʊˌsɪs.təm/",
             "meaning": "hệ sinh thái đại dương"
           }
+        ],
+        "evidence": [
+          "These gentle giants are marine mammals that can reach lengths of over 30 meters and weigh up to 180 tons, with a heart roughly the size of a small car.",
+          "Despite their enormous size, blue whales feed almost exclusively on tiny shrimp-like animals called krill, consuming several tons each day during peak feeding seasons.",
+          "They are also known for their deep, resonant calls that can travel hundreds of kilometers underwater, helping them maintain vital connections across vast ocean ecosystems."
         ]
       },
       {
@@ -9648,6 +9843,11 @@ const dangsData = {
             "ipa": "/ɪnˈdʒʊə.rəns/",
             "meaning": "sức bền bỉ dẻo dai"
           }
+        ],
+        "evidence": [
+          "Many birds migrate thousands of kilometers each year to find food, escape harsh climates, or breed in more favorable regions.",
+          "The Arctic tern, for example, travels from the Arctic to the Antarctic and back again annually, making the longest known migration of any animal on Earth.",
+          "Migration patterns are closely influenced by seasonal changes in temperature, food availability, and daylight hours."
         ]
       },
       {
@@ -9736,6 +9936,9 @@ const dangsData = {
             "ipa": "/ˈhɜː.bɪ.vɔːr/",
             "meaning": "động vật ăn thực vật"
           }
+        ],
+        "evidence": [
+          "Koalas are iconic marsupials native to the eucalyptus woodlands of eastern and southeastern Australia."
         ]
       },
       {
@@ -9824,6 +10027,9 @@ const dangsData = {
             "ipa": "/kliːn tekˈnɒl.ə.dʒi/",
             "meaning": "công nghệ năng lượng sạch"
           }
+        ],
+        "evidence": [
+          "As a leading clean technology, it harnesses natural air currents to produce electricity without emitting greenhouse gases and significantly reduces national dependence on fossil fuels like coal and oil."
         ]
       },
       {
@@ -9918,6 +10124,9 @@ const dangsData = {
             "ipa": "/ˈnætʃ.ər.əl prɪˈzɜː.və.tɪv/",
             "meaning": "chất bảo quản tự nhiên"
           }
+        ],
+        "evidence": [
+          "Its remarkably long shelf life is due to a unique chemical composition created as bees fan nectar to evaporate excess water: it is extremely low in moisture and highly acidic, creating an inhospitable environment where bacteria and microorganisms simply cannot survive."
         ]
       },
       {
@@ -10006,6 +10215,10 @@ const dangsData = {
             "ipa": "/ˌmɪs.kənˈsep.ʃən/",
             "meaning": "ngộ nhận, hiểu lầm"
           }
+        ],
+        "evidence": [
+          "Despite a popular myth that has circulated in textbooks and media for decades, the Great Wall of China is not visible from space with the naked eye.",
+          "Astronauts stationed in low Earth orbit have repeatedly confirmed that it is extremely difficult, if not completely impossible, to spot this famous architectural structure without visual aids such as powerful cameras or telescopic lenses."
         ]
       },
       {
@@ -10100,6 +10313,9 @@ const dangsData = {
             "ipa": "/ˈkɒɡ.nə.tɪv rɪˈkʌv.ər.i/",
             "meaning": "sự hồi phục năng lực nhận thức"
           }
+        ],
+        "evidence": [
+          "While deep sleep helps restore the body physically by repairing tissues and strengthening immunity, REM sleep is crucial for mental functions, cognitive recovery, learning, and memory consolidation."
         ]
       },
       {
@@ -10188,6 +10404,10 @@ const dangsData = {
             "ipa": "/ˈkʌl.ɪ.nər.i trəˈdɪʃ.ən/",
             "meaning": "truyền thống ẩm thực lâu đời"
           }
+        ],
+        "evidence": [
+          "Following a long culinary tradition, the ancient Maya and Aztecs roasted and ground cacao beans to consume chocolate as a frothy, bitter beverage, often mixed with chili spices, vanilla, or corn puree.",
+          "It wasn't until chocolate was brought to Europe by explorers in the 16th century that sugar was added to make it sweet."
         ]
       },
       {
@@ -10282,6 +10502,9 @@ const dangsData = {
             "ipa": "/ˈmɪn.ər.əl rɪtʃ/",
             "meaning": "giàu khoáng chất tự nhiên"
           }
+        ],
+        "evidence": [
+          "Beneath the sunlit surface lies the deep sea, an extraordinarily harsh environment characterized by freezing temperatures, immense water pressure that would crush ordinary submarines, and zero sunlight."
         ]
       },
       {
@@ -10370,6 +10593,9 @@ const dangsData = {
             "ipa": "/ˈstɪm.jə.lənt ɪˈfekt/",
             "meaning": "tác dụng kích thích thần kinh"
           }
+        ],
+        "evidence": [
+          "According to the famous legend, Kaldi noticed that his goats became unusually energetic, dancing restlessly and unable to sleep at night after eating bright red berries from a certain wild tree."
         ]
       },
       {
@@ -10464,6 +10690,11 @@ const dangsData = {
             "ipa": "/riːtʃ ˈsʌm.ɪt/",
             "meaning": "chinh phục tới đỉnh cao nhất"
           }
+        ],
+        "evidence": [
+          "Mount Everest, standing over 8,848 meters above sea level on the border of Nepal and Tibet, is the highest peak on Earth—and remarkably, it is still growing.",
+          "Geologists and scientists estimate that Everest grows by about 4 millimeters every year.",
+          "Despite the brutal freezing temperatures, fierce winds, extreme high altitude, and dangerous lack of oxygen, hundreds of determined climbers from around the world still attempt to reach its summit annually."
         ]
       },
       {
@@ -10558,6 +10789,9 @@ const dangsData = {
             "ipa": "/ˌɪn.sjəˈleɪ.ʃən/",
             "meaning": "khả năng cách nhiệt, giữ ấm"
           }
+        ],
+        "evidence": [
+          "While penguins are famously associated with icy Antarctica, several species actually live in much warmer temperate zones, such as the coastal colonies of South Africa and the Galapagos penguins near the equator."
         ]
       }
     ]
@@ -10672,6 +10906,10 @@ const dangsData = {
             "ipa": "/ˈspen.dɪŋ rɪˈdʌk.ʃən/",
             "meaning": "sự cắt giảm chi tiêu ngân sách"
           }
+        ],
+        "evidence": [
+          "Although the company experienced a drop in profits last year, it has decided not to lay off any employees.",
+          "In a message to staff, the director explained that keeping the current team stable is important because employees have contributed greatly to the company’s success."
         ]
       },
       {
@@ -10766,6 +11004,9 @@ const dangsData = {
             "ipa": "/ˈɒf.ɪs beɪst wɜːk/",
             "meaning": "công việc làm trực tiếp tại văn phòng"
           }
+        ],
+        "evidence": [
+          "Over time, however, both employees and companies began to notice unexpected benefits, such as increased flexibility, reduced commuting time, and even improved productivity in some cases."
         ]
       },
       {
@@ -10860,6 +11101,10 @@ const dangsData = {
             "ipa": "/tekˈnɒl.ə.dʒi əˈləʊn/",
             "meaning": "chỉ riêng công nghệ đơn thuần"
           }
+        ],
+        "evidence": [
+          "Governments have introduced bans on single-use plastics, while some companies are developing biodegradable alternatives.",
+          "However, environmental groups argue that deeper changes in consumption habits are necessary to address the root cause of the problem."
         ]
       },
       {
@@ -10954,6 +11199,10 @@ const dangsData = {
             "ipa": "/ˈtræf.ɪk ˈsɪɡ.nəl/",
             "meaning": "hệ thống đèn điều khiển giao thông"
           }
+        ],
+        "evidence": [
+          "These changes are part of efforts to reduce traffic congestion and carbon emissions, as well as to promote healthier lifestyles.",
+          "While some drivers have complained, surveys show that the majority of city residents support these changes."
         ]
       },
       {
@@ -11048,6 +11297,10 @@ const dangsData = {
             "ipa": "/iˈlɪm.ɪ.neɪt ˈbær.i.ərz/",
             "meaning": "xóa bỏ rào cản vô hình nơi công sở"
           }
+        ],
+        "evidence": [
+          "When the new manager arrived, the first thing he did was remove all the doors from the private offices.",
+          "He then placed his own desk in the middle of the main work area, right next to the junior employees."
         ]
       },
       {
@@ -11142,6 +11395,10 @@ const dangsData = {
             "ipa": "/taʊn ˈsen.tər/",
             "meaning": "khu vực trung tâm đô thị thị trấn"
           }
+        ],
+        "evidence": [
+          "Recently, a large tech company decided to build its new data center in Greenville, citing the town's cool climate and cheap land.",
+          "Now, new cafes and apartments are being built in the town center."
         ]
       },
       {
@@ -11236,6 +11493,10 @@ const dangsData = {
             "ipa": "/ˈlɔɪ.əl ˈkʌs.tə.mər/",
             "meaning": "khách hàng thân thiết, khách quen"
           }
+        ],
+        "evidence": [
+          "The chef, who learned to cook from his grandmother in Italy, refuses to use any ingredients that are not locally sourced and organic.",
+          "Some customers complain about the limited choices, but they still come back every week."
         ]
       },
       {
@@ -11330,6 +11591,10 @@ const dangsData = {
             "ipa": "/trəˈdɪʃ.ən.əl ˈdʒɜː.nə.lɪ.zəm/",
             "meaning": "phương thức làm báo chí truyền thống"
           }
+        ],
+        "evidence": [
+          "They have hired more software engineers and fewer journalists, aiming to create interactive articles with videos and data visualizations.",
+          "While older readers have expressed disappointment, subscriptions among young adults have doubled."
         ]
       },
       {
@@ -11424,6 +11689,10 @@ const dangsData = {
             "ipa": "/ɪnˌvaɪ.rənˈmen.təl ˌreɡ.jəˈleɪ.ʃən/",
             "meaning": "chính sách quy định về môi trường"
           }
+        ],
+        "evidence": [
+          "However, within six months, the volume of plastic waste collected from city beaches decreased by 40%.",
+          "Additionally, sales of reusable canvas bags at local stores skyrocketed."
         ]
       },
       {
@@ -11518,6 +11787,10 @@ const dangsData = {
             "ipa": "/ˌɔː.θenˈtɪs.ə.ti/",
             "meaning": "tính chân thực, độc bản của nghệ thuật"
           }
+        ],
+        "evidence": [
+          "Visitors walk through the gallery without knowing that no human hand touched the canvas.",
+          "When they reach the end of the tour and read the informational plaque, many express shock."
         ]
       },
       {
@@ -11612,6 +11885,10 @@ const dangsData = {
             "ipa": "/ˈmen.təl ˈwelˌbiː.ɪŋ/",
             "meaning": "sức khỏe tinh thần và sự an yên"
           }
+        ],
+        "evidence": [
+          "Since her company switched to a fully remote work policy last year, she has started baking bread, joined a local yoga class, and adopted a puppy.",
+          "She told her friends that she hasn't felt this relaxed in a decade, even though her actual workload at her job has increased slightly."
         ]
       },
       {
@@ -11706,6 +11983,9 @@ const dangsData = {
             "ipa": "/ˈdaɪ.ə.tər.i ˈhæb.ɪt/",
             "meaning": "thói quen ẩm thực và chế độ dinh dưỡng"
           }
+        ],
+        "evidence": [
+          "By the third month, however, the cafeteria reported that sales of their new grilled chicken salads and fresh fruit cups were higher than the sales of burgers and fries from the previous year."
         ]
       }
     ]
@@ -11820,6 +12100,10 @@ const dangsData = {
             "ipa": "/ˈɔː.ɡən.ɪ.zəm/",
             "meaning": "sinh vật, cá thể sinh học"
           }
+        ],
+        "evidence": [
+          "Some researchers focus on the axolotl, a salamander-like creature, because of its extraordinary ability to regrow entire limbs and even parts of major organs.",
+          "By studying the axolotl, scientists hope to unlock the secrets of cellular regeneration and apply these findings to human medical treatments."
         ]
       },
       {
@@ -11914,6 +12198,9 @@ const dangsData = {
             "ipa": "/ɪmˈpɪr.ɪ.kəl ˈev.ɪ.dəns/",
             "meaning": "bằng chứng thực chứng rõ ràng"
           }
+        ],
+        "evidence": [
+          "While it is important to acknowledge possible drawbacks, evidence shows that when played in moderation, these games can sharpen mental abilities."
         ]
       },
       {
@@ -12008,6 +12295,9 @@ const dangsData = {
             "ipa": "/ɪmˈpruːv dɪˈsɪʒ.ən ˌmeɪ.kɪŋ/",
             "meaning": "cải thiện năng lực đưa ra quyết định"
           }
+        ],
+        "evidence": [
+          "Studies show that students who receive financial education are more likely to save money, avoid debt, and make better long-term choices."
         ]
       },
       {
@@ -12102,6 +12392,10 @@ const dangsData = {
             "ipa": "/ˈskep.tɪ.kəl/",
             "meaning": "mang thái độ hoài nghi, ngờ vực"
           }
+        ],
+        "evidence": [
+          "Rising sea levels, increasing global temperatures, and frequent extreme weather events are clear signs that urgent action is needed.",
+          "It is no longer a problem for future generations, but an immediate crisis that demands a coordinated global response."
         ]
       },
       {
@@ -12196,6 +12490,10 @@ const dangsData = {
             "ipa": "/ʌnˈfeɪ.vər.ə.bəl/",
             "meaning": "có ác cảm, không ủng hộ"
           }
+        ],
+        "evidence": [
+          "However, investing in an efficient subway network is arguably the best long-term strategy for minimizing environmental impact and improving daily commuting.",
+          "A robust subway system can move thousands of people quickly without adding to the traffic jams on the roads."
         ]
       },
       {
@@ -12290,6 +12588,9 @@ const dangsData = {
             "ipa": "/ˈsmɑːt.fəʊn dɪˈpen.dən.si/",
             "meaning": "sự lệ thuộc nặng nề vào điện thoại"
           }
+        ],
+        "evidence": [
+          "In response to these concerns, a new wellness movement called 'digital detoxing' encourages people to disconnect from all electronics for at least one day a week."
         ]
       },
       {
@@ -12384,6 +12685,10 @@ const dangsData = {
             "ipa": "/ˈfɔː.wədˌlʊk.ɪŋ/",
             "meaning": "có tầm nhìn xa, hướng tới tương lai"
           }
+        ],
+        "evidence": [
+          "The museum’s curator, however, stated that art must constantly evolve and challenge our perceptions.",
+          "She argued that the abstract sculptures push visitors to think critically, rather than just passively admiring a beautiful image."
         ]
       },
       {
@@ -12478,6 +12783,10 @@ const dangsData = {
             "ipa": "/ˈlɪt.rə.tʃər/",
             "meaning": "kho tàng văn học, tri thức chữ viết"
           }
+        ],
+        "evidence": [
+          "E-books have revolutionized the publishing industry, offering unparalleled convenience and immediate access to vast libraries of knowledge.",
+          "Although some bibliophiles still long for the smell of printed paper and the tactile experience of turning pages, there is no denying that the electronic format has made reading more accessible to millions of people globally."
         ]
       },
       {
@@ -12572,6 +12881,9 @@ const dangsData = {
             "ipa": "/ˌʌn.ɪkˈspek.tɪd rɪˈzʌlt/",
             "meaning": "kết quả bất ngờ nằm ngoài dự kiến"
           }
+        ],
+        "evidence": [
+          "Strangely, a follow-up study revealed that the campaign actually increased the sales of fitness clothing and athletic shoes, but had almost no effect on the average person's body weight or daily exercise time."
         ]
       },
       {
@@ -12666,6 +12978,10 @@ const dangsData = {
             "ipa": "/əbˈdʒek.tɪv/",
             "meaning": "khách quan, trung thực không thiên vị"
           }
+        ],
+        "evidence": [
+          "Unlike its fast-moving competitors, the artisan coffee shop 'Bean & Leaf' proudly takes up to fifteen minutes to prepare a single cup of pour-over coffee.",
+          "Surprisingly, this slow, deliberate approach has cultivated an incredibly loyal customer base in a city known for its impatience."
         ]
       },
       {
@@ -12760,6 +13076,9 @@ const dangsData = {
             "ipa": "/ˈmɒd.ən dɪˈvel.əp.mənt/",
             "meaning": "dự án phát triển hiện đại hóa"
           }
+        ],
+        "evidence": [
+          "They argued that the mall would destroy the unique architectural character of the area, which dates back to the 18th century."
         ]
       },
       {
@@ -12854,6 +13173,10 @@ const dangsData = {
             "ipa": "/ˈkrɪt.ɪ.kəl ənd aɪˈrɒn.ɪk təʊn/",
             "meaning": "giọng văn vừa phê phán vừa châm biếm"
           }
+        ],
+        "evidence": [
+          "Despite the popularity of open-plan offices, a growing body of research indicates that they might be hindering rather than helping collaboration.",
+          "The irony is that an office layout designed to break down walls and encourage conversation has ultimately resulted in workers isolating themselves even more."
         ]
       }
     ]
@@ -12964,7 +13287,11 @@ const dangsData = {
             "ipa": "/ləʊ kɒst/",
             "meaning": "giá thành rẻ, tiết kiệm chi phí"
           }
-        ]
+        ],
+        "evidence": [
+          "Because of these advantages, plastic has become one of the most widely used materials in global production."
+        ],
+        "evidenceSlot": "<strong>[D]</strong>"
       },
       {
         "passage": "Whales produce low-frequency sounds that can travel extremely long distances underwater. <strong>[A]</strong> Scientists believe these powerful sounds may serve as a communication system across entire ocean basins. <strong>[B]</strong> This form of long-range signaling is considered one of the most remarkable communication abilities in the animal kingdom. <strong>[C]</strong> Researchers are continuing to study how whales generate and interpret these sounds. <strong>[D]</strong>",
@@ -13059,7 +13386,11 @@ const dangsData = {
             "ipa": "/məˈriːn ˈmæm.əl/",
             "meaning": "động vật có vú sống dưới biển"
           }
-        ]
+        ],
+        "evidence": [
+          "This form of long-range signaling is considered one of the most remarkable communication abilities in the animal kingdom."
+        ],
+        "evidenceSlot": "<strong>[C]</strong>"
       },
       {
         "passage": "The scientist carefully prepared the materials for the experiment. <strong>[A]</strong> She labeled each sample and arranged them in the correct order. <strong>[B]</strong> She made sure all the equipment was clean and working properly. <strong>[C]</strong> After finishing the setup, she recorded the starting conditions. <strong>[D]</strong>",
@@ -13154,7 +13485,11 @@ const dangsData = {
             "ipa": "/ˈæk.jə.rət ˈmeʒ.ə.mənt/",
             "meaning": "phép đo lường chuẩn xác"
           }
-        ]
+        ],
+        "evidence": [
+          "After finishing the setup, she recorded the starting conditions."
+        ],
+        "evidenceSlot": "<strong>[D]</strong>"
       },
       {
         "passage": "Deforestation has become a major concern in many countries. <strong>[A]</strong> When forests are cleared, it affects wildlife, water cycles, and soil quality. <strong>[B]</strong> Trees help absorb carbon dioxide and regulate the climate. <strong>[C]</strong> Without them, greenhouse gases accumulate more quickly in the atmosphere. <strong>[D]</strong>",
@@ -13249,7 +13584,12 @@ const dangsData = {
             "ipa": "/ˌiː.kəˈlɒdʒ.ɪ.kəl ˈbæl.əns/",
             "meaning": "trạng thái cân bằng hệ sinh thái"
           }
-        ]
+        ],
+        "evidence": [
+          "When forests are cleared, it affects wildlife, water cycles, and soil quality.",
+          "Trees help absorb carbon dioxide and regulate the climate."
+        ],
+        "evidenceSlot": "<strong>[B]</strong>"
       },
       {
         "passage": "Urban agriculture is gaining popularity in many major cities around the world as a way to provide fresh produce locally. Residents are increasingly transforming empty lots, rooftops, and even small balconies into productive community gardens. <strong>[A]</strong> These green spaces not only supply neighborhoods with nutritious vegetables but also help reduce the urban heat island effect by absorbing sunlight. <strong>[B]</strong> Furthermore, community gardens foster a sense of belonging among residents who might otherwise never interact. <strong>[C]</strong> People of all ages come together to plant seeds, share gardening techniques, and eventually harvest the crops. <strong>[D]</strong> As cities continue to expand rapidly, integrating agriculture into urban planning will become essential for sustainable development.",
@@ -13344,7 +13684,11 @@ const dangsData = {
             "ipa": "/ˈθraɪ.vɪŋ ɡriːn speɪs/",
             "meaning": "mảng không gian xanh tốt tươi"
           }
-        ]
+        ],
+        "evidence": [
+          "People of all ages come together to plant seeds, share gardening techniques, and eventually harvest the crops."
+        ],
+        "evidenceSlot": "<strong>[D]</strong>"
       },
       {
         "passage": "The invention of the printing press by Johannes Gutenberg in the 15th century completely revolutionized the way information was shared. Before this invention, books had to be copied by hand, a slow and expensive process that made them accessible only to the wealthy elite. <strong>[A]</strong> Once the printing press was introduced, books could be produced in large quantities at a fraction of the cost. <strong>[B]</strong> This sudden abundance of affordable reading material led to a significant increase in literacy rates across Europe. <strong>[C]</strong> More people were finally able to educate themselves and challenge traditional ideas. <strong>[D]</strong> Ultimately, the spread of knowledge paved the way for the Renaissance and the Scientific Revolution.",
@@ -13439,7 +13783,11 @@ const dangsData = {
             "ipa": "/ˌsaɪənˈtɪf.ɪk ˌrev.əˈluː.ʃən/",
             "meaning": "cuộc Cách mạng Khoa học"
           }
-        ]
+        ],
+        "evidence": [
+          "More people were finally able to educate themselves and challenge traditional ideas."
+        ],
+        "evidenceSlot": "<strong>[D]</strong>"
       },
       {
         "passage": "Many marine biologists are increasingly concerned about the impact of plastic pollution on ocean ecosystems. Millions of tons of plastic waste enter the oceans every year, breaking down into tiny particles known as microplastics. <strong>[A]</strong> These microplastics are often mistaken for food by small fish and other marine organisms. <strong>[B]</strong> Once ingested, the toxic chemicals from the plastic can cause severe health problems or even death for the animals. <strong>[C]</strong> The issue does not stop there, as these smaller fish are subsequently eaten by larger predators. <strong>[D]</strong> Human health could also be at risk, as people consume seafood that has been contaminated by these dangerous materials.",
@@ -13534,7 +13882,11 @@ const dangsData = {
             "ipa": "/juːˈniːk ˈspiː.ʃiːz/",
             "meaning": "những loài sinh vật đặc hữu, quý hiếm"
           }
-        ]
+        ],
+        "evidence": [
+          "The issue does not stop there, as these smaller fish are subsequently eaten by larger predators."
+        ],
+        "evidenceSlot": "<strong>[D]</strong>"
       },
       {
         "passage": "Telecommuting, or working from home, has shifted from being a rare perk to a standard practice for many companies worldwide. Employees often report higher job satisfaction because they can avoid stressful daily commutes and enjoy a more flexible schedule. <strong>[A]</strong> Employers also benefit from this arrangement, as they can save significant amounts of money on office space and utilities. <strong>[B]</strong> Despite these mutual benefits, remote work is not without its distinct challenges. <strong>[C]</strong> Some workers feel isolated and struggle to maintain clear boundaries between their professional and personal lives. <strong>[D]</strong> To mitigate these issues, managers are trying to establish regular virtual check-ins and encourage a healthy work-life balance.",
@@ -13629,7 +13981,11 @@ const dangsData = {
             "ipa": "/klɪər ˈʌp.saɪd/",
             "meaning": "lợi thế, ưu điểm hiển nhiên"
           }
-        ]
+        ],
+        "evidence": [
+          "Some workers feel isolated and struggle to maintain clear boundaries between their professional and personal lives."
+        ],
+        "evidenceSlot": "<strong>[D]</strong>"
       },
       {
         "passage": "A balanced diet provides the essential nutrients that the human body needs to function optimally. Carbohydrates give us immediate energy, while proteins are crucial for repairing tissues and building muscles. <strong>[A]</strong> Fats, although often misunderstood, play a vital role in protecting organs and absorbing certain vitamins. <strong>[B]</strong> Consuming an excessive amount of saturated fats and processed sugars can lead to serious chronic diseases. <strong>[C]</strong> Medical experts constantly warn against diets that are high in fast food and artificial additives. <strong>[D]</strong> Therefore, focusing on whole foods like vegetables, fruits, and lean meats is the best approach to maintaining long-term health.",
@@ -13724,7 +14080,12 @@ const dangsData = {
             "ipa": "/ɪˈməʊ.ʃən.əl stəˈbɪl.ə.ti/",
             "meaning": "sự ổn định thăng bằng về tâm lý"
           }
-        ]
+        ],
+        "evidence": [
+          "Fats, although often misunderstood, play a vital role in protecting organs and absorbing certain vitamins.",
+          "Consuming an excessive amount of saturated fats and processed sugars can lead to serious chronic diseases."
+        ],
+        "evidenceSlot": "<strong>[B]</strong>"
       },
       {
         "passage": "Historically, paper currency was backed by physical commodities, most commonly gold or silver. This system, known as the gold standard, ensured that the value of money remained relatively stable because governments could only print as much money as they had gold in their reserves. <strong>[A]</strong> However, during the 20th century, most countries gradually abandoned this rigid system to gain more control over their economies. <strong>[B]</strong> They transitioned to fiat money, which has value simply because a government maintains its value and requires it to be used for paying taxes. <strong>[C]</strong> The value of fiat money depends heavily on the public’s trust in the government’s economic stability. <strong>[D]</strong> If a government prints too much money to pay off its debts, it can trigger severe hyperinflation.",
@@ -13819,7 +14180,11 @@ const dangsData = {
             "ipa": "/ˈdɪdʒ.ɪ.təl ˈpeɪ.mənt ˈsɪs.təm/",
             "meaning": "hệ thống thanh toán tiền điện tử số"
           }
-        ]
+        ],
+        "evidence": [
+          "They transitioned to fiat money, which has value simply because a government maintains its value and requires it to be used for paying taxes."
+        ],
+        "evidenceSlot": "<strong>[C]</strong>"
       },
       {
         "passage": "Wolves are highly social animals that live and hunt in organized family groups called packs. Each pack is led by an alpha pair, which makes decisions regarding when to travel, where to hunt, and when to rest. <strong>[A]</strong> The rest of the pack consists of their offspring from various years, all of whom have specific roles within the group. <strong>[B]</strong> Hunting large prey like elk or moose requires intense cooperation and precise communication among the wolves. <strong>[C]</strong> They use a combination of body language, facial expressions, and vocalizations like howling to coordinate their attacks. <strong>[D]</strong> Once a hunt is successful, the pack shares the food, reinforcing their strong familial bonds.",
@@ -13914,7 +14279,11 @@ const dangsData = {
             "ipa": "/ˈbɒd.i ˈpɒs.tʃər/",
             "meaning": "tư thế cơ thể truyền tải thông điệp"
           }
-        ]
+        ],
+        "evidence": [
+          "The rest of the pack consists of their offspring from various years, all of whom have specific roles within the group."
+        ],
+        "evidenceSlot": "<strong>[B]</strong>"
       },
       {
         "passage": "Developing a consistent exercise routine is often difficult for people with demanding jobs. They usually wake up early, commute through heavy traffic, and spend eight or more hours sitting at a desk. <strong>[A]</strong> By the time they return home, their energy levels are completely depleted, making the couch seem much more appealing than the gym. <strong>[B]</strong> To overcome this hurdle, fitness experts recommend incorporating short bursts of physical activity throughout the workday. <strong>[C]</strong> Taking the stairs instead of the elevator or going for a brisk ten-minute walk during lunch breaks can make a significant difference. <strong>[D]</strong> Over time, these small habits build cardiovascular health without requiring a massive time commitment.",
@@ -14009,7 +14378,11 @@ const dangsData = {
             "ipa": "/ˈlaɪf.lɒŋ ˈfɪt.nəs ˈredʒ.ɪ.mən/",
             "meaning": "chế độ rèn luyện sức khỏe suốt đời"
           }
-        ]
+        ],
+        "evidence": [
+          "Taking the stairs instead of the elevator or going for a brisk ten-minute walk during lunch breaks can make a significant difference."
+        ],
+        "evidenceSlot": "<strong>[D]</strong>"
       },
       {
         "passage": "The Great Wall of China is widely considered one of the greatest architectural feats in human history. Originally built to protect the Chinese states and empires against raids and invasions from various nomadic groups, the wall stretches over 21,000 kilometers. <strong>[A]</strong> Its construction involved millions of workers, including soldiers, peasants, and prisoners, over several dynasties. <strong>[B]</strong> While it did provide a formidable defensive barrier, it was not entirely impenetrable. <strong>[C]</strong> There were instances where invading forces simply bypassed the wall or bribed the guards to let them through. <strong>[D]</strong> Today, although it no longer serves a military purpose, it stands as a powerful symbol of China's enduring strength and cultural heritage.",
@@ -14104,7 +14477,11 @@ const dangsData = {
             "ipa": "/ˈnæʃ.ən.əl ˈjuː.nə.ti/",
             "meaning": "tinh thần đoàn kết thống nhất quốc gia"
           }
-        ]
+        ],
+        "evidence": [
+          "Its construction involved millions of workers, including soldiers, peasants, and prisoners, over several dynasties."
+        ],
+        "evidenceSlot": "<strong>[B]</strong>"
       },
       {
         "passage": "The concept of minimalism has transcended its origins in art and architecture to become a popular lifestyle choice. People adopting minimalism strive to eliminate unnecessary possessions and focus on what truly matters to them. <strong>[A]</strong> They believe that owning fewer things leads to a clearer mind and less daily stress. <strong>[B]</strong> By decluttering their physical space, minimalists often find that they gain more time, money, and freedom. <strong>[C]</strong> For instance, instead of spending weekends organizing a garage full of unused items, they can spend that time traveling or learning new skills. <strong>[D]</strong> This intentional way of living encourages individuals to value meaningful experiences over material accumulation.",
@@ -14199,7 +14576,11 @@ const dangsData = {
             "ipa": "/səˈsteɪ.nə.bəl kənˈsʌmp.ʃən/",
             "meaning": "thói quen tiêu dùng hướng đến bền vững"
           }
-        ]
+        ],
+        "evidence": [
+          "For instance, instead of spending weekends organizing a garage full of unused items, they can spend that time traveling or learning new skills."
+        ],
+        "evidenceSlot": "<strong>[D]</strong>"
       },
       {
         "passage": "Virtual reality (VR) technology was initially designed primarily for the gaming and entertainment industries, immersing players in lifelike digital worlds. Over the past decade, however, VR has found groundbreaking applications in various professional fields. <strong>[A]</strong> In medical training, for example, surgeons can practice complex operations in a risk-free virtual environment before performing them on real patients. <strong>[B]</strong> This drastically reduces the likelihood of fatal errors during high-stakes procedures. <strong>[C]</strong> Real estate agents are also using VR to offer prospective buyers realistic virtual tours of properties located halfway across the globe. <strong>[D]</strong> As hardware becomes more affordable, it is likely that virtual reality will become an indispensable tool in education and remote collaboration.",
@@ -14294,7 +14675,11 @@ const dangsData = {
             "ipa": "/rɪˈməʊt kəˌlæb.əˈreɪ.ʃən/",
             "meaning": "sự phối hợp công tác từ khoảng cách xa"
           }
-        ]
+        ],
+        "evidence": [
+          "Real estate agents are also using VR to offer prospective buyers realistic virtual tours of properties located halfway across the globe."
+        ],
+        "evidenceSlot": "<strong>[D]</strong>"
       },
       {
         "passage": "The decline of honeybee populations worldwide has raised severe alarms among agricultural scientists. Bees play a foundational role in pollinating roughly one-third of the human food supply, including apples, almonds, and broccoli. <strong>[A]</strong> Several factors contribute to this alarming decline, most notably the widespread use of chemical pesticides in commercial farming. <strong>[B]</strong> Habitat destruction and the spread of invasive parasites like the Varroa mite also severely weaken bee colonies. <strong>[C]</strong> If these vital pollinators were to vanish entirely, the global agricultural system would face a devastating collapse. <strong>[D]</strong> Governments and environmental groups are now urging farmers to adopt organic farming methods to provide safe havens for these crucial insects.",
@@ -14389,7 +14774,11 @@ const dangsData = {
             "ipa": "/ˈtɒk.sɪk ˈsʌb.stəns dɪˈsɔː.ri.ent/",
             "meaning": "chất độc hại làm ong mất phương hướng"
           }
-        ]
+        ],
+        "evidence": [
+          "Several factors contribute to this alarming decline, most notably the widespread use of chemical pesticides in commercial farming."
+        ],
+        "evidenceSlot": "<strong>[B]</strong>"
       }
     ]
   },
@@ -14491,6 +14880,9 @@ const dangsData = {
             "ipa": "/ˈwɔː.mɪŋ trend/",
             "meaning": "xu hướng Trái Đất ấm dần lên"
           }
+        ],
+        "evidence": [
+          "Consequently, as industrial activities and deforestation increase the concentration of these gases, average global temperatures continue to rise at an alarming rate."
         ]
       },
       {
@@ -14586,6 +14978,9 @@ const dangsData = {
             "ipa": "/ɪɡˈzɪs.tɪŋ kəˈpæs.ə.ti/",
             "meaning": "công suất đáp ứng hiện hữu"
           }
+        ],
+        "evidence": [
+          "However, the rapid influx of people into cities has overwhelmed existing infrastructure, leading to severe housing shortages and frequent traffic gridlocks."
         ]
       },
       {
@@ -14681,6 +15076,9 @@ const dangsData = {
             "ipa": "/ˈstæn.də.daɪz ɪˌvæl.juˈeɪ.ʃən/",
             "meaning": "quy chuẩn hóa khâu đánh giá"
           }
+        ],
+        "evidence": [
+          "Critics argue that while these tests provide a uniform way to evaluate students, they fail to measure creativity and often force teachers to \"teach to the test.\""
         ]
       },
       {
@@ -14776,6 +15174,9 @@ const dangsData = {
             "ipa": "/aɪˈden.tɪ.kəl ˈmes.ɪdʒ/",
             "meaning": "thông điệp có nội dung y hệt nhau"
           }
+        ],
+        "evidence": [
+          "Because it contained the same decree written in three different scripts—Greek, Demotic, and hieroglyphics—scholars were finally able to decipher the ancient Egyptian writing system."
         ]
       },
       {
@@ -14871,6 +15272,9 @@ const dangsData = {
             "ipa": "/ˌnæv.ɪˈɡeɪ.ʃən.əl eɪd/",
             "meaning": "phương tiện trợ giúp định vị"
           }
+        ],
+        "evidence": [
+          "Driven by the instinct to find abundant food sources and safe breeding grounds, these birds often travel thousands of miles, navigating by the stars and the Earth's magnetic field."
         ]
       },
       {
@@ -14966,6 +15370,9 @@ const dangsData = {
             "ipa": "/ˈwɜːk.fɔːs ˌtræns.fəˈmeɪ.ʃən/",
             "meaning": "sự dịch chuyển lực lượng lao động"
           }
+        ],
+        "evidence": [
+          "Proponents argue that AI will revolutionize medicine and industry, whereas skeptics warn that unchecked technological growth could lead to widespread job displacement and privacy violations."
         ]
       },
       {
@@ -15061,6 +15468,9 @@ const dangsData = {
             "ipa": "/ˈstrʌk.tʃər.əl ˈel.ɪ.mənt/",
             "meaning": "thành phần kết cấu chịu lực"
           }
+        ],
+        "evidence": [
+          "In contrast to the highly ornate structures of the Victorian era, contemporary buildings frequently feature minimalist designs that utilize vast expanses of glass and steel to maximize natural light."
         ]
       },
       {
@@ -15156,6 +15566,9 @@ const dangsData = {
             "ipa": "/ɪkˈsten.sɪv ˌprep.ərˈeɪ.ʃən/",
             "meaning": "khâu chuẩn bị kỹ càng toàn diện"
           }
+        ],
+        "evidence": [
+          "Not only must aerospace engineers design a spacecraft capable of enduring the perilous multi-month journey, but they must also develop sustainable life-support systems for the astronauts once they arrive."
         ]
       },
       {
@@ -15251,6 +15664,9 @@ const dangsData = {
             "ipa": "/ˈɪn.trəst reɪt əˈdʒʌst.mənt/",
             "meaning": "sự điều chỉnh lãi suất tiền tệ"
           }
+        ],
+        "evidence": [
+          "While moderate inflation can encourage consumer spending by motivating people to buy goods before prices rise further, hyperinflation severely erodes purchasing power and can devastate an economy."
         ]
       },
       {
@@ -15346,6 +15762,9 @@ const dangsData = {
             "ipa": "/mætʃ ði ɪnˈvaɪ.rən.mənt/",
             "meaning": "hòa cùng màu sắc của cảnh vật"
           }
+        ],
+        "evidence": [
+          "By blending seamlessly into their surroundings, creatures such as the leaf-tailed gecko are able to evade visual detection by predators, thereby significantly increasing their chances of survival."
         ]
       },
       {
@@ -15441,6 +15860,9 @@ const dangsData = {
             "ipa": "/ˈmen.təl fəˈtiːɡ/",
             "meaning": "sự uể oải, kiệt quệ về tâm trí"
           }
+        ],
+        "evidence": [
+          "Research demonstrates that individuals who consistently get less than six hours of sleep exhibit severe deficits in memory consolidation, meaning they struggle to retain new information learned during the day."
         ]
       },
       {
@@ -15536,6 +15958,9 @@ const dangsData = {
             "ipa": "/ˈlæŋ.ɡwɪdʒ ˌprez.əˈveɪ.ʃən/",
             "meaning": "việc bảo tồn sự chuẩn mực của ngôn ngữ"
           }
+        ],
+        "evidence": [
+          "While traditional grammarians often resist the integration of internet slang into formal dictionaries, linguists argue that these newly coined words are a natural and inevitable progression of human communication."
         ]
       }
     ],
@@ -18385,7 +18810,7 @@ const mockTestPassages = [
     }
 ];</script>
     <!-- Hệ Thống Chậu Hoa VSTEP 8 Loài Hoa -->
-    <link rel="stylesheet" href="flower_garden.css?v=20261127_v3">
+    <link rel="stylesheet" href="flower_garden.css?v=20261127_v4">
 </head>
 
 <body>
@@ -22264,6 +22689,59 @@ function resetCurrentDangPractice() {
     }
 }
 
+// Highlight evidence sentence(s) in practice paragraph after checking answer
+function highlightPracticeEvidence(passageEl, prac) {
+    if (!passageEl || !prac || passageEl.dataset.evidenceHighlighted === 'true') return;
+    passageEl.dataset.evidenceHighlighted = 'true';
+
+    // Case 1: Dạng 08 (already has .highlight-sentence span)
+    const preHighlighted = passageEl.querySelector('.highlight-sentence');
+    if (preHighlighted) {
+        preHighlighted.classList.add('practice-evidence-confirmed');
+        const badge = document.createElement('span');
+        badge.className = 'practice-evidence-badge';
+        badge.innerHTML = '<i class="fa-solid fa-highlighter"></i> Câu gốc';
+        preHighlighted.insertAdjacentElement('beforebegin', badge);
+        return;
+    }
+
+    let html = passageEl.innerHTML;
+    let highlightedAny = false;
+
+    // Case 2: Dạng 07 correct insertion slot marker [A]/[B]/[C]/[D]
+    if (prac.evidenceSlot && html.includes(prac.evidenceSlot)) {
+        const slotLetter = prac.evidenceSlot.replace(/<[^>]+>/g, '');
+        html = html.replace(
+            prac.evidenceSlot,
+            `<span class="practice-insert-slot-correct"><i class="fa-solid fa-check"></i> ${slotLetter}</span>`
+        );
+        highlightedAny = true;
+    }
+
+    // Case 3: Wrap curated evidence sentence(s)
+    if (Array.isArray(prac.evidence) && prac.evidence.length > 0) {
+        let badgeAdded = false;
+        prac.evidence.forEach(snippet => {
+            if (snippet && html.includes(snippet)) {
+                const badgeHtml = !badgeAdded
+                    ? '<span class="practice-evidence-badge"><i class="fa-solid fa-highlighter"></i> Dẫn chứng</span>'
+                    : '';
+                badgeAdded = true;
+                html = html.replace(
+                    snippet,
+                    `${badgeHtml}<mark class="practice-evidence-highlight">${snippet}</mark>`
+                );
+                highlightedAny = true;
+            }
+        });
+    }
+
+    if (highlightedAny) {
+        passageEl.innerHTML = html;
+    }
+}
+window.highlightPracticeEvidence = highlightPracticeEvidence;
+
 function loadDangDetail(dangId) {
     try {
         const data = dangsData[dangId];
@@ -22461,6 +22939,9 @@ function loadDangDetail(dangId) {
                 `;
                 feedbackEl.className = 'mini-feedback-premium';
                 feedbackEl.classList.remove('hidden');
+
+                // Highlight evidence sentence(s) in the paragraph
+                highlightPracticeEvidence(card.querySelector('.practice-passage'), prac);
                 
                 transBox.classList.remove('hidden');
                 
@@ -27050,6 +27531,10 @@ const skillPracticesData = {
           "ipa": "/ˈkɒm.prə.maɪz/",
           "meaning": "làm suy giảm, tổn hại"
         }
+      ],
+      "evidence": [
+        "Sleep plays a vital role in consolidating human memory and supporting brain function.",
+        "Without sufficient sleep, both learning capacity and long-term memory retention are severely compromised."
       ]
     },
     {
@@ -27144,6 +27629,10 @@ const skillPracticesData = {
           "ipa": "/ˈkʌl.tʃər.əl ˈher.ɪ.tɪdʒ/",
           "meaning": "di sản văn hóa"
         }
+      ],
+      "evidence": [
+        "Ecotourism has emerged as a sustainable alternative to traditional mass tourism in many developing countries.",
+        "By balancing economic growth with nature protection, ecotourism offers a promising path for the future of global travel."
       ]
     },
     {
@@ -27238,6 +27727,10 @@ const skillPracticesData = {
           "ipa": "/ɪnˈhɑːns/",
           "meaning": "nâng cao, tăng cường"
         }
+      ],
+      "evidence": [
+        "Learning to play a musical instrument provides remarkable cognitive benefits that extend far beyond artistic expression.",
+        "Overall, musical training serves as a powerful workout that enhances brain performance across all stages of life."
       ]
     },
     {
@@ -27320,6 +27813,10 @@ const skillPracticesData = {
           "ipa": "/ˌprɒd.ʌkˈtɪv.ə.ti/",
           "meaning": "năng suất làm việc"
         }
+      ],
+      "evidence": [
+        "However, psychological research reveals that human brains are not wired to focus on multiple complex tasks simultaneously.",
+        "Consequently, doing several things at once actually reduces overall productivity rather than improving it."
       ]
     },
     {
@@ -27408,6 +27905,10 @@ const skillPracticesData = {
           "ipa": "/rɪˈlaɪ.ə.bəl/",
           "meaning": "đáng tin cậy"
         }
+      ],
+      "evidence": [
+        "In fact, scientific analyses demonstrate that frozen produce frequently retains just as many—and sometimes more—vitamins and minerals as fresh equivalents.",
+        "Therefore, frozen fruits and vegetables are a highly nutritious and reliable option for a healthy diet."
       ]
     },
     {
@@ -27502,6 +28003,10 @@ const skillPracticesData = {
           "ipa": "/ˈhjuː.mən tʌtʃ/",
           "meaning": "sự ấm áp, tình cảm con người"
         }
+      ],
+      "evidence": [
+        "Yet, medical experts emphasize that AI is designed to assist physicians rather than replace them.",
+        "Ultimately, the best healthcare outcomes will come from combining AI's analytical speed with the irreplaceable human touch of doctors."
       ]
     },
     {
@@ -27590,6 +28095,10 @@ const skillPracticesData = {
           "ipa": "/ˈkɒm.ɜːs/",
           "meaning": "thương mại, sự buôn bán"
         }
+      ],
+      "evidence": [
+        "For thousands of years, the way humans exchange value has continuously evolved to make trade faster and more convenient.",
+        "From tangible commodities to invisible digital code, currency has always adapted to meet the changing needs of human commerce."
       ]
     },
     {
@@ -27678,6 +28187,10 @@ const skillPracticesData = {
           "ipa": "/ˌɪr.ɪˈvɜː.sə.bəl ˈdæm.ɪdʒ/",
           "meaning": "thiệt hại không thể đảo ngược"
         }
+      ],
+      "evidence": [
+        "Every year, over eight million tons of plastic waste enter the world's oceans, creating an urgent ecological crisis.",
+        "Unless nations take immediate action to cut single-use plastics, marine ecosystems and human health will face irreversible damage."
       ]
     },
     {
@@ -27772,6 +28285,10 @@ const skillPracticesData = {
           "ipa": "/ˈdens.li ˈpɒp.jə.leɪ.tɪd/",
           "meaning": "đông đúc dân cư, mật độ cao"
         }
+      ],
+      "evidence": [
+        "As global urbanization accelerates, modern megacities are increasingly turning to “vertical forests”—high-rise buildings covered in trees and shrubs—to combat urban environmental challenges.",
+        "Ultimately, vertical forests represent a revolutionary architectural solution that brings nature back into densely populated cities."
       ]
     },
     {
@@ -27860,6 +28377,10 @@ const skillPracticesData = {
           "ipa": "/kɔːr ˈvæl.juː/",
           "meaning": "giá trị cốt lõi"
         }
+      ],
+      "evidence": [
+        "In marketing and branding, color psychology is a powerful tool used to influence consumer emotions and purchasing decisions.",
+        "By strategically selecting brand colors, companies can effectively communicate their core values and shape customer behavior without saying a word."
       ]
     }
   ],
@@ -27950,6 +28471,9 @@ const skillPracticesData = {
           "ipa": "/ˈɔː.bɪt/",
           "meaning": "quay quanh quỹ đạo"
         }
+      ],
+      "evidence": [
+        "After numerous technical postponements from its initial 2014 target date, the James Webb Space Telescope was finally launched on December 25, 2021, orbiting the Sun at a distance of 1.5 million kilometers from Earth."
       ]
     },
     {
@@ -28038,6 +28562,9 @@ const skillPracticesData = {
           "ipa": "/stiːm/",
           "meaning": "hơi nước áp suất/nhiệt độ cao"
         }
+      ],
+      "evidence": [
+        "However, Iceland is the undisputed global leader in this field: while roughly 25% of its electricity comes from geothermal steam, an impressive 90% of all households in the country are heated by geothermal water."
       ]
     },
     {
@@ -28126,6 +28653,9 @@ const skillPracticesData = {
           "ipa": "/tɜːn bæk/",
           "meaning": "quay đầu trở về để bảo toàn tính mạng"
         }
+      ],
+      "evidence": [
+        "The ultimate prize was finally claimed on December 14, 1911, by Roald Amundsen, a Norwegian explorer who skillfully used sled dogs and skis to beat Scott's second expedition by 34 days."
       ]
     },
     {
@@ -28220,6 +28750,9 @@ const skillPracticesData = {
           "ipa": "/məˈnɒp.əl.aɪz/",
           "meaning": "độc chiếm, thâu tóm nguồn sống"
         }
+      ],
+      "evidence": [
+        "Another fascinating survival strategy is allelopathy, a biological phenomenon in which a plant releases biochemical substances into the soil to inhibit the germination or growth of neighboring competing plants."
       ]
     },
     {
@@ -28314,6 +28847,9 @@ const skillPracticesData = {
           "ipa": "/ˈfluː.ənt ˈspiː.kər/",
           "meaning": "người bản xứ nói lưu loát/thành thạo"
         }
+      ],
+      "evidence": [
+        "Mobile applications and digital audio archives allow elders to record vocabulary and folktales, making it possible for younger generations to learn their ancestral tongue anywhere."
       ]
     },
     {
@@ -28408,6 +28944,9 @@ const skillPracticesData = {
           "ipa": "/triː ˈkæn.ə.pi/",
           "meaning": "tán lá cây che bóng mát"
         }
+      ],
+      "evidence": [
+        "The primary cause of this temperature gap is the widespread replacement of natural vegetation with dark, impermeable surfaces such as asphalt roads and concrete roofs, which absorb and trap solar radiation."
       ]
     },
     {
@@ -28496,6 +29035,9 @@ const skillPracticesData = {
           "ipa": "/ˈɪn.dɪ.keɪt/",
           "meaning": "chỉ ra, biểu thị thông tin"
         }
+      ],
+      "evidence": [
+        "Meanwhile, the duration of the waggle run tells the other bees how far away the flowers are—the longer the bee waggles, the greater the distance to the food."
       ]
     },
     {
@@ -28590,6 +29132,9 @@ const skillPracticesData = {
           "ipa": "/hɒlt/",
           "meaning": "làm đình trệ, chặn đứng hoàn toàn"
         }
+      ],
+      "evidence": [
+        "Because female monarchs lay their eggs exclusively on milkweed—and caterpillars feed on no other plant—the loss of milkweed directly halts their reproduction cycle."
       ]
     },
     {
@@ -28684,6 +29229,11 @@ const skillPracticesData = {
           "ipa": "/ˈstrɪkt.li prəˈhɪb.ɪ.tɪd/",
           "meaning": "bị nghiêm cấm hoàn toàn"
         }
+      ],
+      "evidence": [
+        "Visitors are legally required to stay at least 100 yards (91 meters) away from bears and wolves, and at least 25 yards away from all other wildlife, including bison and elk.",
+        "Furthermore, staying on designated wooden boardwalks in hydrothermal areas is mandatory, as the thin ground crust covers boiling acidic water.",
+        "Feeding any wild animal is strictly prohibited to prevent wildlife from becoming aggressive toward humans."
       ]
     },
     {
@@ -28778,6 +29328,12 @@ const skillPracticesData = {
           "ipa": "/ˌʌn.dəˈɡraʊnd aɪs pɪt/",
           "meaning": "hầm/hố tuyết ngầm dưới lòng đất để giữ đông"
         }
+      ],
+      "evidence": [
+        "Drying food under the hot sun or over smoky fires removed moisture that bacteria needed to grow.",
+        "In coastal regions, heavily salting fish and pork drew out water from microbial cells, allowing sailors to carry provisions on months-long ocean voyages.",
+        "Fermentation—using beneficial bacteria to convert sugars into acids or alcohol—created long-lasting staples such as kimchi in Korea, sauerkraut in Germany, and cheese across Europe.",
+        "In cold northern climates, people also buried meat in underground ice pits during the winter."
       ]
     }
   ]
@@ -28919,6 +29475,9 @@ function checkSkillPracticeAnswer(skillKey, pIdx) {
             feedbackEl.classList.remove('hidden');
             feedbackEl.style.display = 'block';
         }
+
+        // Highlight evidence sentence(s) in the paragraph
+        highlightPracticeEvidence(card.querySelector('.practice-passage'), prac);
 
         const transBox = document.getElementById(`${skillKey}-trans-${pIdx}`);
         if (transBox) {
@@ -29216,6 +29775,9 @@ function renderSkillPractices(skillKey) {
                 `;
                 feedbackEl.className = 'mini-feedback-premium';
                 feedbackEl.classList.remove('hidden');
+
+                // Highlight evidence sentence(s) in the paragraph
+                highlightPracticeEvidence(card.querySelector('.practice-passage'), prac);
 
                 transBox.classList.remove('hidden');
                 const translatedPassage = prac.translationPassage || prac.passage;
@@ -31656,7 +32218,7 @@ function renderMatchCompletionFanfare() {
 </div>
 
     <!-- Hệ Thống Chậu Hoa VSTEP & Tích Luỹ Nước Nỗ Lực -->
-    <script src="flower_definitions.js?v=20261127_v3"></script>
-    <script src="flower_garden.js?v=20261127_v3"></script>
+    <script src="flower_definitions.js?v=20261127_v4"></script>
+    <script src="flower_garden.js?v=20261127_v4"></script>
 </body>
 </html>
